@@ -9,20 +9,44 @@ export default function DesktopHeader() {
         <>
             <MainNavigationMenu >
                 <Text>SAMOKO</Text>
-                <Link to="/se/technical/overview/BTC-USD">
+                <Link
+                    to={
+                        import.meta.env.PROD
+                            ? "/se/financial-history-timeline/TrmpTrrffShck"
+                            : "/se/technical/overview/BTC-USD"
+                    }
+                >
                     <Text>Techical</Text>
                 </Link>
-                <Link to="/se/fundamental/single-analysis/overview/AAPL">
+                <Link
+                    to={
+                        import.meta.env.PROD
+                            ? "/se/financial-history-timeline/TrmpTrrffShck"
+                            : "/se/fundamental/single-analysis/overview/AAPL"
+                    }
+                >
                     <Text>Fundamental</Text>
                 </Link>
-                <Link to="/se/sentiment">
+                <Link className="hidden sm:block"
+                    to={
+                        import.meta.env.PROD
+                            ? "/se/financial-history-timeline/TrmpTrrffShck"
+                            : "/se/sentiment"
+                    }
+                >
                     <Text>Sentiment</Text>
-                </Link>
-                <Link to="/se/contact">
-                    <Text>Contact</Text>
                 </Link>
                 <Link to="/se/financial-history-timeline/TrmpTrrffShck">
                     <Text>FHT</Text>
+                </Link>
+                <Link className="hidden sm:block"
+                    to={
+                        import.meta.env.PROD
+                            ? "/se/financial-history-timeline/TrmpTrrffShck"
+                            : "/se/contact"
+                    }
+                >
+                    <Text>Contact</Text>
                 </Link>
             </MainNavigationMenu>
             {/* <LivePrices /> */}

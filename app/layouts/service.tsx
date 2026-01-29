@@ -10,13 +10,6 @@ export async function loader({ params }: Route.LoaderArgs) {
 
 }
 
-
-// export async function action({ request }: Route.ActionArgs) {
-//     // console.log(await currentSymbolPrice())
-//     return (await currentSymbolPrice());
-// }
-
-
 export default function Service() {
     return (
         <> <div className=" w-[100vw]">

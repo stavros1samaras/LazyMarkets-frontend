@@ -1,14 +1,9 @@
 import { BASE_URL_FHT, CurrenciesUS, Energy, EUindices, Metals, USbonds, USindices } from "~/constants";
 import { handleGet } from "./fetch-handler";
 import type { HTTP_TRANSACTION } from "~/types/httpTransaction";
+import { getBaseUrl } from "./environment";
 
-let baseUrl: string;
-if (import.meta.env.PROD) {
-    baseUrl = process.env.REMOTE_API_URL as string
-}
-else if (import.meta.env.DEV) {
-    baseUrl = process.env.LOCAL_API_URL as string
-}
+const baseUrl: string = getBaseUrl() as string
 
 export async function indicesUS(year: string) {
 

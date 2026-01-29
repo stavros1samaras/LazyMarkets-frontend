@@ -1,7 +1,16 @@
 import type { HTTP_TRANSACTION } from "~/types/httpTransaction";
 
 export async function handleGet(url: string): Promise<HTTP_TRANSACTION> {
-    const request: Request = new Request(url, { method: "GET", headers: { "Content-Type": "application/json" } });
+    console.log(process.env.API_KEY as string)
+    const request: Request = new Request(
+        url,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "x-api-key": process.env.API_KEY as string
+            }
+        });
 
     try {
         const response: Response = await fetch(request);

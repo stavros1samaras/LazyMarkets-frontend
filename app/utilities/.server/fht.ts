@@ -3,17 +3,12 @@ import { handleGet } from "./fetch-handler";
 import type { HTTP_TRANSACTION } from "~/types/httpTransaction";
 
 let baseUrl: string;
-console.log("--------------------", import.meta.env.PROD)
 if (import.meta.env.PROD) {
     baseUrl = process.env.REMOTE_API_URL as string
 }
 else if (import.meta.env.DEV) {
     baseUrl = process.env.LOCAL_API_URL as string
 }
-console.log("--------------------", import.meta.env.DEV)
-
-
-console.log("***********************************", baseUrl)
 
 export async function indicesUS(year: string) {
 

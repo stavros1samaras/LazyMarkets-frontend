@@ -1,0 +1,18 @@
+import { Outlet, useParams } from "react-router";
+import NavigationMenu from "./single-analysis/NavigationMenu";
+import DesktopEventSidebar from "~/layouts/DesktopEventSidebar";
+
+export default function SingleAnalysis() {
+
+    const params = useParams();
+    console.log(params);
+    return (
+        <div className="flex w-full h-full">
+            <DesktopEventSidebar type="stocks" />
+            <div className="flex flex-col w-3/2">
+                <NavigationMenu />
+                <Outlet />
+            </div>
+        </div>
+    )
+}

@@ -9,5 +9,9 @@ export function meta({ }: Route.MetaArgs) {
 }
 
 export async function loader() {
+
+  if (import.meta.env.PROD) {
+    return redirect("/se/financial-history-timeline/TrmpTrrffShck");
+  }
   return redirect(`/se/technical/overview/${"BTC-USD"}`);
 }

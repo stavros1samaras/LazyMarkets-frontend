@@ -19,27 +19,26 @@ export async function loader({ params, request }: Route.LoaderArgs) {
     return data;
 }
 
-// export async function clientLoader({ serverLoader, params }: Route.ClientLoaderArgs) {
-//     // const cache = await caches.open("chart-cache");
-//     // const CACHE_KEY = new Request(`${location.origin}/chartData`);
-//     const cache = await caches.open("FHT");
-//     const CACHE_KEY = new Request(`${location.origin}/${params.eventCode}`);
+export async function clientLoader({ serverLoader, params }: Route.ClientLoaderArgs) {
+    // const cache = await caches.open("chart-cache");
+    // const CACHE_KEY = new Request(`${location.origin}/chartData`);
+    const cache = await caches.open("FHT");
+    const CACHE_KEY = new Request(`${location.origin}/${params.eventCode}`);
 
-//     const cachedResponse = await cache.match(CACHE_KEY);
-//     if (cachedResponse) {
-//         const data = await cachedResponse.json();
-//         console.log("cached data");
-//         return data;
-//     }
+    const cachedResponse = await cache.match(CACHE_KEY);
+    if (cachedResponse) {
+        const data = await cachedResponse.json();
+        console.log("cached data");
+        return data;
+    }
 
-//     const serverData = await serverLoader();
+    const serverData = await serverLoader();
 
-//     await cache.put(CACHE_KEY, new Response(JSON.stringify(serverData)));
+    await cache.put(CACHE_KEY, new Response(JSON.stringify(serverData)));
 
-//     console.log("server data");
-//     return serverData;
-// }
-
+    console.log("server data");
+    return serverData;
+}
 
 
 export default function FHT({ loaderData }: Route.ComponentProps) {

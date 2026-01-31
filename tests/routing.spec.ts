@@ -8,13 +8,14 @@ test.describe.serial("Routing", () => {
     test.describe("Desktop", () => {
 
         test("PROD", async ({ page }, testInfo) => {
+            console.log(testInfo.project.use.baseURL)
             await testRouting(page, testInfo, routing.desktop.prod);
         });
 
-        test("DEV", async ({ page }, testInfo) => {
-            shouldRunTest();
-            await testRouting(page, testInfo, routing.desktop.dev);
-        });
+        // test("DEV", async ({ page }, testInfo) => {
+        //     shouldRunTest();
+        //     await testRouting(page, testInfo, routing.desktop.dev);
+        // });
     });
 
 

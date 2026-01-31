@@ -28,7 +28,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: process.env.NODE_ENV === 'prod'
+    baseURL: process.env.NODE_ENV == 'prod'
       ? 'https://lazy-markets.vercel.app'
       : 'http://localhost:5173',
 

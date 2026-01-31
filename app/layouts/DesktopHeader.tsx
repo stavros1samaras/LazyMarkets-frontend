@@ -15,6 +15,7 @@ export default function DesktopHeader() {
                             ? "/se/financial-history-timeline/TrmpTrrffShck"
                             : "/se/technical/overview/BTC-USD"
                     }
+                    data-testid="techical"
                 >
                     <Text>Techical</Text>
                 </Link>
@@ -24,6 +25,7 @@ export default function DesktopHeader() {
                             ? "/se/financial-history-timeline/TrmpTrrffShck"
                             : "/se/fundamental/single-analysis/overview/AAPL"
                     }
+                    data-testid="fundamental"
                 >
                     <Text>Fundamental</Text>
                 </Link>
@@ -33,10 +35,12 @@ export default function DesktopHeader() {
                             ? "/se/financial-history-timeline/TrmpTrrffShck"
                             : "/se/sentiment"
                     }
+                    data-testid="sentiment"
                 >
                     <Text>Sentiment</Text>
                 </Link>
-                <Link to="/se/financial-history-timeline/TrmpTrrffShck">
+                <Link to="/se/financial-history-timeline/TrmpTrrffShck"
+                    data-testid="FHT">
                     <Text>FHT</Text>
                 </Link>
                 <Link className="hidden sm:block"
@@ -45,6 +49,7 @@ export default function DesktopHeader() {
                             ? "/se/financial-history-timeline/TrmpTrrffShck"
                             : "/se/contact"
                     }
+                    data-testid="contact"
                 >
                     <Text>Contact</Text>
                 </Link>

@@ -21,6 +21,6 @@ export async function testRouting(page: Page, testInfo: TestInfo, routes: Route[
         await expect(page).toHaveURL(route.url, { timeout: 10000, });
 
         // Log the full tested URL
-        console.log(`${testInfo.project.use.baseURL}${route.url} PASSED`);
+        console.log(`${testInfo.project.use.baseURL}/${route.testId} PASSED`);
     }
 }

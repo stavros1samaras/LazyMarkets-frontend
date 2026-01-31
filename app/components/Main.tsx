@@ -4,7 +4,7 @@ export default function Main({ children }: any) {
     const h = `h-[calc(100svh-6.25rem)] h-[calc(100vh-6.25rem)]`
 
     return (
-        <main className={`flex flex-col w-[100%] ${h} ${m} p-0 bg-[#dbd9d9] rounded-lg overflow-y-auto scrollbar-hide`}>
+        <main className={`flex flex-col w-[100%] main-height ${m} p-0 bg-[#dbd9d9] rounded-lg overflow-y-auto scrollbar-hide`}>
             {children}
         </main>
     )

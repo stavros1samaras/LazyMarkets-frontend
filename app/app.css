@@ -147,3 +147,13 @@ body {
 .scrollbar-hide {
     scrollbar-width: none;
 }
+
+.main-height {
+    height: calc(100vh - 6.25rem);
+}
+
+@supports (height: 100svh) {
+    .main-height {
+        height: calc(100svh - 6.25rem);
+    }
+}

@@ -14,13 +14,13 @@ export async function testRouting(page: Page, testInfo: TestInfo, routes: Route[
 
         // Add extra delay for heavy routes
         if (route.testId === "FHT") {
-            await page.waitForTimeout(7000);
+            await page.waitForTimeout(3000);
         }
 
         // Check if navigation succeeded
         await expect(page).toHaveURL(route.url, { timeout: 10000, });
 
         // Log the full tested URL
-        console.log(`${testInfo.project.use.baseURL}${route.url}`);
+        console.log(`${testInfo.project.use.baseURL}${route.url} PASSED`);
     }
 }

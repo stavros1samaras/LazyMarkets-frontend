@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: End to end tests on deploy
 on:
   deployment_status:
 jobs:
@@ -19,6 +19,7 @@ jobs:
       run: npx playwright test
       env:
         NODE_ENV: ${{ secrets.NODE_ENV }}
+        CI: ${{ secrets.CI }}
     - uses: actions/upload-artifact@v5
       if: ${{ !cancelled() }}
       with:

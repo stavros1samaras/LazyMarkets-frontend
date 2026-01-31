@@ -3,13 +3,7 @@ import type { Route } from "../constants/routing";
 
 export async function testRouting(page: Page, testInfo: TestInfo, routes: Route[]) {
     // Navigate to Root
-    await page.goto("/");
-
-    // Add extra delay depending on the environment
-    let envExtraDelay: number = 3000;
-    if (process.env.NODE_ENV === "prod") {
-        envExtraDelay = 7000;
-    }
+    await page.goto("/", { timeout: 10000, waitUntil: "networkidle" });
 
     // Iterate through all available routes
     for (const route of routes) {
@@ -20,7 +14,7 @@ export async function testRouting(page: Page, testInfo: TestInfo, routes: Route[
 
         // Add extra delay for heavy routes
         if (route.testId === "FHT") {
-            await page.waitForTimeout(envExtraDelay);
+            await page.waitForTimeout(7000);
         }
 
         // Check if navigation succeeded

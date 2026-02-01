@@ -1,0 +1,116 @@
+/* ==================================================
+   Mobile & Cross-Browser Compatibility Kit
+================================================== */
+
+
+/* --------------------------------------------------
+   Mobile / Touch Scroll Fix
+-------------------------------------------------- */
+
+.touch-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+/* --------------------------------------------------
+   Desktop / Scrollbar UI
+-------------------------------------------------- */
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    scrollbar-width: none;
+}
+
+
+
+/* --------------------------------------------------
+   Content Height Fix (vh / svh / dvh)
+-------------------------------------------------- */
+
+.content-height {
+    height: calc(100vh - 6.25rem);
+}
+
+@supports (height: 100svh) {
+    .content-height {
+        height: calc(100svh - 6.25rem);
+    }
+}
+
+
+/* --------------------------------------------------
+   Safe Area (Notch / Home Indicator)
+-------------------------------------------------- */
+
+.safe-bottom,
+.keyboard-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-top {
+    padding-top: env(safe-area-inset-top);
+}
+
+
+/* --------------------------------------------------
+   Fixed Position Fix (iOS / Android)
+-------------------------------------------------- */
+
+.fixed-safe {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+
+/* --------------------------------------------------
+   Prevent iOS Zoom on Inputs
+-------------------------------------------------- */
+
+.no-zoom-input input,
+.no-zoom-input textarea,
+.no-zoom-input select {
+    font-size: 16px;
+}
+
+
+/* --------------------------------------------------
+   Remove Tap Highlight (Mobile Chrome / Safari)
+-------------------------------------------------- */
+
+.no-tap-highlight {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* --------------------------------------------------
+   Disable Text Selection (UI Elements)
+-------------------------------------------------- */
+
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+
+/* --------------------------------------------------
+   Hardware Acceleration / Render Fix
+-------------------------------------------------- */
+
+.gpu {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+
+/* --------------------------------------------------
+   Reduce Touch Delay (Old Mobile Browsers)
+-------------------------------------------------- */
+
+* {
+    touch-action: manipulation;
+}

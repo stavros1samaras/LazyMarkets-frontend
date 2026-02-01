@@ -68,7 +68,7 @@ export default function FHT({ loaderData }: Route.ComponentProps) {
                         <MobileEventSelector />
                     </ChartCardContainer>
                     <ChartCardContainer className="w-auto mb-4">
-                        <section className=".select-allow">
+                        <section className="select-allow">
                             <h1>{title} {eventDate}</h1>
                             <p>{description}</p>
                         </section>

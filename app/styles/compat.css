@@ -40,33 +40,6 @@
     }
 }
 
-
-/* --------------------------------------------------
-   Safe Area (Notch / Home Indicator)
--------------------------------------------------- */
-
-.safe-bottom,
-.keyboard-safe {
-    padding-bottom: env(safe-area-inset-bottom);
-}
-
-.safe-top {
-    padding-top: env(safe-area-inset-top);
-}
-
-
-/* --------------------------------------------------
-   Fixed Position Fix (iOS / Android)
--------------------------------------------------- */
-
-.fixed-safe {
-    position: fixed;
-    width: 100%;
-    left: 0;
-    right: 0;
-}
-
-
 /* --------------------------------------------------
    Prevent iOS Zoom on Inputs
 -------------------------------------------------- */
@@ -91,21 +64,15 @@
    Disable Text Selection (UI Elements)
 -------------------------------------------------- */
 
-.no-select {
+.select-forbidden {
+    /* -webkit-user-select: none; */
     user-select: none;
-    -webkit-user-select: none;
 }
 
-
-/* --------------------------------------------------
-   Hardware Acceleration / Render Fix
--------------------------------------------------- */
-
-.gpu {
-    transform: translateZ(0);
-    will-change: transform;
+.select-allow {
+    /* -webkit-user-select: text; */
+    user-select: text;
 }
-
 
 /* --------------------------------------------------
    Reduce Touch Delay (Old Mobile Browsers)

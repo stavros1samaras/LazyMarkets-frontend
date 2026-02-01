@@ -40,16 +40,6 @@
     }
 }
 
-/* --------------------------------------------------
-   Prevent iOS Zoom on Inputs
--------------------------------------------------- */
-
-.no-zoom-input input,
-.no-zoom-input textarea,
-.no-zoom-input select {
-    font-size: 16px;
-}
-
 
 /* --------------------------------------------------
    Remove Tap Highlight (Mobile Chrome / Safari)
@@ -65,4 +55,19 @@
 
 * {
     touch-action: manipulation;
+}
+
+
+/* .focus-forbidden:focus,
+.focus-forbidden:focus-visible {
+    outline: none;
+}
+
+.focus-forbidden {
+    -webkit-tap-highlight-color: rgb(8, 0, 255);
+} */
+
+
+svg {
+    outline: none;
 }

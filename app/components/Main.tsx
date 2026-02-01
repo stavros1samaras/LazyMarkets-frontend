@@ -7,7 +7,7 @@ export default function Main({ children }: any) {
     const compatHeight = `content-height`
 
     return (
-        <main className={`flex flex-col w-[100%] ${compatHeight} ${m} p-0 bg-[#dbd9d9] rounded-lg overflow-y-auto ${crossBrowserStyles} select-forbidden`}>
+        <main className={`flex flex-col w-[100%] ${compatHeight} ${m} p-0 bg-[#dbd9d9] rounded-lg overflow-y-auto ${crossBrowserStyles} select-none`}>
             {children}
         </main>
     )

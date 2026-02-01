@@ -59,21 +59,6 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-
-/* --------------------------------------------------
-   Disable Text Selection (UI Elements)
--------------------------------------------------- */
-
-.select-forbidden {
-    /* -webkit-user-select: none; */
-    user-select: none;
-}
-
-.select-allow {
-    /* -webkit-user-select: text; */
-    user-select: text;
-}
-
 /* --------------------------------------------------
    Reduce Touch Delay (Old Mobile Browsers)
 -------------------------------------------------- */

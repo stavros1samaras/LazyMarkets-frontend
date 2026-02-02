@@ -94,19 +94,19 @@ export default function FHT({ loaderData }: Route.ComponentProps) {
 
                         <ChartCardContainer>
                             <EnergyCommoditiesChart energydata={energydata} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3>Energy Commodities</h3>
+                                <h3>Energy</h3>
                             </EnergyCommoditiesChart>
                         </ChartCardContainer>
 
                         <ChartCardContainer>
                             <PreciousMetalsChart metalsData={metalsdata} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3>Precious Metals</h3>
+                                <h3>Metals</h3>
                             </PreciousMetalsChart>
                         </ChartCardContainer>
 
                         <ChartCardContainer>
                             <CurrenciesCommoditiesUSChart forexData={currenciesUS} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3>Forex Rates</h3>
+                                <h3>Forex</h3>
                             </CurrenciesCommoditiesUSChart>
                         </ChartCardContainer>
                     </section>

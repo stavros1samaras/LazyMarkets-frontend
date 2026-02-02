@@ -57,6 +57,8 @@ export default function FHT({ loaderData }: Route.ComponentProps) {
     const metalsdata = loaderData.metals;
     const currenciesUS = loaderData.currenciesUS;
 
+    const h3Class = `text-base md:text-2xl font-semibold text-[#5c5c5c]`
+
     return (
         <>
             <div key={eventCode} className="flex w-full h-full">
@@ -76,37 +78,37 @@ export default function FHT({ loaderData }: Route.ComponentProps) {
                     <section className="grid grid-cols-1 xl:grid-cols-2 gap-4">
                         <ChartCardContainer className="w-[auto]">
                             <IndicesUSChart indicesUSdata={indicesUSdata} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3>US Indices</h3>
+                                <h3 className={`${h3Class}`} >US Indices</h3>
                             </IndicesUSChart>
                         </ChartCardContainer>
 
                         <ChartCardContainer>
                             <EUIndicesChart indicesEUdata={indicesEUdata} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3>EU Indices</h3>
+                                <h3 className={`${h3Class}`}>EU Indices</h3>
                             </EUIndicesChart>
                         </ChartCardContainer>
 
                         <ChartCardContainer>
                             <USBondsChart bondsUSdata={bondsUSdata} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3>US Bonds</h3>
+                                <h3 className={`${h3Class}`}>US Bonds</h3>
                             </USBondsChart>
                         </ChartCardContainer>
 
                         <ChartCardContainer>
                             <EnergyCommoditiesChart energydata={energydata} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3>Energy</h3>
+                                <h3 className={`${h3Class}`}>Energy</h3>
                             </EnergyCommoditiesChart>
                         </ChartCardContainer>
 
                         <ChartCardContainer>
                             <PreciousMetalsChart metalsData={metalsdata} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3>Metals</h3>
+                                <h3 className={`${h3Class}`}>Metals</h3>
                             </PreciousMetalsChart>
                         </ChartCardContainer>
 
                         <ChartCardContainer>
                             <CurrenciesCommoditiesUSChart forexData={currenciesUS} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3>Forex</h3>
+                                <h3 className={`${h3Class}`}>Forex</h3>
                             </CurrenciesCommoditiesUSChart>
                         </ChartCardContainer>
                     </section>

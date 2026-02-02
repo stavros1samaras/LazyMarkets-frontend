@@ -24,7 +24,7 @@ export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, p
 
     return (
         <>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between pb-3">
                 <div>
                     {children}
                 </div>

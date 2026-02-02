@@ -8,7 +8,7 @@ type SimpleTabsProps = {
 export function ChartTabs({ children }: SimpleTabsProps) {
     return (
         <Tabs defaultValue="tab-0">
-            <TabsList className="flex flex-wrap">
+            <TabsList className="flex flex-wrap bg-[#f5f5f5]">
                 {children.map((child, index) => (
                     <TabsTrigger key={index} value={`tab-${index}`}>
                         {child}

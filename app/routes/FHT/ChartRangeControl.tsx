@@ -27,14 +27,14 @@ export default function ChartRangeControl({ chartData, eventDate, setcurrentChar
     return (
         <>
             <ChartTabs>
-                <span onClick={() => sliceByRange(3, 3)} className="">1w</span>
-                <span onClick={() => sliceByRange(7, 7)} className="">2w</span>
-                <span onClick={() => sliceByRange(11, 11)} className="">3w</span>
-                <span onClick={() => sliceByRange(14, 14)} className="">1m</span>
-                <span onClick={() => sliceByRange(30, 30)} className="">2m</span>
-                <span onClick={() => sliceByRange(45, 45)} className="">3m</span>
-                <span onClick={() => sliceByRange(90, 90)} className="">6m</span>
-                <span onClick={setOriginalRange} className="">1y</span>
+                <span onClick={() => sliceByRange(3, 3)} className="text-[#404040]">1w</span>
+                <span onClick={() => sliceByRange(7, 7)} className="text-[#404040]">2w</span>
+                <span onClick={() => sliceByRange(11, 11)} className="text-[#404040]">3w</span>
+                <span onClick={() => sliceByRange(14, 14)} className="text-[#404040]">1m</span>
+                <span onClick={() => sliceByRange(30, 30)} className="text-[#404040]">2m</span>
+                <span onClick={() => sliceByRange(45, 45)} className="text-[#404040]">3m</span>
+                <span onClick={() => sliceByRange(90, 90)} className="text-[#404040]">6m</span>
+                <span onClick={setOriginalRange} className="text-[#404040]">1y</span>
             </ChartTabs>
         </>
     );

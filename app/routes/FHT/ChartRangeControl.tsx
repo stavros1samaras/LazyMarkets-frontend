@@ -27,14 +27,14 @@ export default function ChartRangeControl({ chartData, eventDate, setcurrentChar
     return (
         <>
             <ChartTabs>
-                <button onClick={() => sliceByRange(3, 3)} className="m-[2px]">1w</button>
-                <button onClick={() => sliceByRange(7, 7)} className="m-[2px]">2w</button>
-                <button onClick={() => sliceByRange(11, 11)} className="m-[2px]">3w</button>
-                <button onClick={() => sliceByRange(14, 14)} className="m-[2px]">1m</button>
-                <button onClick={() => sliceByRange(30, 30)} className="m-[2px]">2m</button>
-                <button onClick={() => sliceByRange(45, 45)} className="m-[2px]">3m</button>
-                <button onClick={() => sliceByRange(90, 90)} className="m-[2px]">6m</button>
-                <button onClick={setOriginalRange} className="m-[2px]">1y</button>
+                <span onClick={() => sliceByRange(3, 3)} className="">1w</span>
+                <span onClick={() => sliceByRange(7, 7)} className="">2w</span>
+                <span onClick={() => sliceByRange(11, 11)} className="">3w</span>
+                <span onClick={() => sliceByRange(14, 14)} className="">1m</span>
+                <span onClick={() => sliceByRange(30, 30)} className="">2m</span>
+                <span onClick={() => sliceByRange(45, 45)} className="">3m</span>
+                <span onClick={() => sliceByRange(90, 90)} className="">6m</span>
+                <span onClick={setOriginalRange} className="">1y</span>
             </ChartTabs>
         </>
     );

@@ -57,17 +57,6 @@
     touch-action: manipulation;
 }
 
-
-/* .focus-forbidden:focus,
-.focus-forbidden:focus-visible {
-    outline: none;
-}
-
-.focus-forbidden {
-    -webkit-tap-highlight-color: rgb(8, 0, 255);
-} */
-
-
 svg {
     outline: none;
 }

@@ -12,6 +12,7 @@ import { ChartCardContainer } from "~/components/ChartCardContainer";
 import Main from "~/components/Main";
 import { getDescriptionFromEvent, getTitleFromEvent } from "~/utilities/event";
 import MobileEventSelector from "~/components/mobileEventSelector";
+import { titleStyle } from "~/styles/tailwindClasses";
 
 
 export async function loader({ params, request }: Route.LoaderArgs) {
@@ -57,7 +58,6 @@ export default function FHT({ loaderData }: Route.ComponentProps) {
     const metalsdata = loaderData.metals;
     const currenciesUS = loaderData.currenciesUS;
 
-    const h3Class = `text-base md:text-2xl font-semibold text-[#5c5c5c]`
 
     return (
         <>
@@ -71,44 +71,44 @@ export default function FHT({ loaderData }: Route.ComponentProps) {
                     </ChartCardContainer>
                     <ChartCardContainer className="w-auto mb-4">
                         <section className="select-text">
-                            <h1>{title} {eventDate}</h1>
+                            <h1 className={titleStyle}>{title} {eventDate}</h1>
                             <p>{description}</p>
                         </section>
                     </ChartCardContainer>
                     <section className="grid grid-cols-1 xl:grid-cols-2 gap-4">
                         <ChartCardContainer className="w-[auto]">
                             <IndicesUSChart indicesUSdata={indicesUSdata} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3 className={`${h3Class}`} >US Indices</h3>
+                                <h3 className={`${titleStyle}`} >US Indices</h3>
                             </IndicesUSChart>
                         </ChartCardContainer>
 
                         <ChartCardContainer>
                             <EUIndicesChart indicesEUdata={indicesEUdata} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3 className={`${h3Class}`}>EU Indices</h3>
+                                <h3 className={`${titleStyle}`}>EU Indices</h3>
                             </EUIndicesChart>
                         </ChartCardContainer>
 
                         <ChartCardContainer>
                             <USBondsChart bondsUSdata={bondsUSdata} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3 className={`${h3Class}`}>US Bonds</h3>
+                                <h3 className={`${titleStyle}`}>US Bonds</h3>
                             </USBondsChart>
                         </ChartCardContainer>
 
                         <ChartCardContainer>
                             <EnergyCommoditiesChart energydata={energydata} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3 className={`${h3Class}`}>Energy</h3>
+                                <h3 className={`${titleStyle}`}>Energy</h3>
                             </EnergyCommoditiesChart>
                         </ChartCardContainer>
 
                         <ChartCardContainer>
                             <PreciousMetalsChart metalsData={metalsdata} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3 className={`${h3Class}`}>Metals</h3>
+                                <h3 className={`${titleStyle}`}>Metals</h3>
                             </PreciousMetalsChart>
                         </ChartCardContainer>
 
                         <ChartCardContainer>
                             <CurrenciesCommoditiesUSChart forexData={currenciesUS} eventDate={eventDate} earlySigns={earlySigns} phaseConclusion={phaseConclusion} >
-                                <h3 className={`${h3Class}`}>Forex</h3>
+                                <h3 className={`${titleStyle}`}>Forex</h3>
                             </CurrenciesCommoditiesUSChart>
                         </ChartCardContainer>
                     </section>

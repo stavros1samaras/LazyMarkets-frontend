@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts";
 import ChartRangeControl from "./ChartRangeControl";
+import { lineColor1, lineColor2, lineColor3 } from "~/styles/tailwindClasses";
 
 export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, phaseConclusion, children }: any) {
     const gspc = indicesUSdata["%5EGSPC"][0].data;
@@ -41,6 +42,7 @@ export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, p
                     <XAxis dataKey="date" interval={100} textAnchor="start" height={20} />
                     <YAxis width={50} />
                     <Tooltip />
+                    <Legend />
 
                     <ReferenceLine
                         x={eventDate}
@@ -63,10 +65,10 @@ export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, p
                         label={{ value: "Event", position: "top" }}
                     />
 
-                    <Line type="monotone" dataKey="GSPC" dot={false} isAnimationActive={false} />
-                    <Line type="monotone" dataKey="DJI" dot={false} isAnimationActive={false} />
-                    <Line type="monotone" dataKey="IXIC" dot={false} isAnimationActive={false} />
-                    <Line type="monotone" dataKey="RUT" dot={false} isAnimationActive={false} />
+                    <Line type="monotone" dataKey="DJI" stroke={lineColor1} dot={false} isAnimationActive={false} />
+                    <Line type="monotone" dataKey="IXIC" stroke={lineColor2} dot={false} isAnimationActive={false} />
+                    <Line type="monotone" dataKey="GSPC" stroke={lineColor3} dot={false} isAnimationActive={false} />
+                    {/* <Line type="monotone" dataKey="RUT" dot={false} isAnimationActive={false} /> */}
                 </LineChart>
             </ResponsiveContainer >
         </>

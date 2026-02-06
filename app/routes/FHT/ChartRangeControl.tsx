@@ -9,6 +9,7 @@ type ChartRangeControlProps = {
 
 export default function ChartRangeControl({ chartData, eventDate, setcurrentChartData, children }: ChartRangeControlProps) {
 
+
     const sliceByRange = (daysBefore: number, daysAfter: number) => {
         const eventIndex = chartData.findIndex(
             (item: any) => item.date === eventDate
@@ -34,7 +35,7 @@ export default function ChartRangeControl({ chartData, eventDate, setcurrentChar
                 <span onClick={() => sliceByRange(30, 30)} className="text-[#5c5c5c] text-base font-normal">2m</span>
                 <span onClick={() => sliceByRange(45, 45)} className="text-[#5c5c5c] text-base font-normal">3m</span>
                 <span onClick={() => sliceByRange(90, 90)} className="text-[#5c5c5c] text-base font-normal">6m</span>
-                {/* <span onClick={setOriginalRange} className="text-[#5c5c5c] text-base font-semibold">1y</span> */}
+                <span onClick={setOriginalRange} className="hidden sm:block text-[#5c5c5c] text-base font-normal">1y</span>
             </ChartTabs>
         </>
     );

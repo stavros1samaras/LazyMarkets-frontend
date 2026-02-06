@@ -1,6 +1,7 @@
 import { MARKET_EVENTS } from "~/constants";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectGroup, SelectLabel, SelectItem } from "@/components/ui/select";
 import SidebarEvent from "./SidebarEvent";
+import { titleStyle } from "~/styles/tailwindClasses";
 
 export default function MobileEventSelector() {
     return (
@@ -13,7 +14,7 @@ export default function MobileEventSelector() {
                     <SelectGroup className="w-[auto] bg-white ">
                         {MARKET_EVENTS.map((event) => (
                             <SelectItem value={event.code}>
-                                <SidebarEvent key={event.code} title={event.title} code={event.code} className={`block bg-white w-full`}></SidebarEvent>
+                                <SidebarEvent key={event.code} title={event.title} code={event.code} className={`${titleStyle} text-sm block w-full`}></SidebarEvent>
                             </SelectItem>
                         ))}
                     </SelectGroup>

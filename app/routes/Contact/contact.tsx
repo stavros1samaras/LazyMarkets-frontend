@@ -9,9 +9,6 @@ export async function action({ request }: Route.ClientActionArgs) {
     let name = formData.get("name");
     let email = formData.get("email");
 
-    console.log(name);
-    console.log(formData);
-
     let errorsArray: string[] = [];
 
     if (!email?.toString().includes("_")) {
@@ -28,14 +25,10 @@ export async function action({ request }: Route.ClientActionArgs) {
             body: formData,
         });
         if (response.ok) {
-            // alert("Message sent!");
             console.log(formData)
         }
     } catch (error) {
         console.error(error);
-        // alert("Error sending message.");
-        console.log("asdasd")
-
     }
 
     return redirect("/");

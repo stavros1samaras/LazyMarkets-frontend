@@ -21,7 +21,6 @@ export const findPreviousYearDate = (): date => {
     const newYear: (number | string) = currentFullDate.getFullYear() - 1;
 
     const startDate: string = newYear.toString() + "-" + currentMonth.toString() + "-" + currentDate.toString();
-    console.log(startDate);
     return ({ startDate: startDate, interval: 50 })
 }
 
@@ -33,7 +32,6 @@ export const currentDate = (): string => {
     if (date < 10) date = "0" + date;
     if (month < 10) month = "0" + month;
     const currentDate: string = year.toString() + "-" + month.toString() + "-" + date.toString();
-    console.log(currentDate);
     return (currentDate)
 }
 
@@ -66,7 +64,6 @@ export const findPreviousMonthDate = (): { startDate: string; interval: number }
     const day = previousMonthDate.getDate().toString().padStart(2, "0");
 
     const startDate = `${year}-${month}-${day}`;
-    console.log(startDate);
 
     return { startDate: startDate, interval: 10 };
 };

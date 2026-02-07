@@ -21,7 +21,6 @@ export default function BitSignals({ areaData, ticketPair1, ticketPair2 }: props
     useEffect(() => {
         setChartAreaData(areaData);
         setChartDotsData(ticketPair1.signals);
-        console.log(ticketPair1.signals);
     }, []);
 
     const selectIndicatorsPair = (indicatorsPair: string): void => {

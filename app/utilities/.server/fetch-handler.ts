@@ -19,10 +19,6 @@ export async function handleGet(url: string): Promise<HTTP_TRANSACTION> {
             response: response,
             success: response.ok
         };
-
-        // console.log(response)
-
-
         return fetchTransaction;
 
     } catch (error) {

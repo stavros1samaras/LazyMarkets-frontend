@@ -28,7 +28,6 @@ export default function PriceChart({ chartData }: props) {
             }
 
             const result = await response.json();
-            console.log(result);
 
             // setBitPrices(result["BTC-USD"]);
             setData(result["BTC-USD"]);
@@ -69,7 +68,6 @@ export default function PriceChart({ chartData }: props) {
         const newYear: (number | string) = currentFullDate.getFullYear();
 
         const FirstDate = newYear.toString() + "-" + currentMonth.toString() + "-" + currentDate.toString();
-        console.log(FirstDate);
 
         setDatesPerPeriod(3);
         getData(FirstDate);
@@ -96,7 +94,6 @@ export default function PriceChart({ chartData }: props) {
         const newYear: (number | string) = currentFullDate.getFullYear() - 1;
 
         const FirstDate: string = newYear.toString() + "-" + currentMonth.toString() + "-" + currentDate.toString();
-        console.log(FirstDate);
 
         setDatesPerPeriod(50);
         getData(FirstDate);

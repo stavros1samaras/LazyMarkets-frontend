@@ -8,7 +8,6 @@ import { createTicker, fetchTickerPricePoints2 } from "~/utilities/.server/ticke
  */
 export async function overviewModule(params: any, request: Request): Promise<any> {
     const requestURL = new URL(request.url);
-    // console.log(request.url)
 
     const result: any = {};
 
@@ -40,7 +39,6 @@ export async function pricePoints(params: any, request: Request) {
         ticker.startDate = start
     }
 
-    console.log(ticker)
     let pricePoints = await fetchTickerPricePoints2(ticker);
     return pricePoints
 }

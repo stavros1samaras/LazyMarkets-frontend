@@ -3,10 +3,8 @@ import { fetchTickerPricePoints2 } from "~/utilities/.server/tickers";
 
 export async function overviewModule(params: any, request: Request): Promise<any> {
     const requestURL = new URL(request.url);
-    console.log(request.url)
 
     const result: any = {};
-
 
     const requestUtility = requestURL.searchParams.get("requestUtility")
     if (requestUtility == null) {
@@ -31,7 +29,6 @@ export async function pricePoints(params: any, request: Request) {
         ticker.startDate = start
     }
 
-    console.log(ticker)
     let pricePoints = await fetchTickerPricePoints2(ticker);
     //test if loader can return 2 properties
     let options = [1, 2, 3, 4, 5]

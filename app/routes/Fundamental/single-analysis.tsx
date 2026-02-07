@@ -5,7 +5,6 @@ import DesktopEventSidebar from "~/layouts/DesktopEventSidebar";
 export default function SingleAnalysis() {
 
     const params = useParams();
-    console.log(params);
     return (
         <div className="flex w-full h-full">
             <DesktopEventSidebar type="stocks" />

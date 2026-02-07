@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts";
 import ChartRangeControl from "./ChartRangeControl";
+import { preciousMetals } from "~/constants/fht";
+import { sortByDate } from "~/utilities/client/dates";
 
 interface PreciousMetalsChartProps {
     metalsData: Record<string, any>;
@@ -13,12 +15,14 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
 
     const baseSeries = gold;
 
-    const chartData = baseSeries.map((point: any, i: number) => ({
+    let chartData = baseSeries.map((point: any, i: number) => ({
         date: point.date,
         Gold: gold[i].close,
         Silver: silver[i].close,
         Copper: copper[i].close,
     }));
+
+    chartData = sortByDate(chartData, preciousMetals, earlySigns, eventDate, phaseConclusion,);
 
     const [currentChartData, setcurrentChartData] = useState(chartData);
 
@@ -64,6 +68,7 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
                         dot={false}
                         stroke="#FFD700"
                         isAnimationActive={false}
+                        connectNulls
                     />
 
                     <Line
@@ -73,6 +78,7 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
                         dot={false}
                         stroke="#C0C0C0"
                         isAnimationActive={false}
+                        connectNulls
                     />
 
                     <Line
@@ -82,6 +88,7 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
                         dot={false}
                         stroke="#B87333"
                         isAnimationActive={false}
+                        connectNulls
                     />
                 </LineChart>
             </ResponsiveContainer>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts";
 import ChartRangeControl from "./ChartRangeControl";
+import { indicesEU } from "~/constants/fht";
+import { sortByDate } from "~/utilities/client/dates";
 
 export default function EUIndicesChart({ indicesEUdata, earlySigns, eventDate, phaseConclusion, children }: any) {
     const ftse = indicesEUdata["%5EFTSE"][0].data;
@@ -10,13 +12,15 @@ export default function EUIndicesChart({ indicesEUdata, earlySigns, eventDate, p
 
     const baseSeries = ftse;
 
-    const chartData = baseSeries.map((point: any, i: number) => ({
+    let chartData = baseSeries.map((point: any, i: number) => ({
         date: point.date,
         FTSE: ftse[i].close,
         FCHI: fchi[i].close,
         GDAXI: gdaxi[i].close,
         // N100: n100[i].close,
     }));
+
+    chartData = sortByDate(chartData, indicesEU, earlySigns, eventDate, phaseConclusion,);
 
     const [currentChartData, setcurrentChartData] = useState(chartData);
 
@@ -63,10 +67,10 @@ export default function EUIndicesChart({ indicesEUdata, earlySigns, eventDate, p
                         label={{ value: "Event", position: "top" }}
                     />
 
-                    <Line type="monotone" dataKey="FTSE" dot={false} isAnimationActive={false} />
-                    <Line type="monotone" dataKey="FCHI" dot={false} isAnimationActive={false} />
-                    <Line type="monotone" dataKey="GDAXI" dot={false} isAnimationActive={false} />
-                    <Line type="monotone" dataKey="N100" dot={false} isAnimationActive={false} />
+                    <Line type="monotone" dataKey="FTSE" dot={false} isAnimationActive={false} connectNulls />
+                    <Line type="monotone" dataKey="FCHI" dot={false} isAnimationActive={false} connectNulls />
+                    <Line type="monotone" dataKey="GDAXI" dot={false} isAnimationActive={false} connectNulls />
+                    <Line type="monotone" dataKey="N100" dot={false} isAnimationActive={false} connectNulls />
                 </LineChart>
             </ResponsiveContainer>
         </>

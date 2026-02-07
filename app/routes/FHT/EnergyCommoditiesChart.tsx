@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts";
 import ChartRangeControl from "./ChartRangeControl";
+import { energyCommodities } from "~/constants/fht";
+import { sortByDate } from "~/utilities/client/dates";
 
 interface EnergyCommoditiesChartProps {
     energydata: Record<string, any>;
@@ -13,12 +15,14 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 
     const baseSeries = cl;
 
-    const chartData = baseSeries.map((point: any, i: number) => ({
+    let chartData = baseSeries.map((point: any, i: number) => ({
         date: point.date,
         WTI: cl[i].close,
         NG: ng[i].close,
         Brent: bz[i].close,
     }));
+
+    chartData = sortByDate(chartData, energyCommodities, earlySigns, eventDate, phaseConclusion,);
 
     const [currentChartData, setcurrentChartData] = useState(chartData);
 
@@ -64,6 +68,7 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
                         dot={false}
                         stroke="#8884d8"
                         isAnimationActive={false}
+                        connectNulls
                     />
 
                     <Line
@@ -73,6 +78,7 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
                         dot={false}
                         stroke="#82ca9d"
                         isAnimationActive={false}
+                        connectNulls
                     />
 
                     <Line
@@ -82,6 +88,7 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
                         dot={false}
                         stroke="#ff7300"
                         isAnimationActive={false}
+                        connectNulls
                     />
                 </LineChart>
             </ResponsiveContainer>

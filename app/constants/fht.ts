@@ -1,0 +1,6 @@
+export const indicesUS: string[] = ["GSPC", "DJI", "IXIC"];
+export const indicesEU: string[] = ["FTSE", "FCHI", "GDAXI"];
+export const bondsUS: string[] = ["IRX", "FVX", "TNX", "TYX"];
+export const energyCommodities: string[] = ["WTI", "NG", "Brent"];
+export const preciousMetals: string[] = ["Gold", "Silver", "Copper"];
+export const forexCurrencies: string[] = ["EUR", "CNY", "RUB"];

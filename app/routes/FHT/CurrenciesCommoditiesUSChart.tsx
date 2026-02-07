@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts";
 import ChartRangeControl from "./ChartRangeControl";
+import { forexCurrencies } from "~/constants/fht";
+import { sortByDate } from "~/utilities/client/dates";
 
 interface ForexChartProps {
     forexData: Record<string, any>;
@@ -13,12 +15,15 @@ export default function CurrenciesCommoditiesUSChart({ forexData, earlySigns, ev
 
     const baseSeries = eur;
 
-    const chartData = baseSeries.map((point: any, i: number) => ({
+    let chartData = baseSeries.map((point: any, i: number) => ({
         date: point.date,
         EUR: eur[i].close,
         RUB: rub[i].close,
         CNY: cny[i].close,
     }));
+
+    chartData = sortByDate(chartData, forexCurrencies, earlySigns, eventDate, phaseConclusion,);
+
 
     const [currentChartData, setcurrentChartData] = useState(chartData);
 
@@ -69,10 +74,10 @@ export default function CurrenciesCommoditiesUSChart({ forexData, earlySigns, ev
                         label={{ value: "Event", position: "top" }}
                     />
 
-                    <Line type="monotone" dataKey="EUR" dot={false} stroke="#1f77b4" yAxisId="left" isAnimationActive={false} />
-                    <Line type="monotone" dataKey="CNY" dot={false} stroke="#2ca02c" yAxisId="left" isAnimationActive={false} />
+                    <Line type="monotone" dataKey="EUR" dot={false} stroke="#1f77b4" yAxisId="left" isAnimationActive={false} connectNulls />
+                    <Line type="monotone" dataKey="CNY" dot={false} stroke="#2ca02c" yAxisId="left" isAnimationActive={false} connectNulls />
 
-                    <Line type="monotone" dataKey="RUB" dot={false} stroke="#ff7f0e" yAxisId="right" isAnimationActive={false} />
+                    <Line type="monotone" dataKey="RUB" dot={false} stroke="#ff7f0e" yAxisId="right" isAnimationActive={false} connectNulls />
                 </LineChart>
             </ResponsiveContainer>
         </>

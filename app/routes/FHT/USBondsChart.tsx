@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts";
 import ChartRangeControl from "./ChartRangeControl";
+import { bondsUS } from "~/constants/fht";
+import { sortByDate } from "~/utilities/client/dates";
 
 interface USBondsChartProps {
     bondsUSdata: Record<string, any>;
@@ -14,13 +16,15 @@ export default function USBondsChart({ bondsUSdata, earlySigns, eventDate, phase
 
     const baseSeries = irx;
 
-    const chartData = baseSeries.map((point: any, i: number) => ({
+    let chartData = baseSeries.map((point: any, i: number) => ({
         date: point.date,
         IRX: irx[i].close,
         FVX: fvx[i].close,
         TNX: tnx[i].close,
         TYX: tyx[i].close,
     }));
+
+    chartData = sortByDate(chartData, bondsUS, earlySigns, eventDate, phaseConclusion,);
 
     const [currentChartData, setcurrentChartData] = useState(chartData);
 
@@ -65,10 +69,10 @@ export default function USBondsChart({ bondsUSdata, earlySigns, eventDate, phase
                         label={{ value: "Event", position: "top" }}
                     />
 
-                    <Line type="monotone" dataKey="IRX" dot={false} isAnimationActive={false} />
-                    <Line type="monotone" dataKey="FVX" dot={false} isAnimationActive={false} />
-                    <Line type="monotone" dataKey="TNX" dot={false} isAnimationActive={false} />
-                    <Line type="monotone" dataKey="TYX" dot={false} isAnimationActive={false} />
+                    <Line type="monotone" dataKey="IRX" dot={false} isAnimationActive={false} connectNulls />
+                    <Line type="monotone" dataKey="FVX" dot={false} isAnimationActive={false} connectNulls />
+                    <Line type="monotone" dataKey="TNX" dot={false} isAnimationActive={false} connectNulls />
+                    <Line type="monotone" dataKey="TYX" dot={false} isAnimationActive={false} connectNulls />
                 </LineChart>
             </ResponsiveContainer>
         </>

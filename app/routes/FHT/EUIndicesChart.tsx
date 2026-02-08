@@ -1,78 +1,96 @@
-import { useState } from "react";
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts";
-import ChartRangeControl from "./ChartRangeControl";
-import { indicesEU } from "~/constants/fht";
-import { sortByDate } from "~/utilities/client/dates";
+import { useState } from "react"
+import {
+	ResponsiveContainer,
+	LineChart,
+	Line,
+	XAxis,
+	YAxis,
+	Tooltip,
+	Legend,
+	ReferenceLine,
+} from "recharts"
+import ChartRangeControl from "./ChartRangeControl"
+import { indicesEU } from "~/constants/fht"
+import { sortByDate } from "~/utilities/client/dates"
 
-export default function EUIndicesChart({ indicesEUdata, earlySigns, eventDate, phaseConclusion, children }: any) {
-    const ftse = indicesEUdata["%5EFTSE"][0].data;
-    const fchi = indicesEUdata["%5EFCHI"][0].data;
-    const gdaxi = indicesEUdata["%5EGDAXI"][0].data;
-    // const n100 = indicesEUdata["%5EN100"][0].data;
+export default function EUIndicesChart({
+	indicesEUdata,
+	earlySigns,
+	eventDate,
+	phaseConclusion,
+	children,
+}: any) {
+	const ftse = indicesEUdata["%5EFTSE"][0].data
+	const fchi = indicesEUdata["%5EFCHI"][0].data
+	const gdaxi = indicesEUdata["%5EGDAXI"][0].data
+	// const n100 = indicesEUdata["%5EN100"][0].data;
 
-    const baseSeries = ftse;
+	const baseSeries = ftse
 
-    let chartData = baseSeries.map((point: any, i: number) => ({
-        date: point.date,
-        FTSE: ftse[i].close,
-        FCHI: fchi[i].close,
-        GDAXI: gdaxi[i].close,
-        // N100: n100[i].close,
-    }));
+	let chartData = baseSeries.map((point: any, i: number) => ({
+		date: point.date,
+		FTSE: ftse[i].close,
+		FCHI: fchi[i].close,
+		GDAXI: gdaxi[i].close,
+		// N100: n100[i].close,
+	}))
 
-    chartData = sortByDate(chartData, indicesEU, earlySigns, eventDate, phaseConclusion,);
+	chartData = sortByDate(chartData, indicesEU, earlySigns, eventDate, phaseConclusion)
 
-    const [currentChartData, setcurrentChartData] = useState(chartData);
+	const [currentChartData, setcurrentChartData] = useState(chartData)
 
-    return (
-        <>
-            <div className="flex items-center justify-between">
-                <div>
-                    {children}
-                </div>
+	return (
+		<>
+			<div className="flex items-center justify-between">
+				<div>{children}</div>
 
-                <ChartRangeControl
-                    chartData={chartData}
-                    eventDate={eventDate}
-                    setcurrentChartData={setcurrentChartData}
-                />
-            </div>
+				<ChartRangeControl
+					chartData={chartData}
+					eventDate={eventDate}
+					setcurrentChartData={setcurrentChartData}
+				/>
+			</div>
 
+			<ResponsiveContainer width="100%" height={400}>
+				<LineChart data={currentChartData}>
+					<XAxis dataKey="date" interval={50} textAnchor="start" />
+					<YAxis />
+					<Tooltip />
+					<Legend />
 
-            <ResponsiveContainer width="100%" height={400}>
-                <LineChart data={currentChartData}>
-                    <XAxis dataKey="date" interval={50} textAnchor="start" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
+					<ReferenceLine
+						x={eventDate}
+						stroke="red"
+						strokeWidth={1}
+						label={{ value: "Event", position: "top" }}
+					/>
 
-                    <ReferenceLine
-                        x={eventDate}
-                        stroke="red"
-                        strokeWidth={1}
-                        label={{ value: "Event", position: "top" }}
-                    />
+					<ReferenceLine
+						x={earlySigns}
+						stroke="red"
+						strokeWidth={1}
+						label={{ value: "Event", position: "top" }}
+					/>
 
-                    <ReferenceLine
-                        x={earlySigns}
-                        stroke="red"
-                        strokeWidth={1}
-                        label={{ value: "Event", position: "top" }}
-                    />
+					<ReferenceLine
+						x={phaseConclusion}
+						stroke="red"
+						strokeWidth={1}
+						label={{ value: "Event", position: "top" }}
+					/>
 
-                    <ReferenceLine
-                        x={phaseConclusion}
-                        stroke="red"
-                        strokeWidth={1}
-                        label={{ value: "Event", position: "top" }}
-                    />
-
-                    <Line type="monotone" dataKey="FTSE" dot={false} isAnimationActive={false} connectNulls />
-                    <Line type="monotone" dataKey="FCHI" dot={false} isAnimationActive={false} connectNulls />
-                    <Line type="monotone" dataKey="GDAXI" dot={false} isAnimationActive={false} connectNulls />
-                    <Line type="monotone" dataKey="N100" dot={false} isAnimationActive={false} connectNulls />
-                </LineChart>
-            </ResponsiveContainer>
-        </>
-    );
+					<Line type="monotone" dataKey="FTSE" dot={false} isAnimationActive={false} connectNulls />
+					<Line type="monotone" dataKey="FCHI" dot={false} isAnimationActive={false} connectNulls />
+					<Line
+						type="monotone"
+						dataKey="GDAXI"
+						dot={false}
+						isAnimationActive={false}
+						connectNulls
+					/>
+					<Line type="monotone" dataKey="N100" dot={false} isAnimationActive={false} connectNulls />
+				</LineChart>
+			</ResponsiveContainer>
+		</>
+	)
 }

@@ -1,12 +1,12 @@
-import React from "react";
+import React from "react"
 
 type TextProps = {
-    as?: "h1" | "p" | "span" | "div",
-    children?: React.ReactNode
+	as?: "h1" | "p" | "span" | "div"
+	children?: React.ReactNode
 }
 export function Text({ as = "p", children }: TextProps) {
-    const Tag = as;
-    return <Tag>{children}</Tag>;
-};
+	const Tag = as
+	return <Tag>{children}</Tag>
+}
 
-export default Text;
+export default Text

@@ -1,8 +1,3 @@
 export default function AutoAnalysis() {
-    return (
-        <div>
-            AutoAnalysis
-        </div>
-    );
+	return <div>AutoAnalysis</div>
 }
-

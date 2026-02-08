@@ -1,17 +1,16 @@
-import { Outlet } from 'react-router'
-import TechnicalNavigation from '../routes/Technical/Components/TechnicalNavigation'
-import type { Route } from './+types/technical';
-import DesktopEventSidebar from './DesktopEventSidebar';
-
+import { Outlet } from "react-router"
+import TechnicalNavigation from "../routes/Technical/Components/TechnicalNavigation"
+import type { Route } from "./+types/technical"
+import DesktopEventSidebar from "./DesktopEventSidebar"
 
 export default function TechnicalLayout() {
-    return (
-        <div className="flex w-full h-full">
-            <DesktopEventSidebar type="allTickers" />
-            <div className="flex flex-col w-3/2">
-                <TechnicalNavigation />
-                <Outlet />
-            </div>
-        </div>
-    )
+	return (
+		<div className="flex w-full h-full">
+			<DesktopEventSidebar type="allTickers" />
+			<div className="flex flex-col w-3/2">
+				<TechnicalNavigation />
+				<Outlet />
+			</div>
+		</div>
+	)
 }

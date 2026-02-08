@@ -1,12 +1,12 @@
 export function getYear(yearsToSubtract: number = 0): number {
-    const yearString: string = new Date().toLocaleString("en-US", {
-        timeZone: "Europe/Athens",
-        year: "numeric",
-    });
+	const yearString: string = new Date().toLocaleString("en-US", {
+		timeZone: "Europe/Athens",
+		year: "numeric",
+	})
 
-    let currentYear: number = parseInt(yearString, 10);
+	let currentYear: number = parseInt(yearString, 10)
 
-    currentYear = currentYear - yearsToSubtract;
+	currentYear = currentYear - yearsToSubtract
 
-    return currentYear;
+	return currentYear
 }

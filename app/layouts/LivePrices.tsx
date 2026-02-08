@@ -1,31 +1,30 @@
-import { useFetcher, useLoaderData } from "react-router";
-import { useEffect, useState } from "react";
-import type { loader } from "./service";
+import { useFetcher, useLoaderData } from "react-router"
+import { useEffect, useState } from "react"
+import type { loader } from "./service"
 
 export default function LivePrices() {
+	let firstPrices = useLoaderData<typeof loader>()
+	const [livePrices, setlivePrices] = useState(firstPrices)
 
-    let firstPrices = useLoaderData<typeof loader>();
-    const [livePrices, setlivePrices] = useState(firstPrices);
+	const currentPrices = useFetcher()
 
-    const currentPrices = useFetcher();
+	useEffect(() => {
+		const id = setInterval(() => {
+			currentPrices.load("/fetchCryptoLivePrices")
+		}, 93000)
 
-    useEffect(() => {
-        const id = setInterval(() => {
-            currentPrices.load("/fetchCryptoLivePrices");
-        }, 93000);
+		return () => clearInterval(id)
+	}, [])
 
-        return () => clearInterval(id);
-    }, []);
+	useEffect(() => {
+		if (currentPrices.data !== undefined) {
+			setlivePrices(currentPrices.data)
+		}
+	}, [currentPrices.data])
 
-    useEffect(() => {
-        if (currentPrices.data !== undefined) {
-            setlivePrices(currentPrices.data);
-        }
-    }, [currentPrices.data]);
-
-    return (
-        <div>
-            <div>{JSON.stringify(livePrices)}</div>
-        </div>
-    );
+	return (
+		<div>
+			<div>{JSON.stringify(livePrices)}</div>
+		</div>
+	)
 }

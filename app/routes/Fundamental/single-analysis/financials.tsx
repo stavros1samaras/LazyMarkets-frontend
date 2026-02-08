@@ -1,7 +1,3 @@
 export default function Financials() {
-    return (
-        <div>
-            sam
-        </div>
-    )
+	return <div>sam</div>
 }

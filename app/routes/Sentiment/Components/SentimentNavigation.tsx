@@ -1,7 +1,3 @@
 export default function SentimentNavigation() {
-    return (
-        <div>
-            SentimentNavigation
-        </div>
-    )
+	return <div>SentimentNavigation</div>
 }

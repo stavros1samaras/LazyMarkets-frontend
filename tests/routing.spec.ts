@@ -1,22 +1,19 @@
 import { test, expect } from "@playwright/test"
-import { testRouting } from "./utilities/routing";
-import { routing } from "./constants/routing";
+import { testRouting } from "./utilities/routing"
+import { routing } from "./constants/routing"
 
 test.describe.serial("Routing", () => {
+	test("Desktop", async ({ page }, testInfo) => {
+		if (testInfo.project.name !== "chromium") {
+			test.skip()
+		}
+		await testRouting(page, testInfo, routing.desktop)
+	})
 
-    test("Desktop", async ({ page }, testInfo) => {
-        if (testInfo.project.name !== 'chromium') {
-            test.skip();
-        }
-        await testRouting(page, testInfo, routing.desktop);
-    });
-
-    test("Mobile", async ({ page }, testInfo) => {
-        if (testInfo.project.name !== 'Mobile Safari') {
-            test.skip();
-        }
-        await testRouting(page, testInfo, routing.mobile);
-    });
-
-
-});
+	test("Mobile", async ({ page }, testInfo) => {
+		if (testInfo.project.name !== "Mobile Safari") {
+			test.skip()
+		}
+		await testRouting(page, testInfo, routing.mobile)
+	})
+})

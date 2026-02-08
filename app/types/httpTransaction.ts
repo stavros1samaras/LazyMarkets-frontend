@@ -1,5 +1,5 @@
 export type HTTP_TRANSACTION = {
-    request: Request,
-    response: Response,
-    success: boolean
+	request: Request
+	response: Response
+	success: boolean
 }

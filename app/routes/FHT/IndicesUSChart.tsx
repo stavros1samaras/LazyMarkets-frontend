@@ -11,7 +11,7 @@ import {
 } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
 import { lineColor1, lineColor2, lineColor3 } from "~/styles/tailwindClasses"
-import { sortByDate } from "~/utilities/client/dates"
+import { sortByDate } from "~/utilities/dates"
 import { indicesUS } from "~/constants/fht"
 
 export default function IndicesUSChart({

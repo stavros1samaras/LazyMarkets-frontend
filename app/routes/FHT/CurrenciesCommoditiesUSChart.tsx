@@ -11,7 +11,7 @@ import {
 } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
 import { forexCurrencies } from "~/constants/fht"
-import { sortByDate } from "~/utilities/client/dates"
+import { sortByDate } from "~/utilities/dates"
 
 interface ForexChartProps {
 	forexData: Record<string, any>

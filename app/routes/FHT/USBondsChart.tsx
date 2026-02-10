@@ -11,7 +11,7 @@ import {
 } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
 import { bondsUS } from "~/constants/fht"
-import { sortByDate } from "~/utilities/client/dates"
+import { sortByDate } from "~/utilities/dates"
 
 interface USBondsChartProps {
 	bondsUSdata: Record<string, any>

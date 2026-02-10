@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useRef, useState } from "react"
 // import { fetchTickerPriceGraph } from '~/routes/resources/fetchTickerPriceGraph';
-import { findPreviousMonthDate, findPreviousYearDate } from "~/utilities/client/dates"
+import { findPreviousMonthDate, findPreviousYearDate } from "~/utilities/dates"
 import {
 	AreaChart,
 	Area,

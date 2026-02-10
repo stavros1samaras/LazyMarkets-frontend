@@ -31,11 +31,4 @@ export default [
 			: []),
 		route("financial-history-timeline/:eventCode", "./layouts/FHT.tsx", []),
 	]),
-
-	...(import.meta.env.DEV
-		? [
-				// route("fetchTickerPriceGraph", "./routes/resources/fetchTickerPriceGraph.tsx")
-				route("fetchTickerPricePoints/:ticker", "./routes/resources/fetchTickerPricePoints.tsx"),
-			]
-		: []),
 ] satisfies RouteConfig

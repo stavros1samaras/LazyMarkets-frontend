@@ -1,22 +1,21 @@
-import {
-	BASE_URL_FHT,
-	CurrenciesUS,
-	Energy,
-	EUindices,
-	Metals,
-	USbonds,
-	USindices,
-} from "~/constants"
 import { handleGet } from "./fetch-handler"
 import type { HTTP_TRANSACTION } from "~/types/httpTransaction"
 import { getBaseUrl } from "./environment"
+import {
+	CurrenciesUS_ENC,
+	Energy_ENC,
+	EUindices_ENC,
+	Metals_ENC,
+	USbonds_ENC,
+	USindices_ENC,
+} from "~/constants/fht"
 
 const baseUrl: string = getBaseUrl() as string
 
 export async function indicesUS(year: string) {
 	const results: Record<string, any> = {}
 
-	for (const index of USindices) {
+	for (const index of USindices_ENC) {
 		const url = `${baseUrl}/api/db/prices/get-ticker-one-year/${index}/${year}`
 
 		const transaction: HTTP_TRANSACTION = await handleGet(url)
@@ -36,7 +35,7 @@ export async function indicesUS(year: string) {
 export async function indicesEU(year: string) {
 	const results: Record<string, any> = {}
 
-	for (const index of EUindices) {
+	for (const index of EUindices_ENC) {
 		const url = `${baseUrl}/api/db/prices/get-ticker-one-year/${index}/${year}`
 
 		const transaction: HTTP_TRANSACTION = await handleGet(url)
@@ -56,7 +55,7 @@ export async function indicesEU(year: string) {
 export async function bondsUS(year: string) {
 	const results: Record<string, any> = {}
 
-	for (const index of USbonds) {
+	for (const index of USbonds_ENC) {
 		const url = `${baseUrl}/api/db/prices/get-ticker-one-year/${index}/${year}`
 
 		const transaction: HTTP_TRANSACTION = await handleGet(url)
@@ -76,7 +75,7 @@ export async function bondsUS(year: string) {
 export async function energy(year: string) {
 	const results: Record<string, any> = {}
 
-	for (const index of Energy) {
+	for (const index of Energy_ENC) {
 		const url = `${baseUrl}/api/db/prices/get-ticker-one-year/${index}/${year}`
 
 		const transaction: HTTP_TRANSACTION = await handleGet(url)
@@ -96,7 +95,7 @@ export async function energy(year: string) {
 export async function metals(year: string) {
 	const results: Record<string, any> = {}
 
-	for (const index of Metals) {
+	for (const index of Metals_ENC) {
 		const url = `${baseUrl}/api/db/prices/get-ticker-one-year/${index}/${year}`
 
 		const transaction: HTTP_TRANSACTION = await handleGet(url)
@@ -116,7 +115,7 @@ export async function metals(year: string) {
 export async function currenciesUS(year: string) {
 	const results: Record<string, any> = {}
 
-	for (const index of CurrenciesUS) {
+	for (const index of CurrenciesUS_ENC) {
 		const url = `${baseUrl}/api/db/prices/get-ticker-one-year/${index}/${year}`
 
 		const transaction: HTTP_TRANSACTION = await handleGet(url)

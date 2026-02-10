@@ -1,4 +1,3 @@
-import { MARKET_EVENTS } from "~/constants"
 import {
 	bondsUS,
 	currenciesUS,

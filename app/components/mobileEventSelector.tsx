@@ -1,4 +1,4 @@
-import { MARKET_EVENTS } from "~/constants"
+import { MARKET_EVENTS } from "~/constants/fht"
 import {
 	Select,
 	SelectTrigger,

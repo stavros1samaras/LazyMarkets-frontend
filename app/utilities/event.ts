@@ -1,4 +1,4 @@
-import { MARKET_EVENTS } from "~/constants"
+import { MARKET_EVENTS } from "~/constants/fht"
 
 export function getTitleFromEvent(code: string): string {
 	return MARKET_EVENTS.find((e) => e.code === code)?.title as string

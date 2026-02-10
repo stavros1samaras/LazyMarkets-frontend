@@ -36,7 +36,6 @@ export default [
 		? [
 				// route("fetchTickerPriceGraph", "./routes/resources/fetchTickerPriceGraph.tsx")
 				route("fetchTickerPricePoints/:ticker", "./routes/resources/fetchTickerPricePoints.tsx"),
-				route("fetchCryptoLivePrices", "./routes/resources/fetchCryptoLivePrices.tsx"),
 			]
 		: []),
 ] satisfies RouteConfig

@@ -1,7 +1,6 @@
 import { Link } from "react-router"
 import MainNavigationMenu from "../components/NavigationMenu"
 import Text from "~/components/Text"
-import LivePrices from "./LivePrices"
 
 export default function DesktopHeader() {
 	return (
@@ -48,7 +47,6 @@ export default function DesktopHeader() {
 					<Text>Contact</Text>
 				</Link>
 			</MainNavigationMenu>
-			{/* <LivePrices /> */}
 		</>
 	)
 }

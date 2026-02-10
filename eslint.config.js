@@ -2,60 +2,63 @@ import js from "@eslint/js"
 import tseslint from "typescript-eslint"
 import react from "eslint-plugin-react"
 import reactHooks from "eslint-plugin-react-hooks"
+import importPlugin from "eslint-plugin-import"
 
 export default [
+	{
+		ignores: [
+			"build/**",
+			"dist/**",
+			"node_modules/**",
+			"playwright-report/**",
+			"test-results/**",
+			"tests/**",
+			"vite.config.ts",
+			"react-router.config.ts",
+			".react-router/**",
+		],
+	},
 
-  {
-    ignores: [
-      "build/**",
-      "dist/**",
-      "node_modules/**",
-      "playwright-report/**",
-      "test-results/**",
-      "tests/**",
-      "vite.config.ts",
-      "react-router.config.ts",
-      ".react-router/**",
-    ],
-  },
+	js.configs.recommended,
 
-  js.configs.recommended,
+	...tseslint.configs.recommended,
 
-  ...tseslint.configs.recommended,
+	{
+		files: ["app/**/*.{ts,tsx}"],
 
-  {
-    files: ["app/**/*.{ts,tsx}"],
+		languageOptions: {
+			parserOptions: {
+				ecmaVersion: "latest",
+				sourceType: "module",
+				ecmaFeatures: {
+					jsx: true,
+				},
+			},
+		},
 
-    languageOptions: {
-      parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module",
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
+		plugins: {
+			react,
+			"react-hooks": reactHooks,
+			import: importPlugin,
+		},
 
-    plugins: {
-      react,
-      "react-hooks": reactHooks,
-    },
+		settings: {
+			react: {
+				version: "detect",
+			},
+		},
 
-    settings: {
-      react: {
-        version: "detect",
-      },
-    },
+		rules: {
+			"@typescript-eslint/no-unused-vars": "warn",
+			"@typescript-eslint/no-explicit-any": "off",
 
-    rules: {
-      "@typescript-eslint/no-unused-vars": "warn",
-      "@typescript-eslint/no-explicit-any": "off",
+			"prefer-const": "warn",
 
-      "react/react-in-jsx-scope": "off",
-      "react/prop-types": "off",
+			"react/react-in-jsx-scope": "off",
+			"react/prop-types": "off",
 
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-    },
-  },
+			"react-hooks/rules-of-hooks": "error",
+			"react-hooks/exhaustive-deps": "warn",
+		},
+	},
 ]

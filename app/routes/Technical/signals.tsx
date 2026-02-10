@@ -1,6 +1,6 @@
 // import type { Route } from "./Components/+types/signals";
 
-import type { Route } from "../Techical/+types/signals"
+import type { Route } from "./+types/signals"
 import BitSignals from "./signals/bitSignals"
 
 export async function loader() {

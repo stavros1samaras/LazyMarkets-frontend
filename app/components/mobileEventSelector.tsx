@@ -5,7 +5,6 @@ import {
 	SelectValue,
 	SelectContent,
 	SelectGroup,
-	SelectLabel,
 	SelectItem,
 } from "@/components/ui/select"
 import SidebarEvent from "./SidebarEvent"
@@ -19,7 +18,7 @@ export default function MobileEventSelector() {
 					<SelectValue placeholder="Select an event" />
 				</SelectTrigger>
 				<SelectContent position={"popper"} className="w-full bg-white ">
-					<SelectGroup className="w-[auto] bg-white ">
+					<SelectGroup className="w-auto bg-white ">
 						{MARKET_EVENTS.map((event) => (
 							<SelectItem value={event.code}>
 								<SidebarEvent

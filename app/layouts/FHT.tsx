@@ -15,7 +15,7 @@ import { titleStyle } from "~/styles/tailwindClasses"
 import { getDescriptionFromEvent, getTitleFromEvent } from "~/utilities/event"
 
 export async function loader({ params, request }: Route.LoaderArgs) {
-	const data = await chartDataModule(params, request)
+	const data = await chartDataModule({ params, request })
 	return data
 }
 
@@ -75,7 +75,7 @@ export default function FHT({ loaderData }: Route.ComponentProps) {
 						</section>
 					</ChartCardContainer>
 					<section className="grid grid-cols-1 xl:grid-cols-2 gap-4">
-						<ChartCardContainer className="w-[auto]">
+						<ChartCardContainer className="w-auto">
 							<IndicesUSChart
 								indicesUSdata={indicesUSdata}
 								eventDate={eventDate}

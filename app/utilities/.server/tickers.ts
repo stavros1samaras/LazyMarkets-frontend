@@ -18,7 +18,7 @@ export const createTicker = (userTicker: Ticker): Ticker => {
 	return ticker
 }
 
-export async function fetchTickerPricePoints2(userTicker: Ticker) {
+export async function fetchTickerPricePoints(userTicker: Ticker) {
 	const ticker: Ticker = createTicker(userTicker)
 
 	const url: string = `${BASE_URL}/ta/data/prices?ticker=${ticker.symbol}&start=${ticker.startDate}&end=${ticker.endDate}&interval=${ticker.interval}`

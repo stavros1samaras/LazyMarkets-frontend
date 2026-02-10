@@ -1,6 +1,6 @@
 import type { Ticker } from "~/types/tickers"
 import { getQuote, getInsights, getRecommendations } from "~/utilities/.server/fundamental"
-import { createTicker, fetchTickerPricePoints2 } from "~/utilities/.server/tickers"
+import { createTicker, fetchTickerPricePoints } from "~/utilities/.server/tickers"
 
 /**
  * OVERVIEW *******************************************************************************
@@ -38,7 +38,7 @@ export async function pricePoints(params: any, request: Request) {
 		ticker.startDate = start
 	}
 
-	let pricePoints = await fetchTickerPricePoints2(ticker)
+	let pricePoints = await fetchTickerPricePoints(ticker)
 	return pricePoints
 }
 

@@ -1,4 +1,4 @@
-import PriceChart from "~/components/legacy/PriceChart"
+import PriceChart from "~/archive/components/PriceChart"
 import type { Route } from "./+types/overview"
 import { useParams } from "react-router"
 import { overviewModule } from "../../modules/.server/technical"

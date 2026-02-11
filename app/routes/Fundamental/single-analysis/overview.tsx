@@ -2,7 +2,7 @@ import { overviewModule } from "~/modules/.server/fundamental"
 import type { Route } from "./+types/overview"
 import { useParams, data as res } from "react-router"
 import type { PricePoints } from "~/types/types"
-import PriceChart from "~/components/legacy/PriceChart"
+import PriceChart from "~/archive/components/PriceChart"
 
 export type FundamentalOverviewData = {
 	pricePoints?: PricePoints[]

@@ -3,7 +3,7 @@ import { SUPPORTED_TICKERS } from "~/constants"
 import SidebarEvent from "~/components/SidebarEvent"
 import SideScrollArea from "~/components/SideScrollArea"
 import { Separator } from "~/components/ui/separator"
-import SidebarTickers from "~/components/legacy/SidebarTickers"
+import SidebarTickers from "~/archive/components/SidebarTickers"
 import { MARKET_EVENTS } from "~/constants/fht"
 
 export default function DesktopEventSidebar({ type = "events" }: any) {

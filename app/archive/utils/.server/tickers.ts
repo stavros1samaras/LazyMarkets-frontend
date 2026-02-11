@@ -1,7 +1,7 @@
-import type { Ticker } from "~/types/tickers"
-import { currentDate, findPreviousMonthDate } from "../dates"
-import { BASE_URL, DEFAULT_INTERVAL } from "~/constants"
-import { handleGet } from "./fetch-handler"
+import type { Ticker } from "~/archive/types/tickers"
+import { currentDate, findPreviousMonthDate } from "../../../utilities/dates"
+import { BASE_URL, DEFAULT_INTERVAL } from "~/archive/constants"
+import { handleGet } from "../../../utilities/.server/fetch-handler"
 import type { HTTP_TRANSACTION } from "~/types/httpTransaction"
 
 export const createTicker = (userTicker: Ticker): Ticker => {

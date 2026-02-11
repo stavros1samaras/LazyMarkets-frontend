@@ -1,5 +1,5 @@
-import type { Ticker } from "~/types/tickers"
-import { fetchTickerPricePoints } from "~/utilities/.server/tickers"
+import type { Ticker } from "~/archive/types/tickers"
+import { fetchTickerPricePoints } from "~/archive/utils/.server/tickers"
 
 export async function overviewModule(params: any, request: Request): Promise<any> {
 	const requestURL = new URL(request.url)

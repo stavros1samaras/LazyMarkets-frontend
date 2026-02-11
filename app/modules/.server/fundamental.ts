@@ -1,6 +1,6 @@
-import type { Ticker } from "~/types/tickers"
-import { getQuote, getInsights, getRecommendations } from "~/utilities/.server/fundamental"
-import { createTicker, fetchTickerPricePoints } from "~/utilities/.server/tickers"
+import type { Ticker } from "~/archive/types/tickers"
+import { getQuote, getInsights, getRecommendations } from "~/archive/utils/.server/fundamental"
+import { createTicker, fetchTickerPricePoints } from "~/archive/utils/.server/tickers"
 
 /**
  * OVERVIEW *******************************************************************************

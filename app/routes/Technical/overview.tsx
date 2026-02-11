@@ -3,7 +3,7 @@ import type { Route } from "./+types/overview"
 import { useParams } from "react-router"
 import { overviewModule } from "../../modules/.server/technical"
 import { data as res } from "react-router"
-import type { TechnicalOverviewData } from "~/types/types"
+import type { TechnicalOverviewData } from "~/archive/types/types"
 
 export async function loader({ params, request }: Route.LoaderArgs) {
 	const data: TechnicalOverviewData = await overviewModule(params, request)

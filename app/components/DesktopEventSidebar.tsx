@@ -1,4 +1,4 @@
-import { SUPPORTED_TICKERS } from "~/constants"
+import { SUPPORTED_TICKERS } from "~/archive/constants"
 
 import SidebarEvent from "~/components/SidebarEvent"
 import SideScrollArea from "~/components/SideScrollArea"

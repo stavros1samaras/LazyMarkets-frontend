@@ -1,7 +1,7 @@
 import type { HTTP_TRANSACTION } from "~/types/httpTransaction"
-import type { Ticker } from "~/types/tickers"
-import { handleGet } from "./fetch-handler"
-import { getBaseUrl } from "./environment"
+import type { Ticker } from "~/archive/types/tickers"
+import { handleGet } from "../../../utilities/.server/fetch-handler"
+import { getBaseUrl } from "../../../utilities/.server/environment"
 
 const baseUrl: string = getBaseUrl() as string
 

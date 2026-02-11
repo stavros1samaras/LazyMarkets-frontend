@@ -2,9 +2,9 @@ import { Suspense, useEffect, useRef, useState } from "react"
 // import { fetchTickerPriceGraph } from '~/routes/resources/fetchTickerPriceGraph';
 import { findPreviousMonthDate, findPreviousYearDate } from "~/utilities/dates"
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceDot, Legend } from "recharts"
-import type { Ticker } from "~/types/tickers"
+import type { Ticker } from "~/archive/types/tickers"
 import type { date } from "~/types/date"
-import { MAX_START_DATE, MAX_INTERVAL, ONE_MONTH_INTERVAL, ONE_YEAR_INTERVAL } from "~/constants"
+import { MAX_START_DATE, MAX_INTERVAL, ONE_MONTH_INTERVAL, ONE_YEAR_INTERVAL } from "~/archive/constants"
 import { useFetcher, useLoaderData, useParams } from "react-router"
 // import React from "react";
 import * as React from "react"

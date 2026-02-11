@@ -1,14 +1,11 @@
 import { Suspense, useEffect, useRef, useState } from "react"
-// import { fetchTickerPriceGraph } from '~/routes/resources/fetchTickerPriceGraph';
-import { findPreviousMonthDate, findPreviousYearDate } from "~/utilities/dates"
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceDot, Legend } from "recharts"
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts"
 import type { Ticker } from "~/archive/types/tickers"
-import type { date } from "~/types/date"
+import type { date } from "~/archive/types/date"
 import { MAX_START_DATE, MAX_INTERVAL, ONE_MONTH_INTERVAL, ONE_YEAR_INTERVAL } from "~/archive/constants"
-import { useFetcher, useLoaderData, useParams } from "react-router"
-// import React from "react";
-import * as React from "react"
+import { useFetcher, useParams } from "react-router"
 import { Tabs } from "@base-ui-components/react/tabs"
+import { findPreviousMonthDate, findPreviousYearDate } from "~/archive/utils/dates"
 
 interface props {
 	chartData: any

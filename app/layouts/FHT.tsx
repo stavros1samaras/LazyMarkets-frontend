@@ -2,7 +2,7 @@ import type { Route } from ".react-router/types/app/layouts/+types/FHT"
 import { useParams } from "react-router"
 import { ChartCardContainer } from "~/components/ChartCardContainer"
 import Main from "~/components/Main"
-import MobileEventSelector from "~/components/mobileEventSelector"
+import MobileEventSelector from "~/components/MobileEventSelector"
 import DesktopEventSidebar from "~/layouts/DesktopEventSidebar"
 import { chartDataModule } from "~/modules/.server/fht"
 import CurrenciesCommoditiesUSChart from "~/routes/FHT/CurrenciesCommoditiesUSChart"
@@ -20,8 +20,6 @@ export async function loader({ params, request }: Route.LoaderArgs) {
 }
 
 export async function clientLoader({ serverLoader, params }: Route.ClientLoaderArgs) {
-	// const cache = await caches.open("chart-cache");
-	// const CACHE_KEY = new Request(`${location.origin}/chartData`);
 	const cache = await caches.open("FHT")
 	const CACHE_KEY = new Request(`${location.origin}/${params.eventCode}`)
 

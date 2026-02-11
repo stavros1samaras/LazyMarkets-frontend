@@ -1,17 +1,7 @@
 import { Suspense, useEffect, useRef, useState } from "react"
 // import { fetchTickerPriceGraph } from '~/routes/resources/fetchTickerPriceGraph';
 import { findPreviousMonthDate, findPreviousYearDate } from "~/utilities/dates"
-import {
-	AreaChart,
-	Area,
-	XAxis,
-	YAxis,
-	CartesianGrid,
-	Tooltip,
-	ResponsiveContainer,
-	ReferenceDot,
-	Legend,
-} from "recharts"
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceDot, Legend } from "recharts"
 import type { Ticker } from "~/types/tickers"
 import type { date } from "~/types/date"
 import { MAX_START_DATE, MAX_INTERVAL, ONE_MONTH_INTERVAL, ONE_YEAR_INTERVAL } from "~/constants"
@@ -56,7 +46,7 @@ export function GraphTabs({ month, oneYear, max }: any) {
 	)
 }
 
-export default function PriceChart2({ chartData }: any) {
+export default function PriceChart({ chartData }: any) {
 	let { symbol } = useParams()
 	const symbolAsked: string = symbol as string
 

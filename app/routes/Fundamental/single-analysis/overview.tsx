@@ -1,6 +1,6 @@
 import { overviewModule } from "~/modules/.server/fundamental"
 import type { Route } from "./+types/overview"
-import PriceChart from "~/components/priceChart2"
+import PriceChart from "~/components/priceChart"
 import { useParams, data as res } from "react-router"
 import type { PricePoints } from "~/types/types"
 

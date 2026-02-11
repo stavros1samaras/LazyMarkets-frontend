@@ -2,7 +2,6 @@ import type { Route } from ".react-router/types/app/layouts/+types/FHT"
 import { useParams } from "react-router"
 import { ChartCardContainer } from "~/components/ChartCardContainer"
 import Main from "~/components/Main"
-import MobileEventSelector from "~/components/MobileEventSelector"
 import DesktopEventSidebar from "~/components/DesktopEventSidebar"
 import { chartDataModule } from "~/modules/.server/fht"
 import CurrenciesCommoditiesUSChart from "~/routes/FHT/CurrenciesCommoditiesUSChart"
@@ -13,6 +12,7 @@ import PreciousMetalsChart from "~/routes/FHT/MetalsCommoditiesChart"
 import USBondsChart from "~/routes/FHT/USBondsChart"
 import { titleStyle } from "~/styles/tailwindClasses"
 import { getDescriptionFromEvent, getTitleFromEvent } from "~/utilities/event"
+import MobileEventSelector from "~/components/MobileEventSelector"
 
 export async function loader({ params, request }: Route.LoaderArgs) {
 	const data = await chartDataModule({ params, request })

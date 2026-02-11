@@ -1,12 +1,5 @@
 import { MARKET_EVENTS } from "~/constants/fht"
-import {
-	Select,
-	SelectTrigger,
-	SelectValue,
-	SelectContent,
-	SelectGroup,
-	SelectItem,
-} from "@/components/ui/select"
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectGroup, SelectItem } from "@/components/ui/select"
 import SidebarEvent from "./SidebarEvent"
 import { titleStyle } from "~/styles/tailwindClasses"
 

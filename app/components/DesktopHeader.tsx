@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import MainNavigationMenu from "../components/NavigationMenu"
+import MainNavigationMenu from "./NavigationMenu"
 import Text from "~/components/Text"
 
 export default function DesktopHeader() {
@@ -8,11 +8,7 @@ export default function DesktopHeader() {
 			<MainNavigationMenu>
 				<Text>SAMOKO</Text>
 				<Link
-					to={
-						import.meta.env.PROD
-							? "/se/financial-history-timeline/TrmpTrrffShck"
-							: "/se/technical/overview/BTC-USD"
-					}
+					to={import.meta.env.PROD ? "/se/financial-history-timeline/TrmpTrrffShck" : "/se/technical/overview/BTC-USD"}
 					data-testid="techical"
 				>
 					<Text>Techical</Text>
@@ -29,9 +25,7 @@ export default function DesktopHeader() {
 				</Link>
 				<Link
 					className="hidden sm:block"
-					to={
-						import.meta.env.PROD ? "/se/financial-history-timeline/TrmpTrrffShck" : "/se/sentiment"
-					}
+					to={import.meta.env.PROD ? "/se/financial-history-timeline/TrmpTrrffShck" : "/se/sentiment"}
 					data-testid="sentiment"
 				>
 					<Text>Sentiment</Text>

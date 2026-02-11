@@ -1,6 +1,6 @@
 import { Outlet, useParams } from "react-router"
 import NavigationMenu from "./single-analysis/NavigationMenu"
-import DesktopEventSidebar from "~/layouts/DesktopEventSidebar"
+import DesktopEventSidebar from "~/components/DesktopEventSidebar"
 
 export default function SingleAnalysis() {
 	const params = useParams()

@@ -1,7 +1,7 @@
 import PriceChart from "~/archive/components/PriceChart"
 import type { Route } from "./+types/overview"
 import { useParams } from "react-router"
-import { overviewModule } from "../../modules/.server/technical"
+import { overviewModule } from "../../archive/modules/.server/technical"
 import { data as res } from "react-router"
 import type { TechnicalOverviewData } from "~/archive/types/types"
 

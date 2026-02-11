@@ -1,4 +1,4 @@
-import { overviewModule } from "~/modules/.server/fundamental"
+import { overviewModule } from "~/archive/modules/.server/fundamental"
 import type { Route } from "./+types/overview"
 import { useParams, data as res } from "react-router"
 import type { PricePoints } from "~/archive/types/types"

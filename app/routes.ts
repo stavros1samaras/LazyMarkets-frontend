@@ -6,8 +6,8 @@ export default [
 			? [
 					...prefix("technical", [
 						layout("./archive/layouts/technical.tsx", [
-							route("overview/:symbol", "./routes/Technical/overview.tsx"),
-							route("signals", "./routes/Technical/signals.tsx"),
+							route("overview/:symbol", "./archive/routes/Technical/overview.tsx"),
+							route("signals", "./archive/routes/Technical/signals.tsx"),
 						]),
 					]),
 					...prefix("fundamental", [
@@ -20,9 +20,9 @@ export default [
 						]),
 					]),
 					...prefix("sentiment", [
-						layout("./archive/layouts/sentiment.tsx", [index("./routes/Sentiment/SentimentNavigation.tsx")]),
+						layout("./archive/layouts/sentiment.tsx", [index("./archive/routes/Sentiment/SentimentNavigation.tsx")]),
 					]),
-					...prefix("contact", [layout("./archive/layouts/contact.tsx", [index("./routes/Contact/contact.tsx")])]),
+					...prefix("contact", [layout("./archive/layouts/contact.tsx", [index("./archive/routes/Contact/contact.tsx")])]),
 				]
 			: []),
 		route("financial-history-timeline/:eventCode", "./layouts/FHT.tsx", []),

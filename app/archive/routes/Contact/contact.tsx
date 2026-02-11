@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Form, redirect } from "react-router"
-import type { Route } from "../+types"
+import type { Route } from "../../../routes/+types"
 // import type { Route } from "./bigComponents/+types/contactLayout";
 
 export async function action({ request }: Route.ClientActionArgs) {

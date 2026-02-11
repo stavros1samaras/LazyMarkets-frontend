@@ -10,7 +10,7 @@ export async function loader({ params, request }: Route.LoaderArgs) {
 	return res(data, { status: 200 })
 }
 
-export default function overview({ loaderData }: Route.ComponentProps) {
+export default function Overview({ loaderData }: Route.ComponentProps) {
 	let symbol = useParams()
 
 	return (

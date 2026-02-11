@@ -12,11 +12,11 @@ export default [
 					]),
 					...prefix("fundamental", [
 						layout("./archive/layouts/fundamental.tsx", [
-							route("single-analysis", "./routes/Fundamental/single-analysis.tsx", [
-								route("overview/:symbol", "./routes/Fundamental/single-analysis/overview.tsx"),
-								route("financials/:symbol", "./routes/Fundamental/single-analysis/financials.tsx"),
+							route("single-analysis", "./archive/routes/Fundamental/single-analysis.tsx", [
+								route("overview/:symbol", "./archive/routes/Fundamental/single-analysis/overview.tsx"),
+								route("financials/:symbol", "./archive/routes/Fundamental/single-analysis/financials.tsx"),
 							]),
-							route("auto-analysis", "./routes/Fundamental/auto-analysis.tsx"),
+							route("auto-analysis", "./archive/routes/Fundamental/auto-analysis.tsx"),
 						]),
 					]),
 					...prefix("sentiment", [

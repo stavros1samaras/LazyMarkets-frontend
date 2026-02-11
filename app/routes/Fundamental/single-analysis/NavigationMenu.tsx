@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import SubNavigationMenu from "~/components/SubNavigationMenu"
+import SubNavigationMenu from "~/components/legacy/SubNavigationMenu"
 import Text from "~/components/Text"
 
 export default function NavigationMenu() {

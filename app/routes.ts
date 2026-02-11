@@ -19,14 +19,8 @@ export default [
 							route("auto-analysis", "./routes/Fundamental/auto-analysis.tsx"),
 						]),
 					]),
-					...prefix("sentiment", [
-						layout("./layouts/sentiment.tsx", [
-							index("./routes/Sentiment/Components/SentimentNavigation.tsx"),
-						]),
-					]),
-					...prefix("contact", [
-						layout("./layouts/contact.tsx", [index("./routes/Contact/contact.tsx")]),
-					]),
+					...prefix("sentiment", [layout("./layouts/sentiment.tsx", [index("./routes/Sentiment/SentimentNavigation.tsx")])]),
+					...prefix("contact", [layout("./layouts/contact.tsx", [index("./routes/Contact/contact.tsx")])]),
 				]
 			: []),
 		route("financial-history-timeline/:eventCode", "./layouts/FHT.tsx", []),

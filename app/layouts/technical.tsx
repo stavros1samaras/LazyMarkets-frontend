@@ -1,6 +1,5 @@
 import { Outlet } from "react-router"
-import TechnicalNavigation from "../routes/Technical/Components/TechnicalNavigation"
-import type { Route } from "./+types/technical"
+import TechnicalNavigation from "../routes/Technical/TechnicalNavigation"
 import DesktopEventSidebar from "../components/DesktopEventSidebar"
 
 export default function TechnicalLayout() {

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router"
-import FundamentalNavigation from "../routes/Fundamental/Components/FundamentalNavigation"
+import FundamentalNavigation from "../routes/Fundamental/FundamentalNavigation"
 
 export default function FundamentalLayout() {
 	return (

@@ -1,7 +1,6 @@
 import type { HTTP_TRANSACTION } from "~/types/httpTransaction"
 
 export async function handleGet(url: string): Promise<HTTP_TRANSACTION> {
-	console.log(process.env.API_KEY as string)
 	const request: Request = new Request(url, {
 		method: "GET",
 		headers: {

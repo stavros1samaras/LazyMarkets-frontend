@@ -12,6 +12,17 @@ export const Energy_ENC = ["CL%3DF", "NG%3DF", "BZ%3DF"]
 export const Metals_ENC = ["GC%3DF", "SI%3DF", "HG%3DF"]
 export const CurrenciesUS_ENC = ["EUR%3DX", "RUB%3DX", "CNY%3DX"]
 
+export const baseDaysMap: Record<string, number> = {
+	"1w": 3,
+	"2w": 7,
+	"3w": 11,
+	"1m": 14,
+	"2m": 30,
+	"3m": 45,
+	"6m": 90,
+	"1y": 190,
+}
+
 export const MARKET_EVENTS = [
 	{
 		title: "Trump Tariff Shock",

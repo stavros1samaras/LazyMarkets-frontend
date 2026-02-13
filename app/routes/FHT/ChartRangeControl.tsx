@@ -1,62 +1,97 @@
+import { Percent } from "lucide-react"
+import { useEffect, useRef, useState, type MouseEvent } from "react"
 import { ChartTabs } from "~/components/ChartTabs"
-
-type ChartRangeControlProps = {
-	chartData: any[]
-	eventDate: string
-	setcurrentChartData: (data: any[]) => void
-	children?: React.PropsWithChildren
-}
+import { Toggle } from "~/components/ui/toggle"
+import { baseDaysMap } from "~/constants/fht"
+import { normalizeFromStart } from "~/utilities/fht"
 
 export default function ChartRangeControl({
 	chartData,
 	eventDate,
 	setcurrentChartData,
-	children,
-}: ChartRangeControlProps) {
-	const sliceByRange = (daysBefore: number, daysAfter: number) => {
+	percentagePressed,
+	tooglePercentage,
+}: any) {
+	const sliceFromEvent = (days: number, forward: boolean): void => {
 		const eventIndex = chartData.findIndex((item: any) => item.date === eventDate)
 
-		const start = Math.max(eventIndex - daysBefore, 0)
-		const end = Math.min(eventIndex + daysAfter + 1, chartData.length)
+		const start = forward ? eventIndex : Math.max(eventIndex - days, 0)
+		const end = Math.min(eventIndex + days + 1, chartData.length)
 
-		setcurrentChartData(chartData.slice(start, end))
+		let sliced = chartData.slice(start, end)
+
+		if (forward) {
+			sliced = normalizeFromStart(sliced)
+		}
+
+		setcurrentChartData(sliced)
 	}
 
-	const setOriginalRange = () => {
-		setcurrentChartData(chartData)
+	const findRange = (e: any): void => {
+		const value = e.target.value
+		let days = baseDaysMap[value]
+
+		const forward = percentagePressed
+
+		if (forward) {
+			days *= 2
+		}
+
+		sliceFromEvent(days, forward)
 	}
+
+	const activatePercentage = (): void => {
+		tooglePercentage((prev: any) => !prev)
+	}
+
+	const tabRef = useRef<HTMLButtonElement>(null)
+
+	useEffect(() => {
+		tabRef.current?.click()
+	}, [percentagePressed])
 
 	return (
 		<>
-			<ChartTabs>
-				<span onClick={() => sliceByRange(3, 3)} className="text-[#5c5c5c] text-base font-normal">
-					1w
-				</span>
-				<span onClick={() => sliceByRange(7, 7)} className="text-[#5c5c5c] text-base font-normal">
-					2w
-				</span>
-				<span onClick={() => sliceByRange(11, 11)} className="text-[#5c5c5c] text-base font-normal">
-					3w
-				</span>
-				<span onClick={() => sliceByRange(14, 14)} className="text-[#5c5c5c] text-base font-normal">
-					1m
-				</span>
-				<span onClick={() => sliceByRange(30, 30)} className="text-[#5c5c5c] text-base font-normal">
-					2m
-				</span>
-				<span onClick={() => sliceByRange(45, 45)} className="text-[#5c5c5c] text-base font-normal">
-					3m
-				</span>
-				<span onClick={() => sliceByRange(90, 90)} className="text-[#5c5c5c] text-base font-normal">
-					6m
-				</span>
-				<span
-					onClick={setOriginalRange}
-					className="hidden sm:block text-[#5c5c5c] text-base font-normal"
+			<span className="flex items-center">
+				<Toggle
+					pressed={percentagePressed}
+					value="test"
+					onClick={activatePercentage}
+					className="mr-1 sm:mr-2 p-0 "
+					size="default"
+					variant="outline"
 				>
-					1y
-				</span>
-			</ChartTabs>
+					<div>
+						<Percent color="#5c5c5c" strokeWidth={1.55} className="w-555 h-55 group-aria-pressed/toggle:fill-foreground" />
+					</div>
+				</Toggle>
+				<ChartTabs key={percentagePressed ? "percent" : "normal"}>
+					<button value={"1w"} onClick={findRange} className="hidden sm:block text-[#5c5c5c] text-base font-normal">
+						1w
+					</button>
+					<button value={"2w"} onClick={findRange} className="hidden sm:block text-[#5c5c5c] text-base font-normal">
+						2w
+					</button>
+					<button value={"3w"} onClick={findRange} className="text-[#5c5c5c] text-base font-normal">
+						3w
+					</button>
+					<button value={"1m"} onClick={findRange} className="text-[#5c5c5c] text-base font-normal">
+						1m
+					</button>
+					<button value={"2m"} onClick={findRange} className="text-[#5c5c5c] text-base font-normal">
+						2m
+					</button>
+					<button value={"3m"} onClick={findRange} className="text-[#5c5c5c] text-base font-normal">
+						3m
+					</button>
+					<button value={"6m"} ref={tabRef} onClick={findRange} className="text-[#5c5c5c] text-base font-normal">
+						6m
+					</button>
+					<button value={"1y"} onClick={findRange} className="hidden sm:block text-[#5c5c5c] text-base font-normal">
+						1y
+					</button>
+				</ChartTabs>
+			</span>
 		</>
 	)
 }

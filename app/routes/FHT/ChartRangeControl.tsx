@@ -1,5 +1,5 @@
 import { Percent } from "lucide-react"
-import { useEffect, useRef, useState, type MouseEvent } from "react"
+import { useEffect, useRef } from "react"
 import { ChartTabs } from "~/components/ChartTabs"
 import { Toggle } from "~/components/ui/toggle"
 import { baseDaysMap } from "~/constants/fht"

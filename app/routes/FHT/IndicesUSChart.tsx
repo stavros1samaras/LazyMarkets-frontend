@@ -42,7 +42,7 @@ export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, p
 
 			<ResponsiveContainer width="100%" height={400}>
 				<LineChart data={currentChartData} margin={{ left: 0, right: 0, top: 0, bottom: 0 }}>
-					<XAxis dataKey="date" interval={100} textAnchor="start" height={20} />
+					<XAxis dataKey="date" interval={50} textAnchor="end" height={20} />
 					{percentagePressed ? (
 						<YAxis
 							width={50}

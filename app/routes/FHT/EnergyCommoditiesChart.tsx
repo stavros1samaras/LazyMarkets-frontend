@@ -1,29 +1,10 @@
 import { useState } from "react"
-import {
-	ResponsiveContainer,
-	LineChart,
-	Line,
-	XAxis,
-	YAxis,
-	Tooltip,
-	Legend,
-	ReferenceLine,
-} from "recharts"
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
 import { energyCommodities } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
 
-interface EnergyCommoditiesChartProps {
-	energydata: Record<string, any>
-}
-
-export default function EnergyCommoditiesChart({
-	energydata,
-	earlySigns,
-	eventDate,
-	phaseConclusion,
-	children,
-}: any) {
+export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDate, phaseConclusion, children }: any) {
 	const cl = energydata["CL%3DF"][0].data
 	const ng = energydata["NG%3DF"][0].data
 	const bz = energydata["BZ%3DF"][0].data
@@ -40,6 +21,7 @@ export default function EnergyCommoditiesChart({
 	chartData = sortByDate(chartData, energyCommodities, earlySigns, eventDate, phaseConclusion)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
+	const [percentagePressed, tooglePercentage] = useState<boolean>(false)
 
 	return (
 		<>
@@ -49,70 +31,72 @@ export default function EnergyCommoditiesChart({
 					chartData={chartData}
 					eventDate={eventDate}
 					setcurrentChartData={setcurrentChartData}
+					percentagePressed={percentagePressed}
+					tooglePercentage={tooglePercentage}
 				/>
 			</div>
 			<ResponsiveContainer width="100%" height={400}>
 				<LineChart data={currentChartData}>
 					<XAxis dataKey="date" interval={50} textAnchor="start" />
-
-					<YAxis width={29} yAxisId="left" orientation="left" stroke="#8884d8" />
-
-					<YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+					{percentagePressed ? (
+						<YAxis
+							width={50}
+							domain={[(dataMin: number) => dataMin * 0.9, (dataMax: number) => dataMax * 1.1]}
+							tickFormatter={(value) => value.toFixed(2)}
+						/>
+					) : (
+						<>
+							<YAxis width={29} yAxisId="left" orientation="left" stroke="#8884d8" />
+							<YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+						</>
+					)}
 
 					<Tooltip />
 					<Legend />
 
-					<ReferenceLine
-						x={eventDate}
-						yAxisId="left"
-						stroke="red"
-						strokeWidth={1}
-						label={{ value: "Event", position: "top" }}
-					/>
-					<ReferenceLine
-						x={earlySigns}
-						yAxisId="left"
-						stroke="red"
-						strokeWidth={1}
-						label={{ value: "Early Signs", position: "top" }}
-					/>
-					<ReferenceLine
-						x={phaseConclusion}
-						yAxisId="left"
-						stroke="red"
-						strokeWidth={1}
-						label={{ value: "Conclusion", position: "top" }}
-					/>
+					<ReferenceLine x={eventDate} yAxisId="left" stroke="red" strokeWidth={1} />
+					<ReferenceLine x={earlySigns} yAxisId="left" stroke="red" strokeWidth={1} />
+					<ReferenceLine x={phaseConclusion} yAxisId="left" stroke="red" strokeWidth={1} />
 
-					<Line
-						yAxisId="left"
-						type="monotone"
-						dataKey="WTI"
-						dot={false}
-						stroke="#8884d8"
-						isAnimationActive={false}
-						connectNulls
-					/>
+					{percentagePressed ? (
+						<>
+							<Line type="monotone" dataKey="WTI" dot={false} stroke="#8884d8" isAnimationActive={false} connectNulls />
+							<Line type="monotone" dataKey="NG" dot={false} stroke="#82ca9d" isAnimationActive={false} connectNulls />
+							<Line type="monotone" dataKey="Brent" dot={false} stroke="#ff7300" isAnimationActive={false} connectNulls />
+						</>
+					) : (
+						<>
+							<Line
+								yAxisId="left"
+								type="monotone"
+								dataKey="WTI"
+								dot={false}
+								stroke="#8884d8"
+								isAnimationActive={false}
+								connectNulls
+							/>
 
-					<Line
-						yAxisId="right"
-						type="monotone"
-						dataKey="NG"
-						dot={false}
-						stroke="#82ca9d"
-						isAnimationActive={false}
-						connectNulls
-					/>
+							<Line
+								yAxisId="right"
+								type="monotone"
+								dataKey="NG"
+								dot={false}
+								stroke="#82ca9d"
+								isAnimationActive={false}
+								connectNulls
+							/>
 
-					<Line
-						yAxisId="left"
-						type="monotone"
-						dataKey="Brent"
-						dot={false}
-						stroke="#ff7300"
-						isAnimationActive={false}
-						connectNulls
-					/>
+							<Line
+								yAxisId="left"
+								type="monotone"
+								dataKey="Brent"
+								dot={false}
+								stroke="#ff7300"
+								isAnimationActive={false}
+								connectNulls
+							/>
+						</>
+					)}
 				</LineChart>
 			</ResponsiveContainer>
 		</>

@@ -9,14 +9,16 @@ import { MARKET_EVENTS } from "~/constants/fht"
 export default function DesktopEventSidebar({ type = "events" }: any) {
 	if (type === "events") {
 		return (
-			<SideScrollArea>
-				{MARKET_EVENTS.map((asset) => (
-					<>
-						<SidebarEvent title={asset.title} code={asset.code} />
-						<Separator />
-					</>
-				))}
-			</SideScrollArea>
+			<aside>
+				<SideScrollArea>
+					{MARKET_EVENTS.map((asset) => (
+						<>
+							<SidebarEvent title={asset.title} code={asset.code} />
+							<Separator />
+						</>
+					))}
+				</SideScrollArea>
+			</aside>
 		)
 	} else if (type === "allTickers") {
 		return (

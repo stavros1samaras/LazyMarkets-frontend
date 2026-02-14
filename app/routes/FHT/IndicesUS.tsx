@@ -1,35 +1,32 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { bondsUS, commonLineProps } from "~/constants/fht"
+import { blue, green, light_blue } from "~/styles/tailwindClasses"
 import { sortByDate } from "~/utilities/dates"
-import { blue, green, light_blue, LM_color } from "~/styles/tailwindClasses"
+import { commonLineProps, indicesUS } from "~/constants/fht"
 
-export default function USBondsChart({ bondsUSdata, eventDate, children }: any) {
-	const irx = bondsUSdata["%5EIRX"][0].data
-	const fvx = bondsUSdata["%5EFVX"][0].data
-	const tnx = bondsUSdata["%5ETNX"][0].data
-	const tyx = bondsUSdata["%5ETYX"][0].data
+export default function IndicesUS({ indicesUSdata, eventDate, children }: any) {
+	const gspc = indicesUSdata["%5EGSPC"][0].data
+	const dji = indicesUSdata["%5EDJI"][0].data
+	const ixic = indicesUSdata["%5EIXIC"][0].data
 
-	const baseSeries = irx
+	const baseSeries = gspc
 
 	let chartData = baseSeries.map((point: any, i: number) => ({
 		date: point.date,
-		IRX: irx[i].close,
-		FVX: fvx[i].close,
-		TNX: tnx[i].close,
-		TYX: tyx[i].close,
+		GSPC: gspc[i].close,
+		DJI: dji[i].close,
+		IXIC: ixic[i].close,
 	}))
 
-	chartData = sortByDate(chartData, bondsUS, eventDate)
+	chartData = sortByDate(chartData, indicesUS, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)
 
-	const IRXLineProps = { dataKey: "IRX", stroke: blue } as const
-	const FVXCLineProps = { dataKey: "FVX", stroke: light_blue } as const
-	const TNXCLineProps = { dataKey: "TNX", stroke: green } as const
-	const TYXCLineProps = { dataKey: "TYX", stroke: LM_color } as const
+	const DJILineProps = { dataKey: "DJI", stroke: blue } as const
+	const IXICLineProps = { dataKey: "IXIC", stroke: light_blue } as const
+	const GSPCLineProps = { dataKey: "GSPC", stroke: green } as const
 
 	const xTicks = [
 		currentChartData[0]?.date,
@@ -39,8 +36,8 @@ export default function USBondsChart({ bondsUSdata, eventDate, children }: any) 
 
 	return (
 		<>
-			<div className="flex items-center justify-between">
-				<span>{children}</span>
+			<div className="flex items-center justify-between pb-3">
+				<div>{children}</div>
 				<ChartRangeControl
 					chartData={chartData}
 					eventDate={eventDate}
@@ -51,7 +48,7 @@ export default function USBondsChart({ bondsUSdata, eventDate, children }: any) 
 			</div>
 
 			<ResponsiveContainer width="100%" height={400}>
-				<LineChart data={currentChartData}>
+				<LineChart data={currentChartData} margin={{ left: 0, right: 0, top: 0, bottom: 0 }}>
 					<XAxis dataKey="date" ticks={xTicks} />
 					{percentagePressed ? (
 						<YAxis
@@ -60,15 +57,16 @@ export default function USBondsChart({ bondsUSdata, eventDate, children }: any) 
 							tickFormatter={(value) => value.toFixed(2)}
 						/>
 					) : (
-						<YAxis width={"auto"} domain={["dataMin", "dataMax"]} />
+						<YAxis width={"auto"} />
 					)}
 					<Tooltip />
 					<Legend />
+
 					<ReferenceLine x={eventDate} stroke="red" strokeWidth={1} />
-					<Line {...commonLineProps} {...IRXLineProps} />
-					<Line {...commonLineProps} {...FVXCLineProps} />
-					<Line {...commonLineProps} {...TNXCLineProps} />
-					<Line {...commonLineProps} {...TYXCLineProps} />
+
+					<Line {...commonLineProps} {...DJILineProps} />
+					<Line {...commonLineProps} {...IXICLineProps} />
+					<Line {...commonLineProps} {...GSPCLineProps} />
 				</LineChart>
 			</ResponsiveContainer>
 		</>

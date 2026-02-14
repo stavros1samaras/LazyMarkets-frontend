@@ -1,32 +1,34 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { blue, green, light_blue } from "~/styles/tailwindClasses"
+import { commonLineProps, indicesEU } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
-import { commonLineProps, indicesUS } from "~/constants/fht"
+import { blue, green, light_blue, LM_color } from "~/styles/tailwindClasses"
 
-export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, children }: any) {
-	const gspc = indicesUSdata["%5EGSPC"][0].data
-	const dji = indicesUSdata["%5EDJI"][0].data
-	const ixic = indicesUSdata["%5EIXIC"][0].data
+export default function EUIndices({ indicesEUdata, eventDate, children }: any) {
+	const ftse = indicesEUdata["%5EFTSE"][0].data
+	const fchi = indicesEUdata["%5EFCHI"][0].data
+	const gdaxi = indicesEUdata["%5EGDAXI"][0].data
+	const n100 = indicesEUdata["%5EN100"][0].data
 
-	const baseSeries = gspc
+	const baseSeries = ftse
 
 	let chartData = baseSeries.map((point: any, i: number) => ({
 		date: point.date,
-		GSPC: gspc[i].close,
-		DJI: dji[i].close,
-		IXIC: ixic[i].close,
+		FTSE: ftse[i].close,
+		FCHI: fchi[i].close,
+		GDAXI: gdaxi[i].close,
+		N100: n100[i].close,
 	}))
 
-	chartData = sortByDate(chartData, indicesUS, eventDate)
+	chartData = sortByDate(chartData, indicesEU, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)
 
-	const DJILineProps = { dataKey: "DJI", stroke: blue } as const
-	const IXICLineProps = { dataKey: "IXIC", stroke: light_blue } as const
-	const GSPCLineProps = { dataKey: "GSPC", stroke: green } as const
+	const FTSELineProps = { dataKey: "FTSE", stroke: blue } as const
+	const FCHILineProps = { dataKey: "FCHI", stroke: green } as const
+	const GDAXILineProps = { dataKey: "GDAXI", stroke: light_blue } as const
 
 	const xTicks = [
 		currentChartData[0]?.date,
@@ -36,8 +38,9 @@ export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, c
 
 	return (
 		<>
-			<div className="flex items-center justify-between pb-3">
+			<div className="flex items-center justify-between">
 				<div>{children}</div>
+
 				<ChartRangeControl
 					chartData={chartData}
 					eventDate={eventDate}
@@ -48,8 +51,8 @@ export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, c
 			</div>
 
 			<ResponsiveContainer width="100%" height={400}>
-				<LineChart data={currentChartData} margin={{ left: 0, right: 0, top: 0, bottom: 0 }}>
-					<XAxis dataKey="date" ticks={xTicks} />
+				<LineChart data={currentChartData}>
+					<XAxis dataKey="date" ticks={xTicks} />{" "}
 					{percentagePressed ? (
 						<YAxis
 							width={"auto"}
@@ -61,12 +64,11 @@ export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, c
 					)}
 					<Tooltip />
 					<Legend />
-
-					<ReferenceLine x={earlySigns} stroke="red" strokeWidth={1} />
-
-					<Line {...commonLineProps} {...DJILineProps} />
-					<Line {...commonLineProps} {...IXICLineProps} />
-					<Line {...commonLineProps} {...GSPCLineProps} />
+					<ReferenceLine x={eventDate} stroke="red" strokeWidth={1} />
+					<Line {...commonLineProps} {...FTSELineProps} />
+					<Line {...commonLineProps} {...FCHILineProps} />
+					<Line {...commonLineProps} {...GDAXILineProps} />
+					<Line type="monotone" dataKey="N100" stroke={LM_color} dot={false} isAnimationActive={false} connectNulls />
 				</LineChart>
 			</ResponsiveContainer>
 		</>

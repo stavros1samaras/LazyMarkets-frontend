@@ -1,26 +1,32 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { commonLineProps, forexCurrencies } from "~/constants/fht"
+import { commonLineProps, energyCommodities } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
-import { blue } from "~/styles/tailwindClasses"
+import { blue, green, light_blue } from "~/styles/tailwindClasses"
 
-export default function CurrenciesCommoditiesUSChart({ forexData, earlySigns, eventDate, phaseConclusion, children }: any) {
-	const eur = forexData["EUR%3DX"][0].data
+export default function Energy({ energydata, eventDate, children }: any) {
+	const cl = energydata["CL%3DF"][0].data
+	const ng = energydata["NG%3DF"][0].data
+	const bz = energydata["BZ%3DF"][0].data
 
-	const baseSeries = eur
+	const baseSeries = cl
 
 	let chartData = baseSeries.map((point: any, i: number) => ({
 		date: point.date,
-		EUR: eur[i].close,
+		WTI: cl[i].close,
+		NG: ng[i].close,
+		Brent: bz[i].close,
 	}))
 
-	chartData = sortByDate(chartData, forexCurrencies, eventDate)
+	chartData = sortByDate(chartData, energyCommodities, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)
 
-	const EURLineProps = { dataKey: "EUR", stroke: blue } as const
+	const WTILineProps = { dataKey: "WTI", stroke: blue } as const
+	const NGLineProps = { dataKey: "NG", stroke: green } as const
+	const BrentLineProps = { dataKey: "Brent", stroke: light_blue } as const
 
 	const xTicks = [
 		currentChartData[0]?.date,
@@ -43,7 +49,6 @@ export default function CurrenciesCommoditiesUSChart({ forexData, earlySigns, ev
 			<ResponsiveContainer width="100%" height={400}>
 				<LineChart data={currentChartData}>
 					<XAxis dataKey="date" ticks={xTicks} />
-
 					{percentagePressed ? (
 						<YAxis
 							width={"auto"}
@@ -52,7 +57,8 @@ export default function CurrenciesCommoditiesUSChart({ forexData, earlySigns, ev
 						/>
 					) : (
 						<>
-							<YAxis width={"auto"} />
+							<YAxis width={"auto"} yAxisId="left" orientation="left" stroke="#8884d8" />
+							<YAxis width={"auto"} yAxisId="right" orientation="right" stroke={green} />
 						</>
 					)}
 
@@ -61,7 +67,19 @@ export default function CurrenciesCommoditiesUSChart({ forexData, earlySigns, ev
 
 					<ReferenceLine x={eventDate} yAxisId="left" stroke="red" strokeWidth={1} />
 
-					<Line {...commonLineProps} {...EURLineProps} />
+					{percentagePressed ? (
+						<>
+							<Line {...commonLineProps} {...WTILineProps} />
+							<Line {...commonLineProps} {...NGLineProps} />
+							<Line {...commonLineProps} {...BrentLineProps} />
+						</>
+					) : (
+						<>
+							<Line {...commonLineProps} yAxisId="left" {...WTILineProps} />
+							<Line {...commonLineProps} yAxisId="right" {...NGLineProps} />
+							<Line {...commonLineProps} yAxisId="left" {...BrentLineProps} />
+						</>
+					)}
 				</LineChart>
 			</ResponsiveContainer>
 		</>

@@ -5,7 +5,7 @@ import { commonLineProps, preciousMetals } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
 import { brown, gray, taupe, yellow } from "~/styles/tailwindClasses"
 
-export default function PreciousMetalsChart({ metalsData, eventDate, children }: any) {
+export default function Metals({ metalsData, eventDate, children }: any) {
 	const gold = metalsData["GC%3DF"][0].data
 	const silver = metalsData["SI%3DF"][0].data
 	const copper = metalsData["HG%3DF"][0].data

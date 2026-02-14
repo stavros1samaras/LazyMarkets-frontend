@@ -1,32 +1,26 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { commonLineProps, energyCommodities } from "~/constants/fht"
+import { commonLineProps, forexCurrencies } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
-import { blue, green, light_blue } from "~/styles/tailwindClasses"
+import { blue } from "~/styles/tailwindClasses"
 
-export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDate, phaseConclusion, children }: any) {
-	const cl = energydata["CL%3DF"][0].data
-	const ng = energydata["NG%3DF"][0].data
-	const bz = energydata["BZ%3DF"][0].data
+export default function Currencies({ forexData, eventDate, children }: any) {
+	const eur = forexData["EUR%3DX"][0].data
 
-	const baseSeries = cl
+	const baseSeries = eur
 
 	let chartData = baseSeries.map((point: any, i: number) => ({
 		date: point.date,
-		WTI: cl[i].close,
-		NG: ng[i].close,
-		Brent: bz[i].close,
+		EUR: eur[i].close,
 	}))
 
-	chartData = sortByDate(chartData, energyCommodities, eventDate)
+	chartData = sortByDate(chartData, forexCurrencies, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)
 
-	const WTILineProps = { dataKey: "WTI", stroke: blue } as const
-	const NGLineProps = { dataKey: "NG", stroke: green } as const
-	const BrentLineProps = { dataKey: "Brent", stroke: light_blue } as const
+	const EURLineProps = { dataKey: "EUR", stroke: blue } as const
 
 	const xTicks = [
 		currentChartData[0]?.date,
@@ -49,6 +43,7 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 			<ResponsiveContainer width="100%" height={400}>
 				<LineChart data={currentChartData}>
 					<XAxis dataKey="date" ticks={xTicks} />
+
 					{percentagePressed ? (
 						<YAxis
 							width={"auto"}
@@ -57,8 +52,7 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 						/>
 					) : (
 						<>
-							<YAxis width={"auto"} yAxisId="left" orientation="left" stroke="#8884d8" />
-							<YAxis width={"auto"} yAxisId="right" orientation="right" stroke={green} />
+							<YAxis width={"auto"} />
 						</>
 					)}
 
@@ -67,19 +61,7 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 
 					<ReferenceLine x={eventDate} yAxisId="left" stroke="red" strokeWidth={1} />
 
-					{percentagePressed ? (
-						<>
-							<Line {...commonLineProps} {...WTILineProps} />
-							<Line {...commonLineProps} {...NGLineProps} />
-							<Line {...commonLineProps} {...BrentLineProps} />
-						</>
-					) : (
-						<>
-							<Line {...commonLineProps} yAxisId="left" {...WTILineProps} />
-							<Line {...commonLineProps} yAxisId="right" {...NGLineProps} />
-							<Line {...commonLineProps} yAxisId="left" {...BrentLineProps} />
-						</>
-					)}
+					<Line {...commonLineProps} {...EURLineProps} />
 				</LineChart>
 			</ResponsiveContainer>
 		</>

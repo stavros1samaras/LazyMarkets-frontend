@@ -1,34 +1,35 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { commonLineProps, indicesEU } from "~/constants/fht"
+import { bondsUS, commonLineProps } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
 import { blue, green, light_blue, LM_color } from "~/styles/tailwindClasses"
 
-export default function EUIndicesChart({ indicesEUdata, earlySigns, eventDate, phaseConclusion, children }: any) {
-	const ftse = indicesEUdata["%5EFTSE"][0].data
-	const fchi = indicesEUdata["%5EFCHI"][0].data
-	const gdaxi = indicesEUdata["%5EGDAXI"][0].data
-	const n100 = indicesEUdata["%5EN100"][0].data
+export default function USBonds({ bondsUSdata, eventDate, children }: any) {
+	const irx = bondsUSdata["%5EIRX"][0].data
+	const fvx = bondsUSdata["%5EFVX"][0].data
+	const tnx = bondsUSdata["%5ETNX"][0].data
+	const tyx = bondsUSdata["%5ETYX"][0].data
 
-	const baseSeries = ftse
+	const baseSeries = irx
 
 	let chartData = baseSeries.map((point: any, i: number) => ({
 		date: point.date,
-		FTSE: ftse[i].close,
-		FCHI: fchi[i].close,
-		GDAXI: gdaxi[i].close,
-		N100: n100[i].close,
+		IRX: irx[i].close,
+		FVX: fvx[i].close,
+		TNX: tnx[i].close,
+		TYX: tyx[i].close,
 	}))
 
-	chartData = sortByDate(chartData, indicesEU, eventDate)
+	chartData = sortByDate(chartData, bondsUS, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)
 
-	const FTSELineProps = { dataKey: "FTSE", stroke: blue } as const
-	const FCHILineProps = { dataKey: "FCHI", stroke: green } as const
-	const GDAXILineProps = { dataKey: "GDAXI", stroke: light_blue } as const
+	const IRXLineProps = { dataKey: "IRX", stroke: blue } as const
+	const FVXCLineProps = { dataKey: "FVX", stroke: light_blue } as const
+	const TNXCLineProps = { dataKey: "TNX", stroke: green } as const
+	const TYXCLineProps = { dataKey: "TYX", stroke: LM_color } as const
 
 	const xTicks = [
 		currentChartData[0]?.date,
@@ -39,8 +40,7 @@ export default function EUIndicesChart({ indicesEUdata, earlySigns, eventDate, p
 	return (
 		<>
 			<div className="flex items-center justify-between">
-				<div>{children}</div>
-
+				<span>{children}</span>
 				<ChartRangeControl
 					chartData={chartData}
 					eventDate={eventDate}
@@ -52,7 +52,7 @@ export default function EUIndicesChart({ indicesEUdata, earlySigns, eventDate, p
 
 			<ResponsiveContainer width="100%" height={400}>
 				<LineChart data={currentChartData}>
-					<XAxis dataKey="date" ticks={xTicks} />{" "}
+					<XAxis dataKey="date" ticks={xTicks} />
 					{percentagePressed ? (
 						<YAxis
 							width={"auto"}
@@ -60,15 +60,15 @@ export default function EUIndicesChart({ indicesEUdata, earlySigns, eventDate, p
 							tickFormatter={(value) => value.toFixed(2)}
 						/>
 					) : (
-						<YAxis width={"auto"} />
+						<YAxis width={"auto"} domain={["dataMin", "dataMax"]} />
 					)}
 					<Tooltip />
 					<Legend />
 					<ReferenceLine x={eventDate} stroke="red" strokeWidth={1} />
-					<Line {...commonLineProps} {...FTSELineProps} />
-					<Line {...commonLineProps} {...FCHILineProps} />
-					<Line {...commonLineProps} {...GDAXILineProps} />
-					<Line type="monotone" dataKey="N100" stroke={LM_color} dot={false} isAnimationActive={false} connectNulls />
+					<Line {...commonLineProps} {...IRXLineProps} />
+					<Line {...commonLineProps} {...FVXCLineProps} />
+					<Line {...commonLineProps} {...TNXCLineProps} />
+					<Line {...commonLineProps} {...TYXCLineProps} />
 				</LineChart>
 			</ResponsiveContainer>
 		</>

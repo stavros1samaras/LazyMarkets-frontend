@@ -29,12 +29,10 @@ export const MARKET_EVENTS = [
 	{
 		title: "Trump Tariff Shock",
 		encodedTitle: "Trump%20Tariff%20Shock",
-		earlySigns: "01-04-25",
 		date: "04-04-25",
 		day: "04",
 		month: "04",
 		year: "2025",
-		phaseConclusion: "07-04-25",
 		description:
 			"The announcement of significant new tariffs by US President Donald Trump in early April 2025 caused intense volatility in the stock markets, with sharp drops in indices like the Dow Jones and S&P 500 as investors feared a trade war and a slowdown in economic growth.",
 		code: "TrmpTrrffShck",
@@ -42,12 +40,10 @@ export const MARKET_EVENTS = [
 	{
 		title: "Trump Tariff Shock2",
 		encodedTitle: "Trump%20Tariff%20Shock2",
-		earlySigns: "01-04-24",
 		date: "04-04-24",
 		day: "04",
 		month: "04",
 		year: "2024",
-		phaseConclusion: "07-04-24",
 		description:
 			"The announcement of significant new tariffs by US President Donald Trump in early April 2025 caused intense volatility in the stock markets, with sharp drops in indices like the Dow Jones and S&P 500 as investors feared a trade war and a slowdown in economic growth.",
 		code: "TrmpTrrffShck2",
@@ -55,12 +51,10 @@ export const MARKET_EVENTS = [
 	{
 		title: "Tech Stock Rally",
 		encodedTitle: "Tech%20Stock%20Rally",
-		earlySigns: "12-06-24",
 		date: "15-06-24",
 		day: "15",
 		month: "06",
 		year: "2024",
-		phaseConclusion: "18-06-24",
 		description:
 			"A surge in major tech stocks including Apple, Microsoft, and Google led to a strong market rally, driven by impressive quarterly earnings and optimistic future guidance.",
 		code: "TchStckRlly",
@@ -68,12 +62,10 @@ export const MARKET_EVENTS = [
 	{
 		title: "Oil Price Crash",
 		encodedTitle: "Oil%20Price%20Crash",
-		earlySigns: "07-09-23",
 		date: "10-09-23",
 		day: "10",
 		month: "09",
 		year: "2023",
-		phaseConclusion: "13-09-23",
 		description:
 			"Global oil prices fell sharply due to oversupply and decreased demand forecasts, impacting energy sector stocks and causing broader market concern.",
 		code: "LPrcCrsh",
@@ -81,12 +73,10 @@ export const MARKET_EVENTS = [
 	{
 		title: "Federal Reserve Rate Hike",
 		encodedTitle: "Federal%20Reserve%20Rate%20Hike",
-		earlySigns: "17-12-22",
 		date: "20-12-22",
 		day: "20",
 		month: "12",
 		year: "2022",
-		phaseConclusion: "23-12-22",
 		description:
 			"The US Federal Reserve announced a significant interest rate hike to combat inflation, causing a temporary decline in stock markets and increased bond yields.",
 		code: "FdrlRsrvRtHk",
@@ -94,12 +84,10 @@ export const MARKET_EVENTS = [
 	{
 		title: "Global Pandemic Panic",
 		encodedTitle: "Global%20Pandemic%20Panic",
-		earlySigns: "08-03-20",
 		date: "11-03-20",
 		day: "11",
 		month: "03",
 		year: "2020",
-		phaseConclusion: "14-03-20",
 		description:
 			"The declaration of a global pandemic caused massive sell-offs in stock markets worldwide, with unprecedented volatility in multiple sectors.",
 		code: "GlblPndmcPnc",

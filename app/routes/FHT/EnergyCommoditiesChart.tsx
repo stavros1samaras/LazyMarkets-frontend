@@ -28,6 +28,12 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 	const NGLineProps = { dataKey: "NG", stroke: green } as const
 	const BrentLineProps = { dataKey: "Brent", stroke: light_blue } as const
 
+	const xTicks = [
+		currentChartData[0]?.date,
+		currentChartData[Math.floor((currentChartData.length - 1) / 2)]?.date,
+		currentChartData[currentChartData.length - 1]?.date,
+	]
+
 	return (
 		<>
 			<div className="flex items-center justify-between">
@@ -42,7 +48,7 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 			</div>
 			<ResponsiveContainer width="100%" height={400}>
 				<LineChart data={currentChartData}>
-					<XAxis dataKey="date" interval={50} textAnchor="start" />
+					<XAxis dataKey="date" ticks={xTicks} />
 					{percentagePressed ? (
 						<YAxis
 							width={50}

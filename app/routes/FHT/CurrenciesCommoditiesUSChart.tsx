@@ -22,6 +22,12 @@ export default function CurrenciesCommoditiesUSChart({ forexData, earlySigns, ev
 
 	const EURLineProps = { dataKey: "EUR", stroke: blue } as const
 
+	const xTicks = [
+		currentChartData[0]?.date,
+		currentChartData[Math.floor((currentChartData.length - 1) / 2)]?.date,
+		currentChartData[currentChartData.length - 1]?.date,
+	]
+
 	return (
 		<>
 			<div className="flex items-center justify-between">
@@ -36,7 +42,7 @@ export default function CurrenciesCommoditiesUSChart({ forexData, earlySigns, ev
 			</div>
 			<ResponsiveContainer width="100%" height={400}>
 				<LineChart data={currentChartData}>
-					<XAxis dataKey="date" interval={50} textAnchor="start" />
+					<XAxis dataKey="date" ticks={xTicks} />
 
 					{percentagePressed ? (
 						<YAxis

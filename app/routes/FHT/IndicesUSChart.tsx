@@ -28,6 +28,12 @@ export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, c
 	const IXICLineProps = { dataKey: "IXIC", stroke: light_blue } as const
 	const GSPCLineProps = { dataKey: "GSPC", stroke: green } as const
 
+	const xTicks = [
+		currentChartData[0]?.date,
+		currentChartData[Math.floor((currentChartData.length - 1) / 2)]?.date,
+		currentChartData[currentChartData.length - 1]?.date,
+	]
+
 	return (
 		<>
 			<div className="flex items-center justify-between pb-3">
@@ -43,7 +49,7 @@ export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, c
 
 			<ResponsiveContainer width="100%" height={400}>
 				<LineChart data={currentChartData} margin={{ left: 0, right: 0, top: 0, bottom: 0 }}>
-					<XAxis dataKey="date" interval={50} textAnchor="end" height={20} />
+					<XAxis dataKey="date" ticks={xTicks} />
 					{percentagePressed ? (
 						<YAxis
 							width={50}

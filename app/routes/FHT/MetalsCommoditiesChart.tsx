@@ -28,6 +28,12 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
 	const silverLineProps = { dataKey: "Silver", stroke: gray } as const
 	const copperLineProps = { dataKey: "Copper", stroke: brown } as const
 
+	const xTicks = [
+		currentChartData[0]?.date,
+		currentChartData[Math.floor((currentChartData.length - 1) / 2)]?.date,
+		currentChartData[currentChartData.length - 1]?.date,
+	]
+
 	return (
 		<>
 			<div className="flex items-center justify-between">
@@ -42,7 +48,7 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
 			</div>
 			<ResponsiveContainer width="100%" height={400}>
 				<LineChart data={currentChartData}>
-					<XAxis dataKey="date" interval={50} textAnchor="start" />
+					<XAxis dataKey="date" ticks={xTicks} />
 
 					{percentagePressed ? (
 						<YAxis

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { energyCommodities } from "~/constants/fht"
+import { commonLineProps, energyCommodities } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
 import { blue, green, light_blue } from "~/styles/tailwindClasses"
 
@@ -19,10 +19,14 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 		Brent: bz[i].close,
 	}))
 
-	chartData = sortByDate(chartData, energyCommodities, earlySigns, eventDate, phaseConclusion)
+	chartData = sortByDate(chartData, energyCommodities, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)
+
+	const WTILineProps = { dataKey: "WTI", stroke: blue } as const
+	const NGLineProps = { dataKey: "NG", stroke: green } as const
+	const BrentLineProps = { dataKey: "Brent", stroke: light_blue } as const
 
 	return (
 		<>
@@ -56,46 +60,18 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 					<Legend />
 
 					<ReferenceLine x={eventDate} yAxisId="left" stroke="red" strokeWidth={1} />
-					<ReferenceLine x={earlySigns} yAxisId="left" stroke="red" strokeWidth={1} />
-					<ReferenceLine x={phaseConclusion} yAxisId="left" stroke="red" strokeWidth={1} />
 
 					{percentagePressed ? (
 						<>
-							<Line type="monotone" dataKey="WTI" stroke={blue} dot={false} isAnimationActive={false} connectNulls />
-							<Line type="monotone" dataKey="NG" stroke={green} dot={false} isAnimationActive={false} connectNulls />
-							<Line type="monotone" dataKey="Brent" stroke={light_blue} dot={false} isAnimationActive={false} connectNulls />
+							<Line {...commonLineProps} {...WTILineProps} />
+							<Line {...commonLineProps} {...NGLineProps} />
+							<Line {...commonLineProps} {...BrentLineProps} />
 						</>
 					) : (
 						<>
-							<Line
-								yAxisId="left"
-								type="monotone"
-								dataKey="WTI"
-								dot={false}
-								stroke={blue}
-								isAnimationActive={false}
-								connectNulls
-							/>
-
-							<Line
-								yAxisId="right"
-								type="monotone"
-								dataKey="NG"
-								dot={false}
-								stroke={green}
-								isAnimationActive={false}
-								connectNulls
-							/>
-
-							<Line
-								yAxisId="left"
-								type="monotone"
-								dataKey="Brent"
-								dot={false}
-								stroke={light_blue}
-								isAnimationActive={false}
-								connectNulls
-							/>
+							<Line {...commonLineProps} yAxisId="left" {...WTILineProps} />
+							<Line {...commonLineProps} yAxisId="right" {...NGLineProps} />
+							<Line {...commonLineProps} yAxisId="left" {...BrentLineProps} />
 						</>
 					)}
 				</LineChart>

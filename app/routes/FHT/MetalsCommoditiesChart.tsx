@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine, ReferenceArea } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { preciousMetals } from "~/constants/fht"
+import { commonLineProps, preciousMetals } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
 import { brown, gray, taupe, yellow } from "~/styles/tailwindClasses"
 
@@ -19,10 +19,14 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
 		Copper: copper[i].close,
 	}))
 
-	chartData = sortByDate(chartData, preciousMetals, earlySigns, eventDate, phaseConclusion)
+	chartData = sortByDate(chartData, preciousMetals, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)
+
+	const goldLineProps = { dataKey: "Gold", stroke: yellow } as const
+	const silverLineProps = { dataKey: "Silver", stroke: gray } as const
+	const copperLineProps = { dataKey: "Copper", stroke: brown } as const
 
 	return (
 		<>
@@ -57,46 +61,19 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
 					<Legend />
 
 					<ReferenceLine x={eventDate} yAxisId="left" stroke="red" strokeWidth={1} />
-					<ReferenceLine x={earlySigns} yAxisId="left" stroke="red" strokeWidth={1} />
-					<ReferenceLine x={phaseConclusion} yAxisId="left" stroke="red" strokeWidth={1} />
+					{/* <ReferenceArea x1="03-04-25" x2="08-04-25" yAxisId="left" fill="red" fillOpacity={0.1} /> */}
 
 					{percentagePressed ? (
 						<>
-							<Line type="monotone" dataKey="Gold" dot={false} stroke={yellow} isAnimationActive={false} connectNulls />
-							<Line type="monotone" dataKey="Silver" dot={false} stroke={gray} isAnimationActive={false} connectNulls />
-							<Line type="monotone" dataKey="Copper" dot={false} stroke={brown} isAnimationActive={false} connectNulls />
+							<Line {...commonLineProps} {...goldLineProps} />
+							<Line {...commonLineProps} {...silverLineProps} />
+							<Line {...commonLineProps} {...copperLineProps} />
 						</>
 					) : (
 						<>
-							<Line
-								yAxisId="left"
-								type="monotone"
-								dataKey="Gold"
-								dot={false}
-								stroke={yellow}
-								isAnimationActive={false}
-								connectNulls
-							/>
-
-							<Line
-								yAxisId="right"
-								type="monotone"
-								dataKey="Silver"
-								dot={false}
-								stroke={gray}
-								isAnimationActive={false}
-								connectNulls
-							/>
-
-							<Line
-								yAxisId="right"
-								type="monotone"
-								dataKey="Copper"
-								dot={false}
-								stroke={brown}
-								isAnimationActive={false}
-								connectNulls
-							/>
+							<Line {...commonLineProps} yAxisId="left" {...goldLineProps} />
+							<Line {...commonLineProps} yAxisId="right" {...silverLineProps} />
+							<Line {...commonLineProps} yAxisId="right" {...copperLineProps} />
 						</>
 					)}
 				</LineChart>

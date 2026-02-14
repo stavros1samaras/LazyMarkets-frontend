@@ -1,15 +1,11 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { bondsUS } from "~/constants/fht"
+import { bondsUS, commonLineProps } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
 import { blue, green, light_blue, LM_color } from "~/styles/tailwindClasses"
 
-interface USBondsChartProps {
-	bondsUSdata: Record<string, any>
-}
-
-export default function USBondsChart({ bondsUSdata, earlySigns, eventDate, phaseConclusion, children }: any) {
+export default function USBondsChart({ bondsUSdata, eventDate, children }: any) {
 	const irx = bondsUSdata["%5EIRX"][0].data
 	const fvx = bondsUSdata["%5EFVX"][0].data
 	const tnx = bondsUSdata["%5ETNX"][0].data
@@ -25,10 +21,15 @@ export default function USBondsChart({ bondsUSdata, earlySigns, eventDate, phase
 		TYX: tyx[i].close,
 	}))
 
-	chartData = sortByDate(chartData, bondsUS, earlySigns, eventDate, phaseConclusion)
+	chartData = sortByDate(chartData, bondsUS, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)
+
+	const IRXLineProps = { dataKey: "IRX", stroke: blue } as const
+	const FVXCLineProps = { dataKey: "FVX", stroke: light_blue } as const
+	const TNXCLineProps = { dataKey: "TNX", stroke: green } as const
+	const TYXCLineProps = { dataKey: "TYX", stroke: LM_color } as const
 
 	return (
 		<>
@@ -60,14 +61,10 @@ export default function USBondsChart({ bondsUSdata, earlySigns, eventDate, phase
 
 					<ReferenceLine x={eventDate} stroke="red" strokeWidth={1} />
 
-					<ReferenceLine x={earlySigns} stroke="red" strokeWidth={1} />
-
-					<ReferenceLine x={phaseConclusion} stroke="red" strokeWidth={1} />
-
-					<Line type="monotone" dataKey="IRX" stroke={blue} dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="FVX" stroke={green} dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="TNX" stroke={light_blue} dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="TYX" stroke={LM_color} dot={false} isAnimationActive={false} connectNulls />
+					<Line {...commonLineProps} {...IRXLineProps} />
+					<Line {...commonLineProps} {...FVXCLineProps} />
+					<Line {...commonLineProps} {...TNXCLineProps} />
+					<Line {...commonLineProps} {...TYXCLineProps} />
 				</LineChart>
 			</ResponsiveContainer>
 		</>

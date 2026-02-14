@@ -1,15 +1,15 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { indicesEU } from "~/constants/fht"
+import { commonLineProps, indicesEU } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
-import { blue, green, light_blue } from "~/styles/tailwindClasses"
+import { blue, green, light_blue, LM_color } from "~/styles/tailwindClasses"
 
 export default function EUIndicesChart({ indicesEUdata, earlySigns, eventDate, phaseConclusion, children }: any) {
 	const ftse = indicesEUdata["%5EFTSE"][0].data
 	const fchi = indicesEUdata["%5EFCHI"][0].data
 	const gdaxi = indicesEUdata["%5EGDAXI"][0].data
-	// const n100 = indicesEUdata["%5EN100"][0].data;
+	const n100 = indicesEUdata["%5EN100"][0].data
 
 	const baseSeries = ftse
 
@@ -18,13 +18,17 @@ export default function EUIndicesChart({ indicesEUdata, earlySigns, eventDate, p
 		FTSE: ftse[i].close,
 		FCHI: fchi[i].close,
 		GDAXI: gdaxi[i].close,
-		// N100: n100[i].close,
+		N100: n100[i].close,
 	}))
 
-	chartData = sortByDate(chartData, indicesEU, earlySigns, eventDate, phaseConclusion)
+	chartData = sortByDate(chartData, indicesEU, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)
+
+	const FTSELineProps = { dataKey: "FTSE", stroke: blue } as const
+	const FCHILineProps = { dataKey: "FCHI", stroke: green } as const
+	const GDAXILineProps = { dataKey: "GDAXI", stroke: light_blue } as const
 
 	return (
 		<>
@@ -57,14 +61,10 @@ export default function EUIndicesChart({ indicesEUdata, earlySigns, eventDate, p
 
 					<ReferenceLine x={eventDate} stroke="red" strokeWidth={1} />
 
-					<ReferenceLine x={earlySigns} stroke="red" strokeWidth={1} />
-
-					<ReferenceLine x={phaseConclusion} stroke="red" strokeWidth={1} />
-
-					<Line type="monotone" dataKey="FTSE" stroke={blue} dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="FCHI" stroke={green} dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="GDAXI" stroke={light_blue} dot={false} isAnimationActive={false} connectNulls />
-					{/* <Line type="monotone" dataKey="N100" stroke={blue} dot={false} isAnimationActive={false} connectNulls /> */}
+					<Line {...commonLineProps} {...FTSELineProps} />
+					<Line {...commonLineProps} {...FCHILineProps} />
+					<Line {...commonLineProps} {...GDAXILineProps} />
+					<Line type="monotone" dataKey="N100" stroke={LM_color} dot={false} isAnimationActive={false} connectNulls />
 				</LineChart>
 			</ResponsiveContainer>
 		</>

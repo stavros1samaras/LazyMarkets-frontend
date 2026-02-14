@@ -12,6 +12,8 @@ export const Energy_ENC = ["CL%3DF", "NG%3DF", "BZ%3DF"]
 export const Metals_ENC = ["GC%3DF", "SI%3DF", "HG%3DF"]
 export const CurrenciesUS_ENC = ["EUR%3DX", "RUB%3DX", "CNY%3DX"]
 
+export const commonLineProps = { type: "monotone", dot: false, isAnimationActive: false, connectNulls: true } as const
+
 export const baseDaysMap: Record<string, number> = {
 	"1w": 3,
 	"2w": 7,

@@ -1,7 +1,7 @@
-export function sortByDate(array: any[], keys: string[], earlySigns: string, eventDate: string, phaseConclusion: string) {
+export function sortByDate(array: any[], keys: string[], eventDate: string) {
 	const copy = array.slice()
 
-	const dates = [earlySigns, eventDate, phaseConclusion]
+	const dates = [eventDate]
 
 	let added = false
 

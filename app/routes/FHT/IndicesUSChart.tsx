@@ -3,14 +3,12 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, Re
 import ChartRangeControl from "./ChartRangeControl"
 import { blue, green, light_blue } from "~/styles/tailwindClasses"
 import { sortByDate } from "~/utilities/dates"
-import { indicesUS } from "~/constants/fht"
-import { Toggle } from "~/components/ui/toggle"
+import { commonLineProps, indicesUS } from "~/constants/fht"
 
-export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, phaseConclusion, children }: any) {
+export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, children }: any) {
 	const gspc = indicesUSdata["%5EGSPC"][0].data
 	const dji = indicesUSdata["%5EDJI"][0].data
 	const ixic = indicesUSdata["%5EIXIC"][0].data
-	// const rut = indicesUSdata["%5ERUT"][0].data;
 
 	const baseSeries = gspc
 
@@ -19,13 +17,16 @@ export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, p
 		GSPC: gspc[i].close,
 		DJI: dji[i].close,
 		IXIC: ixic[i].close,
-		// RUT: rut[i].close,
 	}))
 
-	chartData = sortByDate(chartData, indicesUS, earlySigns, eventDate, phaseConclusion)
+	chartData = sortByDate(chartData, indicesUS, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)
+
+	const DJILineProps = { dataKey: "DJI", stroke: blue } as const
+	const IXICLineProps = { dataKey: "IXIC", stroke: light_blue } as const
+	const GSPCLineProps = { dataKey: "GSPC", stroke: green } as const
 
 	return (
 		<>
@@ -55,16 +56,11 @@ export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, p
 					<Tooltip />
 					<Legend />
 
-					<ReferenceLine x={eventDate} stroke="red" strokeWidth={1} />
-
 					<ReferenceLine x={earlySigns} stroke="red" strokeWidth={1} />
 
-					<ReferenceLine x={phaseConclusion} stroke="red" strokeWidth={1} />
-
-					<Line type="monotone" dataKey="DJI" stroke={blue} dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="IXIC" stroke={green} dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="GSPC" stroke={light_blue} dot={false} isAnimationActive={false} connectNulls />
-					{/* <Line type="monotone" dataKey="RUT" dot={false} isAnimationActive={false} /> */}
+					<Line {...commonLineProps} {...DJILineProps} />
+					<Line {...commonLineProps} {...IXICLineProps} />
+					<Line {...commonLineProps} {...GSPCLineProps} />
 				</LineChart>
 			</ResponsiveContainer>
 		</>

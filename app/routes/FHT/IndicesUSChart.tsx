@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { lineColor1, lineColor2, lineColor3 } from "~/styles/tailwindClasses"
+import { blue, green, light_blue } from "~/styles/tailwindClasses"
 import { sortByDate } from "~/utilities/dates"
 import { indicesUS } from "~/constants/fht"
 import { Toggle } from "~/components/ui/toggle"
@@ -61,9 +61,9 @@ export default function IndicesUSChart({ indicesUSdata, earlySigns, eventDate, p
 
 					<ReferenceLine x={phaseConclusion} stroke="red" strokeWidth={1} />
 
-					<Line type="monotone" dataKey="DJI" stroke={lineColor1} dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="IXIC" stroke={lineColor2} dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="GSPC" stroke={lineColor3} dot={false} isAnimationActive={false} connectNulls />
+					<Line type="monotone" dataKey="DJI" stroke={blue} dot={false} isAnimationActive={false} connectNulls />
+					<Line type="monotone" dataKey="IXIC" stroke={green} dot={false} isAnimationActive={false} connectNulls />
+					<Line type="monotone" dataKey="GSPC" stroke={light_blue} dot={false} isAnimationActive={false} connectNulls />
 					{/* <Line type="monotone" dataKey="RUT" dot={false} isAnimationActive={false} /> */}
 				</LineChart>
 			</ResponsiveContainer>

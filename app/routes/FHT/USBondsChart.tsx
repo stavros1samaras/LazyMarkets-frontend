@@ -3,6 +3,7 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, Re
 import ChartRangeControl from "./ChartRangeControl"
 import { bondsUS } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
+import { blue, green, light_blue, LM_color } from "~/styles/tailwindClasses"
 
 interface USBondsChartProps {
 	bondsUSdata: Record<string, any>
@@ -57,16 +58,16 @@ export default function USBondsChart({ bondsUSdata, earlySigns, eventDate, phase
 					<Tooltip />
 					<Legend />
 
-					<ReferenceLine x={eventDate} stroke="red" strokeWidth={1} label={{ value: "Event", position: "top" }} />
+					<ReferenceLine x={eventDate} stroke="red" strokeWidth={1} />
 
-					<ReferenceLine x={earlySigns} stroke="red" strokeWidth={1} label={{ value: "Event", position: "top" }} />
+					<ReferenceLine x={earlySigns} stroke="red" strokeWidth={1} />
 
-					<ReferenceLine x={phaseConclusion} stroke="red" strokeWidth={1} label={{ value: "Event", position: "top" }} />
+					<ReferenceLine x={phaseConclusion} stroke="red" strokeWidth={1} />
 
-					<Line type="monotone" dataKey="IRX" dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="FVX" dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="TNX" dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="TYX" dot={false} isAnimationActive={false} connectNulls />
+					<Line type="monotone" dataKey="IRX" stroke={blue} dot={false} isAnimationActive={false} connectNulls />
+					<Line type="monotone" dataKey="FVX" stroke={green} dot={false} isAnimationActive={false} connectNulls />
+					<Line type="monotone" dataKey="TNX" stroke={light_blue} dot={false} isAnimationActive={false} connectNulls />
+					<Line type="monotone" dataKey="TYX" stroke={LM_color} dot={false} isAnimationActive={false} connectNulls />
 				</LineChart>
 			</ResponsiveContainer>
 		</>

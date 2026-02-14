@@ -3,6 +3,7 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, Re
 import ChartRangeControl from "./ChartRangeControl"
 import { preciousMetals } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
+import { brown, gray, taupe, yellow } from "~/styles/tailwindClasses"
 
 export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate, phaseConclusion, children }: any) {
 	const gold = metalsData["GC%3DF"][0].data
@@ -47,8 +48,8 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
 						/>
 					) : (
 						<>
-							<YAxis yAxisId="left" orientation="left" stroke="#FFD700" />
-							<YAxis yAxisId="right" orientation="right" stroke="#888" />
+							<YAxis yAxisId="left" orientation="left" stroke={yellow} />
+							<YAxis yAxisId="right" orientation="right" stroke={taupe} />
 						</>
 					)}
 
@@ -61,9 +62,9 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
 
 					{percentagePressed ? (
 						<>
-							<Line type="monotone" dataKey="Gold" dot={false} stroke="#FFD700" isAnimationActive={false} connectNulls />
-							<Line type="monotone" dataKey="Silver" dot={false} stroke="#C0C0C0" isAnimationActive={false} connectNulls />
-							<Line type="monotone" dataKey="Copper" dot={false} stroke="#B87333" isAnimationActive={false} connectNulls />
+							<Line type="monotone" dataKey="Gold" dot={false} stroke={yellow} isAnimationActive={false} connectNulls />
+							<Line type="monotone" dataKey="Silver" dot={false} stroke={gray} isAnimationActive={false} connectNulls />
+							<Line type="monotone" dataKey="Copper" dot={false} stroke={brown} isAnimationActive={false} connectNulls />
 						</>
 					) : (
 						<>
@@ -72,7 +73,7 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
 								type="monotone"
 								dataKey="Gold"
 								dot={false}
-								stroke="#FFD700"
+								stroke={yellow}
 								isAnimationActive={false}
 								connectNulls
 							/>
@@ -82,7 +83,7 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
 								type="monotone"
 								dataKey="Silver"
 								dot={false}
-								stroke="#C0C0C0"
+								stroke={gray}
 								isAnimationActive={false}
 								connectNulls
 							/>
@@ -92,7 +93,7 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
 								type="monotone"
 								dataKey="Copper"
 								dot={false}
-								stroke="#B87333"
+								stroke={brown}
 								isAnimationActive={false}
 								connectNulls
 							/>

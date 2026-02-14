@@ -3,7 +3,7 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, Re
 import ChartRangeControl from "./ChartRangeControl"
 import { indicesEU } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
-import { lineColor1, lineColor2, lineColor3 } from "~/styles/tailwindClasses"
+import { blue, green, light_blue } from "~/styles/tailwindClasses"
 
 export default function EUIndicesChart({ indicesEUdata, earlySigns, eventDate, phaseConclusion, children }: any) {
 	const ftse = indicesEUdata["%5EFTSE"][0].data
@@ -61,10 +61,10 @@ export default function EUIndicesChart({ indicesEUdata, earlySigns, eventDate, p
 
 					<ReferenceLine x={phaseConclusion} stroke="red" strokeWidth={1} />
 
-					<Line type="monotone" dataKey="FTSE" stroke={lineColor1} dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="FCHI" stroke={lineColor2} dot={false} isAnimationActive={false} connectNulls />
-					<Line type="monotone" dataKey="GDAXI" stroke={lineColor3} dot={false} isAnimationActive={false} connectNulls />
-					{/* <Line type="monotone" dataKey="N100" stroke={lineColor1} dot={false} isAnimationActive={false} connectNulls /> */}
+					<Line type="monotone" dataKey="FTSE" stroke={blue} dot={false} isAnimationActive={false} connectNulls />
+					<Line type="monotone" dataKey="FCHI" stroke={green} dot={false} isAnimationActive={false} connectNulls />
+					<Line type="monotone" dataKey="GDAXI" stroke={light_blue} dot={false} isAnimationActive={false} connectNulls />
+					{/* <Line type="monotone" dataKey="N100" stroke={blue} dot={false} isAnimationActive={false} connectNulls /> */}
 				</LineChart>
 			</ResponsiveContainer>
 		</>

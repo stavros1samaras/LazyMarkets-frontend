@@ -3,6 +3,7 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, Re
 import ChartRangeControl from "./ChartRangeControl"
 import { energyCommodities } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
+import { blue, green, light_blue } from "~/styles/tailwindClasses"
 
 export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDate, phaseConclusion, children }: any) {
 	const cl = energydata["CL%3DF"][0].data
@@ -47,7 +48,7 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 					) : (
 						<>
 							<YAxis width={29} yAxisId="left" orientation="left" stroke="#8884d8" />
-							<YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+							<YAxis yAxisId="right" orientation="right" stroke={green} />
 						</>
 					)}
 
@@ -60,9 +61,9 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 
 					{percentagePressed ? (
 						<>
-							<Line type="monotone" dataKey="WTI" dot={false} stroke="#8884d8" isAnimationActive={false} connectNulls />
-							<Line type="monotone" dataKey="NG" dot={false} stroke="#82ca9d" isAnimationActive={false} connectNulls />
-							<Line type="monotone" dataKey="Brent" dot={false} stroke="#ff7300" isAnimationActive={false} connectNulls />
+							<Line type="monotone" dataKey="WTI" stroke={blue} dot={false} isAnimationActive={false} connectNulls />
+							<Line type="monotone" dataKey="NG" stroke={green} dot={false} isAnimationActive={false} connectNulls />
+							<Line type="monotone" dataKey="Brent" stroke={light_blue} dot={false} isAnimationActive={false} connectNulls />
 						</>
 					) : (
 						<>
@@ -71,7 +72,7 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 								type="monotone"
 								dataKey="WTI"
 								dot={false}
-								stroke="#8884d8"
+								stroke={blue}
 								isAnimationActive={false}
 								connectNulls
 							/>
@@ -81,7 +82,7 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 								type="monotone"
 								dataKey="NG"
 								dot={false}
-								stroke="#82ca9d"
+								stroke={green}
 								isAnimationActive={false}
 								connectNulls
 							/>
@@ -91,7 +92,7 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 								type="monotone"
 								dataKey="Brent"
 								dot={false}
-								stroke="#ff7300"
+								stroke={light_blue}
 								isAnimationActive={false}
 								connectNulls
 							/>

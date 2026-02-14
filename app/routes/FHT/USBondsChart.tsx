@@ -55,12 +55,12 @@ export default function USBondsChart({ bondsUSdata, eventDate, children }: any) 
 					<XAxis dataKey="date" ticks={xTicks} />
 					{percentagePressed ? (
 						<YAxis
-							width={50}
+							width={"auto"}
 							domain={[(dataMin: number) => dataMin * 0.9, (dataMax: number) => dataMax * 1.1]}
 							tickFormatter={(value) => value.toFixed(2)}
 						/>
 					) : (
-						<YAxis width={50} domain={["dataMin", "dataMax"]} />
+						<YAxis width={"auto"} domain={["dataMin", "dataMax"]} />
 					)}
 					<Tooltip />
 					<Legend />

@@ -51,14 +51,14 @@ export default function EnergyCommoditiesChart({ energydata, earlySigns, eventDa
 					<XAxis dataKey="date" ticks={xTicks} />
 					{percentagePressed ? (
 						<YAxis
-							width={50}
+							width={"auto"}
 							domain={[(dataMin: number) => dataMin * 0.9, (dataMax: number) => dataMax * 1.1]}
 							tickFormatter={(value) => value.toFixed(2)}
 						/>
 					) : (
 						<>
-							<YAxis width={29} yAxisId="left" orientation="left" stroke="#8884d8" />
-							<YAxis yAxisId="right" orientation="right" stroke={green} />
+							<YAxis width={"auto"} yAxisId="left" orientation="left" stroke="#8884d8" />
+							<YAxis width={"auto"} yAxisId="right" orientation="right" stroke={green} />
 						</>
 					)}
 

@@ -46,13 +46,13 @@ export default function CurrenciesCommoditiesUSChart({ forexData, earlySigns, ev
 
 					{percentagePressed ? (
 						<YAxis
-							width={50}
+							width={"auto"}
 							domain={[(dataMin: number) => dataMin * 0.9, (dataMax: number) => dataMax * 1.1]}
 							tickFormatter={(value) => value.toFixed(2)}
 						/>
 					) : (
 						<>
-							<YAxis />
+							<YAxis width={"auto"} />
 						</>
 					)}
 

@@ -5,7 +5,7 @@ import { commonLineProps, preciousMetals } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
 import { brown, gray, taupe, yellow } from "~/styles/tailwindClasses"
 
-export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate, phaseConclusion, children }: any) {
+export default function PreciousMetalsChart({ metalsData, eventDate, children }: any) {
 	const gold = metalsData["GC%3DF"][0].data
 	const silver = metalsData["SI%3DF"][0].data
 	const copper = metalsData["HG%3DF"][0].data
@@ -52,14 +52,14 @@ export default function PreciousMetalsChart({ metalsData, earlySigns, eventDate,
 
 					{percentagePressed ? (
 						<YAxis
-							width={50}
+							width={"auto"}
 							domain={[(dataMin: number) => dataMin * 0.9, (dataMax: number) => dataMax * 1.1]}
 							tickFormatter={(value) => value.toFixed(2)}
 						/>
 					) : (
 						<>
-							<YAxis yAxisId="left" orientation="left" stroke={yellow} />
-							<YAxis yAxisId="right" orientation="right" stroke={taupe} />
+							<YAxis width={"auto"} yAxisId="left" orientation="left" stroke={yellow} />
+							<YAxis width={"auto"} yAxisId="right" orientation="right" stroke={taupe} />
 						</>
 					)}
 

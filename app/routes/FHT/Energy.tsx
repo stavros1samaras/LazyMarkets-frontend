@@ -3,7 +3,7 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, Re
 import ChartRangeControl from "./ChartRangeControl"
 import { commonLineProps, ENERGY } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
-import { blue, green, light_blue } from "~/styles/tailwindClasses"
+import { blue, green, light_blue, purple } from "~/styles/tailwindClasses"
 
 export default function Energy({ energydata, eventDate, children }: any) {
 	const cl = energydata["CL%3DF"][0].data
@@ -57,7 +57,7 @@ export default function Energy({ energydata, eventDate, children }: any) {
 						/>
 					) : (
 						<>
-							<YAxis width={"auto"} yAxisId="left" orientation="left" stroke="#8884d8" />
+							<YAxis width={"auto"} yAxisId="left" orientation="left" stroke={purple} />
 							<YAxis width={"auto"} yAxisId="right" orientation="right" stroke={green} />
 						</>
 					)}

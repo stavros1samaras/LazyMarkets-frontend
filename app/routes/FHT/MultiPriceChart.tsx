@@ -1,37 +1,43 @@
 import { useState } from "react"
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
-import ChartRangeControl from "./ChartRangeControl"
-import { blue, green, light_blue } from "~/styles/tailwindClasses"
+import { ResponsiveContainer, LineChart, XAxis, YAxis, Tooltip, Legend, ReferenceLine, Line } from "recharts"
+import { assetColor, commonLineProps } from "~/constants/fht"
+import ChartRangeControl from "~/routes/FHT/ChartRangeControl"
 import { sortByDate } from "~/utilities/dates"
-import { commonLineProps, INDICES_US, INDICES_US_ENC, INDICES_US_LOWER } from "~/constants/fht"
 
-export default function IndicesUS({ indicesUSdata, eventDate, children }: any) {
+export default function MultiPriceChart({
+	serverData,
+	assetsUpper,
+	assetsLower,
+	assetsEnc,
+	eventDate,
+	specialProps,
+	children,
+}: any) {
 	// Raw data
 	const rawData: any = {}
-	INDICES_US_LOWER.forEach((indice: any, index) => {
-		const encIndex = INDICES_US_ENC[index]
-		rawData[indice] = indicesUSdata[encIndex][0].data
+	assetsLower.forEach((indice: any, index: string | number) => {
+		const encIndex = assetsEnc[index]
+		rawData[indice] = serverData[encIndex][0].data
 	})
+
+	console.log(rawData)
 	// Chart data
-	const base = rawData.gspc
+
+	const base = rawData[Object.keys(rawData)[0]]
 	let chartData: any = []
 	base.forEach((data: any, generalIndex: number) => {
 		const tempData: any = {}
 		tempData.date = data.date
-		INDICES_US.forEach((indice: any, index) => {
-			const indexLower = INDICES_US_LOWER[index]
+		assetsUpper.forEach((indice: any, index: string | number) => {
+			const indexLower = assetsLower[index]
 			tempData[indice] = rawData[indexLower][generalIndex].close
 		})
 		chartData.push(tempData)
 	})
-	chartData = sortByDate(chartData, INDICES_US, eventDate)
+	chartData = sortByDate(chartData, assetsUpper, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)
-
-	const DJILineProps = { dataKey: "DJI", stroke: blue } as const
-	const IXICLineProps = { dataKey: "IXIC", stroke: light_blue } as const
-	const GSPCLineProps = { dataKey: "GSPC", stroke: green } as const
 
 	const xTicks = [
 		currentChartData[0]?.date,
@@ -62,16 +68,16 @@ export default function IndicesUS({ indicesUSdata, eventDate, children }: any) {
 							tickFormatter={(value) => value.toFixed(2)}
 						/>
 					) : (
-						<YAxis width={"auto"} />
+						<YAxis width={"auto"} {...specialProps?.yAxis} />
 					)}
 					<Tooltip />
 					<Legend />
 
 					<ReferenceLine x={eventDate} stroke="red" strokeWidth={1} />
-
-					<Line {...commonLineProps} {...DJILineProps} />
-					<Line {...commonLineProps} {...IXICLineProps} />
-					<Line {...commonLineProps} {...GSPCLineProps} />
+					{assetsUpper.map((asset: any) => {
+						const color = assetColor[asset]
+						return <Line {...commonLineProps} dataKey={asset} stroke={color} />
+					})}
 				</LineChart>
 			</ResponsiveContainer>
 		</>

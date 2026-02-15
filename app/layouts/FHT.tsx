@@ -6,13 +6,22 @@ import Main from "~/components/Main"
 import MainContent from "~/components/MainContent"
 import MobileEventSelector from "~/components/MobileEventSelector"
 import Text from "~/components/Text"
+import {
+	BONDS_US,
+	BONDS_US_ENC,
+	BONDS_US_LOWER,
+	INDICES_EU,
+	INDICES_EU_ENC,
+	INDICES_EU_LOWER,
+	INDICES_US,
+	INDICES_US_ENC,
+	INDICES_US_LOWER,
+} from "~/constants/fht"
 import { chartDataModule } from "~/modules/.server/fht"
 import Currencies from "~/routes/FHT/Currencies"
 import Energy from "~/routes/FHT/Energy"
-import EUIndices from "~/routes/FHT/EUIndices"
-import IndicesUS from "~/routes/FHT/IndicesUS"
 import Metals from "~/routes/FHT/Metals"
-import USBonds from "~/routes/FHT/USBonds"
+import MultiPriceChart from "~/routes/FHT/MultiPriceChart"
 import { titleStyle } from "~/styles/tailwindClasses"
 import { getDescriptionFromEvent, getTitleFromEvent } from "~/utilities/event"
 
@@ -54,6 +63,44 @@ export default function FHT({ loaderData }: Route.ComponentProps) {
 	const metalsdata = loaderData.metals
 	const currenciesUS = loaderData.currenciesUS
 
+	const fhtConfig = [
+		{
+			title: "US Indices",
+			props: {
+				serverData: { ...indicesUSdata },
+				eventDate: eventDate,
+				assetsUpper: INDICES_US,
+				assetsLower: INDICES_US_LOWER,
+				assetsEnc: INDICES_US_ENC,
+			},
+		},
+		{
+			title: "EU Indices",
+			props: {
+				serverData: { ...indicesEUdata },
+				eventDate: eventDate,
+				assetsUpper: INDICES_EU,
+				assetsLower: INDICES_EU_LOWER,
+				assetsEnc: INDICES_EU_ENC,
+			},
+		},
+		{
+			title: "US Bonds",
+			props: {
+				serverData: { ...bondsUSdata },
+				eventDate: eventDate,
+				assetsUpper: BONDS_US,
+				assetsLower: BONDS_US_LOWER,
+				assetsEnc: BONDS_US_ENC,
+				specialProps: {
+					yAxis: {
+						domain: ["dataMin", "dataMax"],
+					},
+				},
+			},
+		},
+	]
+
 	return (
 		<div key={eventCode} className="flex w-full h-full">
 			<DesktopEventSidebar type="events" />
@@ -68,27 +115,18 @@ export default function FHT({ loaderData }: Route.ComponentProps) {
 					<p>{description}</p>
 				</CardContainer>
 				<MainContent>
-					<CardContainer className="w-auto">
-						<IndicesUS indicesUSdata={indicesUSdata} eventDate={eventDate}>
-							<Text as="h3" className={`${titleStyle}`}>
-								US Indices
-							</Text>
-						</IndicesUS>
-					</CardContainer>
-					<CardContainer>
-						<EUIndices indicesEUdata={indicesEUdata} eventDate={eventDate}>
-							<Text as="h3" className={`${titleStyle}`}>
-								EU Indices
-							</Text>
-						</EUIndices>
-					</CardContainer>
-					<CardContainer>
-						<USBonds bondsUSdata={bondsUSdata} eventDate={eventDate}>
-							<Text as="h3" className={`${titleStyle}`}>
-								US Bonds
-							</Text>
-						</USBonds>
-					</CardContainer>
+					{fhtConfig.map((config) => {
+						return (
+							<CardContainer>
+								<MultiPriceChart {...config.props}>
+									<Text as="h3" className={`${titleStyle}`}>
+										{config.title}
+									</Text>
+								</MultiPriceChart>
+							</CardContainer>
+						)
+					})}
+
 					<CardContainer>
 						<Energy energydata={energydata} eventDate={eventDate}>
 							<Text as="h3" className={`${titleStyle}`}>

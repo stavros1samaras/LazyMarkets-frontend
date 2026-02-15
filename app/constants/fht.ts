@@ -1,3 +1,5 @@
+import { blue, green, light_blue, LM_color } from "~/styles/tailwindClasses"
+
 export const INDICES_US: string[] = ["GSPC", "DJI", "IXIC"]
 export const INDICES_EU: string[] = ["FTSE", "FCHI", "GDAXI"]
 export const BONDS_US: string[] = ["IRX", "FVX", "TNX", "TYX"]
@@ -20,6 +22,19 @@ export const METALS_ENC: string[] = ["GC%3DF", "SI%3DF", "HG%3DF"]
 export const FOREX_ENC: string[] = ["EUR%3DX", "RUB%3DX", "CNY%3DX"]
 
 export const commonLineProps = { type: "monotone", dot: false, isAnimationActive: false, connectNulls: true } as const
+
+export const assetColor: Record<string, string> = {
+	GSPC: green,
+	DJI: blue,
+	IXIC: light_blue,
+	FTSE: blue,
+	FCHI: green,
+	GDAXI: light_blue,
+	IRX: blue,
+	FVX: light_blue,
+	TNX: green,
+	TYX: LM_color,
+}
 
 export const baseDaysMap: Record<string, number> = {
 	"1w": 3,

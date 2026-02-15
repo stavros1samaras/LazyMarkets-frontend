@@ -8,9 +8,7 @@ export type FHT_params = {
 }
 
 export type FHT_data = {
-	earlySigns: any
 	date: any
-	phaseConclusion: any
 	indicesUS: any
 	indicesEU: any
 	bondsUS: any

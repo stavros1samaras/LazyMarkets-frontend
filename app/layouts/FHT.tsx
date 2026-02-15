@@ -46,9 +46,7 @@ export default function FHT({ loaderData }: Route.ComponentProps) {
 	const title = getTitleFromEvent(eventCode as string)
 	const description = getDescriptionFromEvent(eventCode as string)
 
-	const earlySigns = loaderData.earlySigns
 	const eventDate = loaderData.date
-	const phaseConclusion = loaderData.phaseConclusion
 	const indicesUSdata = loaderData.indicesUS
 	const indicesEUdata = loaderData.indicesEU
 	const bondsUSdata = loaderData.bondsUS

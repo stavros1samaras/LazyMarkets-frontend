@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { commonLineProps, energyCommodities } from "~/constants/fht"
+import { commonLineProps, ENERGY } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
 import { blue, green, light_blue } from "~/styles/tailwindClasses"
 
@@ -19,7 +19,7 @@ export default function Energy({ energydata, eventDate, children }: any) {
 		Brent: bz[i].close,
 	}))
 
-	chartData = sortByDate(chartData, energyCommodities, eventDate)
+	chartData = sortByDate(chartData, ENERGY, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)

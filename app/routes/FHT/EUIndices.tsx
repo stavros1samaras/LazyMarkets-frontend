@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { commonLineProps, indicesEU } from "~/constants/fht"
+import { commonLineProps, INDICES_EU } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
 import { blue, green, light_blue, LM_color } from "~/styles/tailwindClasses"
 
@@ -21,7 +21,7 @@ export default function EUIndices({ indicesEUdata, eventDate, children }: any) {
 		N100: n100[i].close,
 	}))
 
-	chartData = sortByDate(chartData, indicesEU, eventDate)
+	chartData = sortByDate(chartData, INDICES_EU, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)

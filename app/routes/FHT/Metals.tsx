@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine, ReferenceArea } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { commonLineProps, preciousMetals } from "~/constants/fht"
+import { commonLineProps, METALS } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
 import { brown, gray, taupe, yellow } from "~/styles/tailwindClasses"
 
@@ -19,7 +19,7 @@ export default function Metals({ metalsData, eventDate, children }: any) {
 		Copper: copper[i].close,
 	}))
 
-	chartData = sortByDate(chartData, preciousMetals, eventDate)
+	chartData = sortByDate(chartData, METALS, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)

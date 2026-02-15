@@ -3,23 +3,28 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, Re
 import ChartRangeControl from "./ChartRangeControl"
 import { blue, green, light_blue } from "~/styles/tailwindClasses"
 import { sortByDate } from "~/utilities/dates"
-import { commonLineProps, indicesUS } from "~/constants/fht"
+import { commonLineProps, INDICES_US, INDICES_US_ENC, INDICES_US_LOWER } from "~/constants/fht"
 
 export default function IndicesUS({ indicesUSdata, eventDate, children }: any) {
-	const gspc = indicesUSdata["%5EGSPC"][0].data
-	const dji = indicesUSdata["%5EDJI"][0].data
-	const ixic = indicesUSdata["%5EIXIC"][0].data
-
-	const baseSeries = gspc
-
-	let chartData = baseSeries.map((point: any, i: number) => ({
-		date: point.date,
-		GSPC: gspc[i].close,
-		DJI: dji[i].close,
-		IXIC: ixic[i].close,
-	}))
-
-	chartData = sortByDate(chartData, indicesUS, eventDate)
+	// Raw data
+	const rawData: any = {}
+	INDICES_US_LOWER.forEach((indice: any, index) => {
+		const encIndex = INDICES_US_ENC[index]
+		rawData[indice] = indicesUSdata[encIndex][0].data
+	})
+	// Chart data
+	const base = rawData.gspc
+	let chartData: any = []
+	base.forEach((data: any, generalIndex: number) => {
+		const tempData: any = {}
+		tempData.date = data.date
+		INDICES_US.forEach((indice: any, index) => {
+			const indexLower = INDICES_US_LOWER[index]
+			tempData[indice] = rawData[indexLower][generalIndex].close
+		})
+		chartData.push(tempData)
+	})
+	chartData = sortByDate(chartData, INDICES_US, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)

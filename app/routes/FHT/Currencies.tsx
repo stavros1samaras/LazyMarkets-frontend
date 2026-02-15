@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { commonLineProps, forexCurrencies } from "~/constants/fht"
+import { commonLineProps, FOREX } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
 import { blue } from "~/styles/tailwindClasses"
 
@@ -15,7 +15,7 @@ export default function Currencies({ forexData, eventDate, children }: any) {
 		EUR: eur[i].close,
 	}))
 
-	chartData = sortByDate(chartData, forexCurrencies, eventDate)
+	chartData = sortByDate(chartData, FOREX, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)

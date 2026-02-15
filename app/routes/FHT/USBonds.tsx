@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceLine } from "recharts"
 import ChartRangeControl from "./ChartRangeControl"
-import { bondsUS, commonLineProps } from "~/constants/fht"
+import { BONDS_US, commonLineProps } from "~/constants/fht"
 import { sortByDate } from "~/utilities/dates"
 import { blue, green, light_blue, LM_color } from "~/styles/tailwindClasses"
 
@@ -21,7 +21,7 @@ export default function USBonds({ bondsUSdata, eventDate, children }: any) {
 		TYX: tyx[i].close,
 	}))
 
-	chartData = sortByDate(chartData, bondsUS, eventDate)
+	chartData = sortByDate(chartData, BONDS_US, eventDate)
 
 	const [currentChartData, setcurrentChartData] = useState(chartData)
 	const [percentagePressed, tooglePercentage] = useState<boolean>(false)

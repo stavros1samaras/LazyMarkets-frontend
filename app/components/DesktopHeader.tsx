@@ -55,6 +55,17 @@ export default function DeskhrefpHeader() {
         >
           <Text>Contact</Text>
         </Link>
+        <Link
+          className="hidden sm:block"
+          href={
+            process.env.NODE_ENV === "production"
+              ? "/se/financial-hishrefry-timeline/TrmpTrrffShck"
+              : "/countries"
+          }
+          data-testid="contact"
+        >
+          <Text>Countries</Text>
+        </Link>
       </MainNavigationMenu>
     </>
   );

@@ -8,7 +8,7 @@ export default function SidebarEvent({ code, name, className = "" }: any) {
 
   return (
     <Link
-      href={`/se/financial-history-timeline/${code}`}
+      href={`/countries/${code}`}
       className={`flex items-center w-50 ${className}`}
       onClick={() => setLoading(true)}
     >

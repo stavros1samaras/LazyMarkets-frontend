@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { type ReactNode } from "react"
 
 export function CardContainer({ children, className, withSection = false }: any) {

@@ -1,0 +1,58 @@
+/* ==================================================
+   Mobile & Cross-Browser Compatibility Kit
+================================================== */
+
+/* --------------------------------------------------
+   Mobile / Touch Scroll Fix
+-------------------------------------------------- */
+
+.touch-scroll {
+	-webkit-overflow-scrolling: touch;
+	overscroll-behavior: contain;
+}
+
+/* --------------------------------------------------
+   Desktop / Scrollbar UI
+-------------------------------------------------- */
+
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
+
+.scrollbar-hide {
+	scrollbar-width: none;
+}
+
+/* --------------------------------------------------
+   Content Height Fix (vh / svh / dvh)
+-------------------------------------------------- */
+
+.content-height {
+	height: calc(100vh - 6.25rem);
+}
+
+@supports (height: 100svh) {
+	.content-height {
+		height: calc(100svh - 6.25rem);
+	}
+}
+
+/* --------------------------------------------------
+   Remove Tap Highlight (Mobile Chrome / Safari)
+-------------------------------------------------- */
+
+.no-tap-highlight {
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* --------------------------------------------------
+   Reduce Touch Delay (Old Mobile Browsers)
+-------------------------------------------------- */
+
+* {
+	touch-action: manipulation;
+}
+
+svg {
+	outline: none;
+}

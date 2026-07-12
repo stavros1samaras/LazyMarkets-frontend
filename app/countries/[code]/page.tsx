@@ -15,15 +15,15 @@ export default async function Countries({ params }: { params: Promise<{ code: st
 
 	const countryCode = (await params).code
 
-	const aiData = getGeminiResponse()
+	// const aiData = getGeminiResponse()
 
 	return (
 		<div className="flex w-full h-full ">
 			<DesktopEventSidebar type="events" />
 			<Main>
-				<CardContainer className="w-auto mb-4" withSection={true}>
+				{/* <CardContainer className="w-auto mb-4" withSection={true}>
 					<Ai aiData={aiData} />
-				</CardContainer>
+				</CardContainer> */}
 				<MainContent>
 					<Suspense fallback={<Loading />}>
 						<CountryDataChartsContainer countryCode={countryCode} />

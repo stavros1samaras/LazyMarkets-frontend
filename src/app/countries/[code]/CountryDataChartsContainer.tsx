@@ -1,4 +1,4 @@
-import { titleStyle } from "../../_styles/tailwindClasses"
+import { titleStyle } from "@/styles/tailwindClasses"
 import { getCoutries } from "../../_utils/server/data-fetchers/country"
 import { CardContainer } from "../../components/CardContainer"
 import HoverIcon from "../../components/HoverIcon"

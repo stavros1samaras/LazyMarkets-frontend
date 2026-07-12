@@ -15,7 +15,7 @@ export default async function Countries({ params }: { params: Promise<{ code: st
 
 	const countryCode = (await params).code
 
-	const aiData = getGeminiResponse(countryCode)
+	const aiData = getGeminiResponse()
 
 	return (
 		<div className="flex w-full h-full ">

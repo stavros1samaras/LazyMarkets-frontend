@@ -1,4 +1,4 @@
-import findCountryName from "../../_utils/country"
+import findCountryName from "../../../utils/country"
 // import { getGeminiResponse } from "../../_utils/server/data-fetchers/ai"
 // import Ai from "../../../components/Ai"
 // import { CardContainer } from "../../../components/CardContainer"

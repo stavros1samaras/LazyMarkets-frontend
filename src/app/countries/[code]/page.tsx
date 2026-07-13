@@ -1,4 +1,4 @@
-import DesktopEventSidebar from "../../../components/navigation/secondary/DesktopEventSidebar"
+import DesktopEventSidebar from "../../../_features/countries/navigation/DesktopEventSidebar"
 import Main, { MainContent } from "../../../components/elements/Main"
 import CountryDataChartsContainer from "./CountryDataChartsContainer/CountryChartsContainer"
 import Loading from "./loading"

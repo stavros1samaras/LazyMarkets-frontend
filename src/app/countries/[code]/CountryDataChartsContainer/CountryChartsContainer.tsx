@@ -2,9 +2,9 @@ import { titleStyle } from "@/styles/tailwindClasses"
 import { getCoutries } from "../../../../utils/server/data-fetchers/country"
 import { CardContainer } from "../../../../components/CardContainer"
 import HoverIcon from "../../../../components/HoverIcon"
-import SingleLineChart from "../../../../components/SingleLineChart"
 import Text from "../../../../components/elements/Text"
 import { Info } from "lucide-react"
+import SingleLineChart from "@/components/charts/SingleLineChart"
 
 export default async function CountryDataChartsContainer({ countryCode }: { countryCode: string }) {
 	const data = await getCoutries(countryCode)

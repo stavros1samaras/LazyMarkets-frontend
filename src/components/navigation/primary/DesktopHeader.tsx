@@ -1,6 +1,6 @@
 import MainNavigationMenu from "./NavigationMenu"
 import Link from "next/link"
-import Text from "./elements/Text"
+import Text from "../../elements/Text"
 
 export default function DeskhrefpHeader() {
 	return (

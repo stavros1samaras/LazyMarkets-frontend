@@ -1,7 +1,7 @@
 "use client"
 
-import { Button } from "../../components/ui/button"
-import { Spinner } from "../../components/ui/spinner"
+import { Button } from "../../src/components/ui/button"
+import { Spinner } from "../../src/components/ui/spinner"
 import { Sparkle } from "lucide-react"
 import { use, useState } from "react"
 

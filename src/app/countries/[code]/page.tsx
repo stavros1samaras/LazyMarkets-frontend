@@ -1,18 +1,11 @@
-import findCountryName from "../../../utils/country"
-// import { getGeminiResponse } from "../../_utils/server/data-fetchers/ai"
-// import Ai from "../../../components/Ai"
-// import { CardContainer } from "../../../components/CardContainer"
-
 import DesktopEventSidebar from "../../../components/DesktopEventSidebar"
 import Main from "../../../components/Main"
 import MainContent from "../../../components/MainContent"
-import CountryDataChartsContainer from "./CountryDataChartsContainer"
+import CountryDataChartsContainer from "./CountryDataChartsContainer/CountryChartsContainer"
 import Loading from "./loading"
 import { Suspense } from "react"
 
 export default async function Countries({ params }: { params: Promise<{ code: string }> }) {
-	// const countryName = findCountryName((await params).code)
-
 	const countryCode = (await params).code
 
 	// const aiData = getGeminiResponse()

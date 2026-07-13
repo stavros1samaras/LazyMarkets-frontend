@@ -3,7 +3,7 @@ import { getCoutries } from "../../../../utils/server/data-fetchers/country"
 import { CardContainer } from "../../../../components/CardContainer"
 import HoverIcon from "../../../../components/HoverIcon"
 import SingleLineChart from "../../../../components/SingleLineChart"
-import Text from "../../../../components/Text"
+import Text from "../../../../components/elements/Text"
 import { Info } from "lucide-react"
 
 export default async function CountryDataChartsContainer({ countryCode }: { countryCode: string }) {

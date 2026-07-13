@@ -1,5 +1,5 @@
 import DesktopEventSidebar from "../../../components/DesktopEventSidebar"
-import Main from "../../../components/Main"
+import Main from "../../../components/elements/Main"
 import MainContent from "../../../components/MainContent"
 import CountryDataChartsContainer from "./CountryDataChartsContainer/CountryChartsContainer"
 import Loading from "./loading"

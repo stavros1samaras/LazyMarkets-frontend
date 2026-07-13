@@ -1,4 +1,4 @@
-import DesktopEventSidebar from "../../../_features/countries/navigation/DesktopEventSidebar"
+import DesktopSidebar from "../../../_features/countries/navigation/DesktopSidebar"
 import Main, { MainContent } from "../../../components/elements/Main"
 import CountryDataChartsContainer from "../../../_features/countries/CountryDataChartsContainer/CountryChartsContainer"
 import Loading from "./loading"
@@ -9,7 +9,7 @@ export default async function Countries({ params }: { params: Promise<{ code: st
 
 	return (
 		<div className="flex w-full h-full ">
-			<DesktopEventSidebar type="events" />
+			<DesktopSidebar />
 			<Main>
 				<MainContent>
 					<Suspense fallback={<Loading />}>

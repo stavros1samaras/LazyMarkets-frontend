@@ -4,7 +4,7 @@ import { COUNTRIES } from "../../../constants/countries"
 import React from "react"
 import SideScrollArea from "@/_features/countries/navigation/SideScrollArea"
 
-export default function DesktopEventSidebar({ type = "countries" }: any) {
+export default function DesktopSidebar() {
 	return (
 		<aside>
 			<SideScrollArea>

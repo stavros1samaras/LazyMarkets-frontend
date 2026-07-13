@@ -1,4 +1,4 @@
-import SidebarCountry from "./SidebarCountry"
+import SidebarItem from "./SidebarItem"
 import { Separator } from "../../../components/ui/separator"
 import { COUNTRIES } from "../../../constants/countries"
 import React from "react"
@@ -10,7 +10,7 @@ export default function DesktopSidebar() {
 			<SideScrollArea>
 				{COUNTRIES.map((asset, index) => (
 					<React.Fragment key={index}>
-						<SidebarCountry code={asset.code} name={asset.name} />
+						<SidebarItem code={asset.code} name={asset.name} />
 						<Separator />
 					</React.Fragment>
 				))}

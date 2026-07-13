@@ -3,7 +3,7 @@ import { Spinner } from "../../../components/ui/spinner"
 import Link from "next/link"
 import { useState } from "react"
 
-export default function SidebarEvent({ code, name, className = "" }: any) {
+export default function SidebarItem({ code, name, className = "" }: any) {
 	const [loading, setLoading] = useState(false)
 
 	return (

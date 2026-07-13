@@ -1,6 +1,5 @@
 import DesktopEventSidebar from "../../../components/DesktopEventSidebar"
-import Main from "../../../components/elements/Main"
-import MainContent from "../../../components/MainContent"
+import Main, { MainContent } from "../../../components/elements/Main"
 import CountryDataChartsContainer from "./CountryDataChartsContainer/CountryChartsContainer"
 import Loading from "./loading"
 import { Suspense } from "react"

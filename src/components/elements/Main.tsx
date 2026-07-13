@@ -13,3 +13,9 @@ export default function Main({ children }: any) {
 		</main>
 	)
 }
+
+import type { ReactNode } from "react"
+
+export function MainContent({ children }: { children: ReactNode }) {
+	return <section className="grid grid-cols-1 xl:grid-cols-2 gap-4">{children}</section>
+}

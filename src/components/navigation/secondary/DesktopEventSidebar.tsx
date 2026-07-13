@@ -1,8 +1,8 @@
 import SidebarCountry from "./SidebarCountry"
-import { Separator } from "../ui/separator"
-import { COUNTRIES } from "../../constants/countries"
+import { Separator } from "../../ui/separator"
+import { COUNTRIES } from "../../../constants/countries"
 import React from "react"
-import SideScrollArea from "@/components/sidebar/SideScrollArea"
+import SideScrollArea from "@/components/navigation/secondary/SideScrollArea"
 
 export default function DesktopEventSidebar({ type = "countries" }: any) {
 	return (

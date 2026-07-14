@@ -7,14 +7,13 @@ import { Info } from "lucide-react"
 import SingleLineChart from "@/components/charts/SingleLineChart"
 import { Badge } from "@/components/ui/badge"
 import { CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
-import { RenderConfig } from "@/_features/countries/types"
+import { ChartMetadata, RenderDataConfig } from "@/_features/countries/types"
 
 export default async function CountryDataChartsContainer({ countryCode }: { countryCode: string }) {
 	const data = await getCoutries(countryCode)
-
 	const formattedData = data.data
 
-	const renderConfig: RenderConfig = CHARTSCONFIG.map((info, index) => ({
+	const renderConfig: RenderDataConfig[] = CHARTSCONFIG.map((info: ChartMetadata, index: number) => ({
 		...info,
 		chartData: formattedData[CHART_DATA[index]],
 	}))
@@ -26,7 +25,6 @@ export default async function CountryDataChartsContainer({ countryCode }: { coun
 			chartData: item.chartData?.slice().reverse(),
 		}))
 
-	console.log(renderConfig)
 	return (
 		<>
 			{filteredConfig.map((config, index) => {
@@ -42,7 +40,6 @@ export default async function CountryDataChartsContainer({ countryCode }: { coun
 									<Info className="size-6" />
 								</HoverIcon>
 							</span>
-
 							<Text className={`${titleStyle}`}>
 								{config.chartData[config.chartData.length - 1].value.toLocaleString("en-US", {
 									notation: "compact",

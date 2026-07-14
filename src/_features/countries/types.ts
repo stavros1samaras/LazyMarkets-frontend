@@ -5,18 +5,15 @@ export type Countries = typeof COUNTRIES
 export type CountryCode = (typeof COUNTRIES)[number]["code"]
 export type CountryName = (typeof COUNTRIES)[number]["name"]
 
-export type ChartInfo = {
+export interface ChartMetadata {
 	chartTitle: string
 	description: string
-	valueType: string
-}[]
+	valueType: "absolute" | "percentage"
+}
 
-export type RenderConfig = {
-	chartTitle: string
+export interface RenderDataConfig extends ChartMetadata {
 	chartData: ChartData
-	description: string
-	valueType: string
-}[]
+}
 
 export type ChartDataKeys = typeof CHART_DATA
 

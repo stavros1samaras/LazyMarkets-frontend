@@ -1,4 +1,6 @@
-import { ChartInfo } from "@/_features/countries/types"
+"server-only"
+
+import { ChartMetadata } from "@/_features/countries/types"
 
 export const COUNTRIES = [
 	{ code: "NO", name: "Norway" },
@@ -73,7 +75,7 @@ export const CHART_DATA = [
 	"forestAreaPercent",
 ] as const
 
-export const CHARTSCONFIG: ChartInfo = [
+export const CHARTSCONFIG: ChartMetadata[] = [
 	{
 		chartTitle: "GDP",
 		description: "Total value of goods and services produced by a country.",

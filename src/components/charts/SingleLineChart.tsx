@@ -3,6 +3,7 @@
 import { ResponsiveContainer, XAxis, Tooltip, Area, AreaChart } from "recharts"
 
 export default function SingleLineChart({ children, data }: any) {
+	console.log(children)
 	return (
 		<>
 			<div className="flex items-center justify-between pb-3 ">{children}</div>
@@ -16,8 +17,16 @@ export default function SingleLineChart({ children, data }: any) {
 						</linearGradient>
 					</defs>
 
-					<XAxis dataKey="year" />
-					<Tooltip />
+					<XAxis dataKey="year" interval="preserveStartEnd" minTickGap={25} />
+
+					<Tooltip
+						formatter={(value) =>
+							Number(value).toLocaleString("en-US", {
+								notation: "compact",
+								compactDisplay: "short",
+							})
+						}
+					/>
 					<Area
 						type="monotone"
 						dataKey="value"

@@ -1,6 +1,6 @@
 import SidebarItem from "./SidebarItem"
 import { Separator } from "../../../../components/ui/separator"
-import { COUNTRIES } from "../../../../constants/countries"
+import { COUNTRIES } from "../../config"
 import React from "react"
 import SideScrollArea from "@/_features/countries/sections/navigation/SideScrollArea"
 

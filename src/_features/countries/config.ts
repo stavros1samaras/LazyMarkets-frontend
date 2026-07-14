@@ -1,3 +1,5 @@
+import { ChartInfo } from "@/_features/countries/types"
+
 export const COUNTRIES = [
 	{ code: "NO", name: "Norway" },
 	{ code: "SE", name: "Sweden" },
@@ -37,3 +39,189 @@ export const COUNTRIES = [
 	{ code: "SA", name: "Saudi Arabia" },
 	{ code: "AE", name: "United Arab Emirates" },
 ] as const
+
+export const CHART_DATA = [
+	"gdp",
+	"gdpPerCapita",
+	"gdpGrowthRate",
+	"gdpPerCapitaGrowth",
+	"gdpDeflator",
+	"gnp",
+	"consumption",
+	"grossCapitalFormation",
+	"tradePercentGDP",
+	"exports",
+	"exportsPercentGDP",
+	"imports",
+	"importsPercentGDP",
+	"debtPercentGDP",
+	"netNationalIncome",
+	"cpi",
+	"interestRate",
+	"unemploymentRate",
+	"agricultureEmploymentPercent",
+	"industryEmploymentPercent",
+	"servicesEmploymentPercent",
+	"primaryEnrollmentRate",
+	"population",
+	"lifeExpectancyRate",
+	"birthRate",
+	"fertilityRate",
+	"infantMortalityRate",
+	"healthSpendingPercentGDP",
+	"energyUsePerCapita",
+	"forestAreaPercent",
+] as const
+
+export const CHARTSCONFIG: ChartInfo = [
+	{
+		chartTitle: "GDP",
+		description: "Total value of goods and services produced by a country.",
+		valueType: "absolute",
+	},
+	{
+		chartTitle: "GDP Per Capita",
+		description: "Average economic output per person.",
+		valueType: "absolute",
+	},
+	{
+		chartTitle: "GDP Growth Rate",
+		description: "Percentage increase of GDP from the previous year.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "GDP Per Capita Growth",
+		description: "Growth rate of output per person.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "GDP Deflator",
+		description: "Measures change in prices of goods and services in GDP.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "GNP",
+		description: "Total income of a country's citizens, regardless of production location.",
+		valueType: "absolute",
+	},
+	{
+		chartTitle: "Consumption",
+		description: "Total household spending on goods and services.",
+		valueType: "absolute",
+	},
+	{
+		chartTitle: "Gross Capital Formation",
+		description: "Investment in equipment, infrastructure, and inventories.",
+		valueType: "absolute",
+	},
+	{
+		chartTitle: "Trade of GDP",
+		description: "Share of trade (imports + exports) in GDP.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Exports",
+		description: "Value of goods and services sold abroad.",
+		valueType: "absolute",
+	},
+	{
+		chartTitle: "Exports of GDP",
+		description: "Exports as a percentage of GDP.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Imports",
+		description: "Value of goods and services bought from abroad.",
+		valueType: "absolute",
+	},
+	{
+		chartTitle: "Imports of GDP",
+		description: "Imports as a percentage of GDP.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Debt of GDP",
+		description: "Total national debt as a share of GDP.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Net National Income",
+		description: "Total income of citizens after taxes and transfers.",
+		valueType: "absolute",
+	},
+	{
+		chartTitle: "CPI",
+		description: "Consumer Price Index, shows cost of living changes.",
+		valueType: "absolute",
+	},
+	{
+		chartTitle: "Interest Rate",
+		description: "Central bank’s main lending rate.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Unemployment Rate",
+		description: "Percentage of people without jobs in the workforce.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Agriculture Employment",
+		description: "Share of workforce in agriculture.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Industry Employment",
+		description: "Share of workforce in industry.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Services Employment",
+		description: "Share of workforce in services.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Primary Enrollment Rate",
+		description: "Percentage of children enrolled in primary school.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Population",
+		description: "Total number of people in the country.",
+		valueType: "absolute",
+	},
+	{
+		chartTitle: "Life Expectancy Rate",
+		description: "Average expected lifespan of the population.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Birth Rate",
+		description: "Number of births per 1,000 people.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Fertility Rate",
+		description: "Average number of children per woman.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Infant Mortality Rate",
+		description: "Deaths of infants under 1 year per 1,000 births.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Health Spending of GDP",
+		description: "Public and private health spending as a share of GDP.",
+		valueType: "percentage",
+	},
+	{
+		chartTitle: "Energy Use Per Capita",
+		description: "Average energy consumption per person.",
+		valueType: "absolute",
+	},
+	{
+		chartTitle: "Forest Area",
+		description: "Share of land area covered by forests.",
+		valueType: "percentage",
+	},
+]

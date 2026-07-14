@@ -1,5 +1,5 @@
 "use client"
-import { Spinner } from "../../../components/ui/spinner"
+import { Spinner } from "../../../../components/ui/spinner"
 import Link from "next/link"
 import { useState } from "react"
 

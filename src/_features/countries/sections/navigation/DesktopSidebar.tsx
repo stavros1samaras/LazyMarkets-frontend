@@ -1,8 +1,8 @@
 import SidebarItem from "./SidebarItem"
-import { Separator } from "../../../components/ui/separator"
-import { COUNTRIES } from "../../../constants/countries"
+import { Separator } from "../../../../components/ui/separator"
+import { COUNTRIES } from "../../../../constants/countries"
 import React from "react"
-import SideScrollArea from "@/_features/countries/navigation/SideScrollArea"
+import SideScrollArea from "@/_features/countries/sections/navigation/SideScrollArea"
 
 export default function DesktopSidebar() {
 	return (

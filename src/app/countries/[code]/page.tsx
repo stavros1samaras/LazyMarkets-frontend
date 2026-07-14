@@ -1,6 +1,6 @@
-import DesktopSidebar from "../../../_features/countries/navigation/DesktopSidebar"
+import DesktopSidebar from "../../../_features/countries/sections/navigation/DesktopSidebar"
 import Main, { MainContent } from "../../../components/elements/Main"
-import CountryDataChartsContainer from "../../../_features/countries/CountryDataChartsContainer/CountryChartsContainer"
+import CountryDataChartsContainer from "../../../_features/countries/sections/CountryDataChartsContainer/CountryChartsContainer"
 import Loading from "./loading"
 import { Suspense } from "react"
 

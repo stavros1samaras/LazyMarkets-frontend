@@ -4,13 +4,14 @@ import { HoverCardTrigger, HoverCardContent, HoverCard } from "./ui/hover-card"
 interface HoverIconProps {
 	children: React.ReactNode
 	description: string
+	className?: string
 }
 
-export default function HoverIcon({ children, description }: HoverIconProps) {
+export default function HoverIcon({ children, description, className }: HoverIconProps) {
 	return (
 		<HoverCard openDelay={10} closeDelay={100}>
 			<HoverCardTrigger asChild>
-				<Button size={"icon"} variant={"link"}>
+				<Button size={"icon"} variant={"link"} className={className}>
 					{children}
 				</Button>
 			</HoverCardTrigger>

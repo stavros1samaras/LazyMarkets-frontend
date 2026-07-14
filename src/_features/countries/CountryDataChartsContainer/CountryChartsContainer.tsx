@@ -5,6 +5,7 @@ import HoverIcon from "../../../components/HoverIcon"
 import Text from "../../../components/elements/Text"
 import { Info } from "lucide-react"
 import SingleLineChart from "@/components/charts/SingleLineChart"
+import { Badge } from "@/components/ui/badge"
 
 export default async function CountryDataChartsContainer({ countryCode }: { countryCode: string }) {
 	const data = await getCoutries(countryCode)
@@ -100,6 +101,7 @@ export default async function CountryDataChartsContainer({ countryCode }: { coun
 			chartTitle: "Net National Income",
 			chartData: formattedData.netNationalIncome,
 			description: "Total income of citizens after taxes and transfers.",
+			valueType: "absolute",
 		},
 		{
 			chartTitle: "CPI",
@@ -143,7 +145,12 @@ export default async function CountryDataChartsContainer({ countryCode }: { coun
 			description: "Percentage of children enrolled in primary school.",
 			valueType: "percentage",
 		},
-		{ chartTitle: "Population", chartData: formattedData.population, description: "Total number of people in the country." },
+		{
+			chartTitle: "Population",
+			chartData: formattedData.population,
+			description: "Total number of people in the country.",
+			valueType: "absolute",
+		},
 		{
 			chartTitle: "Life Expectancy Rate",
 			chartData: formattedData.lifeExpectancyRate,
@@ -201,14 +208,16 @@ export default async function CountryDataChartsContainer({ countryCode }: { coun
 				return (
 					<CardContainer key={index}>
 						<SingleLineChart data={config.chartData}>
-							<span className="flex">
-								<Text as="h3" className={`${titleStyle} self-center`}>
+							<span className="flex items-center">
+								<Text as="h3" className={`${titleStyle} self-center mr-2`}>
 									{config.chartTitle}
 								</Text>
+								{config.valueType == "percentage" ? <Badge>%</Badge> : <Badge>A</Badge>}
 								<HoverIcon description={config.description}>
-									<Info />
+									<Info className="size-6" />
 								</HoverIcon>
 							</span>
+
 							<Text className={`${titleStyle}`}>
 								{config.chartData[config.chartData.length - 1].value.toLocaleString("en-US", {
 									notation: "compact",

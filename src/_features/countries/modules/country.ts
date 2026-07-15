@@ -7,11 +7,7 @@ export async function getCountryData(code: any) {
 	const baseUrl: string = getEnvURL() as string
 	const url = `${baseUrl}/api/db/country/get-country-data/${code}`
 
-	const transaction: HTTP_TRANSACTION = await handleGet(url)
-
-	if (!transaction.success) {
-		throw new Error(`Request failed for  with status: ${transaction.response.status}`)
-	}
+	const transaction: HTTP_TRANSACTION = (await handleGet(url)) as HTTP_TRANSACTION
 
 	const data = await transaction.response.json()
 

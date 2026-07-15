@@ -1,5 +1,4 @@
 import { titleStyle } from "@/styles/tailwindClasses"
-import { getCoutries } from "../../../../utils/server/data-fetchers/country"
 import { CardContainer } from "../../../../components/CardContainer"
 import HoverIcon from "../../../../components/HoverIcon"
 import Text from "../../../../components/elements/Text"
@@ -8,14 +7,13 @@ import SingleLineChart from "@/components/charts/SingleLineChart"
 import { Badge } from "@/components/ui/badge"
 import { CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
 import { ChartMetadata, RenderDataConfig } from "@/_features/countries/types"
+import { getCountryData } from "@/utils/server/data-fetchers/country"
 
 export default async function CountryDataChartsContainer({ countryCode }: { countryCode: string }) {
-	const data = await getCoutries(countryCode)
-	const formattedData = data.data
-
+	const countryData = await getCountryData(countryCode)
 	const renderConfig: RenderDataConfig[] = CHARTSCONFIG.map((info: ChartMetadata, index: number) => ({
 		...info,
-		chartData: formattedData[CHART_DATA[index]],
+		chartData: countryData[CHART_DATA[index]],
 	}))
 
 	const filteredConfig = renderConfig

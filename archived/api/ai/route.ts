@@ -1,4 +1,4 @@
-import { getGeminiResponse } from "../../../src/utils/server/data-fetchers/ai"
+import { getGeminiResponse } from "../../ai"
 import "server-only"
 
 export async function GET() {

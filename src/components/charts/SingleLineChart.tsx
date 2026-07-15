@@ -3,7 +3,6 @@
 import { ResponsiveContainer, XAxis, Tooltip, Area, AreaChart } from "recharts"
 
 export default function SingleLineChart({ children, data }: any) {
-	console.log(children)
 	return (
 		<>
 			<div className="flex items-center justify-between pb-3 ">{children}</div>

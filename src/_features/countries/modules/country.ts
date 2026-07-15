@@ -1,4 +1,4 @@
-import "server-only"
+"use server"
 import { HTTP_TRANSACTION } from "@/types"
 import { getEnvURL } from "@/utils/environment"
 import { handleGet } from "@/utils/server/data-fetchers/fetch-handler"

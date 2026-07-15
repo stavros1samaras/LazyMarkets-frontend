@@ -7,7 +7,7 @@ import SingleLineChart from "@/components/charts/SingleLineChart"
 import { Badge } from "@/components/ui/badge"
 import { CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
 import { ChartMetadata, RenderDataConfig } from "@/_features/countries/types"
-import { getCountryData } from "@/utils/server/data-fetchers/country"
+import { getCountryData } from "@/_features/countries/modules/country"
 
 export default async function CountryDataChartsContainer({ countryCode }: { countryCode: string }) {
 	const countryData = await getCountryData(countryCode)

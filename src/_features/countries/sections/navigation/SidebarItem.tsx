@@ -2,12 +2,22 @@
 import { Spinner } from "../../../../components/ui/spinner"
 import Link from "next/link"
 import { useState } from "react"
+import Image from "next/image"
 
-export default function SidebarItem({ code, name, className = "" }: any) {
+type SidebarItemProps = {
+	code: string
+	name: string
+	className: string
+}
+
+export default function SidebarItem({ code, name, className = "" }: SidebarItemProps) {
 	const [loading, setLoading] = useState(false)
+
+	const flagCode = code.toLowerCase()
 
 	return (
 		<Link href={`/countries/${code}`} className={`flex items-center w-50 ${className}`} onClick={() => setLoading(true)}>
+			<Image src={`/images/flags/${flagCode}.svg`} alt="" width={15} height={15} />
 			{name}
 			{loading && <Spinner className="ml-2 h-4 w-4" />}
 		</Link>

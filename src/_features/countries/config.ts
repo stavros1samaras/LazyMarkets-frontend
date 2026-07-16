@@ -1,6 +1,6 @@
 "server-only"
 
-import { ChartMetadata } from "@/_features/countries/types"
+import { ChartMetadata, Countries } from "@/_features/countries/types"
 
 export const COUNTRIES = [
 	{ code: "NO", name: "Norway" },
@@ -40,7 +40,7 @@ export const COUNTRIES = [
 	{ code: "IL", name: "Israel" },
 	{ code: "SA", name: "Saudi Arabia" },
 	{ code: "AE", name: "United Arab Emirates" },
-] as const
+] as const satisfies Countries[]
 
 export const CHART_DATA = [
 	"gdp",

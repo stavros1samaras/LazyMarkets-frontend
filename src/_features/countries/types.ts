@@ -1,9 +1,13 @@
 import { CHART_DATA, COUNTRIES } from "@/_features/countries/config"
 
-export type Countries = typeof COUNTRIES
+export interface Countries {
+	name: string
+	code: string
+}
 
-export type CountryCode = (typeof COUNTRIES)[number]["code"]
-export type CountryName = (typeof COUNTRIES)[number]["name"]
+export type CountriesInfo = typeof COUNTRIES
+export type CountryCode = CountriesInfo[number]["code"]
+export type CountryName = CountriesInfo[number]["name"]
 
 export interface ChartMetadata {
 	chartTitle: string
@@ -12,12 +16,10 @@ export interface ChartMetadata {
 }
 
 export interface RenderDataConfig extends ChartMetadata {
-	chartData: ChartData
+	chartData: {
+		year: string
+		value: number
+	}[]
 }
 
 export type ChartDataKeys = typeof CHART_DATA
-
-export type ChartData = {
-	year: string
-	value: number
-}[]

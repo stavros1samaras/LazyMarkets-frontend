@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 "use client"
 
 import SidebarItem from "./SidebarItem"
@@ -11,12 +9,10 @@ import { Input } from "@/components/ui/input"
 import { Countries } from "@/_features/countries/types"
 
 export default function DesktopSidebar() {
-	// should change the type Countries to Countries[]
-	// type Countries will not be tuple
-	const [filteredCountries, setCountries] = useState<Countries>(COUNTRIES)
+	const [filteredCountries, setCountries] = useState<Countries[]>(COUNTRIES)
 
 	function filter(e: React.ChangeEvent<HTMLInputElement>) {
-		const countries = COUNTRIES.filter((country) => {
+		const countries: Countries[] = COUNTRIES.filter((country) => {
 			if (country.name.toLowerCase().includes(e.target.value.toLowerCase())) return country
 		})
 

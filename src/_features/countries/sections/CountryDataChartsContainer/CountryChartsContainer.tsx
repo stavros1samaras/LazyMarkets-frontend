@@ -11,6 +11,7 @@ import { getCountryData } from "@/_features/countries/modules/country"
 
 export default async function CountryDataChartsContainer({ countryCode }: { countryCode: string }) {
 	const countryData = await getCountryData(countryCode)
+
 	const renderConfig: RenderDataConfig[] = CHARTSCONFIG.map((info: ChartMetadata, index: number) => ({
 		...info,
 		chartData: countryData[CHART_DATA[index]],

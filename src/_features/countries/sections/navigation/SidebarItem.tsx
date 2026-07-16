@@ -7,7 +7,7 @@ import Image from "next/image"
 type SidebarItemProps = {
 	code: string
 	name: string
-	className: string
+	className?: string
 }
 
 export default function SidebarItem({ code, name, className = "" }: SidebarItemProps) {

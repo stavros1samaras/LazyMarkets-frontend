@@ -44,11 +44,7 @@ export default function DesktopHeader() {
 				>
 					<Text>Contact</Text>
 				</Link>
-				<Link
-					className="hidden sm:block"
-					href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/countries"}
-					data-testid="contact"
-				>
+				<Link className="hidden sm:block" href={"/countries/GR"} data-testid="contact">
 					<Text>Countries</Text>
 				</Link>
 			</MainNavigationMenu>

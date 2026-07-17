@@ -31,13 +31,17 @@ export default async function CountryDataChartsContainer({ countryCode }: { coun
 				return (
 					<CardContainer key={index}>
 						<SingleLineChart data={config.chartData}>
-							<Span>
-								<Text as="h3" className={`${titleStyle}  self-center mr-2`}>
+							<Span className="gap-2">
+								<Text as="h3" className={`${titleStyle}  leading-none `}>
 									{config.chartTitle}
 								</Text>
-								{config.valueType == "percentage" ? <Badge>%</Badge> : <Badge>A</Badge>}
-								<HoverIcon description={config.description} className="h-auto">
-									<Info className="size-6" />
+								{config.valueType == "percentage" ? (
+									<Badge className="h-3.5 translate-y-[1.59px]">%</Badge>
+								) : (
+									<Badge className="h-3.5 translate-y-[1.59px]">A</Badge>
+								)}
+								<HoverIcon description={config.description} className="h-5 translate-y-[1.59px] size-auto">
+									<Info className="size-5" />
 								</HoverIcon>
 							</Span>
 							<Text className={`${titleStyle}`}>

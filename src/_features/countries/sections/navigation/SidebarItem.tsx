@@ -21,7 +21,7 @@ export default function SidebarItem({ code, name, className = "" }: SidebarItemP
 			<Div>
 				<Image src={`/images/flags/${flagCode}.svg`} alt="" width={15} height={15} />
 				{name}
-				{loading && <Spinner className="ml-2 h-4 w-4" />}
+				{loading && <Spinner className="h-4 w-4" />}
 			</Div>
 		</Link>
 	)

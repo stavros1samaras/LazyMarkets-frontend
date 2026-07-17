@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
 import { ChartMetadata, RenderDataConfig } from "@/_features/countries/types"
 import { getCountryData } from "@/_features/countries/modules/country"
+import { Span } from "@/components/elements/Span"
 
 export default async function CountryDataChartsContainer({ countryCode }: { countryCode: string }) {
 	const countryData = await getCountryData(countryCode)
@@ -30,15 +31,15 @@ export default async function CountryDataChartsContainer({ countryCode }: { coun
 				return (
 					<CardContainer key={index}>
 						<SingleLineChart data={config.chartData}>
-							<span className="flex items-center">
-								<Text as="h3" className={`${titleStyle} self-center mr-2`}>
+							<Span>
+								<Text as="h3" className={`${titleStyle}  self-center mr-2`}>
 									{config.chartTitle}
 								</Text>
 								{config.valueType == "percentage" ? <Badge>%</Badge> : <Badge>A</Badge>}
-								<HoverIcon description={config.description}>
+								<HoverIcon description={config.description} className="h-auto">
 									<Info className="size-6" />
 								</HoverIcon>
-							</span>
+							</Span>
 							<Text className={`${titleStyle}`}>
 								{config.chartData[config.chartData.length - 1].value.toLocaleString("en-US", {
 									notation: "compact",

@@ -29,7 +29,7 @@ export default async function CountryDataChartsContainer({ countryCode }: { coun
 		<>
 			{filteredConfig.map((config, index) => {
 				return (
-					<CardContainer key={index}>
+					<CardContainer key={index} className="bg-component-background">
 						<SingleLineChart data={config.chartData}>
 							<Span className="gap-2">
 								<Text as="h3" className={`${titleStyle}  leading-none `}>

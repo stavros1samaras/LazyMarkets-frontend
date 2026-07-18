@@ -9,7 +9,7 @@ export default function Main({ children }: { children: ReactNode }) {
 
 	return (
 		<main
-			className={`flex flex-col w-full ${compatHeight} ${m} p-0 bg-[#dbd9d9] rounded-lg overflow-y-auto ${crossBrowserStyles} select-none`}
+			className={`flex flex-col w-full ${compatHeight} ${m} p-0 bg-global-background rounded-lg overflow-y-auto ${crossBrowserStyles} select-none`}
 		>
 			{children}
 		</main>

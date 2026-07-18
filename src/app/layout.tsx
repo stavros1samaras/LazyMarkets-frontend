@@ -25,8 +25,8 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang="en">
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased root w-screen`}>
+		<html lang="en" className="">
+			<body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-global-background root w-screen`}>
 				<div className="w-screen h-screen">
 					<DesktopHeader />
 					{children}

@@ -3,7 +3,7 @@
 import SidebarItem from "./SidebarItem"
 import { Separator } from "../../../../components/ui/separator"
 import { COUNTRIES } from "../../config"
-import React, { ChangeEvent, useState } from "react"
+import React, { useState } from "react"
 import SideScrollArea from "@/_features/countries/sections/navigation/SideScrollArea"
 import { Input } from "@/components/ui/input"
 import { Countries } from "@/_features/countries/types"

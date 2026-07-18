@@ -36,12 +36,12 @@ export default async function CountryDataChartsContainer({ countryCode }: { coun
 									{config.chartTitle}
 								</Text>
 								{config.valueType == "percentage" ? (
-									<Badge className="h-3.5 translate-y-[1.59px]">%</Badge>
+									<Badge className="bg-neutral h-3.5 translate-y-[1.59px]">%</Badge>
 								) : (
-									<Badge className="h-3.5 translate-y-[1.59px]">A</Badge>
+									<Badge className="bg-neutral h-3.5 translate-y-[1.59px]">A</Badge>
 								)}
 								<HoverIcon description={config.description} className="h-5 translate-y-[1.59px] size-auto">
-									<Info className="size-5" />
+									<Info className="size-5 text-neutral" />
 								</HoverIcon>
 							</Span>
 							<Text className={`${titleStyle}`}>

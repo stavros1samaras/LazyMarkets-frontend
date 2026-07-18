@@ -29,8 +29,8 @@ export default function SingleLineChart({ children, data }: any) {
 					<Area
 						type="monotone"
 						dataKey="value"
-						stroke="#3b82f6"
-						strokeWidth={0}
+						stroke="var(--primary)"
+						strokeWidth={2}
 						dot={false}
 						fill="url(#gradient)"
 						isAnimationActive={false}

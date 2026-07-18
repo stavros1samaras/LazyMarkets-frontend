@@ -40,6 +40,7 @@
 	--color-sidebar-ring: var(--sidebar-ring); */
 	--color-global-background: var(--global-background);
 	--color-component-background: var(--component-background);
+	--color-neutral: var(--neutral);
 }
 
 :root {
@@ -50,10 +51,11 @@
 	--card-foreground: oklch(0.145 0 0);
 	--popover: oklch(1 0 0);
 	--popover-foreground: oklch(0.145 0 0);
-	--primary: rgb(219, 217, 217);
+	--primary: rgb(90, 88, 251);
 	--primary-foreground: rgb(92, 92, 92);
 	--secondary: oklch(0.97 0 0);
 	--secondary-foreground: oklch(0.205 0 0);
+
 	--muted: oklch(0.97 0 0);
 	--muted-foreground: oklch(0.556 0 0);
 	--accent: rgb(219, 217, 217);
@@ -78,6 +80,7 @@
 
 	--global-background: rgb(219, 217, 217);
 	--component-background: oklch(96.7% 0.003 264.542);
+	--neutral: rgb(219, 217, 217);
 }
 
 .dark {
@@ -115,6 +118,7 @@
 
 	--global-background: rgb(219, 217, 217);
 	--component-background: oklch(96.7% 0.003 264.542);
+	--neutral: rgb(219, 217, 217);
 }
 
 body {

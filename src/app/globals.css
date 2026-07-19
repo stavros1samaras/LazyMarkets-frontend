@@ -38,7 +38,7 @@
 :root {
 	--radius: 0.625rem;
 	--background: oklch(100% 0.00011 271.152);
-	--foreground: oklch(31.317% 0.00004 271.152);
+	--foreground: oklch(36.386% 0.00004 271.152);
 	--card: oklch(1 0 0);
 	--card-foreground: oklch(0.145 0 0);
 	--popover: oklch(1 0 0);
@@ -61,7 +61,7 @@
 	--component-background: oklch(96.7% 0.003 264.542);
 	--neutral: rgb(219, 217, 217);
 	--custom-border: var(--color-component-background);
-	--tertiary: rgb(48, 54, 108);
+	--tertiary: rgb(238, 239, 246);
 
 	/* charts */
 	--line: var(--primary);

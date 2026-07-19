@@ -1,4 +1,4 @@
-export const titleStyle = `text-base md:text-2xl font-semibold text-[#5c5c5c]`
+export const titleStyle = `text-base md:text-2xl font-semibold `
 
 export const blue = "#2762e1"
 export const green = "#008533"

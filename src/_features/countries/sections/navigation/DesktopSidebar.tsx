@@ -26,7 +26,7 @@ export default function DesktopSidebar() {
 				{filteredCountries.map((asset, index) => (
 					<React.Fragment key={index}>
 						<SidebarItem code={asset.code} name={asset.name} />
-						<Separator />
+						{/* <Separator /> */}
 					</React.Fragment>
 				))}
 			</SideScrollArea>

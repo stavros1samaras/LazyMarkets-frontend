@@ -1,11 +1,11 @@
-import React from "react";
+import React from "react"
 
 type TextProps = {
-  as?: "h1" | "h3" | "p" | "span" | "div";
-  className?: string;
-  children?: React.ReactNode;
-};
+	as?: "h1" | "h3" | "p" | "span" | "div"
+	className?: string
+	children?: React.ReactNode
+}
 export default function Text({ as = "p", className, children }: TextProps) {
-  const Tag = as;
-  return <Tag className={`${className}`}>{children}</Tag>;
+	const Tag = as
+	return <Tag className={`${className} text-foreground`}>{children}</Tag>
 }

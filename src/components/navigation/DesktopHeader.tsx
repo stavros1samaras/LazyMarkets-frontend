@@ -3,10 +3,11 @@ import Link from "next/link"
 import Text from "../elements/Text"
 
 export default function DesktopHeader() {
+	const className = "text-[18px] font-[550]"
 	return (
 		<>
 			<MainNavigationMenu>
-				<Text>SAMOKO</Text>
+				<Text className={className}>SAMOKO</Text>
 				<Link
 					href={
 						process.env.NODE_ENV === "production"
@@ -16,7 +17,7 @@ export default function DesktopHeader() {
 					prefetch={false}
 					data-testid="techical"
 				>
-					<Text>Techical</Text>
+					<Text className={className}>Techical</Text>
 				</Link>
 				<Link
 					href={
@@ -27,7 +28,7 @@ export default function DesktopHeader() {
 					prefetch={false}
 					data-testid="fundamental"
 				>
-					<Text>Fundamental</Text>
+					<Text className={className}>Fundamental</Text>
 				</Link>
 				<Link
 					className="hidden sm:block"
@@ -35,10 +36,10 @@ export default function DesktopHeader() {
 					prefetch={false}
 					data-testid="sentiment"
 				>
-					<Text>Sentiment</Text>
+					<Text className={className}>Sentiment</Text>
 				</Link>
 				<Link href="/se/financial-hishrefry-timeline/TrmpTrrffShck" prefetch={false} data-testid="FHT">
-					<Text>FHT</Text>
+					<Text className={className}>FHT</Text>
 				</Link>
 				<Link
 					className="hidden sm:block"
@@ -46,10 +47,10 @@ export default function DesktopHeader() {
 					prefetch={false}
 					data-testid="contact"
 				>
-					<Text>Contact</Text>
+					<Text className={className}>Contact</Text>
 				</Link>
 				<Link className="hidden sm:block" href={"/countries/GR"} data-testid="contact">
-					<Text>Countries</Text>
+					<Text className={className}>Countries</Text>
 				</Link>
 			</MainNavigationMenu>
 		</>

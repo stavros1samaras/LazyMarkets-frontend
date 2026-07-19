@@ -1,6 +1,7 @@
 import MainNavigationMenu from "./NavigationMenu"
 import Link from "next/link"
 import Text from "../elements/Text"
+import Theme from "@/components/navigation/Theme"
 
 export default function DesktopHeader() {
 	const className = "text-[18px] font-[550]"
@@ -52,6 +53,7 @@ export default function DesktopHeader() {
 				<Link className="hidden sm:block" href={"/countries/GR"} data-testid="contact">
 					<Text className={className}>Countries</Text>
 				</Link>
+				<Theme />
 			</MainNavigationMenu>
 		</>
 	)

@@ -15,8 +15,8 @@ export default function HoverIcon({ children, description, className }: HoverIco
 					{children}
 				</Button>
 			</HoverCardTrigger>
-			<HoverCardContent className="flex w-64 flex-col gap-0.5">
-				<div className="font-semibold text-[#5c5c5c] border-[#5c5c5c] ">{description}</div>
+			<HoverCardContent className="flex w-64 flex-col gap-0.5 bg-tertiary border-tertiary">
+				<div className="font-semibold  text-foreground">{description}</div>
 			</HoverCardContent>
 		</HoverCard>
 	)

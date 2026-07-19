@@ -32,6 +32,7 @@
 	--color-component-background: var(--component-background);
 	--color-neutral: var(--neutral);
 	--color-custom-border: var(--custom-border);
+	--color-tertiary: var(--tertiary);
 }
 
 :root {
@@ -60,12 +61,13 @@
 	--component-background: oklch(96.7% 0.003 264.542);
 	--neutral: rgb(219, 217, 217);
 	--custom-border: var(--color-component-background);
+	--tertiary: rgb(48, 54, 108);
 
 	/* charts */
 	--line: var(--primary);
 	--area: rgb(128, 140, 255);
 	--axis: oklch(31.317% 0.00004 271.152);
-	--tooltip-background: rgb(48, 54, 108);
+	--tooltip-background: var(--tertiary);
 }
 
 .dark {
@@ -94,12 +96,13 @@
 	--component-background: rgb(22, 32, 44);
 	--neutral: rgb(219, 217, 217);
 	--custom-border: var(--color-component-background);
+	--tertiary: rgb(48, 54, 108);
 
 	/* charts */
 	--line: var(--primary);
 	--area: rgb(78, 88, 173);
 	--axis: var(--foreground);
-	--tooltip-background: rgb(48, 54, 108);
+	--tooltip-background: var(--tertiary);
 }
 
 body {

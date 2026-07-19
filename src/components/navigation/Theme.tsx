@@ -1,19 +1,10 @@
 "use client"
 
-import useTheme from "@/hooks/useTheme"
+import { ThemeContext } from "@/contexts/ThemeProvider"
+import { useContext } from "react"
 
 export default function Theme() {
-	const { theme, setTheme } = useTheme()
+	const context = useContext(ThemeContext)
 
-	function toggleTheme() {
-		document.documentElement.classList.toggle("dark")
-		setTheme((prevTheme) => {
-			if (prevTheme == "light") return "dark"
-			else {
-				return "light"
-			}
-		})
-	}
-
-	return <button onClick={toggleTheme}>{theme}</button>
+	return <button onClick={context?.toggleTheme}>{context?.theme}</button>
 }

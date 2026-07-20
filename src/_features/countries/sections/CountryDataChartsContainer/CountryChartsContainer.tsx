@@ -9,6 +9,7 @@ import { CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
 import { ChartMetadata, RenderDataConfig } from "@/_features/countries/types"
 import { getCountryData } from "@/_features/countries/modules/country"
 import { Span } from "@/components/elements/Span"
+import ChartBadge from "@/components/ChartBadge"
 
 export default async function CountryDataChartsContainer({ countryCode }: { countryCode: string }) {
 	const countryData = await getCountryData(countryCode)
@@ -35,11 +36,7 @@ export default async function CountryDataChartsContainer({ countryCode }: { coun
 								<Text as="h3" className={`${titleStyle}  leading-none `}>
 									{config.chartTitle}
 								</Text>
-								{config.valueType == "percentage" ? (
-									<Badge className="bg-neutral h-3.5 translate-y-[1.59px]">%</Badge>
-								) : (
-									<Badge className="bg-neutral h-3.5 translate-y-[1.59px]">A</Badge>
-								)}
+								<ChartBadge type={config.badge} />
 								<HoverIcon description={config.description} className="h-5 translate-y-[1.59px] size-auto">
 									<Info className="size-5 text-neutral" />
 								</HoverIcon>

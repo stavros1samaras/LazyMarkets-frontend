@@ -1,6 +1,7 @@
 "server-only"
 
 import { ChartMetadata, Countries } from "@/_features/countries/types"
+import { ChartAbsoluteBadge, ChartPercentageBadge } from "@/components/ChartBadge"
 
 export const COUNTRIES = [
 	{ code: "NO", name: "Norway" },
@@ -79,151 +80,151 @@ export const CHARTSCONFIG: ChartMetadata[] = [
 	{
 		chartTitle: "GDP",
 		description: "Total value of goods and services produced by a country.",
-		valueType: "absolute",
+		badge: ChartAbsoluteBadge,
 	},
 	{
 		chartTitle: "GDP Per Capita",
 		description: "Average economic output per person.",
-		valueType: "absolute",
+		badge: ChartAbsoluteBadge,
 	},
 	{
 		chartTitle: "GDP Growth Rate",
 		description: "Percentage increase of GDP from the previous year.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "GDP Per Capita Growth",
 		description: "Growth rate of output per person.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "GDP Deflator",
 		description: "Measures change in prices of goods and services in GDP.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "GNP",
 		description: "Total income of a country's citizens, regardless of production location.",
-		valueType: "absolute",
+		badge: ChartAbsoluteBadge,
 	},
 	{
 		chartTitle: "Consumption",
 		description: "Total household spending on goods and services.",
-		valueType: "absolute",
+		badge: ChartAbsoluteBadge,
 	},
 	{
 		chartTitle: "Gross Capital Formation",
 		description: "Investment in equipment, infrastructure, and inventories.",
-		valueType: "absolute",
+		badge: ChartAbsoluteBadge,
 	},
 	{
 		chartTitle: "Trade of GDP",
 		description: "Share of trade (imports + exports) in GDP.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Exports",
 		description: "Value of goods and services sold abroad.",
-		valueType: "absolute",
+		badge: ChartAbsoluteBadge,
 	},
 	{
 		chartTitle: "Exports of GDP",
 		description: "Exports as a percentage of GDP.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Imports",
 		description: "Value of goods and services bought from abroad.",
-		valueType: "absolute",
+		badge: ChartAbsoluteBadge,
 	},
 	{
 		chartTitle: "Imports of GDP",
 		description: "Imports as a percentage of GDP.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Debt of GDP",
 		description: "Total national debt as a share of GDP.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Net National Income",
 		description: "Total income of citizens after taxes and transfers.",
-		valueType: "absolute",
+		badge: ChartAbsoluteBadge,
 	},
 	{
 		chartTitle: "CPI",
 		description: "Consumer Price Index, shows cost of living changes.",
-		valueType: "absolute",
+		badge: ChartAbsoluteBadge,
 	},
 	{
 		chartTitle: "Interest Rate",
 		description: "Central bank’s main lending rate.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Unemployment Rate",
 		description: "Percentage of people without jobs in the workforce.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Agriculture Employment",
 		description: "Share of workforce in agriculture.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Industry Employment",
 		description: "Share of workforce in industry.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Services Employment",
 		description: "Share of workforce in services.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Primary Enrollment Rate",
 		description: "Percentage of children enrolled in primary school.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Population",
 		description: "Total number of people in the country.",
-		valueType: "absolute",
+		badge: ChartAbsoluteBadge,
 	},
 	{
 		chartTitle: "Life Expectancy Rate",
 		description: "Average expected lifespan of the population.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Birth Rate",
 		description: "Number of births per 1,000 people.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Fertility Rate",
 		description: "Average number of children per woman.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Infant Mortality Rate",
 		description: "Deaths of infants under 1 year per 1,000 births.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Health Spending of GDP",
 		description: "Public and private health spending as a share of GDP.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 	{
 		chartTitle: "Energy Use Per Capita",
 		description: "Average energy consumption per person.",
-		valueType: "absolute",
+		badge: ChartAbsoluteBadge,
 	},
 	{
 		chartTitle: "Forest Area",
 		description: "Share of land area covered by forests.",
-		valueType: "percentage",
+		badge: ChartPercentageBadge,
 	},
 ]

@@ -1,4 +1,5 @@
 import { CHART_DATA, COUNTRIES } from "@/_features/countries/config"
+import { ComponentType, ReactNode } from "react"
 
 export interface Countries {
 	name: string
@@ -12,7 +13,7 @@ export type CountryName = CountriesInfo[number]["name"]
 export interface ChartMetadata {
 	chartTitle: string
 	description: string
-	valueType: "absolute" | "percentage"
+	badge: ComponentType
 }
 
 export interface RenderDataConfig extends ChartMetadata {

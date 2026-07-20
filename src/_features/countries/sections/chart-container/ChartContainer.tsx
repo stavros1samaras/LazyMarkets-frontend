@@ -4,14 +4,13 @@ import HoverIcon from "../../../../components/HoverIcon"
 import Text from "../../../../components/elements/Text"
 import { Info } from "lucide-react"
 import SingleLineChart from "@/components/charts/SingleLineChart"
-import { Badge } from "@/components/ui/badge"
 import { CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
 import { ChartMetadata, RenderDataConfig } from "@/_features/countries/types"
 import { getCountryData } from "@/_features/countries/modules/country"
 import { Span } from "@/components/elements/Span"
 import ChartBadge from "@/components/ChartBadge"
 
-export default async function CountryDataChartsContainer({ countryCode }: { countryCode: string }) {
+export default async function ChartContainer({ countryCode }: { countryCode: string }) {
 	const countryData = await getCountryData(countryCode)
 
 	const renderConfig: RenderDataConfig[] = CHARTSCONFIG.map((info: ChartMetadata, index: number) => ({

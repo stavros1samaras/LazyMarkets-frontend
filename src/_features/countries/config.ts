@@ -1,7 +1,7 @@
 "server-only"
 
+import { ChartAbsoluteBadge, ChartPercentageBadge } from "@/_features/countries/sections/chart-container/Badges"
 import { ChartMetadata, Countries } from "@/_features/countries/types"
-import { ChartAbsoluteBadge, ChartPercentageBadge } from "@/components/ChartBadge"
 
 export const COUNTRIES = [
 	{ code: "NO", name: "Norway" },

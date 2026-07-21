@@ -2,13 +2,16 @@ import MainNavigationMenu from "./NavigationMenu"
 import Link from "next/link"
 import Text from "../elements/Text"
 import Theme from "@/components/navigation/Theme"
+import { Div } from "@/components/elements/Div"
 
 export default function DesktopHeader() {
 	const className = "text-[18px] font-[550]"
+
 	return (
-		<>
+		<Div className="w-auto h-13 mx-4 my-4 bg-component-background rounded-lg justify-between px-2">
 			<MainNavigationMenu>
 				<Text className={className}>SAMOKO</Text>
+
 				<Link
 					href={
 						process.env.NODE_ENV === "production"
@@ -20,6 +23,7 @@ export default function DesktopHeader() {
 				>
 					<Text className={className}>Techical</Text>
 				</Link>
+
 				<Link
 					href={
 						process.env.NODE_ENV === "production"
@@ -31,6 +35,7 @@ export default function DesktopHeader() {
 				>
 					<Text className={className}>Fundamental</Text>
 				</Link>
+
 				<Link
 					className="hidden sm:block"
 					href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/se/sentiment"}
@@ -39,9 +44,11 @@ export default function DesktopHeader() {
 				>
 					<Text className={className}>Sentiment</Text>
 				</Link>
+
 				<Link href="/se/financial-hishrefry-timeline/TrmpTrrffShck" prefetch={false} data-testid="FHT">
 					<Text className={className}>FHT</Text>
 				</Link>
+
 				<Link
 					className="hidden sm:block"
 					href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/se/contact"}
@@ -50,11 +57,13 @@ export default function DesktopHeader() {
 				>
 					<Text className={className}>Contact</Text>
 				</Link>
-				<Link className="hidden sm:block" href={"/countries/GR"} data-testid="contact">
+
+				<Link className="hidden sm:block" href="/countries/GR" data-testid="contact">
 					<Text className={className}>Countries</Text>
 				</Link>
-				<Theme />
 			</MainNavigationMenu>
-		</>
+
+			<Theme />
+		</Div>
 	)
 }

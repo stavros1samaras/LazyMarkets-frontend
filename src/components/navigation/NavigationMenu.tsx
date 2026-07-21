@@ -6,11 +6,9 @@ interface MainNavigationMenuProps {
 }
 
 export default function MainNavigationMenu({ children }: MainNavigationMenuProps) {
-	const m = "mx-4 my-4"
-
 	return (
-		<NavigationMenu className={`h-13 ${m} w-auto bg-component-background rounded-lg`}>
-			<NavigationMenuList className="flex items-center gap-5 rounded-lg bg-component-background p-1 w-auto">
+		<NavigationMenu>
+			<NavigationMenuList className="flex items-center gap-5">
 				{React.Children.map(children, (child: any, index) => {
 					if (!child) return null
 					const className = child.props?.className || ""

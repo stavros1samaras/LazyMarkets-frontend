@@ -1,8 +1,12 @@
+"use client"
+
 import MainNavigationMenu from "./NavigationMenu"
 import Link from "next/link"
 import Text from "../elements/Text"
-import Theme from "@/components/navigation/Theme"
 import { Div } from "@/components/elements/Div"
+import dynamic from "next/dynamic"
+
+const Theme = dynamic(() => import("@/components/navigation/Theme"), { ssr: false })
 
 export default function DesktopHeader() {
 	const className = "text-[18px] font-[550]"

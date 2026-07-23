@@ -5,7 +5,7 @@ import { ThemeContext } from "@/contexts/ThemeProvider"
 import { Moon, Sun } from "lucide-react"
 import { useContext } from "react"
 
-export default function Theme() {
+export default function ThemeButton() {
 	const context = useContext(ThemeContext)
 
 	return (

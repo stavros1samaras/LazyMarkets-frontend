@@ -2,8 +2,7 @@ import MainNavigationMenu from "./NavigationMenu"
 import Link from "next/link"
 import Text from "../elements/Text"
 import { Div } from "@/components/elements/Div"
-import ThemeButton from "@/components/navigation/theme-button/ThemeButton"
-// import ThemeWrapper from "@/components/navigation/theme-button/ThemeButtonWrapper"
+import ThemeButton from "@/components/navigation/ThemeButton"
 
 export default function DesktopHeader() {
 	const className = "text-[18px] font-[550]"
@@ -63,8 +62,6 @@ export default function DesktopHeader() {
 					<Text className={className}>Countries</Text>
 				</Link>
 			</MainNavigationMenu>
-
-			{/* <ThemeWrapper /> */}
 			<ThemeButton />
 		</Div>
 	)

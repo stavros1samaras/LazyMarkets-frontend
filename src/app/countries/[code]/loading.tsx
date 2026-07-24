@@ -5,13 +5,13 @@ export default function Loading() {
 	return (
 		<>
 			{[...Array(4)].map((_, i) => (
-				<Card key={i} className="w-full">
+				<Card key={i} className="w-full bg-component-background">
 					<CardHeader>
-						<Skeleton className="h-4 w-2/3" />
-						<Skeleton className="h-4 w-1/2" />
+						<Skeleton className="h-4 w-2/3 bg-primary-foreground" />
+						<Skeleton className="h-4 w-1/2 bg-primary-foreground" />
 					</CardHeader>
 					<CardContent>
-						<Skeleton className="aspect-video w-full" />
+						<Skeleton className="aspect-video w-full  bg-primary-foreground" />
 					</CardContent>
 				</Card>
 			))}

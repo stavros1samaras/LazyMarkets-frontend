@@ -4,6 +4,8 @@ import "./globals.css"
 import "../styles/compat.css"
 import DesktopHeader from "../components/navigation/DesktopHeader"
 import ThemeProvider from "@/contexts/ThemeProvider"
+import { InlineScript } from "@/scripts/InlineScript"
+import { getThemeScript } from "@/scripts/theme-script"
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -28,6 +30,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className="" suppressHydrationWarning>
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-global-background root w-screen`}>
+				<InlineScript html={getThemeScript()} />
 				<div className="w-screen h-screen">
 					<ThemeProvider>
 						<DesktopHeader />

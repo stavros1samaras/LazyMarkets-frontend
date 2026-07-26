@@ -1,7 +1,6 @@
-import { titleStyle } from "@/styles/tailwindClasses"
 import { CardContainer } from "../../../../components/CardContainer"
 import HoverIcon from "../../../../components/HoverIcon"
-import Text from "../../../../components/elements/Text"
+import { Title } from "../../../../components/elements/Text"
 import { Info } from "lucide-react"
 import SingleLineChart from "@/components/charts/SingleLineChart"
 import { CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
@@ -32,20 +31,20 @@ export default async function ChartContainer({ countryCode }: { countryCode: str
 					<CardContainer key={index} className="bg-component-background">
 						<SingleLineChart data={config.chartData}>
 							<Span className="gap-2">
-								<Text as="h3" className={`${titleStyle}  leading-none `}>
+								<Title as="h3" className="leading-none">
 									{config.chartTitle}
-								</Text>
+								</Title>
 								<ChartBadge type={config.badge} />
 								<HoverIcon description={config.description} className="h-5 translate-y-[1.59px] size-auto">
 									<Info className="size-5 text-neutral" />
 								</HoverIcon>
 							</Span>
-							<Text className={`${titleStyle}`}>
+							<Title className="leading-none">
 								{config.chartData[config.chartData.length - 1].value.toLocaleString("en-US", {
 									notation: "compact",
 									compactDisplay: "short",
 								})}
-							</Text>
+							</Title>
 						</SingleLineChart>
 					</CardContainer>
 				)

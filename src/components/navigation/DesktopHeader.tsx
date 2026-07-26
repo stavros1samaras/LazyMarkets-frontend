@@ -1,14 +1,14 @@
 import MainNavigationMenu from "./NavigationMenu"
 import Link from "next/link"
 import Text from "../elements/Text"
-import { Div } from "@/components/elements/Div"
 import ThemeButton from "@/components/navigation/ThemeButton"
+import Header from "@/components/elements/Header"
 
 export default function DesktopHeader() {
 	const className = "text-[18px] font-[550]"
 
 	return (
-		<Div className="w-auto h-13 mx-4 my-4 bg-component-background rounded-lg justify-between px-2">
+		<Header className="w-auto h-13 mx-4 my-4 bg-component-background rounded-lg justify-between px-2">
 			<MainNavigationMenu>
 				<Text className={className}>SAMOKO</Text>
 
@@ -63,6 +63,6 @@ export default function DesktopHeader() {
 				</Link>
 			</MainNavigationMenu>
 			<ThemeButton />
-		</Div>
+		</Header>
 	)
 }

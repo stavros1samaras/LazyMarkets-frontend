@@ -7,7 +7,6 @@ import { CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
 import { ChartMetadata, RenderDataConfig } from "@/_features/countries/types"
 import { getCountryData } from "@/_features/countries/modules/country"
 import { Span } from "@/components/elements/Span"
-import ChartBadge from "@/components/ChartBadge"
 
 export default async function ChartContainer({ countryCode }: { countryCode: string }) {
 	const countryData = await getCountryData(countryCode)
@@ -27,6 +26,13 @@ export default async function ChartContainer({ countryCode }: { countryCode: str
 	return (
 		<>
 			{filteredConfig.map((config, index) => {
+				const Budge = config.badge
+
+				const lastValue = config.chartData[config.chartData.length - 1].value.toLocaleString("en-US", {
+					notation: "compact",
+					compactDisplay: "short",
+				})
+
 				return (
 					<CardContainer key={index} className="bg-component-background">
 						<SingleLineChart data={config.chartData}>
@@ -34,17 +40,12 @@ export default async function ChartContainer({ countryCode }: { countryCode: str
 								<Title as="h3" className="leading-none">
 									{config.chartTitle}
 								</Title>
-								<ChartBadge type={config.badge} />
+								<Budge />
 								<HoverIcon description={config.description} className="h-5 translate-y-[1.59px] size-auto">
 									<Info className="size-5 text-neutral" />
 								</HoverIcon>
 							</Span>
-							<Title className="leading-none">
-								{config.chartData[config.chartData.length - 1].value.toLocaleString("en-US", {
-									notation: "compact",
-									compactDisplay: "short",
-								})}
-							</Title>
+							<Title className="leading-none">{lastValue}</Title>
 						</SingleLineChart>
 					</CardContainer>
 				)

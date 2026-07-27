@@ -3,7 +3,7 @@ import React from "react"
 
 interface TextProps extends React.HTMLAttributes<HTMLElement> {
 	asChild?: boolean
-	as?: "h1" | "h2" | "h3" | "p" | "span" | "div"
+	as?: "h1" | "h2" | "h3" | "h4" | "p" | "span" | "div"
 }
 
 export default function Text({ asChild = false, as = "p", className, children, ...props }: TextProps) {
@@ -28,11 +28,11 @@ export default function Text({ asChild = false, as = "p", className, children, .
 }
 
 interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
-	as?: "h1" | "h2" | "h3"
+	as?: "h1" | "h2" | "h3" | "h4"
 }
 export function Title({ as = "h3", className, children, ...props }: TitleProps) {
 	return (
-		<Text as={as} className={cn("text-base md:text-2xl font-semibold", className)} {...props}>
+		<Text as={as} className={cn("text-base md:text-2xl font-semibold leading-none", className)} {...props}>
 			{children}
 		</Text>
 	)

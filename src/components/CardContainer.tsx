@@ -1,22 +1,23 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
-import { type ReactNode } from "react"
+import { cn } from "@/lib/utils"
+import { Card, CardContent } from "./ui/card"
+import { ReactElement } from "react"
 
-export function CardContainer({ children, className, withSection = false }: any) {
-	const m = "mt-0 mb-0 ml-0 mr-0"
+interface CardContainerProps {
+	children: ReactElement
+	className?: string
+	withSection?: boolean
+}
 
-	return (
-		<>
-			{withSection ? (
-				<section className="select-text">
-					<Card className={`w-auto ${m} ${className ?? ""}`}>
-						<CardContent className="p-3">{children}</CardContent>
-					</Card>
-				</section>
-			) : (
-				<Card className={`w-auto ${m} ${className ?? ""}`}>
-					<CardContent className="p-3">{children}</CardContent>
-				</Card>
-			)}
-		</>
+export function CardContainer({ children, className, withSection = false }: CardContainerProps) {
+	const CardComponent = (
+		<Card className={cn("w-auto", className)}>
+			<CardContent className="p-3">{children}</CardContent>
+		</Card>
 	)
+
+	if (withSection) {
+		return <section className="select-text">{CardComponent}</section>
+	}
+
+	return CardComponent
 }

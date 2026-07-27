@@ -29,17 +29,29 @@
 	/* custom theme*/
 
 	--color-global-background: var(--global-background);
-	--color-component-background: var(--component-background);
 	--color-neutral: var(--neutral);
 	--color-custom-border: var(--custom-border);
 	--color-tertiary: var(--tertiary);
 }
 
 :root {
+	/* custom theme*/
+	--global-background: rgb(221, 222, 227);
+	--neutral: rgb(219, 217, 217);
+	--custom-border: var(--background);
+	--tertiary: rgb(238, 239, 246);
+
+	/* charts */
+	--line: var(--primary);
+	--area: rgb(128, 140, 255);
+	--axis: oklch(31.317% 0.00004 271.152);
+	--tooltip-background: var(--tertiary);
+
+	/*from library*/
 	--radius: 0.625rem;
-	--background: oklch(100% 0.00011 271.152);
+	--background: oklch(96.7% 0.003 264.542);
 	--foreground: oklch(51.73% 0.00006 271.152);
-	--card: oklch(1 0 0);
+	--card: var(--background);
 	--card-foreground: oklch(0.145 0 0);
 	--popover: oklch(1 0 0);
 	--popover-foreground: oklch(0.145 0 0);
@@ -55,25 +67,25 @@
 	--border: oklch(0.922 0 0);
 	--input: oklch(0.922 0 0);
 	--ring: oklch(0.708 0 0);
-
-	/* custom theme*/
-	--global-background: rgb(221, 222, 227);
-	--component-background: oklch(96.7% 0.003 264.542);
-	--neutral: rgb(219, 217, 217);
-	--custom-border: var(--color-component-background);
-	--tertiary: rgb(238, 239, 246);
-
-	/* charts */
-	--line: var(--primary);
-	--area: rgb(128, 140, 255);
-	--axis: oklch(31.317% 0.00004 271.152);
-	--tooltip-background: var(--tertiary);
 }
 
 .dark {
-	--background: oklch(0.145 0 0);
+	/* custom theme*/
+	--global-background: rgb(20, 24, 28);
+	--neutral: rgb(219, 217, 217);
+	--custom-border: var(--background);
+	--tertiary: rgb(48, 54, 108);
+
+	/* charts */
+	--line: var(--primary);
+	--area: rgb(78, 88, 173);
+	--axis: var(--foreground);
+	--tooltip-background: var(--tertiary);
+
+	/*from library*/
+	--background: rgb(22, 32, 44);
 	--foreground: oklch(63.009% 0.00007 271.152);
-	--card: oklch(0.205 0 0);
+	--card: var(--background);
 	--card-foreground: oklch(0.985 0 0);
 	--popover: oklch(0.205 0 0);
 	--popover-foreground: oklch(0.985 0 0);
@@ -89,20 +101,6 @@
 	--border: oklch(1 0 0 / 10%);
 	--input: oklch(1 0 0 / 15%);
 	--ring: oklch(0.556 0 0);
-
-	/* custom theme*/
-
-	--global-background: rgb(20, 24, 28);
-	--component-background: rgb(22, 32, 44);
-	--neutral: rgb(219, 217, 217);
-	--custom-border: var(--color-component-background);
-	--tertiary: rgb(48, 54, 108);
-
-	/* charts */
-	--line: var(--primary);
-	--area: rgb(78, 88, 173);
-	--axis: var(--foreground);
-	--tooltip-background: var(--tertiary);
 }
 
 body {

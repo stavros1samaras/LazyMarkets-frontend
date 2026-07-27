@@ -10,7 +10,7 @@ export default function SideScrollArea({ children, className }: SideScrollAreaPr
 	const m = "ml-4 mt-0 mb-0 mr-0"
 	const h = "h-[calc(100vh-6.25rem)]"
 	return (
-		<ScrollArea className={`w-fit hidden md:block ${m} ${h} rounded-md border border-custom-border bg-component-background`}>
+		<ScrollArea className={`w-fit hidden md:block ${m} ${h} rounded-md border border-custom-border bg-background`}>
 			<div className={`flex flex-col p-4 text-sm text-gray-900 gap-2 `}>{children}</div>
 			<ScrollBar orientation="vertical" className="w-0" />
 		</ScrollArea>

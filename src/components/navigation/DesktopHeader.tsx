@@ -8,7 +8,7 @@ export default function DesktopHeader() {
 	const className = "text-[18px] font-[550]"
 
 	return (
-		<Header className="w-auto h-13 mx-4 my-4 bg-component-background rounded-lg justify-between px-2">
+		<Header className="w-auto h-13 mx-4 my-4 rounded-lg justify-between px-2">
 			<MainNavigationMenu>
 				<Text className={className}>SAMOKO</Text>
 				<Text asChild className={className}>

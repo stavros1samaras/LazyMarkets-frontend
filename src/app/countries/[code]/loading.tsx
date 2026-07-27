@@ -6,8 +6,8 @@ export default function Loading() {
 	return (
 		<>
 			{[...Array(8)].map((_, i) => (
-				<CardContainer key={i} className="bg-component-background">
-					<Card className="w-full bg-component-background">
+				<CardContainer key={i}>
+					<Card className="w-full">
 						<CardHeader>
 							<Skeleton className="h-4 w-2/3 bg-primary-foreground" />
 							<Skeleton className="h-4 w-1/2 bg-primary-foreground" />

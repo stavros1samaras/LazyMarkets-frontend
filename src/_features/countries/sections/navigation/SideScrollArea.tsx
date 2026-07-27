@@ -1,5 +1,6 @@
 import * as React from "react"
 import { ScrollArea, ScrollBar } from "../../../../components/ui/scroll-area"
+import { Div } from "@/components/elements/Div"
 
 type SideScrollAreaProps = {
 	children: React.ReactNode
@@ -11,7 +12,7 @@ export default function SideScrollArea({ children, className }: SideScrollAreaPr
 	const h = "h-[calc(100vh-6.25rem)]"
 	return (
 		<ScrollArea className={`w-fit hidden md:block ${m} ${h} rounded-md border border-custom-border bg-background`}>
-			<div className={`flex flex-col p-4 text-sm text-gray-900 gap-2 `}>{children}</div>
+			<Div className={`flex-col items-start w-auto p-4 text-sm gap-2`}>{children}</Div>
 			<ScrollBar orientation="vertical" className="w-0" />
 		</ScrollArea>
 	)

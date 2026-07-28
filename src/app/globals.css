@@ -32,6 +32,7 @@
 	--color-neutral: var(--neutral);
 	--color-custom-border: var(--custom-border);
 	--color-tertiary: var(--tertiary);
+	--color-main: var(--main);
 }
 
 :root {
@@ -40,9 +41,10 @@
 	--neutral: rgb(219, 217, 217);
 	--custom-border: var(--background);
 	--tertiary: rgb(238, 239, 246);
+	--main: rgb(138, 136, 255);
 
 	/* charts */
-	--line: var(--primary);
+	--line: var(--main);
 	--area: rgb(128, 140, 255);
 	--axis: oklch(31.317% 0.00004 271.152);
 	--tooltip-background: var(--tertiary);
@@ -55,7 +57,7 @@
 	--card-foreground: oklch(0.145 0 0);
 	--popover: oklch(1 0 0);
 	--popover-foreground: oklch(0.145 0 0);
-	--primary: rgb(138, 136, 255);
+	--primary: rgb(170, 169, 202);
 	--primary-foreground: rgb(92, 92, 92);
 	--secondary: oklch(0.97 0 0);
 	--secondary-foreground: oklch(0.205 0 0);
@@ -75,9 +77,10 @@
 	--neutral: rgb(219, 217, 217);
 	--custom-border: var(--background);
 	--tertiary: rgb(48, 54, 108);
+	--main: rgb(63, 61, 172);
 
 	/* charts */
-	--line: var(--primary);
+	--line: var(--main);
 	--area: rgb(78, 88, 173);
 	--axis: var(--foreground);
 	--tooltip-background: var(--tertiary);
@@ -89,13 +92,13 @@
 	--card-foreground: oklch(0.985 0 0);
 	--popover: oklch(0.205 0 0);
 	--popover-foreground: oklch(0.985 0 0);
-	--primary: rgb(63, 61, 172);
+	--primary: rgb(97, 96, 155);
 	--primary-foreground: oklch(0.205 0 0);
 	--secondary: oklch(0.269 0 0);
 	--secondary-foreground: oklch(0.985 0 0);
 	--muted: oklch(0.269 0 0);
 	--muted-foreground: oklch(0.708 0 0);
-	--accent: oklch(0.269 0 0);
+	--accent: oklch(55.747% 0.00742 16.91);
 	--accent-foreground: oklch(0.985 0 0);
 	--destructive: oklch(0.704 0.191 22.216);
 	--border: oklch(1 0 0 / 10%);

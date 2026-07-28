@@ -14,7 +14,7 @@ type SidebarItemProps = {
 export default function SidebarItem({ code, name, className = "" }: SidebarItemProps) {
 	const flagCode = code.toLowerCase()
 
-	const hoverStyles = "hover:bg-linear-to-r hover:from-primary/40 hover:to-transparent"
+	const hoverStyles = "hover:bg-linear-to-r hover:from-main/40 hover:to-transparent"
 
 	return (
 		<Link

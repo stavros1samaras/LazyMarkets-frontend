@@ -3,15 +3,17 @@ import Link from "next/link"
 import Text from "../elements/Text"
 import ThemeButton from "@/components/navigation/ThemeButton"
 import Header from "@/components/elements/Header"
+import { cn } from "@/lib/utils"
 
 export default function DesktopHeader() {
 	const className = "text-[18px] font-[550]"
+	const hoverStyles = "transition-transform duration-100 hover:-translate-y-[2px] hover:text-main"
 
 	return (
 		<Header className="w-auto h-13 mx-4 my-4 rounded-lg justify-between px-2">
 			<MainNavigationMenu>
-				<Text className={className}>SAMOKO</Text>
-				<Text asChild className={className}>
+				<Text className={cn(className, hoverStyles)}>SAMOKO</Text>
+				<Text asChild className={cn(className, hoverStyles)}>
 					<Link
 						href={
 							process.env.NODE_ENV === "production"
@@ -24,20 +26,16 @@ export default function DesktopHeader() {
 						Techical
 					</Link>
 				</Text>
-				<Text asChild className={className}>
+				<Text asChild className={cn(className, hoverStyles)}>
 					<Link
-						href={
-							process.env.NODE_ENV === "production"
-								? "/se/financial-hishrefry-timeline/TrmpTrrffShck"
-								: "/se/fundamental/single-analysis/overview/AAPL"
-						}
+						href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/countries/GR"}
 						prefetch={false}
 						data-testid="fundamental"
 					>
 						Fundamental
 					</Link>
 				</Text>
-				<Text asChild className={className}>
+				<Text asChild className={cn(className, hoverStyles)}>
 					<Link
 						className="hidden sm:block"
 						href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/se/sentiment"}
@@ -47,12 +45,12 @@ export default function DesktopHeader() {
 						Sentiment
 					</Link>
 				</Text>
-				<Text asChild className={className}>
+				<Text asChild className={cn(className, hoverStyles)}>
 					<Link href="/se/financial-hishrefry-timeline/TrmpTrrffShck" prefetch={false} data-testid="FHT">
 						FHT
 					</Link>
 				</Text>
-				<Text asChild className={className}>
+				<Text asChild className={cn(className, hoverStyles)}>
 					<Link
 						className="hidden sm:block"
 						href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/se/contact"}
@@ -62,7 +60,7 @@ export default function DesktopHeader() {
 						Contact
 					</Link>
 				</Text>
-				<Text asChild className={className}>
+				<Text asChild className={cn(className, hoverStyles)}>
 					<Link className="hidden sm:block" href="/countries/GR" data-testid="contact">
 						Countries
 					</Link>

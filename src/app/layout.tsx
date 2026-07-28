@@ -1,9 +1,13 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono, Inter } from "next/font/google"
 import "./globals.css"
 import "../styles/compat.css"
 import DesktopHeader from "../components/navigation/DesktopHeader"
 import { NextThemeProvider } from "@/contexts/NextThemeProvider"
+
+const inter = Inter({
+	variable: "--font-inter",
+})
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -30,7 +34,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="" suppressHydrationWarning>
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-global-background root w-screen`}>
+			<body className={`${geistSans.variable} ${inter.className} antialiased bg-global-background root w-screen`}>
 				<div className="w-screen h-screen">
 					<NextThemeProvider>
 						<DesktopHeader />

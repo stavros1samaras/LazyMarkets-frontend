@@ -34,13 +34,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="" suppressHydrationWarning>
-			<body className={`${geistSans.variable} ${inter.className} antialiased bg-background root w-screen`}>
-				<div className="w-screen h-screen">
-					<NextThemeProvider>
-						<DesktopHeader />
-						{children}
-					</NextThemeProvider>
-				</div>
+			<body className={`${geistSans.variable} ${inter.className} antialiased bg-background root w-screen flex h-screen flex-col`}>
+				<NextThemeProvider>
+					<DesktopHeader />
+					{children}
+				</NextThemeProvider>
 			</body>
 		</html>
 	)

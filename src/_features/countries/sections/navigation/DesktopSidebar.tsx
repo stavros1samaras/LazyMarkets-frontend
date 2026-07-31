@@ -19,7 +19,7 @@ export default function DesktopSidebar() {
 	}
 
 	return (
-		<aside>
+		<aside className="hidden md:flex ">
 			<SideScrollArea>
 				<Input placeholder="search country" className="w-auto h-7" onChange={(e) => filter(e)} />
 				{filteredCountries.map((asset, index) => (

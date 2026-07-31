@@ -7,7 +7,9 @@ export default function Main({ children }: { children: ReactNode }) {
 	const crossBrowserStyles = `scrollbar-hide touch-scroll`
 
 	return (
-		<main className={`flex flex-col w-full  ${m} p-0 bg-background rounded-lg overflow-y-auto ${crossBrowserStyles} select-none`}>
+		<main
+			className={`flex flex-col w-full flex-1 ${m} p-0 bg-background rounded-lg overflow-y-auto ${crossBrowserStyles} select-none`}
+		>
 			{children}
 		</main>
 	)

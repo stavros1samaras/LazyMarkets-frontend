@@ -51,7 +51,7 @@ export default function DesktopHeader() {
 				</Text>
 				<Text asChild className={cn("hidden sm:inline-block", fontStyles, hoverStyles)}>
 					<Link
-						href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/se/contact"}
+						href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/contact"}
 						prefetch={false}
 						data-testid="contact"
 					>

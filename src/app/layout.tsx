@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="" suppressHydrationWarning>
-			<body className={`${geistSans.variable} ${inter.className} antialiased bg-global-background root w-screen`}>
+			<body className={`${geistSans.variable} ${inter.className} antialiased bg-background root w-screen`}>
 				<div className="w-screen h-screen">
 					<NextThemeProvider>
 						<DesktopHeader />

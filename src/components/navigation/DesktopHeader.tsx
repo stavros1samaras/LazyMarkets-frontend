@@ -6,14 +6,14 @@ import Header from "@/components/elements/Header"
 import { cn } from "@/lib/utils"
 
 export default function DesktopHeader() {
-	const className = "text-[18px] font-[550]"
+	const fontStyles = "text-[19px] font-[550]"
 	const hoverStyles = "transition-transform duration-100 hover:-translate-y-[2px] hover:text-main"
 
 	return (
-		<Header className="w-auto h-13 mx-4 my-4 rounded-lg justify-between px-2">
+		<Header className="w-auto h-13 justify-between pt-1 px-4">
 			<MainNavigationMenu>
-				<Text className={cn(className, hoverStyles)}>SAMOKO</Text>
-				<Text asChild className={cn(className, hoverStyles)}>
+				<Text className={cn(fontStyles, hoverStyles)}>SAMOKO</Text>
+				<Text asChild className={cn("inline-block", fontStyles, hoverStyles)}>
 					<Link
 						href={
 							process.env.NODE_ENV === "production"
@@ -26,7 +26,7 @@ export default function DesktopHeader() {
 						Techical
 					</Link>
 				</Text>
-				<Text asChild className={cn(className, hoverStyles)}>
+				<Text asChild className={cn("inline-block", fontStyles, hoverStyles)}>
 					<Link
 						href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/countries/GR"}
 						prefetch={false}
@@ -35,9 +35,8 @@ export default function DesktopHeader() {
 						Fundamental
 					</Link>
 				</Text>
-				<Text asChild className={cn(className, hoverStyles)}>
+				<Text asChild className={cn("hidden sm:inline-block", fontStyles, hoverStyles)}>
 					<Link
-						className="hidden sm:block"
 						href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/se/sentiment"}
 						prefetch={false}
 						data-testid="sentiment"
@@ -45,14 +44,13 @@ export default function DesktopHeader() {
 						Sentiment
 					</Link>
 				</Text>
-				<Text asChild className={cn(className, hoverStyles)}>
-					<Link href="/se/financial-hishrefry-timeline/TrmpTrrffShck" prefetch={false} data-testid="FHT">
+				<Text asChild className={cn("hidden sm:inline-block", fontStyles, hoverStyles)}>
+					<a href="http://lazy-markets-rr.vercel.app/" target="_blank" data-testid="FHT">
 						FHT
-					</Link>
+					</a>
 				</Text>
-				<Text asChild className={cn(className, hoverStyles)}>
+				<Text asChild className={cn("hidden sm:inline-block", fontStyles, hoverStyles)}>
 					<Link
-						className="hidden sm:block"
 						href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/se/contact"}
 						prefetch={false}
 						data-testid="contact"
@@ -60,8 +58,8 @@ export default function DesktopHeader() {
 						Contact
 					</Link>
 				</Text>
-				<Text asChild className={cn(className, hoverStyles)}>
-					<Link className="hidden sm:block" href="/countries/GR" data-testid="contact">
+				<Text asChild className={cn("hidden sm:inline-block", fontStyles, hoverStyles)}>
+					<Link href="/countries/GR" data-testid="contact">
 						Countries
 					</Link>
 				</Text>

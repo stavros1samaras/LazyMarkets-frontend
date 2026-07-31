@@ -10,23 +10,27 @@ interface MainNavigationMenuProps {
 
 export default function MainNavigationMenu({ children }: MainNavigationMenuProps) {
 	const pathname = usePathname()
+	const value = getValueFromPathname(pathname)
 
-	let value
+	function getValueFromPathname(pathname: string) {
+		if (pathname.startsWith("/countries")) return 6
+		if (pathname.startsWith("/se/technical")) return 1
+		if (pathname.startsWith("/se/fundamental")) return 2
+		if (pathname.startsWith("/se/sentiment")) return 3
+		if (pathname.startsWith("/se/contact")) return 5
+		return 0
+	}
 
-	if (pathname.startsWith("/countries")) {
-		value = 6
-	} else if (pathname.startsWith("/se/technical")) {
-		value = 1
-	} else if (pathname.startsWith("/se/fundamental")) {
-		value = 2
-	} else if (pathname.startsWith("/se/sentiment")) {
-		value = 3
-	} else if (pathname.startsWith("/se/financial-hishrefry-timeline")) {
-		value = 4
-	} else if (pathname.startsWith("/se/contact")) {
-		value = 5
-	} else {
-		value = 0
+	function getCorrectIndex(index: number) {
+		if (index == 4) {
+			return getValueFromPathname(pathname)
+		} else return index
+	}
+
+	const setCorrectIndex = (index: number) => {
+		const value = getCorrectIndex(index)
+		console.log(value)
+		setSelected(value)
 	}
 
 	const [selected, setSelected] = useState(value)
@@ -38,7 +42,7 @@ export default function MainNavigationMenu({ children }: MainNavigationMenuProps
 						className: `${child.props.className ?? ""} ${selected === index ? "text-main" : "text-foreground"}`,
 						onClick: (e: React.MouseEvent) => {
 							child.props.onClick?.(e)
-							setSelected(index)
+							setCorrectIndex(index)
 						},
 					})
 					return <NavigationMenuItem key={index}>{item}</NavigationMenuItem>

@@ -1,7 +1,6 @@
 "use client"
 
 import SidebarItem from "./SidebarItem"
-import { Separator } from "../../../../components/ui/separator"
 import { COUNTRIES } from "../../config"
 import React, { useState } from "react"
 import SideScrollArea from "@/_features/countries/sections/navigation/SideScrollArea"
@@ -26,7 +25,6 @@ export default function DesktopSidebar() {
 				{filteredCountries.map((asset, index) => (
 					<React.Fragment key={index}>
 						<SidebarItem code={asset.code} name={asset.name} />
-						{/* <Separator /> */}
 					</React.Fragment>
 				))}
 			</SideScrollArea>

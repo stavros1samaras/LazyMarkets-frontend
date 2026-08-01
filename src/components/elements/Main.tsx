@@ -1,15 +1,18 @@
+import { cn } from "@/lib/utils"
 import type { ReactNode } from "react"
 
-export default function Main({ children }: { children: ReactNode }) {
-	const m = "pt-1 px-4"
-	// const h = `h-[calc(100svh-6.25rem)] h-[calc(100vh-6.25rem)]`
+interface MainProps {
+	children: ReactNode
+	className?: string
+}
 
+export default function Main({ children, className }: MainProps) {
+	const displayStyles = "flex flex-col flex-1"
+	const designStyles = "bg-background rounded-lg"
 	const crossBrowserStyles = `scrollbar-hide touch-scroll`
 
 	return (
-		<main
-			className={`flex flex-col w-full flex-1 ${m} p-0 bg-background rounded-lg overflow-y-auto ${crossBrowserStyles} select-none`}
-		>
+		<main className={cn("overflow-y-auto select-none", displayStyles, designStyles, crossBrowserStyles, className)}>
 			{children}
 		</main>
 	)

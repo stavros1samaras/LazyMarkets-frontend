@@ -4,6 +4,8 @@ import Text from "../elements/Text"
 import ThemeButton from "@/components/navigation/ThemeButton"
 import Header from "@/components/elements/Header"
 import { cn } from "@/lib/utils"
+import GitHubIcon from "@/components/icons/GitHubIcon"
+import { Div } from "@/components/elements/Div"
 
 export default function DesktopHeader() {
 	const fontStyles = "text-[19px] font-[550]"
@@ -48,7 +50,10 @@ export default function DesktopHeader() {
 					</Link>
 				</Text>
 			</MainNavigationMenu>
-			<ThemeButton />
+			<Div className="w-auto gap-1">
+				<ThemeButton />
+				<GitHubIcon />
+			</Div>
 		</Header>
 	)
 }

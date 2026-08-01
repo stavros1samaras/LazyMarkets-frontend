@@ -12,35 +12,23 @@ export default function DesktopHeader() {
 	return (
 		<Header className="w-auto h-13 justify-between pt-1 px-4">
 			<MainNavigationMenu>
-				<Text className={cn(fontStyles, hoverStyles)}>SAMOKO</Text>
+				<Text asChild className={cn(fontStyles, hoverStyles)}>
+					<Link href="/" prefetch={false} data-testid="techical">
+						LazyMarkets
+					</Link>
+				</Text>
 				<Text asChild className={cn("inline-block", fontStyles, hoverStyles)}>
-					<Link
-						href={
-							process.env.NODE_ENV === "production"
-								? "/se/financial-hishrefry-timeline/TrmpTrrffShck"
-								: "/se/technical/overview/BTC-USD"
-						}
-						prefetch={false}
-						data-testid="techical"
-					>
+					<Link href="/technical" prefetch={false} data-testid="techical">
 						Techical
 					</Link>
 				</Text>
 				<Text asChild className={cn("inline-block", fontStyles, hoverStyles)}>
-					<Link
-						href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/countries/GR"}
-						prefetch={false}
-						data-testid="fundamental"
-					>
+					<Link href="/fundamental" prefetch={false} data-testid="fundamental">
 						Fundamental
 					</Link>
 				</Text>
 				<Text asChild className={cn("hidden sm:inline-block", fontStyles, hoverStyles)}>
-					<Link
-						href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/se/sentiment"}
-						prefetch={false}
-						data-testid="sentiment"
-					>
+					<Link href="/sentiment" prefetch={false} data-testid="sentiment">
 						Sentiment
 					</Link>
 				</Text>
@@ -50,11 +38,7 @@ export default function DesktopHeader() {
 					</a>
 				</Text>
 				<Text asChild className={cn("hidden sm:inline-block", fontStyles, hoverStyles)}>
-					<Link
-						href={process.env.NODE_ENV === "production" ? "/se/financial-hishrefry-timeline/TrmpTrrffShck" : "/contact"}
-						prefetch={false}
-						data-testid="contact"
-					>
+					<Link href="/contact" prefetch={false} data-testid="contact">
 						Contact
 					</Link>
 				</Text>

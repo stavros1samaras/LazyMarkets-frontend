@@ -2,7 +2,6 @@
 
 import ContactForm from "@/_features/contact/contactForm"
 import DevelopersInfo from "@/_features/contact/DevelopersInfo"
-import { CardContainer } from "@/components/CardContainer"
 import Main, { MainContent } from "@/components/elements/Main"
 import Text from "@/components/elements/Text"
 import PageLayout from "@/components/PageLayout"
@@ -13,8 +12,6 @@ export default function Page() {
 		<PageLayout className="px-2 md:px-70">
 			<Main>
 				<Card className="p-4">
-					{/* <MainContent className=""></MainContent> */}
-
 					<MainContent className="">
 						<Text as="h1" className="text-2xl">
 							Get in touch with the team
@@ -25,11 +22,6 @@ export default function Page() {
 						<ContactForm />
 						<DevelopersInfo />
 					</MainContent>
-
-					{/* <MainContent className="">
-						<ContactForm />
-						<DevelopersInfo />
-					</MainContent> */}
 				</Card>
 			</Main>
 		</PageLayout>

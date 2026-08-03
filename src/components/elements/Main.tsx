@@ -18,6 +18,6 @@ export default function Main({ children, className }: MainProps) {
 	)
 }
 
-export function MainContent({ children }: { children: ReactNode }) {
-	return <section className="grid grid-cols-1 xl:grid-cols-2 gap-4 ">{children}</section>
+export function MainContent({ children, className = "" }: { children: ReactNode; className?: string }) {
+	return <section className={cn("grid grid-cols-1 gap-4 xl:grid-cols-2", className)}>{children}</section>
 }

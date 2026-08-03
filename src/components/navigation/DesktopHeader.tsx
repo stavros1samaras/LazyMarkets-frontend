@@ -12,7 +12,7 @@ export default function DesktopHeader() {
 	const hoverStyles = "transition-transform duration-100 hover:-translate-y-[2px] hover:text-main"
 
 	return (
-		<Header className="w-auto h-13 justify-between pt-1 px-4">
+		<Header className="w-auto h-15 justify-between pt-1 px-4">
 			<MainNavigationMenu>
 				<Text asChild className={cn(fontStyles, hoverStyles)}>
 					<Link href="/" prefetch={false} data-testid="techical">

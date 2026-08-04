@@ -4,7 +4,7 @@ import PageLayout from "@/components/PageLayout"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<PageLayout>
+		<PageLayout className="gap-2">
 			<DesktopSidebar />
 			<Main>
 				<MainContent>{children}</MainContent>

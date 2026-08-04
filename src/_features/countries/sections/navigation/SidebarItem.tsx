@@ -1,9 +1,9 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-import { Div } from "@/components/elements/Div"
 import { cn } from "@/lib/utils"
 import { Span } from "@/components/elements/Span"
+import { Flex } from "@/components/elements/Containers"
 
 type SidebarItemProps = {
 	code: string
@@ -21,10 +21,10 @@ export default function SidebarItem({ code, name, className = "" }: SidebarItemP
 			href={`/countries/${code}`}
 			className={cn("flex items-center w-full transition-colors rounded-sm", hoverStyles, className)}
 		>
-			<Div className="p-1.5 rounded-radius">
-				<Image src={`/images/flags/${flagCode}.svg`} alt="" width={17} height={17} />
+			<Flex className="gap-2 py-1.5 rounded-radius">
+				<Image src={`/images/flags/${flagCode}.svg`} alt="" width={17} height={17} className="rounded-xs" />
 				<Span className="text-[16px] font-medium text-foreground">{name}</Span>
-			</Div>
+			</Flex>
 		</Link>
 	)
 }

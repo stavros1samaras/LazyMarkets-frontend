@@ -9,7 +9,7 @@ import { Card } from "@/components/ui/card"
 
 export default function Page() {
 	return (
-		<PageLayout className="px-2 md:px-70">
+		<PageLayout className="px-2 md:px-60">
 			<Main>
 				<Card className="p-4">
 					<MainContent className="">

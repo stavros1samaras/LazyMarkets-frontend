@@ -1,25 +1,36 @@
+import contactForm from "@/_features/contact/_actions/contactForm"
 import { Span } from "@/components/elements/Span"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { FieldGroup, FieldSet, FieldLegend, Field, FieldLabel, FieldDescription } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { InputGroup, InputGroupTextarea, InputGroupAddon, InputGroupText } from "@/components/ui/input-group"
-import { useForm, SubmitHandler, Controller } from "react-hook-form"
+
+import { useForm, SubmitHandler } from "react-hook-form"
+import { toast } from "sonner"
+
+export type FormInputs = {
+	name: string
+	email: string
+	message: string
+}
 
 export default function ContactForm() {
-	type Inputs = {
-		name: string
-		email: string
-		message: string
-	}
-
 	const {
 		register,
 		handleSubmit,
+		reset,
 		formState: { errors },
-	} = useForm<Inputs>()
+	} = useForm<FormInputs>()
 
-	const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+	const onSubmit: SubmitHandler<FormInputs> = (data: FormInputs) => {
+		toast.promise<{ name: string }>(async () => await contactForm(data), {
+			loading: "submitting form...",
+			success: (data) => `${data.name} thanks for submitting this form!`,
+			error: "Error",
+		})
+		reset()
+	}
 
 	return (
 		<Card className="w-full h-fit py-4">
@@ -52,7 +63,7 @@ export default function ContactForm() {
 											},
 										})}
 									/>
-									{errors.name && <Span>{errors.name.message}</Span>}
+									{errors.name && <Span className="text-destructive text-sm">{errors.name.message}</Span>}
 									<FieldDescription>Enter your full name so we know who we are speaking with.</FieldDescription>
 								</Field>
 								<Field>
@@ -74,7 +85,7 @@ export default function ContactForm() {
 											},
 										})}
 									/>
-									{errors.email && <Span>{errors.email.message}</Span>}
+									{errors.email && <Span className="text-destructive text-sm">{errors.email.message}</Span>}
 									<FieldDescription>We will use this email to get back to you.</FieldDescription>
 								</Field>
 								<Field>
@@ -100,7 +111,7 @@ export default function ContactForm() {
 			</CardContent>
 			<CardFooter>
 				<Field orientation="horizontal">
-					<Button type="button" variant="outline">
+					<Button type="button" variant="outline" onClick={() => reset()}>
 						Reset
 					</Button>
 					<Button type="submit" form="form-rhf-demo">
@@ -110,7 +121,4 @@ export default function ContactForm() {
 			</CardFooter>
 		</Card>
 	)
-}
-function trigger(arg0: string) {
-	throw new Error("Function not implemented.")
 }

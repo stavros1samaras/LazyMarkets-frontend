@@ -4,6 +4,7 @@ import "./globals.css"
 import "../styles/compat.css"
 import DesktopHeader from "../components/navigation/DesktopHeader"
 import { NextThemeProvider } from "@/contexts/NextThemeProvider"
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({
 	variable: "--font-inter",
@@ -39,6 +40,7 @@ export default function RootLayout({
 					<DesktopHeader />
 					{children}
 				</NextThemeProvider>
+				<Toaster />
 			</body>
 		</html>
 	)

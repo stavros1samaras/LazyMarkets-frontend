@@ -6,6 +6,8 @@ import Header from "@/components/elements/Header"
 import { cn } from "@/lib/utils"
 import GitHubIcon from "@/components/icons/GitHubIcon"
 import { Div } from "@/components/elements/Div"
+import { ExternalLink } from "lucide-react"
+import { Flex } from "@/components/elements/Containers"
 
 export default function DesktopHeader() {
 	const fontStyles = "text-[19px] font-[550]"
@@ -34,16 +36,23 @@ export default function DesktopHeader() {
 						Sentiment
 					</Link>
 				</Text>
-				<Text asChild className={cn("hidden sm:inline-block", fontStyles, hoverStyles)}>
-					<a href="http://lazy-markets-rr.vercel.app/" target="_blank" data-testid="FHT">
-						FHT
-					</a>
-				</Text>
+				{/* className={cn(fontStyles, hoverStyles)} */}
+				<Flex asChild className={cn("hidden sm:flex", fontStyles, hoverStyles)}>
+					<Text asChild>
+						<Flex asChild className="items-center gap-1">
+							<a href="http://lazy-markets-rr.vercel.app/" target="_blank" data-testid="FHT">
+								FHT
+								<ExternalLink size={20} />
+							</a>
+						</Flex>
+					</Text>
+				</Flex>
 				<Text asChild className={cn("hidden sm:inline-block", fontStyles, hoverStyles)}>
 					<Link href="/contact" prefetch={false} data-testid="contact">
 						Contact
 					</Link>
 				</Text>
+
 				<Text asChild className={cn("hidden sm:inline-block", fontStyles, hoverStyles)}>
 					<Link href="/countries/GR" data-testid="contact">
 						Countries

@@ -15,7 +15,7 @@ export default function Text({ asChild = false, as = "p", className, children, .
 		const child = children as React.ReactElement<{ className?: string }>
 		return React.cloneElement(child, {
 			...props,
-			className: cn(child.props.className || "", className, "text-foreground"),
+			className: cn(child.props.className || "", "text-foreground", className),
 		})
 	}
 

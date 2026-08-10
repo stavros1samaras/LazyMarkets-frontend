@@ -13,16 +13,16 @@ export default function MainNavigationMenu({ children }: MainNavigationMenuProps
 	const value = getValueFromPathname(pathname)
 
 	function getValueFromPathname(pathname: string) {
-		if (pathname.startsWith("/countries")) return 6
+		if (pathname.startsWith("/countries")) return 4
 		if (pathname.startsWith("/se/technical")) return 1
 		if (pathname.startsWith("/se/fundamental")) return 2
 		if (pathname.startsWith("/se/sentiment")) return 3
-		if (pathname.startsWith("/se/contact")) return 5
+		if (pathname.startsWith("/se/contact")) return 6
 		return 0
 	}
 
 	function getCorrectIndex(index: number) {
-		if (index == 4) {
+		if (index == 5) {
 			return getValueFromPathname(pathname)
 		} else return index
 	}

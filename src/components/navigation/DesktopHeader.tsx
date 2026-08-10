@@ -6,8 +6,9 @@ import Header from "@/components/elements/Header"
 import { cn } from "@/lib/utils"
 import GitHubIcon from "@/components/icons/GitHubIcon"
 import { Div } from "@/components/elements/Div"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, Hammer } from "lucide-react"
 import { Flex } from "@/components/elements/Containers"
+import { CompanyLogo } from "@/components/navigation/CompanyLogo"
 
 export default function DesktopHeader() {
 	const fontStyles = "text-[19px] font-[550]"
@@ -16,24 +17,35 @@ export default function DesktopHeader() {
 	return (
 		<Header className="w-auto h-15 justify-between pt-1 px-4">
 			<MainNavigationMenu>
-				<Text asChild className={cn(fontStyles, hoverStyles)}>
-					<Link href="/" prefetch={false} data-testid="techical">
-						LazyMarkets
-					</Link>
+				<CompanyLogo fontStyles={fontStyles} hoverStyles={hoverStyles} />
+
+				<Text asChild className={cn("flex", fontStyles, hoverStyles)}>
+					<Flex asChild className="items-center gap-1.5">
+						<Link href="/technical" prefetch={false} data-testid="techical">
+							Technical
+							<Hammer size={19} />
+						</Link>
+					</Flex>
 				</Text>
-				<Text asChild className={cn("inline-block", fontStyles, hoverStyles)}>
-					<Link href="/technical" prefetch={false} data-testid="techical">
-						Techical
-					</Link>
+				<Text asChild className={cn("flex", fontStyles, hoverStyles)}>
+					<Flex asChild className="items-center gap-1.5">
+						<Link href="/fundamental" prefetch={false} data-testid="fundamental">
+							Fundamental
+							<Hammer size={19} />
+						</Link>
+					</Flex>
 				</Text>
-				<Text asChild className={cn("inline-block", fontStyles, hoverStyles)}>
-					<Link href="/fundamental" prefetch={false} data-testid="fundamental">
-						Fundamental
-					</Link>
+				<Text asChild className={cn("hidden sm:flex", fontStyles, hoverStyles)}>
+					<Flex asChild className="items-center gap-1.5">
+						<Link href="/sentiment" prefetch={false} data-testid="sentiment">
+							Sentiment
+							<Hammer size={19} />
+						</Link>
+					</Flex>
 				</Text>
 				<Text asChild className={cn("hidden sm:inline-block", fontStyles, hoverStyles)}>
-					<Link href="/sentiment" prefetch={false} data-testid="sentiment">
-						Sentiment
+					<Link href="/countries/GR" data-testid="contact">
+						Countries
 					</Link>
 				</Text>
 				<Flex asChild className={cn("hidden sm:flex", fontStyles, hoverStyles)}>
@@ -41,7 +53,7 @@ export default function DesktopHeader() {
 						<Flex asChild className="items-center gap-1">
 							<a href="http://lazy-markets-rr.vercel.app/" target="_blank" data-testid="FHT">
 								FHT
-								<ExternalLink size={20} />
+								<ExternalLink size={19} />
 							</a>
 						</Flex>
 					</Text>
@@ -49,12 +61,6 @@ export default function DesktopHeader() {
 				<Text asChild className={cn("hidden sm:inline-block", fontStyles, hoverStyles)}>
 					<Link href="/contact" prefetch={false} data-testid="contact">
 						Contact
-					</Link>
-				</Text>
-
-				<Text asChild className={cn("hidden sm:inline-block", fontStyles, hoverStyles)}>
-					<Link href="/countries/GR" data-testid="contact">
-						Countries
 					</Link>
 				</Text>
 			</MainNavigationMenu>

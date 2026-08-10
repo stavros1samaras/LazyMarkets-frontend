@@ -1,35 +1,26 @@
 import contactForm from "@/_features/contact/_actions/contactForm"
-import { Span } from "@/components/elements/Span"
+import { config } from "@/_features/contact/config"
+import { FormInputs } from "@/_features/contact/types"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
-import { FieldGroup, FieldSet, FieldLegend, Field, FieldLabel, FieldDescription } from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
-import { InputGroup, InputGroupTextarea, InputGroupAddon, InputGroupText } from "@/components/ui/input-group"
-
-import { useForm, SubmitHandler } from "react-hook-form"
+import { FieldGroup, FieldSet, FieldLegend, Field } from "@/components/ui/field"
+import { useForm, SubmitHandler, FormProvider } from "react-hook-form"
 import { toast } from "sonner"
 
-export type FormInputs = {
-	name: string
-	email: string
-	message: string
-}
-
 export default function ContactForm() {
-	const {
-		register,
-		handleSubmit,
-		reset,
-		formState: { errors },
-	} = useForm<FormInputs>()
+	const methods = useForm<FormInputs>()
+
+	const { handleSubmit, reset } = methods
 
 	const onSubmit: SubmitHandler<FormInputs> = (data: FormInputs) => {
 		toast.promise<{ name: string }>(async () => await contactForm(data), {
 			loading: "submitting form...",
-			success: (data) => `${data.name} thanks for submitting this form!`,
+			success: (data) => {
+				reset()
+				return `${data.name} thanks for submitting this form!`
+			},
 			error: "Error",
 		})
-		reset()
 	}
 
 	return (
@@ -44,66 +35,22 @@ export default function ContactForm() {
 						<FieldSet>
 							<FieldLegend>Contact Information</FieldLegend>
 							<FieldGroup>
-								<Field>
-									<FieldLabel htmlFor="">Name</FieldLabel>
-									<Input
-										id="form-rhf-demo-title"
-										type="text"
-										placeholder="Your name"
-										autoComplete="off"
-										{...register("name", {
-											required: "This field is required",
-											minLength: {
-												value: 3,
-												message: "Name must be at least 3 characters",
-											},
-											maxLength: {
-												value: 20,
-												message: "Name must be at most 20 characters",
-											},
-										})}
-									/>
-									{errors.name && <Span className="text-destructive text-sm">{errors.name.message}</Span>}
-									<FieldDescription>Enter your full name so we know who we are speaking with.</FieldDescription>
-								</Field>
-								<Field>
-									<FieldLabel htmlFor="">Email</FieldLabel>
-									<Input
-										id="form-rhf-demo-title"
-										placeholder="you@example.com"
-										autoComplete="off"
-										type="email"
-										{...register("email", {
-											required: "Email is required",
-											minLength: {
-												value: 3,
-												message: "Name must be at least 3 characters",
-											},
-											pattern: {
-												value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-												message: "Invalid email",
-											},
-										})}
-									/>
-									{errors.email && <Span className="text-destructive text-sm">{errors.email.message}</Span>}
-									<FieldDescription>We will use this email to get back to you.</FieldDescription>
-								</Field>
-								<Field>
-									<FieldLabel htmlFor="">Message</FieldLabel>
-									<InputGroup>
-										<InputGroupTextarea
-											id="form-rhf-demo-description"
-											placeholder="Write your message here..."
-											rows={6}
-											className="min-h-24 resize-none"
-											{...register("message", { required: true })}
-										/>
-										<InputGroupAddon align="block-end">
-											<InputGroupText className="tabular-nums">0/500 characters</InputGroupText>
-										</InputGroupAddon>
-									</InputGroup>
-									<FieldDescription>Please provide as much detail as possible so we can better assist you.</FieldDescription>
-								</Field>
+								<FormProvider {...methods}>
+									{config.map((inputInfo, index) => {
+										return (
+											<inputInfo.component
+												key={index}
+												id={inputInfo.id}
+												type={inputInfo.type}
+												DomInputName={inputInfo.DomInputName}
+												label={inputInfo.label}
+												placeholder={inputInfo.placeholder}
+												description={inputInfo.description}
+												rules={inputInfo.rules}
+											/>
+										)
+									})}
+								</FormProvider>
 							</FieldGroup>
 						</FieldSet>
 					</FieldGroup>

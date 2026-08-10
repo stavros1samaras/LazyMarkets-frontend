@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import Link from "next/link"
-import { useState, useEffect, useLayoutEffect } from "react"
+import { useState, useEffect } from "react"
 import Text from "@/components/elements/Text"
 import { Flex } from "@/components/elements/Containers"
 import { Hammer } from "lucide-react"

@@ -1,6 +1,6 @@
 import contactForm from "@/_features/contact/_actions/contactForm"
-import { config } from "@/_features/contact/config"
-import { FormInputs } from "@/_features/contact/types"
+import { config } from "@/_features/contact/contact-form/config"
+import { FormInputs } from "@/_features/contact/contact-form/types"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { FieldGroup, FieldSet, FieldLegend, Field } from "@/components/ui/field"

@@ -1,4 +1,4 @@
-import { InputFieldProps, FormInputs } from "@/_features/contact/types"
+import { InputFieldProps, FormInputs } from "@/_features/contact/contact-form/types"
 import { Span } from "@/components/elements/Span"
 import { Field, FieldLabel, FieldDescription } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"

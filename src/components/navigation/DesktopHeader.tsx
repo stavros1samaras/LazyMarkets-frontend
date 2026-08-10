@@ -36,7 +36,6 @@ export default function DesktopHeader() {
 						Sentiment
 					</Link>
 				</Text>
-				{/* className={cn(fontStyles, hoverStyles)} */}
 				<Flex asChild className={cn("hidden sm:flex", fontStyles, hoverStyles)}>
 					<Text asChild>
 						<Flex asChild className="items-center gap-1">

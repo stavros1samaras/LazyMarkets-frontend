@@ -6,7 +6,7 @@ export default function SingleLineChart({ children, data }: any) {
 	return (
 		<>
 			<div className="flex items-center justify-between pb-3 ">{children}</div>
-			<ResponsiveContainer width="100%" height={400}>
+			<ResponsiveContainer width="100%" height={300}>
 				<AreaChart data={data} margin={{ left: 0, right: 0, top: 0, bottom: 0 }}>
 					<defs>
 						<linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">

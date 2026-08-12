@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 		<PageLayout className="gap-2">
 			<DesktopSidebar />
 			<Main>
-				<MainContent>{children}</MainContent>
+				<MainContent className="xl:grid-cols-3">{children}</MainContent>
 			</Main>
 		</PageLayout>
 	)

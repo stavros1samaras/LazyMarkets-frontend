@@ -8,7 +8,7 @@ export default function DevelopersInfo() {
 		<>
 			<Grid asChild className="grid-cols-1 relative min-h-0 ">
 				<Card>
-					<Grid className="absolute grid-cols-1 gap-3 inset-0 m-4 overflow-y-scroll  scrollbar-hide ">
+					<Grid className="lg:absolute grid-cols-1 gap-3 inset-0 m-4 overflow-y-scroll  scrollbar-hide ">
 						<DevelopersInfoCards />
 					</Grid>
 				</Card>

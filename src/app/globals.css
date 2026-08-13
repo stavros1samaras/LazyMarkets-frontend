@@ -39,7 +39,7 @@
 	/* custom theme*/
 	--global-background: rgb(221, 222, 227);
 	--neutral: rgb(219, 217, 217);
-	--custom-border: var(--background);
+	--custom-border: rgb(241, 13, 13);
 	--tertiary: rgb(238, 239, 246);
 	--main: rgb(138, 136, 255);
 

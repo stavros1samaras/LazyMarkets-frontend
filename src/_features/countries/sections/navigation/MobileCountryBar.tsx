@@ -39,8 +39,10 @@ export default function MobileCountyBar() {
 					</SelectContent>
 				</Select>
 			</div>
-			{/* text-(length:--responsive-h1) */}
-			<Text className="responsive-h1 text-sm ">Explore key economic indicators and trends</Text>
+			{/*<Text className="text-sm responsive-h1 " ---> text-sm wins every time */}
+			<Text as="h1" className=" ">
+				Explore key economic indicators and trends
+			</Text>
 		</Card>
 	)
 }

@@ -21,7 +21,7 @@ export default function Text({ asChild = false, as = "p", className, children, .
 
 	const Tag = as
 	return (
-		<Tag className={cn("text-foreground", className)} {...props}>
+		<Tag className={`text-foreground ${className} responsive-${as}`} {...props}>
 			{children}
 		</Tag>
 	)

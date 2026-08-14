@@ -4,7 +4,6 @@ import { SelectTrigger, SelectValue, SelectContent, SelectGroup, SelectLabel, Se
 
 import Text, { Title } from "@/components/elements/Text"
 import { COUNTRIES } from "@/_features/countries/config"
-import Link from "next/link"
 import { useRouter } from "next/navigation"
 
 export default function MobileCountyBar() {

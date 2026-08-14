@@ -106,26 +106,24 @@
 	--ring: oklch(32.223% 0.00529 286.005);
 }
 
-@layer components {
-	.responsive-h1 {
-		font-size: var(--responsive-h1);
-	}
+@utility responsive-h1 {
+	font-size: var(--responsive-h1);
+}
 
-	.responsive-h2 {
-		font-size: var(--responsive-h2);
-	}
+@utility responsive-h2 {
+	font-size: var(--responsive-h2);
+}
 
-	.responsive-h3 {
-		font-size: var(--responsive-h3);
-	}
+@utility responsive-h3 {
+	font-size: var(--responsive-h3);
+}
 
-	.responsive-h4 {
-		font-size: var(--responsive-h4);
-	}
+@utility responsive-h4 {
+	font-size: var(--responsive-h4);
+}
 
-	.responsive-p {
-		font-size: var(--responsive-p);
-	}
+@utility responsive-p {
+	font-size: var(--responsive-p);
 }
 
 /* typography */

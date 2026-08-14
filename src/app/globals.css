@@ -3,6 +3,14 @@
 @import "shadcn/tailwind.css";
 
 @theme inline {
+	/* typography */
+	--text-responsive-h1: var(--responsive-h1);
+	--text-responsive-h2: var(--responsive-h2);
+	--text-responsive-h3: var(--responsive-h3);
+	--text-responsive-h4: var(--responsive-h4);
+	--text-responsive-p: var(--responsive-p);
+	/* typography */
+
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);
@@ -104,26 +112,6 @@
 	--border: oklch(1 0 0 / 10%);
 	--input: oklch(1 0 0 / 15%);
 	--ring: oklch(32.223% 0.00529 286.005);
-}
-
-@utility responsive-h1 {
-	font-size: var(--responsive-h1);
-}
-
-@utility responsive-h2 {
-	font-size: var(--responsive-h2);
-}
-
-@utility responsive-h3 {
-	font-size: var(--responsive-h3);
-}
-
-@utility responsive-h4 {
-	font-size: var(--responsive-h4);
-}
-
-@utility responsive-p {
-	font-size: var(--responsive-p);
 }
 
 /* typography */

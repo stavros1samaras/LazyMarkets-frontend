@@ -39,7 +39,7 @@ export default function MobileCountyBar() {
 				</Select>
 			</div>
 			{/*<Text className="text-sm responsive-h1 " ---> text-sm wins every time */}
-			<Text as="h1" className=" text-sm">
+			<Text as="h1" className="text-sm ">
 				Explore key economic indicators and trends
 			</Text>
 		</Card>

@@ -28,9 +28,7 @@ export default function MobileCountyBar() {
 							{COUNTRIES.map((country, index) => {
 								return (
 									<SelectItem value={country.code} key={index}>
-										{/* <Link href={`${country.code}`} key={index} className="block p-2"> */}
 										{country.name}
-										{/* </Link> */}
 									</SelectItem>
 								)
 							})}
@@ -38,7 +36,6 @@ export default function MobileCountyBar() {
 					</SelectContent>
 				</Select>
 			</div>
-			{/*<Text className="text-sm responsive-h1 " ---> text-sm wins every time */}
 			<Text as="h1" className="text-sm ">
 				Explore key economic indicators and trends
 			</Text>

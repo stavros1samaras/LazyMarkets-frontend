@@ -3,6 +3,14 @@
 @import "shadcn/tailwind.css";
 
 @theme inline {
+	/* typography */
+	/* --text-responsive-h1: var(--responsive-h1);
+	--text-responsive-h2: var(--responsive-h2);
+	--text-responsive-h3: var(--responsive-h3);
+	--text-responsive-h4: var(--responsive-h4);
+	--text-responsive-p: var(--responsive-p); */
+	/* typography */
+
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);
@@ -39,7 +47,7 @@
 	/* custom theme*/
 	--global-background: rgb(221, 222, 227);
 	--neutral: rgb(219, 217, 217);
-	--custom-border: rgb(241, 13, 13);
+	--custom-border: rgb(66, 66, 66);
 	--tertiary: rgb(238, 239, 246);
 	--main: rgb(138, 136, 255);
 
@@ -105,7 +113,55 @@
 	--input: oklch(1 0 0 / 15%);
 	--ring: oklch(32.223% 0.00529 286.005);
 }
+/* @utility text-responsive-h1 {
+	font-size: var(--responsive-h1);
+}
 
+@utility text-responsive-h2 {
+	font-size: var(--responsive-h2);
+}
+
+@utility text-responsive-h3 {
+	font-size: var(--responsive-h3);
+}
+
+@utility text-responsive-h4 {
+	font-size: var(--responsive-h4);
+}
+
+@utility text-responsive-p {
+	font-size: var(--responsive-p);
+} */
+/* typography */
+:root {
+	--responsive-h1: 2rem;
+	--responsive-h2: 1.5rem;
+	--responsive-h3: 1.25rem;
+	--responsive-h4: 1.125rem;
+	--responsive-p: 1rem;
+}
+
+@media (min-width: 48rem) {
+	:root {
+		--responsive-h1: 2.5rem;
+		--responsive-h2: 2rem;
+		--responsive-h3: 1.5rem;
+		--responsive-h4: 1.25rem;
+		--responsive-p: 1.0625rem;
+	}
+}
+
+@media (min-width: 64rem) {
+	:root {
+		--responsive-h1: 3rem;
+		--responsive-h2: 2.25rem;
+		--responsive-h3: 1.75rem;
+		--responsive-h4: 1.5rem;
+		--responsive-p: 1.125rem;
+	}
+}
+
+/**************************/
 body {
 	overflow: hidden;
 }

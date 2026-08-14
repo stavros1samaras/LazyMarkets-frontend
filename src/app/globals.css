@@ -3,14 +3,6 @@
 @import "shadcn/tailwind.css";
 
 @theme inline {
-	/* typography */
-	/* --text-responsive-h1: var(--responsive-h1);
-	--text-responsive-h2: var(--responsive-h2);
-	--text-responsive-h3: var(--responsive-h3);
-	--text-responsive-h4: var(--responsive-h4);
-	--text-responsive-p: var(--responsive-p); */
-	/* typography */
-
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);

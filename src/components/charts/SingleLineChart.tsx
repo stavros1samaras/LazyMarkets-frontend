@@ -1,11 +1,12 @@
 "use client"
 
+import { Fragment } from "react"
 import { ResponsiveContainer, XAxis, Tooltip, Area, AreaChart, YAxis } from "recharts"
 
 export default function SingleLineChart({ children, data }: any) {
 	return (
-		<>
-			<div className="flex items-center justify-between pb-3 ">{children}</div>
+		<div className=" animate-in fade-in duration-500">
+			<div className="flex items-center justify-between pb-3 \">{children}</div>
 			<ResponsiveContainer width="100%" height={200}>
 				<AreaChart data={data} margin={{ left: 0, right: 0, top: 0, bottom: 0 }}>
 					<defs>
@@ -61,6 +62,8 @@ export default function SingleLineChart({ children, data }: any) {
 						itemStyle={{
 							color: "var(--foreground)",
 						}}
+						isAnimationActive={"auto"}
+						animationDuration={200}
 					/>
 					<Area
 						type="monotone"
@@ -69,10 +72,12 @@ export default function SingleLineChart({ children, data }: any) {
 						strokeWidth={2}
 						dot={false}
 						fill="url(#gradient)"
-						isAnimationActive={false}
+						isAnimationActive={"auto"}
+						animationDuration={200}
+						animationEasing="linear"
 					/>
 				</AreaChart>
 			</ResponsiveContainer>
-		</>
+		</div>
 	)
 }

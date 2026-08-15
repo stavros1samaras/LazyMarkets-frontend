@@ -1,12 +1,12 @@
 "use client"
 
-import { ResponsiveContainer, XAxis, Tooltip, Area, AreaChart } from "recharts"
+import { ResponsiveContainer, XAxis, Tooltip, Area, AreaChart, YAxis } from "recharts"
 
 export default function SingleLineChart({ children, data }: any) {
 	return (
 		<>
 			<div className="flex items-center justify-between pb-3 ">{children}</div>
-			<ResponsiveContainer width="100%" height={300}>
+			<ResponsiveContainer width="100%" height={200}>
 				<AreaChart data={data} margin={{ left: 0, right: 0, top: 0, bottom: 0 }}>
 					<defs>
 						<linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
@@ -16,7 +16,33 @@ export default function SingleLineChart({ children, data }: any) {
 						</linearGradient>
 					</defs>
 
-					<XAxis dataKey="year" interval="preserveStartEnd" minTickGap={25} stroke="var(--axis)" />
+					<XAxis
+						dataKey="year"
+						interval="preserveStartEnd"
+						tick={{
+							fontSize: 12,
+							dy: 7,
+						}}
+						minTickGap={10}
+						stroke="var(--axis)"
+					/>
+					<YAxis
+						dataKey="value"
+						orientation="left"
+						stroke="var(--axis)"
+						tick={{
+							fontSize: 12,
+						}}
+						tickFormatter={(value) =>
+							Number(value).toLocaleString("en-US", {
+								notation: "compact",
+								compactDisplay: "short",
+							})
+						}
+						width={"auto"}
+						axisLine={false}
+						tickLine={false}
+					/>
 
 					<Tooltip
 						formatter={(value) =>

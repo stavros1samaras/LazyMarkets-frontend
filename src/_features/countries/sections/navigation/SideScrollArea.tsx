@@ -10,7 +10,7 @@ type SideScrollAreaProps = {
 
 export default function SideScrollArea({ children, className }: SideScrollAreaProps) {
 	return (
-		<ScrollArea className={cn("w-fit border border-custom-border bg-background", className)}>
+		<ScrollArea className={cn("w-fit bg-background", className)}>
 			<Flex className="flex-col items-start w-auto text-sm gap-2 px-2">{children}</Flex>
 			<ScrollBar orientation="vertical" className="w-1" />
 		</ScrollArea>

@@ -1,13 +1,13 @@
 import { CardContainer } from "../../../../components/CardContainer"
 import HoverIcon from "../../../../components/HoverIcon"
 import { Title } from "../../../../components/elements/Text"
-import { Download, Info } from "lucide-react"
+import { Info } from "lucide-react"
 import SingleLineChart from "@/components/charts/SingleLineChart"
 import { CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
 import { ChartMetadata, RenderDataConfig } from "@/_features/countries/types"
 import { getCountryData } from "@/_features/countries/modules/country"
-import { Span } from "@/components/elements/Span"
 import { ComponentType } from "react"
+import ExportButton from "@/_features/countries/sections/chart-container/ExportButton"
 
 export default async function ChartContainer({ countryCode }: { countryCode: string }) {
 	const countryData = await getCountryData(countryCode)
@@ -45,7 +45,7 @@ export default async function ChartContainer({ countryCode }: { countryCode: str
 								</HoverIcon>
 							</span>
 							<span className="flex items-center gap-2">
-								<Download className="size-4 lg:size-5 text-foreground" />
+								<ExportButton data={config.chartData} title={config.chartTitle} />
 								<Title as="h4">{lastValue}</Title>
 							</span>
 						</SingleLineChart>

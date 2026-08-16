@@ -1,6 +1,5 @@
 "use client"
 
-import { Fragment } from "react"
 import { ResponsiveContainer, XAxis, Tooltip, Area, AreaChart, YAxis } from "recharts"
 
 export default function SingleLineChart({ children, data }: any) {
@@ -54,7 +53,7 @@ export default function SingleLineChart({ children, data }: any) {
 						}
 						contentStyle={{
 							backgroundColor: "var(--tooltip-background)",
-							border: "1px solid var(--custom-border)",
+							border: "1px solid var(--border)",
 						}}
 						labelStyle={{
 							color: "var(--foreground)",

@@ -35,7 +35,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="" suppressHydrationWarning>
-			<body className={`${geistSans.variable} ${inter.className} antialiased bg-background root w-screen flex h-screen flex-col`}>
+			<body
+				className={`${geistSans.variable} ${inter.className} antialiased bg-background root w-screen flex h-screen flex-col overflow-hidden`}
+			>
 				<NextThemeProvider>
 					<DesktopHeader />
 					{children}

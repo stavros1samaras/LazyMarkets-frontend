@@ -22,7 +22,8 @@
     "recharts": "^3.7.0",
     "server-only": "^0.0.1",
     "sonner": "^2.0.8",
-    "tailwind-merge": "^3.5.0"
+    "tailwind-merge": "^3.5.0",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

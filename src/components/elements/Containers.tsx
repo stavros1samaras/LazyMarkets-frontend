@@ -19,12 +19,6 @@ interface AsElement {
 	children?: React.ReactNode
 }
 
-export function Flex({ asChild, as = "div", className, children }: ContainerProps) {
-	const Comp = asChild ? Slot.Root : as
-
-	return <Comp className={cn("flex", className)}>{children}</Comp>
-}
-
 export function Grid({ asChild, as = "div", className, children }: ContainerProps) {
 	const Comp = asChild ? Slot.Root : as
 

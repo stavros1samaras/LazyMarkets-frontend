@@ -1,5 +1,6 @@
-import { Flex } from "@/components/elements/Containers"
+import { Div } from "@/components/elements/Div"
 import { Span } from "@/components/elements/Span"
+import Text from "@/components/elements/Text"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ExternalLink } from "lucide-react"
 
@@ -83,31 +84,27 @@ export function DevelopersInfoCards() {
 							<CardDescription>{dev.description}</CardDescription>
 						</CardHeader>
 						<CardContent>
-							<Flex as="div" className="justify-between ">
-								<p className="text-foreground">email: </p>
-								<p>{dev.email}</p>
-							</Flex>
-							<Flex className="justify-between">
-								<p className="text-foreground">sector: </p>
-								<p>{dev.title}</p>
-							</Flex>
-							<Flex className="justify-between">
-								<p className="text-foreground">links:</p>
+							<Div className="justify-between">
+								<Text as="p">email: </Text>
+								<Text as="p">{dev.email}</Text>
+							</Div>
+							<Div className="justify-between">
+								<Text as="p">sector: </Text>
+								<Text as="p">{dev.title}</Text>
+							</Div>
+							<Div className="justify-between">
+								<Text as="p">links:</Text>
 								<Span className="justify-between gap-2">
-									<Flex asChild className="items-center gap-1">
-										<a href={dev.linkedin} target="_blank" className="text-foreground">
-											linkedIn
-											<ExternalLink size={13} />
-										</a>
-									</Flex>
-									<Flex asChild className="items-center gap-1">
-										<a href={dev.github} target="_blank" className="text-foreground">
-											gitHub
-											<ExternalLink size={13} />
-										</a>
-									</Flex>
+									<a href={dev.linkedin} target="_blank" className="flex items-center gap-1 text-foreground">
+										linkedIn
+										<ExternalLink size={13} />
+									</a>
+									<a href={dev.github} target="_blank" className="flex items-center gap-1 text-foreground">
+										gitHub
+										<ExternalLink size={13} />
+									</a>
 								</Span>
-							</Flex>
+							</Div>
 							<div className="flex justify-end"></div>
 						</CardContent>
 					</Card>

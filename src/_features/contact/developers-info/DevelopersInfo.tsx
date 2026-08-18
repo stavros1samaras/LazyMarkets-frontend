@@ -1,13 +1,14 @@
+import { cn } from "@/lib/utils"
 import { Div } from "@/components/elements/Div"
 import { Span } from "@/components/elements/Span"
 import Text from "@/components/elements/Text"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ExternalLink } from "lucide-react"
 
-export default function DevelopersInfo() {
+export default function DevelopersInfo({ className }: { className?: string }) {
 	return (
-		<Card className="relative min-h-0">
-			<div className="lg:absolute grid grid-cols-1 gap-3 inset-0 m-4 overflow-y-scroll scrollbar-hide">
+		<Card className={cn("relative min-h-0 flex-1 h-full", className)}>
+			<div className="xl:absolute grid grid-cols-1 gap-3 inset-0 m-4 overflow-y-scroll scrollbar-hide">
 				<DevelopersInfoCards />
 			</div>
 		</Card>
@@ -94,10 +95,10 @@ export function DevelopersInfoCards() {
 							</Div>
 							<Div className="justify-between">
 								<Text as="p">links:</Text>
-								<Span className="justify-between gap-2">
+								<Span className="justify-between gap-2 underline">
 									<a href={dev.linkedin} target="_blank" className="flex items-center gap-1 text-foreground">
 										linkedIn
-										<ExternalLink size={13} />
+										<ExternalLink size={13} className="underline" />
 									</a>
 									<a href={dev.github} target="_blank" className="flex items-center gap-1 text-foreground">
 										gitHub

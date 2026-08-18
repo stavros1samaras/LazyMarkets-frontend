@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils"
 import contactForm from "@/_features/contact/_actions/contactForm"
 import { config } from "@/_features/contact/contact-form/config"
 import { FormInputs } from "@/_features/contact/contact-form/types"
@@ -7,7 +8,7 @@ import { FieldGroup, FieldSet, FieldLegend, Field } from "@/components/ui/field"
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form"
 import { toast } from "sonner"
 
-export default function ContactForm() {
+export default function ContactForm({ className }: { className?: string }) {
 	const methods = useForm<FormInputs>()
 
 	const { handleSubmit, reset } = methods
@@ -24,7 +25,7 @@ export default function ContactForm() {
 	}
 
 	return (
-		<Card className="w-full h-fit py-4">
+		<Card className={cn("w-full h-fit py-4", className)}>
 			<CardHeader>
 				<CardTitle>Contact Us</CardTitle>
 				<CardDescription>Have a question or need help? Send us a message and we will get back to you.</CardDescription>

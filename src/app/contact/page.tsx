@@ -12,15 +12,19 @@ export default function Page() {
 		<PageLayout className=" px-2 md:px-30 lg:px-50 ">
 			<Main>
 				<Card className="p-4">
-					<MainContent className="">
-						<Text as="h1" className="text-2xl">
-							Get in touch with the team
-						</Text>
-						<Text as="h1" className="text-2xl">
-							Contributors information
-						</Text>
-						<ContactForm />
-						<DevelopersInfo />
+					<MainContent>
+						<div className="flex flex-col gap-4">
+							<Text as="h1" className="text-2xl">
+								Get in touch with the team
+							</Text>
+							<ContactForm />
+						</div>
+						<div className="flex flex-col gap-4 h-full">
+							<Text as="h1" className="text-2xl">
+								Contributors information
+							</Text>
+							<DevelopersInfo />
+						</div>
 					</MainContent>
 				</Card>
 			</Main>

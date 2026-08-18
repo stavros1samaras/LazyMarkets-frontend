@@ -1,19 +1,15 @@
-import { Flex, Grid } from "@/components/elements/Containers"
+import { Flex } from "@/components/elements/Containers"
 import { Span } from "@/components/elements/Span"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ExternalLink } from "lucide-react"
 
 export default function DevelopersInfo() {
 	return (
-		<>
-			<Grid asChild className="grid-cols-1 relative min-h-0 ">
-				<Card>
-					<Grid className="lg:absolute grid-cols-1 gap-3 inset-0 m-4 overflow-y-scroll  scrollbar-hide ">
-						<DevelopersInfoCards />
-					</Grid>
-				</Card>
-			</Grid>
-		</>
+		<Card className="relative min-h-0">
+			<div className="lg:absolute grid grid-cols-1 gap-3 inset-0 m-4 overflow-y-scroll scrollbar-hide">
+				<DevelopersInfoCards />
+			</div>
+		</Card>
 	)
 }
 

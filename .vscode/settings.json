@@ -1,3 +1,31 @@
 {
-    "js/ts.tsdk.path": "node_modules\\typescript\\lib"
+    "js/ts.tsdk.path": "node_modules\\typescript\\lib",
+    "symbols.files.associations": {
+    "*.json":"brackets-yellow",
+    "config.ts": "database",
+    "components.json": "brackets-yellow",
+    "package-lock.json": "brackets-yellow",
+    "package.json": "brackets-yellow",
+    "skills-lock.json": "brackets-yellow",
+    "tsconfig.json": "brackets-yellow",
+    "types.ts": "ts-types",    
+  },
+  "symbols.folders.associations": {
+    "components": "folder-react",
+    "styles": "folder-purple-outline",
+    "app": "folder-router",
+    "_features": "folder-layout",
+    "archived": "ignore",
+    "public": "folder-assets",
+    ".opencode": "folder-claude",
+    ".agents": "folder-claude",
+    "server": "folder-red-outline",
+    "_actions": "folder-red-outline"
+  },
+  // https://github.com/miguelsolorio/vscode-symbols/blob/HEAD/preview/preview.md
+  // "symbols.subfolder.file.associations": {
+  //   "_actions": {
+  //     "*.ts": "folder-red-outline",
+  //   }
+  // }
 }

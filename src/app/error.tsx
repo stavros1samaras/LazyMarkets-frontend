@@ -15,8 +15,8 @@ export default function Error({ error }: { error: Error & { digest?: string } })
 	return (
 		<PageLayout className="flex-10">
 			<Main>
-				<CardContainer className="flex h-full w-full items-center justify-center">
-					<Div className="items-center text-2xl text-destructive gap-2">
+				<CardContainer className="flex items-center justify-center h-full w-full">
+					<Div className="text-destructive text-2xl">
 						<CircleX size={25} className="text-destructive" />
 						Something went wrong
 					</Div>

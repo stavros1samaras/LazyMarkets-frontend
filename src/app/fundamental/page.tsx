@@ -12,8 +12,8 @@ export default function Page() {
 	return (
 		<PageLayout>
 			<Main>
-				<CardContainer className="flex h-full w-full items-center justify-center">
-					<Div className="text-2xl text-foreground">
+				<CardContainer className="flex items-center justify-center h-full w-full">
+					<Div className="text-foreground text-2xl">
 						<Hammer size={25} className="text-foreground" />
 						{pathname.slice(1)} page is under construction
 					</Div>

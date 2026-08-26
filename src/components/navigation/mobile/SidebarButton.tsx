@@ -11,7 +11,7 @@ type SidebarButtonProps = {
 export default function SidebarButton({ onClick, className }: SidebarButtonProps) {
 	// const [open, setOpen] = useState(false)
 	return (
-		<Button size="icon" variant="ghost" className={cn("p-0 m-0 text-foreground", className)} onClick={onClick}>
+		<Button size="icon" variant="ghost" className={cn("m-0 p-0 text-foreground", className)} onClick={onClick}>
 			<PanelLeftClose className="size-6 p-0" />
 		</Button>
 	)

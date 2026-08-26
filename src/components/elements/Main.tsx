@@ -8,7 +8,7 @@ interface MainProps {
 
 export default function Main({ children, className }: MainProps) {
 	const displayStyles = "flex flex-col flex-1"
-	const designStyles = "bg-background rounded-lg"
+	const designStyles = "rounded-lg bg-background"
 	const crossBrowserStyles = `scrollbar-hide touch-scroll`
 
 	return (

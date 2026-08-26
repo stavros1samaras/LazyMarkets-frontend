@@ -10,11 +10,11 @@ import { CompanyLogo } from "@/components/navigation/CompanyLogo"
 import MobileSidebar from "@/components/navigation/mobile/MobileSidebar"
 
 export default function DesktopHeader() {
-	const fontStyles = "text-[19px] font-[550]"
+	const fontStyles = "font-[550] text-[19px]"
 	const hoverStyles = "transition-transform duration-100 hover:-translate-y-[2px] hover:text-main"
 
 	return (
-		<Header className="w-auto h-15 justify-between pt-1 px-4">
+		<Header className="justify-between w-auto h-15 pt-1 px-4">
 			<MainNavigationMenu>
 				<CompanyLogo fontStyles={fontStyles} hoverStyles={hoverStyles} />
 				<Link
@@ -61,7 +61,7 @@ export default function DesktopHeader() {
 					Contact
 				</Link>
 			</MainNavigationMenu>
-			<Div className="w-auto gap-1">
+			<Div className="gap-1 w-auto">
 				<ThemeButton />
 				<GitHubIcon />
 				<MobileSidebar />

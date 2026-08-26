@@ -23,20 +23,20 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 				)}
 			>
 				<Header>
-					<nav className="flex flex-col p-4 w-full">
-						<Link href="/technical" onClick={onClose} className="text-2xl text-foreground py-2">
+					<nav className="flex flex-col w-full p-4">
+						<Link href="/technical" onClick={onClose} className="py-2 text-2xl text-foreground">
 							Technical
 						</Link>
-						<Link href="/fundamental" onClick={onClose} className="text-2xl text-foreground py-2">
+						<Link href="/fundamental" onClick={onClose} className="py-2 text-2xl text-foreground">
 							Fundamental
 						</Link>
-						<Link href="/sentiment" onClick={onClose} className="text-2xl text-foreground py-2">
+						<Link href="/sentiment" onClick={onClose} className="py-2 text-2xl text-foreground">
 							Sentiment
 						</Link>
-						<Link href="/countries/GR" onClick={onClose} className="text-2xl text-foreground py-2">
+						<Link href="/countries/GR" onClick={onClose} className="py-2 text-2xl text-foreground">
 							Countries
 						</Link>
-						<Link href="/contact" onClick={onClose} className="text-2xl text-foreground py-2">
+						<Link href="/contact" onClick={onClose} className="py-2 text-2xl text-foreground">
 							Contact
 						</Link>
 					</nav>

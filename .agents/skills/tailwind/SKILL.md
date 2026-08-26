@@ -128,8 +128,9 @@ to scan and review. Follow this sequence:
 9. **Background & colors** — `bg-*`, `text-*`, `fill-*`, `stroke-*`.
 10. **Shadows & opacity** — `shadow-*`, `opacity-*`.
 11. **Typography** — `font-*`, `text-*`, `leading-*`, `tracking-*`.
-12. **Transitions & animations** — `transition-*`, `duration-*`, `ease-*`, `animate-*`.
-13. **State variants last** — `hover:*`, `focus:*`, `active:*`, `dark:*`, `md:*`, etc.
+12. **Transitions & animations** — `transition-*`, `ease-*`, `duration-*`, `animate-*`.
+13. **State variants** — Interactive/state variants (`hover:*`, `focus:*`, `active:*`, `dark:*`) go **last**.
+14. **Responsive variants** (`sm:*`, `md:*`, `lg:*`, `xl:*`) must stay **adjacent to their base utility** — e.g. `text-base md:text-2xl font-semibold` is correct, whereas `text-base font-semibold md:text-2xl` is wrong (the responsive class is separated from its base).
 
 ### Example (correct order)
 

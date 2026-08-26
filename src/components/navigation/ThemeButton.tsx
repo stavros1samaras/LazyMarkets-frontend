@@ -18,14 +18,14 @@ export default function ThemeButton() {
 
 	if (resolvedTheme === "light") {
 		return (
-			<Button size="icon" variant="ghost" className="p-0 m-0 text-foreground" onClick={() => setTheme("dark")}>
+			<Button size="icon" variant="ghost" className="m-0 p-0 text-foreground" onClick={() => setTheme("dark")}>
 				<Sun className="size-6 p-0" />
 			</Button>
 		)
 	}
 
 	return (
-		<Button size="icon" variant="ghost" className="p-0 m-0 text-foreground" onClick={() => setTheme("light")}>
+		<Button size="icon" variant="ghost" className="m-0 p-0 text-foreground" onClick={() => setTheme("light")}>
 			<Moon className="size-6 p-0" />
 		</Button>
 	)

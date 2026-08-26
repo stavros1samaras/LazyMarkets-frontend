@@ -4,8 +4,8 @@ import { ResponsiveContainer, XAxis, Tooltip, Area, AreaChart, YAxis } from "rec
 
 export default function SingleLineChart({ children, data }: any) {
 	return (
-		<div className=" animate-in fade-in duration-500">
-			<div className="flex items-center justify-between pb-3 \">{children}</div>
+		<div className="animate-in fade-in duration-500">
+			<div className="flex items-center justify-between pb-3">{children}</div>
 			<ResponsiveContainer width="100%" height={200}>
 				<AreaChart data={data} margin={{ left: 0, right: 0, top: 0, bottom: 0 }}>
 					<defs>

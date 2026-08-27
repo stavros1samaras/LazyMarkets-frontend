@@ -9,6 +9,7 @@
     "skills-lock.json": "brackets-yellow",
     "tsconfig.json": "brackets-yellow",
     "types.ts": "ts-types",    
+    "actions.ts": "code-red",
   },
   "symbols.folders.associations": {
     "components": "folder-react",

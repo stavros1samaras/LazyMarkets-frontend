@@ -1,7 +1,7 @@
 "use client"
 
-import ContactForm from "@/_features/contact/contact-form/contactForm"
-import DevelopersInfo from "@/_features/contact/developers-info/DevelopersInfo"
+import ContactForm from "@/_features/contact/sections/contact-form/contact-form"
+import DevelopersInfo from "@/_features/contact/sections/developers-info/developers-info"
 import Main, { MainContent } from "@/components/elements/Main"
 import Text from "@/components/elements/Text"
 import PageLayout from "@/components/PageLayout"

@@ -1,5 +1,5 @@
-import { InputField, TextareaField } from "@/_features/contact/contact-form/FormFields"
-import { InputConfig } from "@/_features/contact/contact-form/types"
+import { InputField, TextareaField } from "@/_features/contact/sections/contact-form/FormFields"
+import { InputConfig } from "@/_features/contact/sections/contact-form/types"
 
 export const config: InputConfig[] = [
 	{

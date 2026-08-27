@@ -1,5 +1,5 @@
 "use server"
-import { FormInputs } from "@/_features/contact/contact-form/types"
+import { FormInputs } from "@/_features/contact/sections/contact-form/types"
 import delay from "@/utils/delay"
 
 export default async function contactForm(data: FormInputs) {

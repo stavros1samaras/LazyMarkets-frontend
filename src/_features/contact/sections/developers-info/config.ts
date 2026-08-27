@@ -1,0 +1,60 @@
+import { DeveloperInfo } from "@/_features/contact/sections/developers-info/types"
+
+export const devsInfo: DeveloperInfo[] = [
+	{
+		name: "Samaras Stavros",
+		email: "samaras_st@yahoo.gr",
+		title: "Frontend Developer",
+		description: "Have a question or need help? Send us a message and we will get back to you.",
+		linkedin: "https://www.linkedin.com/in/samaras-stavros",
+		github: "https://github.com/samaras-stavros",
+	},
+	{
+		name: "Papadopoulos Nikos",
+		email: "nikos.papadopoulos@example.com",
+		title: "Backend Developer",
+		description: "Responsible for server-side logic, APIs, databases, and application performance.",
+		linkedin: "https://www.linkedin.com/in/nikos-papadopoulos",
+		github: "https://github.com/nikos-papadopoulos",
+	},
+	{
+		name: "Georgiou Maria",
+		email: "maria.georgiou@example.com",
+		title: "UI/UX Designer",
+		description: "Designs intuitive interfaces and creates consistent user experiences across the application.",
+		linkedin: "https://www.linkedin.com/in/maria-georgiou",
+		github: "https://github.com/maria-georgiou",
+	},
+	{
+		name: "Konstantinou Andreas",
+		email: "andreas.konstantinou@example.com",
+		title: "Full Stack Developer",
+		description: "Works across both frontend and backend systems to build complete application features.",
+		linkedin: "https://www.linkedin.com/in/andreas-konstantinou",
+		github: "https://github.com/andreas-konstantinou",
+	},
+	{
+		name: "Nikolaou Eleni",
+		email: "eleni.nikolaou@example.com",
+		title: "DevOps Engineer",
+		description: "Manages deployment pipelines, infrastructure, monitoring, and application reliability.",
+		linkedin: "https://www.linkedin.com/in/eleni-nikolaou",
+		github: "https://github.com/eleni-nikolaou",
+	},
+	{
+		name: "Nikolaou Eleni",
+		email: "eleni.nikolaou@example.com",
+		title: "DevOps Engineer",
+		description: "Manages deployment pipelines, infrastructure, monitoring, and application reliability.",
+		linkedin: "https://www.linkedin.com/in/eleni-nikolaou",
+		github: "https://github.com/eleni-nikolaou",
+	},
+	{
+		name: "Nikolaou Eleni",
+		email: "eleni.nikolaou@example.com",
+		title: "DevOps Engineer",
+		description: "Manages deployment pipelines, infrastructure, monitoring, and application reliability.",
+		linkedin: "https://www.linkedin.com/in/eleni-nikolaou",
+		github: "https://github.com/eleni-nikolaou",
+	},
+]

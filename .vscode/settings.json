@@ -10,6 +10,8 @@
     "tsconfig.json": "brackets-yellow",
     "types.ts": "ts-types",    
     "actions.ts": "code-red",
+    "modules.ts": "code-purple",
+    "server.ts": "code-red",
   },
   "symbols.folders.associations": {
     "components": "folder-react",
@@ -25,7 +27,7 @@
   },
   // https://github.com/miguelsolorio/vscode-symbols/blob/HEAD/preview/preview.md
   // "symbols.subfolder.file.associations": {
-  //   "_actions": {
+  //   "data-fetchers": {
   //     "*.ts": "folder-red-outline",
   //   }
   // }

@@ -1,9 +1,8 @@
-import DesktopSidebar from "@/_features/countries/sections/navigation/DesktopSidebar"
+import Navigation from "@/_features/countries/sections/navigation/navigation"
 import Main, { MainContent } from "@/components/elements/Main"
 import PageLayout from "@/components/PageLayout"
 import { cn } from "@/lib/utils"
 import { headers } from "next/headers"
-import MobileCountyBar from "@/_features/countries/sections/navigation/MobileCountryBar"
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
 	const headersList = await headers()
@@ -11,7 +10,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
 
 	return (
 		<PageLayout className={cn("gap-2", ua == "mobile" && "flex-col")}>
-			{ua == "desktop" ? <DesktopSidebar /> : <MobileCountyBar />}
+			<Navigation />
 			<Main>
 				<MainContent className="xl:grid-cols-3">{children}</MainContent>
 			</Main>

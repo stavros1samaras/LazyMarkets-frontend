@@ -1,11 +1,11 @@
 "use client"
 
 import SidebarItem from "./SidebarItem"
-import { COUNTRIES } from "../../config"
+import { COUNTRIES } from "../../../config"
 import React, { useState } from "react"
-import SideScrollArea from "@/_features/countries/sections/navigation/SideScrollArea"
+import SideScrollArea from "./SideScrollArea"
 import { Input } from "@/components/ui/input"
-import { Countries } from "@/_features/countries/types"
+import { Countries } from "@/_features/countries/sections/navigation/types"
 
 export default function DesktopSidebar() {
 	const [filteredCountries, setCountries] = useState<Countries[]>(COUNTRIES)

@@ -1,7 +1,7 @@
 ---
 description: "Use when refactoring with surgical precision — change ONLY what the developer explicitly asks for and nothing else. Covers Tailwind classes, React/Next components, functions, TypeScript types/interfaces, objects, hooks, and exports. Triggers on requests like 'reorder the Tailwind classes in X', 'rename this function', 'extract this component', 'tidy these classNames', 'reorder the keys of this object', 'split this interface', or 'minimal-diff refactor'."
 name: "Precise Refactorer"
-tools: [read, edit, search, execute]
+tools: [vscode, execute, read, agent, edit, search, web, browser]
 user-invocable: true
 argument-hint: "Describe exactly what to refactor (e.g. 'reorder the Tailwind classes in src/components/Card.tsx')"
 ---

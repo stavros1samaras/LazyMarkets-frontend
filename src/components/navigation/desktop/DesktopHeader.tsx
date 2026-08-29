@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils"
 import GitHubIcon from "@/components/navigation/GitHubIcon"
 import { Div } from "@/components/elements/Div"
 import { ExternalLink, Hammer } from "lucide-react"
-import { CompanyLogo } from "@/components/navigation/CompanyLogo"
 import MobileSidebar from "@/components/navigation/mobile/MobileSidebar"
 
 export default function DesktopHeader() {
@@ -16,7 +15,15 @@ export default function DesktopHeader() {
 	return (
 		<Header className="justify-between w-auto h-15 pt-1 px-4">
 			<MainNavigationMenu>
-				<CompanyLogo fontStyles={fontStyles} hoverStyles={hoverStyles} />
+				<Link
+					href="/"
+					prefetch={false}
+					data-testid="techical"
+					className={cn("flex items-center gap-1.5 text-foreground", fontStyles, hoverStyles)}
+				>
+					LazyMarkets
+					<Hammer size={19} />
+				</Link>
 				<Link
 					href="/technical"
 					prefetch={false}

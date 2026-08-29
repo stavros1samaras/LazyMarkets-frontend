@@ -19,9 +19,9 @@ Global project rules (tech stack, path aliases, Server/Client boundaries, no `an
 When you **create** something new (a feature, route, page, component, styling, form, chart, navigation, etc.) or perform a **refactor**, follow this disciplined flow:
 
 1. **Build from the right sources of truth** — implement using:
-   - **Web/browser best practices** (modern, accessible, performant UI),
+   - **Web/browser best practices** (modern, accessible, performant UI) — the fallback for any `# Architecture` row marked `web standards`,
    - **Global project rules** in `AGENTS.md`, and
-   - **Relevant installed skills** — load the matching one before coding: `tailwind`, `shadcn-styling`, `vercel-react-best-practices`, `vercel-composition-patterns`, `web-design-guidelines`.
+   - **Relevant installed skills** — the `# Architecture` table below is the authoritative skill-lookup map. Before coding/reviewing a concern, find its row and load the named skill (e.g. `tailwind`, `typescript`, `responsive-design`, `vercel-composition-patterns`, `vercel-react-best-practices`). Rows marked `web standards` mean no dedicated skill exists — follow general web standards for those.
 2. **Self-verify before reporting done** — check the new/changed surface for:
    - **Performance** — bundle size, no request waterfalls, parallelize with `Promise.all`.
    - **Responsive design** — correct layout from mobile to desktop.
@@ -36,3 +36,61 @@ When you **create** something new (a feature, route, page, component, styling, f
 - Implement the requested UI in the appropriate `src/_features/*` or `src/components/*` location.
 - Keep changes minimal and convention-compliant; explain non-obvious decisions briefly.
 - When done, summarize what was added/changed and note any new shadcn primitives added or dependencies installed.
+
+# Architecture
+
+## Scalability & Reusability
+
+| Name       | Skill                       |
+| ---------- | --------------------------- |
+| Components | vercel-composition-patterns |
+| Utilities  | web standards               |
+| Styles     | tailwind                    |
+| Types      | typescript                  |
+| Hooks      | web standards               |
+
+## Performance
+
+| Name      | Skill                       |
+| --------- | --------------------------- |
+| Rendering | vercel-react-best-practices |
+| Bundling  | vercel-react-best-practices |
+| Runtime   | vercel-react-best-practices |
+| Caching   | web standards               |
+| Server    | vercel-react-best-practices |
+| CDN       | web standards               |
+| Client    | vercel-react-best-practices |
+
+## Protection
+
+| Name     | Skill         |
+| -------- | ------------- |
+| Security | web standards |
+| Privacy  | web standards |
+
+## User Experience
+
+| Name                  | Skill             |
+| --------------------- | ----------------- |
+| Accessibility         | web standards     |
+| Localization          | web standards     |
+| Responsive Design     | responsive-design |
+| Browser Compatibility | web standards     |
+
+## Discoverability
+
+| Name | Skill         |
+| ---- | ------------- |
+| SEO  | web standards |
+
+## Error Handling
+
+| Name           | Skill         |
+| -------------- | ------------- |
+| Error Handling | web standards |
+
+# CI/CD
+
+| Name  | Skill         |
+| ----- | ------------- |
+| CI/CD | web standards |

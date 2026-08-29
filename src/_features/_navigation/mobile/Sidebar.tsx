@@ -1,7 +1,7 @@
 "use client"
 
 import Header from "@/components/elements/Header"
-import MainNavigationMenu from "@/components/navigation/desktop/NavigationMenu"
+import MainNavigationMenu from "@/_features/_navigation/desktop/NavigationMenu"
 import { cn } from "@/lib/utils"
 import { X } from "lucide-react"
 import Link from "next/link"

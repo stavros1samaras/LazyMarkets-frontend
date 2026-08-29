@@ -1,12 +1,12 @@
 import MainNavigationMenu from "./NavigationMenu"
 import Link from "next/link"
-import ThemeButton from "@/components/navigation/ThemeButton"
+import ThemeButton from "@/_features/_navigation/ThemeButton"
 import Header from "@/components/elements/Header"
 import { cn } from "@/lib/utils"
-import GitHubIcon from "@/components/navigation/GitHubIcon"
+import GitHubIcon from "@/_features/_navigation/GitHubIcon"
 import { Div } from "@/components/elements/Div"
 import { ExternalLink, Hammer } from "lucide-react"
-import MobileSidebar from "@/components/navigation/mobile/MobileSidebar"
+import MobileSidebar from "@/_features/_navigation/mobile/MobileSidebar"
 
 export default function DesktopHeader() {
 	const fontStyles = "font-[550] text-[19px]"

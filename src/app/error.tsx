@@ -1,6 +1,6 @@
 "use client"
 
-import { CardContainer } from "@/components/CardContainer"
+import { Card, CardContent } from "@/components/ui/card"
 import { Div } from "@/components/elements/Div"
 import Main from "@/components/elements/Main"
 import PageLayout from "@/components/PageLayout"
@@ -15,12 +15,14 @@ export default function Error({ error }: { error: Error & { digest?: string } })
 	return (
 		<PageLayout className="flex-10">
 			<Main>
-				<CardContainer className="flex items-center justify-center h-full w-full">
-					<Div className="text-destructive text-2xl">
-						<CircleX size={25} className="text-destructive" />
-						Something went wrong
-					</Div>
-				</CardContainer>
+				<Card className="flex items-center justify-center h-full w-full">
+					<CardContent className="p-3">
+						<Div className="text-destructive text-2xl">
+							<CircleX size={25} className="text-destructive" />
+							Something went wrong
+						</Div>
+					</CardContent>
+				</Card>
 			</Main>
 		</PageLayout>
 	)

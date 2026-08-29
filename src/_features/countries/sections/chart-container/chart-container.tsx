@@ -1,4 +1,4 @@
-import { CardContainer } from "../../../../components/CardContainer"
+import { Card, CardContent } from "../../../../components/ui/card"
 import HoverIcon from "../../../../components/HoverIcon"
 import { Title } from "../../../../components/elements/Text"
 import { Info } from "lucide-react"
@@ -35,21 +35,23 @@ export default async function ChartContainer({ countryCode }: { countryCode: str
 				})
 
 				return (
-					<CardContainer key={index}>
-						<SingleLineChart data={config.chartData}>
-							<span className="flex items-center gap-2">
-								<Title as="h3">{config.chartTitle}</Title>
-								<Budge />
-								<HoverIcon description={config.description} className="h-5 size-auto">
-									<Info className="size-4 lg:size-5 text-foreground" />
-								</HoverIcon>
-							</span>
-							<span className="flex items-center gap-2">
-								<ExportButton data={config.chartData} title={config.chartTitle} />
-								<Title as="h4">{lastValue}</Title>
-							</span>
-						</SingleLineChart>
-					</CardContainer>
+					<Card key={index} className="w-auto">
+						<CardContent className="p-3">
+							<SingleLineChart data={config.chartData}>
+								<span className="flex items-center gap-2">
+									<Title as="h3">{config.chartTitle}</Title>
+									<Budge />
+									<HoverIcon description={config.description} className="h-5 size-auto">
+										<Info className="size-4 lg:size-5 text-foreground" />
+									</HoverIcon>
+								</span>
+								<span className="flex items-center gap-2">
+									<ExportButton data={config.chartData} title={config.chartTitle} />
+									<Title as="h4">{lastValue}</Title>
+								</span>
+							</SingleLineChart>
+						</CardContent>
+					</Card>
 				)
 			})}
 		</>

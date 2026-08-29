@@ -1,4 +1,3 @@
-import { CardContainer } from "@/components/CardContainer"
 import { Card, CardContent, CardHeader } from "../../../components/ui/card"
 import { Skeleton } from "../../../components/ui/skeleton"
 
@@ -6,17 +5,19 @@ export default function Loading() {
 	return (
 		<>
 			{[...Array(8)].map((_, i) => (
-				<CardContainer key={i}>
-					<Card className="w-full">
-						<CardHeader>
-							<Skeleton className="h-4 w-2/3 bg-primary-foreground" />
-							<Skeleton className="h-4 w-1/2 bg-primary-foreground" />
-						</CardHeader>
-						<CardContent>
-							<Skeleton className="aspect-video w-auto  bg-primary-foreground" />
-						</CardContent>
-					</Card>
-				</CardContainer>
+				<Card key={i} className="w-auto">
+					<CardContent className="p-3">
+						<Card className="w-full">
+							<CardHeader>
+								<Skeleton className="h-4 w-2/3 bg-primary-foreground" />
+								<Skeleton className="h-4 w-1/2 bg-primary-foreground" />
+							</CardHeader>
+							<CardContent>
+								<Skeleton className="aspect-video w-auto  bg-primary-foreground" />
+							</CardContent>
+						</Card>
+					</CardContent>
+				</Card>
 			))}
 		</>
 	)

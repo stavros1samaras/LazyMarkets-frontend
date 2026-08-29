@@ -99,7 +99,7 @@ function Card({ className }: { className?: string }) {
 - Use mobile-first breakpoints (`sm:`, `md:`, `lg:`, `xl:`).
 - Prefer flexbox/grid utilities over fixed widths.
 - Use `container`/max-width wrappers from shared layout components
-  (`PageLayout`, `CardContainer`) rather than ad-hoc padding on every page.
+  (`PageLayout`, `Card`/`CardContent`) rather than ad-hoc padding on every page.
 
 ## 6. Path Aliases
 

@@ -1,6 +1,6 @@
 import { Card, CardContent } from "../../../../components/ui/card"
 import HoverIcon from "../../../../components/HoverIcon"
-import { Title } from "../../../../components/elements/Text"
+import Text from "../../../../components/elements/Text"
 import { Info } from "lucide-react"
 import SingleLineChart from "@/components/charts/SingleLineChart"
 import { RenderDataConfig } from "@/_features/countries/sections/chart-container/types"
@@ -23,7 +23,9 @@ export default function ChartSection({ configs }: { configs: RenderDataConfig[] 
 						<CardContent className="p-3">
 							<SingleLineChart data={config.chartData}>
 								<span className="flex items-center gap-2">
-									<Title as="h3">{config.chartTitle}</Title>
+									<Text as="h3" className="font-semibold leading-none">
+										{config.chartTitle}
+									</Text>
 									<Budge />
 									<HoverIcon description={config.description} className="h-5 size-auto">
 										<Info className="size-4 lg:size-5 text-foreground" />
@@ -31,7 +33,9 @@ export default function ChartSection({ configs }: { configs: RenderDataConfig[] 
 								</span>
 								<span className="flex items-center gap-2">
 									<ExportButton data={config.chartData} title={config.chartTitle} />
-									<Title as="h4">{lastValue}</Title>
+									<Text as="h3" className="font-semibold leading-none">
+										{lastValue}
+									</Text>
 								</span>
 							</SingleLineChart>
 						</CardContent>

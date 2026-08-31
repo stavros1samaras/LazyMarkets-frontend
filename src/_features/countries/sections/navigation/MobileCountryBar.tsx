@@ -2,7 +2,7 @@
 import { Card } from "@/components/ui/card"
 import { SelectTrigger, SelectValue, SelectContent, SelectGroup, SelectLabel, SelectItem, Select } from "@/components/ui/select"
 
-import Text, { Title } from "@/components/elements/Text"
+import Text from "@/components/elements/Text"
 import { COUNTRIES } from "@/_features/countries/config"
 import { useRouter } from "next/navigation"
 
@@ -11,9 +11,10 @@ export default function MobileCountyBar() {
 	return (
 		<Card className="rounded-lg p-2 gap-2">
 			<div className="flex items-center gap-1">
-				<Title as="h1" className="">
+				<Text as="h1" className="text-base md:text-2xl font-semibold leading-none">
+					{/* i will fix typography later */}
 					Overview of:
-				</Title>
+				</Text>
 				<Select
 					onValueChange={(code) => {
 						router.push(`${code}`)
@@ -36,9 +37,7 @@ export default function MobileCountyBar() {
 					</SelectContent>
 				</Select>
 			</div>
-			<Text as="h1" className="text-sm ">
-				Explore key economic indicators and trends
-			</Text>
+			<Text as="p">Explore key economic indicators and trends</Text>
 		</Card>
 	)
 }

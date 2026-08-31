@@ -12,7 +12,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
 		<PageLayout className={cn("gap-2", ua == "mobile" && "flex-col")}>
 			<Navigation />
 			<Main>
-				<MainContent className="xl:grid-cols-3">{children}</MainContent>
+				<MainContent className="xl:grid-cols-1">{children}</MainContent>
 			</Main>
 		</PageLayout>
 	)

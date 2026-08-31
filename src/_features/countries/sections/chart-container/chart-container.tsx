@@ -1,13 +1,9 @@
-import { Card, CardContent } from "../../../../components/ui/card"
-import HoverIcon from "../../../../components/HoverIcon"
-import { Title } from "../../../../components/elements/Text"
-import { Info } from "lucide-react"
-import SingleLineChart from "@/components/charts/SingleLineChart"
-import { CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
+import { Card, CardContent, CardHeader } from "../../../../components/ui/card"
+import { CHART_CATEGORIES, CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
 import { ChartMetadata, RenderDataConfig } from "@/_features/countries/sections/chart-container/types"
 import { getCountryData } from "@/_features/countries/sections/chart-container/server"
-import { ComponentType } from "react"
-import ExportButton from "@/_features/countries/sections/chart-container/ExportButton"
+import Text from "@/components/elements/Text"
+import ChartSection from "@/_features/countries/sections/chart-container/ChartSection"
 
 export default async function ChartContainer({ countryCode }: { countryCode: string }) {
 	const countryData = await getCountryData(countryCode)
@@ -26,30 +22,15 @@ export default async function ChartContainer({ countryCode }: { countryCode: str
 
 	return (
 		<>
-			{filteredConfig.map((config, index) => {
-				const Budge: ComponentType = config.badge
-
-				const lastValue = config.chartData[config.chartData.length - 1].value.toLocaleString("en-US", {
-					notation: "compact",
-					compactDisplay: "short",
-				})
-
+			{CHART_CATEGORIES.map((category) => {
+				const config = filteredConfig.filter((item) => item.category === category.toLowerCase())
 				return (
-					<Card key={index} className="w-auto">
-						<CardContent className="p-3">
-							<SingleLineChart data={config.chartData}>
-								<span className="flex items-center gap-2">
-									<Title as="h3">{config.chartTitle}</Title>
-									<Budge />
-									<HoverIcon description={config.description} className="h-5 size-auto">
-										<Info className="size-4 lg:size-5 text-foreground" />
-									</HoverIcon>
-								</span>
-								<span className="flex items-center gap-2">
-									<ExportButton data={config.chartData} title={config.chartTitle} />
-									<Title as="h4">{lastValue}</Title>
-								</span>
-							</SingleLineChart>
+					<Card key={category} className="gap-2 pt-2 pb-4 ">
+						<CardHeader className="px-3 lg:px-6">
+							<Text as="h2">{category}</Text>
+						</CardHeader>
+						<CardContent className="px-3 lg:px-6">
+							<ChartSection configs={config} />
 						</CardContent>
 					</Card>
 				)

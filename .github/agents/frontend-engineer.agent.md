@@ -21,14 +21,68 @@ When you **create** something new (a feature, route, page, component, styling, f
 1. **Build from the right sources of truth** — implement using:
    - **Web/browser best practices** (modern, accessible, performant UI) — the fallback for any `# Architecture` row marked `web standards`,
    - **Global project rules** in `AGENTS.md`, and
-   - **Relevant installed skills** — the `# Architecture` table below is the authoritative skill-lookup map. Before coding/reviewing a concern, find its row and load the named skill (e.g. `tailwind`, `typescript`, `responsive-design`, `vercel-composition-patterns`, `vercel-react-best-practices`). Rows marked `web standards` mean no dedicated skill exists — follow general web standards for those.
-2. **Self-verify before reporting done** — check the new/changed surface for:
-   - **Performance** — bundle size, no request waterfalls, parallelize with `Promise.all`.
-   - **Responsive design** — correct layout from mobile to desktop.
-   - **SEO** — metadata, semantic HTML, logical heading order.
-   - **Security** — no leaked secrets, correct Server/Client boundaries.
-   - **Accessibility** — semantic markup, ARIA, keyboard navigation, sufficient color contrast.
-   - **Theme correctness** — legible in both light and dark modes via tokens.
+   - **Relevant installed skills** — the `# Architecture` skill-lookup map below is the authoritative reference. Before coding/reviewing a concern, find its row and load the named skill (e.g. `tailwind`, `typescript`, `responsive-design`, `vercel-composition-patterns`, `vercel-react-best-practices`). Rows marked `web standards` mean no dedicated skill exists — follow general web standards for those.
+
+   ### Architecture — Skill-Lookup Map
+
+   #### Scalability & Reusability
+
+   | Name       | Skill                                                                     |
+   | ---------- | ------------------------------------------------------------------------- |
+   | Components | vercel-composition-patterns,vercel-react-best-practices,responsive-design |
+   | Utilities  | web standards                                                             |
+   | Styles     | tailwind                                                                  |
+   | Types      | typescript                                                                |
+   | Hooks      | web standards                                                             |
+
+   #### Performance
+
+   | Name      | Skill                       |
+   | --------- | --------------------------- |
+   | Rendering | vercel-react-best-practices |
+   | Bundling  | vercel-react-best-practices |
+   | Runtime   | vercel-react-best-practices |
+   | Caching   | web standards               |
+   | Server    | vercel-react-best-practices |
+   | CDN       | web standards               |
+   | Client    | vercel-react-best-practices |
+
+   #### Protection
+
+   | Name     | Skill         |
+   | -------- | ------------- |
+   | Security | web standards |
+   | Privacy  | web standards |
+
+   #### User Experience
+
+   | Name                  | Skill             |
+   | --------------------- | ----------------- |
+   | Accessibility         | web standards     |
+   | Localization          | web standards     |
+   | Responsive Design     | responsive-design |
+   | Browser Compatibility | web standards     |
+
+   #### Discoverability
+
+   | Name | Skill         |
+   | ---- | ------------- |
+   | SEO  | web standards |
+
+   #### Error Handling
+
+   | Name           | Skill         |
+   | -------------- | ------------- |
+   | Error Handling | web standards |
+
+   #### CI/CD
+
+   | Name  | Skill         |
+   | ----- | ------------- |
+   | CI/CD | web standards |
+
+2. **Self-verify before reporting done** — verify the new/changed surface against the **same concerns** listed in the `# Architecture` skill-lookup map above. For each category, confirm the implementation satisfies the corresponding skill / web standard.
+
 3. **Feature tests (Playwright)** — _DISABLED for now_: the developer does not currently use Playwright. When enabled in the future, after creating a feature you MUST add a Playwright end-to-end test covering its primary user flow. Re-enable by removing this "DISABLED" note.
 
 ## Output Format
@@ -36,61 +90,3 @@ When you **create** something new (a feature, route, page, component, styling, f
 - Implement the requested UI in the appropriate `src/_features/*` or `src/components/*` location.
 - Keep changes minimal and convention-compliant; explain non-obvious decisions briefly.
 - When done, summarize what was added/changed and note any new shadcn primitives added or dependencies installed.
-
-# Architecture
-
-## Scalability & Reusability
-
-| Name       | Skill                       |
-| ---------- | --------------------------- |
-| Components | vercel-composition-patterns |
-| Utilities  | web standards               |
-| Styles     | tailwind                    |
-| Types      | typescript                  |
-| Hooks      | web standards               |
-
-## Performance
-
-| Name      | Skill                       |
-| --------- | --------------------------- |
-| Rendering | vercel-react-best-practices |
-| Bundling  | vercel-react-best-practices |
-| Runtime   | vercel-react-best-practices |
-| Caching   | web standards               |
-| Server    | vercel-react-best-practices |
-| CDN       | web standards               |
-| Client    | vercel-react-best-practices |
-
-## Protection
-
-| Name     | Skill         |
-| -------- | ------------- |
-| Security | web standards |
-| Privacy  | web standards |
-
-## User Experience
-
-| Name                  | Skill             |
-| --------------------- | ----------------- |
-| Accessibility         | web standards     |
-| Localization          | web standards     |
-| Responsive Design     | responsive-design |
-| Browser Compatibility | web standards     |
-
-## Discoverability
-
-| Name | Skill         |
-| ---- | ------------- |
-| SEO  | web standards |
-
-## Error Handling
-
-| Name           | Skill         |
-| -------------- | ------------- |
-| Error Handling | web standards |
-
-# CI/CD
-
-| Name  | Skill         |
-| ----- | ------------- |
-| CI/CD | web standards |

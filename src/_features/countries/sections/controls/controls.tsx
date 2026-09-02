@@ -1,7 +1,7 @@
 import { CardContent } from "@/components/ui/card"
 import Text from "@/components/elements/Text"
 import { Div } from "@/components/elements/Div"
-import SettingsButton from "./components/SettingsButton"
+import ChartDisplayToggleButton from "./components/ChartDisplayToggleButton"
 import DownloadButton from "./components/DownloadButton"
 import SectionCard from "@/components/elements/SectionCard"
 
@@ -15,7 +15,7 @@ export default function Controls() {
 					</Text>
 				</Div>
 				<Div className="w-full sm:w-auto">
-					<SettingsButton className="h-8 w-8" />
+					<ChartDisplayToggleButton className="h-8 w-8" />
 					<DownloadButton className="sm:flex-none" />
 				</Div>
 			</CardContent>

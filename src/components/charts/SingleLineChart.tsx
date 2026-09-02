@@ -1,9 +1,13 @@
 "use client"
 
-import { ResponsiveContainer, XAxis, Tooltip, Area, AreaChart, YAxis } from "recharts"
+import { ResponsiveContainer, XAxis, Tooltip, Area, AreaChart, YAxis, Bar } from "recharts"
 import { Div } from "@/components/elements/Div"
+import { useContext } from "react"
+import { ChartDisplayContext } from "@/contexts/ChartDisplayProvider"
 
 export default function SingleLineChart({ children, data }: any) {
+	const { display, toggleDisplay } = useContext(ChartDisplayContext)
+
 	return (
 		<div className="animate-in fade-in duration-500">
 			<Div className="justify-between gap-0 pb-3">{children}</Div>
@@ -16,6 +20,22 @@ export default function SingleLineChart({ children, data }: any) {
 							<stop offset="100%" stopColor="var(--area)" stopOpacity={0.05} />
 						</linearGradient>
 					</defs>
+
+					{display == "area" ? (
+						<Area
+							type="monotone"
+							dataKey="value"
+							stroke="var(--line)"
+							strokeWidth={2}
+							dot={false}
+							fill="url(#gradient)"
+							isAnimationActive={"auto"}
+							animationDuration={200}
+							animationEasing="linear"
+						/>
+					) : (
+						<Bar dataKey="value" fill="var(--line)" isAnimationActive="auto" animationDuration={1} barSize={8} />
+					)}
 
 					<XAxis
 						dataKey="year"
@@ -64,17 +84,6 @@ export default function SingleLineChart({ children, data }: any) {
 						}}
 						isAnimationActive={"auto"}
 						animationDuration={200}
-					/>
-					<Area
-						type="monotone"
-						dataKey="value"
-						stroke="var(--line)"
-						strokeWidth={2}
-						dot={false}
-						fill="url(#gradient)"
-						isAnimationActive={"auto"}
-						animationDuration={200}
-						animationEasing="linear"
 					/>
 				</AreaChart>
 			</ResponsiveContainer>

@@ -1,13 +1,18 @@
 import ChartContainer from "../../../_features/countries/sections/chart-container/chart-container"
 import Controls from "@/_features/countries/sections/controls/controls"
+import { getCountryData } from "@/_features/countries/sections/chart-container/server"
+import { ChartDisplayProvider } from "@/contexts/ChartDisplayProvider"
 
 export default async function Countries({ params }: { params: Promise<{ code: string }> }) {
 	const countryCode = (await params).code
-	// IGNORE: should start here the fetch and inside ChartContainer i should await
+	const countryData = await getCountryData(countryCode)
+
 	return (
 		<>
-			<Controls />
-			<ChartContainer countryCode={countryCode} />
+			<ChartDisplayProvider>
+				<Controls />
+				<ChartContainer countryData={countryData} />
+			</ChartDisplayProvider>
 		</>
 	)
 }

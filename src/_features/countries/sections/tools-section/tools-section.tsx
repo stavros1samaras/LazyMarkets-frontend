@@ -1,8 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card"
 import Text from "@/components/elements/Text"
 import { Div } from "@/components/elements/Div"
-import SettingsButton from "./components/SettingsButton"
-import DownloadButton from "./components/DownloadButton"
+import ChartDisplayToggleButton from "@/_features/countries/sections/controls/components/ChartDisplayToggleButton"
+import DownloadButton from "@/_features/countries/sections/controls/components/DownloadButton"
 
 export default function ToolsSection() {
 	return (
@@ -14,7 +14,7 @@ export default function ToolsSection() {
 					</Text>
 				</Div>
 				<Div className="w-full sm:w-auto">
-					<SettingsButton className="order-2 lg:order-1 h-8 w-8" />
+					<ChartDisplayToggleButton className="order-2 lg:order-1 h-8 w-8" />
 					<DownloadButton className="flex-1 sm:flex-none order-1 lg:order-2" />
 				</Div>
 			</CardContent>

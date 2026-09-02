@@ -2,7 +2,7 @@ import { CardContent, CardHeader } from "../../../../components/ui/card"
 import { CHART_CATEGORIES, CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
 import { ChartMetadata, RenderDataConfig } from "@/_features/countries/sections/chart-container/types"
 import Text from "@/components/elements/Text"
-import ChartSection from "@/_features/countries/sections/chart-container/ChartSection"
+import ChartSection from "@/_features/countries/sections/chart-container/components/ChartSection"
 import SectionCard from "@/components/elements/SectionCard"
 
 interface ChartContainerProps {

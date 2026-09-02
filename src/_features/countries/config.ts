@@ -1,4 +1,4 @@
-import { ChartAbsoluteBadge, ChartPercentageBadge } from "@/_features/countries/sections/chart-container/Badges"
+import { ChartAbsoluteBadge, ChartPercentageBadge } from "@/_features/countries/sections/chart-container/components/Badges"
 import { ChartMetadata } from "@/_features/countries/sections/chart-container/types"
 import { Countries } from "@/_features/countries/sections/navigation/types"
 

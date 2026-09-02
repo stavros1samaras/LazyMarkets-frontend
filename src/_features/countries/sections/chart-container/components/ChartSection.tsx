@@ -1,12 +1,12 @@
-import { Card, CardContent } from "../../../../components/ui/card"
-import HoverIcon from "../../../../components/HoverIcon"
-import Text from "../../../../components/elements/Text"
-import { Span } from "../../../../components/elements/Span"
+import { Card, CardContent } from "../../../../../components/ui/card"
+import HoverIcon from "../../../../../components/HoverIcon"
+import Text from "../../../../../components/elements/Text"
+import { Span } from "../../../../../components/elements/Span"
 import { Info } from "lucide-react"
 import SingleLineChart from "@/components/charts/SingleLineChart"
-import { RenderDataConfig } from "@/_features/countries/sections/chart-container/types"
+import { RenderDataConfig } from "../types"
 import { ComponentType } from "react"
-import ExportButton from "@/_features/countries/sections/chart-container/ExportButton"
+import ExportButton from "./ExportButton"
 
 export default function ChartSection({ configs }: { configs: RenderDataConfig[] }) {
 	return (

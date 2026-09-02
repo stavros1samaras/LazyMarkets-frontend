@@ -3,7 +3,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google"
 import "./globals.css"
 import "../styles/compat.css"
 import DesktopHeader from "@/_features/_navigation/desktop/DesktopHeader"
-import { NextThemeProvider } from "@/contexts/NextThemeProvider"
+import { NextThemeProvider } from "@/providers/NextThemeProvider"
 import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({

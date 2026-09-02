@@ -3,10 +3,10 @@
 import { ResponsiveContainer, XAxis, Tooltip, Area, AreaChart, YAxis, Bar } from "recharts"
 import { Div } from "@/components/elements/Div"
 import { useContext } from "react"
-import { ChartDisplayContext } from "@/contexts/ChartDisplayProvider"
+import { ChartDisplayContext } from "@/providers/ChartDisplayProvider"
 
 export default function SingleLineChart({ children, data }: any) {
-	const { display, toggleDisplay } = useContext(ChartDisplayContext)
+	const { display } = useContext(ChartDisplayContext)
 
 	return (
 		<div className="animate-in fade-in duration-500">

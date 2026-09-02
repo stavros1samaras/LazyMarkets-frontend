@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ChartColumnBig, ChartLine } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useContext } from "react"
-import { ChartDisplayContext } from "@/contexts/ChartDisplayProvider"
+import { ChartDisplayContext } from "@/providers/ChartDisplayProvider"
 
 interface ChartDisplayToggleButtonProps {
 	className?: string

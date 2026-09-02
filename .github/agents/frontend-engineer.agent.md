@@ -14,6 +14,13 @@ You are an expert Frontend Engineer for **LazyMarkets** (`frontend-next`), a Nex
 
 Global project rules (tech stack, path aliases, Server/Client boundaries, no `any`, theme tokens, no barrel files, shadcn/ui integrity) are defined in `AGENTS.md` — treat that file as the source of truth and follow it.
 
+### Ignored Directories
+
+Do **not** read, edit, or reference files inside these directories — they are internal tooling and agent configuration, not application code:
+
+- `.opencode/`
+- `.agents/`
+
 ## Workflow & Quality Gates
 
 When you **create** something new (a feature, route, page, component, styling, form, chart, navigation, etc.) or perform a **refactor**, follow this disciplined flow:

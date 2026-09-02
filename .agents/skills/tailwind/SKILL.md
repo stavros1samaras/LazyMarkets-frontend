@@ -124,8 +124,8 @@ to scan and review. Follow this sequence:
 5. **Sizing** — `w-*`, `h-*`, `min-w-*`, `max-h-*`, `size-*`.
 6. **Margins** — `m-*`, `mx-*`, `mt-*`, `my-*`.
 7. **Padding** — `p-*`, `px-*`, `pt-*`, `py-*`.
-8. **Borders & radius** — `border`, `border-*`, `rounded-*`.
-9. **Background & colors** — `bg-*`, `text-*`, `fill-*`, `stroke-*`.
+8. **Background & colors** — `bg-*`, `fill-*`, `stroke-*`.
+9. **Borders & radius** — `border`, `border-*`, `rounded-*`.
 10. **Shadows & opacity** — `shadow-*`, `opacity-*`.
 11. **Typography** — `font-*`, `text-*`, `leading-*`, `tracking-*`.
 12. **Transitions & animations** — `transition-*`, `ease-*`, `duration-*`, `animate-*`.
@@ -135,13 +135,17 @@ to scan and review. Follow this sequence:
 ### Example (correct order)
 
 ```tsx
-<div className="flex items-center justify-between relative top-0 z-10 w-full h-12 mx-auto px-4 border border-border bg-card shadow-sm text-sm transition-colors hover:bg-accent" />
+<div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 relative top-0 z-10 w-full max-w-5xl lg:max-w-6xl min-h-48 mx-auto mt-6 p-6 md:px-8 bg-card border border-border rounded-xl shadow-lg opacity-100 text-base md:text-lg font-medium text-foreground leading-relaxed tracking-wide transition-all ease-in-out duration-300 hover:bg-accent hover:shadow-xl">
+	Content
+</div>
 ```
 
 ### ❌ Incorrect (scattered order)
 
 ```tsx
-<div className="px-4 flex hover:bg-accent w-full border border-border text-sm relative top-0 items-center" />
+<div className="px-8 hover:bg-accent text-base flex shadow-lg md:px-10 rounded-xl w-full gap-4 font-medium relative border border-border mt-6 lg:max-w-6xl items-center bg-card max-w-5xl leading-relaxed transition-all z-10 min-h-48 mx-auto opacity-100 flex-col hover:shadow-xl">
+	Content
+</div>
 ```
 
 ## 9. Breaking Long Class Lists

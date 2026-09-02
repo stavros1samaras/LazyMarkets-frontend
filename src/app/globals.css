@@ -163,7 +163,7 @@
 		--responsive-h2: 2rem;
 		--responsive-h3: 1.5rem;
 		--responsive-h4: 1.25rem;
-		--responsive-p: 1.0625rem;
+		--responsive-p: 0.875rem;
 	}
 }
 
@@ -174,7 +174,7 @@
 		--responsive-h2: 2.25rem;
 		--responsive-h3: 1.5rem;
 		--responsive-h4: 1.5rem;
-		--responsive-p: 1.125rem;
+		--responsive-p: 1rem;
 	}
 }
 

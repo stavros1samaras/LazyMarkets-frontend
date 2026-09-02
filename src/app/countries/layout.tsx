@@ -1,18 +1,15 @@
-import Navigation from "@/_features/countries/sections/navigation/navigation"
-import Main, { MainContent } from "@/components/elements/Main"
+import CountriesHeader from "@/_features/countries/sections/countries-header/countries-header"
+import Main from "@/components/elements/Main"
 import PageLayout from "@/components/PageLayout"
-import { cn } from "@/lib/utils"
-import { headers } from "next/headers"
+import DesktopSidebar from "@/_features/countries/sections/navigation/sidebar/DesktopSidebar"
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
-	const headersList = await headers()
-	const ua = headersList.get("x-device-type")
-
 	return (
-		<PageLayout className={cn("gap-2", ua == "mobile" && "flex-col")}>
-			<Navigation />
-			<Main>
-				<MainContent className="xl:grid-cols-1">{children}</MainContent>
+		<PageLayout className="flex-col gap-2 lg:flex-row">
+			<DesktopSidebar />
+			<Main className="gap-4">
+				<CountriesHeader />
+				{children}
 			</Main>
 		</PageLayout>
 	)

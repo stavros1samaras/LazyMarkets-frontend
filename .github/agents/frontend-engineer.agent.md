@@ -18,72 +18,105 @@ Global project rules (tech stack, path aliases, Server/Client boundaries, no `an
 
 When you **create** something new (a feature, route, page, component, styling, form, chart, navigation, etc.) or perform a **refactor**, follow this disciplined flow:
 
-1. **Build from the right sources of truth** — implement using:
-   - **Web/browser best practices** (modern, accessible, performant UI) — the fallback for any `# Architecture` row marked `web standards`,
-   - **Global project rules** in `AGENTS.md`, and
-   - **Relevant installed skills** — the `# Architecture` skill-lookup map below is the authoritative reference. Before coding/reviewing a concern, find its row and load the named skill (e.g. `tailwind`, `typescript`, `responsive-design`, `vercel-composition-patterns`, `vercel-react-best-practices`). Rows marked `web standards` mean no dedicated skill exists — follow general web standards for those.
+### 0. MANDATORY — Load Skills BEFORE Writing Any Code
 
-   ### Architecture — Skill-Lookup Map
+**Do not write or edit any UI code until you have loaded the relevant skills.** This is a hard gate, not a suggestion. Skipping it creates tech debt and non-standard code.
 
-   #### Scalability & Reusability
+For the concern you are about to touch, find its row in the `# Architecture` skill-lookup map below and **read the named skill file(s)** with the `read_file` tool first. Rows marked `web standards` mean no dedicated skill exists — follow general web standards for those.
 
-   | Name       | Skill                                                                     |
-   | ---------- | ------------------------------------------------------------------------- |
-   | Components | vercel-composition-patterns,vercel-react-best-practices,responsive-design |
-   | Utilities  | web standards                                                             |
-   | Styles     | tailwind                                                                  |
-   | Types      | typescript                                                                |
-   | Hooks      | web standards                                                             |
+At minimum, **always** load these before any component work:
 
-   #### Performance
+- `tailwind` — class ordering, semantic tokens, `cn()`, responsive conventions.
+- `typescript` — `interface` vs `type`, prop typing.
+- `responsive-design` — mobile-first, breakpoints, device variants.
+- `vercel-composition-patterns` — compound components over prop-drilling.
+- `vercel-react-best-practices` — Server/Client boundaries, performance.
 
-   | Name      | Skill                       |
-   | --------- | --------------------------- |
-   | Rendering | vercel-react-best-practices |
-   | Bundling  | vercel-react-best-practices |
-   | Runtime   | vercel-react-best-practices |
-   | Caching   | web standards               |
-   | Server    | vercel-react-best-practices |
-   | CDN       | web standards               |
-   | Client    | vercel-react-best-practices |
+If you are unsure which skill applies, load the ones above plus the row(s) from the map. When in doubt, load more, not fewer.
 
-   #### Protection
+### 1. Build from the right sources of truth
 
-   | Name     | Skill         |
-   | -------- | ------------- |
-   | Security | web standards |
-   | Privacy  | web standards |
+Implement using:
 
-   #### User Experience
+- **Web/browser best practices** (modern, accessible, performant UI) — the fallback for any `# Architecture` row marked `web standards`,
+- **Global project rules** in `AGENTS.md`, and
+- **Relevant installed skills** (loaded in step 0) — the `# Architecture` skill-lookup map below is the authoritative reference.
 
-   | Name                  | Skill             |
-   | --------------------- | ----------------- |
-   | Accessibility         | web standards     |
-   | Localization          | web standards     |
-   | Responsive Design     | responsive-design |
-   | Browser Compatibility | web standards     |
+  ### Architecture — Skill-Lookup Map
 
-   #### Discoverability
+  #### Scalability & Reusability
 
-   | Name | Skill         |
-   | ---- | ------------- |
-   | SEO  | web standards |
+  | Name       | Skill                                                                     |
+  | ---------- | ------------------------------------------------------------------------- |
+  | Components | vercel-composition-patterns,vercel-react-best-practices,responsive-design |
+  | Utilities  | web standards                                                             |
+  | Styles     | tailwind                                                                  |
+  | Types      | typescript                                                                |
+  | Hooks      | web standards                                                             |
 
-   #### Error Handling
+  #### Performance
 
-   | Name           | Skill         |
-   | -------------- | ------------- |
-   | Error Handling | web standards |
+  | Name      | Skill                       |
+  | --------- | --------------------------- |
+  | Rendering | vercel-react-best-practices |
+  | Bundling  | vercel-react-best-practices |
+  | Runtime   | vercel-react-best-practices |
+  | Caching   | web standards               |
+  | Server    | vercel-react-best-practices |
+  | CDN       | web standards               |
+  | Client    | vercel-react-best-practices |
 
-   #### CI/CD
+  #### Protection
 
-   | Name  | Skill         |
-   | ----- | ------------- |
-   | CI/CD | web standards |
+  | Name     | Skill         |
+  | -------- | ------------- |
+  | Security | web standards |
+  | Privacy  | web standards |
 
-2. **Self-verify before reporting done** — verify the new/changed surface against the **same concerns** listed in the `# Architecture` skill-lookup map above. For each category, confirm the implementation satisfies the corresponding skill / web standard.
+  #### User Experience
 
-3. **Feature tests (Playwright)** — _DISABLED for now_: the developer does not currently use Playwright. When enabled in the future, after creating a feature you MUST add a Playwright end-to-end test covering its primary user flow. Re-enable by removing this "DISABLED" note.
+  | Name                  | Skill             |
+  | --------------------- | ----------------- |
+  | Accessibility         | web standards     |
+  | Localization          | web standards     |
+  | Responsive Design     | responsive-design |
+  | Browser Compatibility | web standards     |
+
+  #### Discoverability
+
+  | Name | Skill         |
+  | ---- | ------------- |
+  | SEO  | web standards |
+
+  #### Error Handling
+
+  | Name           | Skill         |
+  | -------------- | ------------- |
+  | Error Handling | web standards |
+
+  #### CI/CD
+
+  | Name  | Skill         |
+  | ----- | ------------- |
+  | CI/CD | web standards |
+
+### 2. Self-verify before reporting done
+
+Before reporting a task complete, run the component/change through **every** applicable gate below and confirm each passes. Do not skip any that apply to the surface you touched.
+
+- **Responsive design** — verify mobile → desktop at `sm`, `md`, `lg`, `xl`. No horizontal overflow; layout stacks/adapts correctly at each breakpoint. (responsive-design skill)
+- **Semantic HTML & heading order** — use the correct semantic elements (`header`, `main`, `section`, `h1`→`h6` in order, `button`, `nav`). One `h1` per page. (web standards)
+- **Tailwind conventions** — classes ordered per the `tailwind` skill (display → position → sizing → spacing → borders → colors → typography → variants), responsive variants adjacent to their base utility, semantic tokens only, `cn()` used for merged classes. (tailwind skill)
+- **TypeScript** — no `any`; props typed with `interface`; correct Server/Client boundary (`"use client"` only when needed). (typescript skill)
+- **Accessibility** — icon-only buttons have `aria-label`; interactive elements are keyboard-accessible; sufficient color contrast; focus states visible. (web standards)
+- **Composition** — prefer compound components / shared context over boolean prop proliferation. (vercel-composition-patterns skill)
+- **Performance** — no unnecessary client components, no waterfalls, minimal re-renders. (vercel-react-best-practices skill)
+
+If any gate fails, fix it before reporting done.
+
+### 3. Feature tests (Playwright)
+
+_DISABLED for now_: the developer does not currently use Playwright. When enabled in the future, after creating a feature you MUST add a Playwright end-to-end test covering its primary user flow. Re-enable by removing this "DISABLED" note.
 
 ## Output Format
 

@@ -145,6 +145,14 @@ src/
 
 - **Verify before done**: New or refactored UI should be checked for **performance** (bundle size, no waterfalls, parallelize with `Promise.all`), **responsive design** (mobile → desktop), **SEO** (metadata, semantic HTML, heading order), **security** (no leaked secrets, correct Server/Client boundaries), and **accessibility** (semantic markup, ARIA, keyboard navigation, color contrast). The Frontend Engineer agent applies these gates automatically.
 
+### 7. Skills & Standards Are Mandatory (No Tech Debt)
+
+- **Load skills before coding**: Before creating or refactoring any component, page, or UI, the agent **MUST** read the relevant installed skills (`.agents/skills/*/SKILL.md`) — at minimum `tailwind`, `typescript`, `responsive-design`, `vercel-composition-patterns`, and `vercel-react-best-practices` — and apply them. This is a hard gate, not optional.
+- **Responsive by default**: Every new/refactored component must be mobile-first and verified across breakpoints (`sm`, `md`, `lg`, `xl`). No component is "done" until it renders correctly on mobile and desktop.
+- **Semantic HTML**: Use correct semantic elements and heading order (one `h1` per page, `h2`→`h6` in sequence). No div-soup.
+- **Tailwind conventions**: Follow the class-ordering and token rules in the `tailwind` skill (semantic tokens only, `cn()` for merged classes, responsive variants adjacent to their base utility).
+- **No shortcuts**: Do not ship a first-pass component that ignores these standards and "fix it later." Standards apply from the first version.
+
 ## 🤖 Copilot Customizations
 
 This project ships custom Copilot primitives under `.github/`. They are discovered automatically by GitHub Copilot Chat:

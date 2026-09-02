@@ -1,9 +1,10 @@
-import { Card, CardContent, CardHeader } from "../../../../components/ui/card"
+import { CardContent, CardHeader } from "../../../../components/ui/card"
 import { CHART_CATEGORIES, CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
 import { ChartMetadata, RenderDataConfig } from "@/_features/countries/sections/chart-container/types"
 import { getCountryData } from "@/_features/countries/sections/chart-container/server"
 import Text from "@/components/elements/Text"
 import ChartSection from "@/_features/countries/sections/chart-container/ChartSection"
+import SectionCard from "@/components/elements/SectionCard"
 
 export default async function ChartContainer({ countryCode }: { countryCode: string }) {
 	const countryData = await getCountryData(countryCode)
@@ -25,14 +26,14 @@ export default async function ChartContainer({ countryCode }: { countryCode: str
 			{CHART_CATEGORIES.map((category) => {
 				const config = filteredConfig.filter((item) => item.category === category.toLowerCase())
 				return (
-					<Card key={category} className="gap-2 pt-2 pb-4 ">
+					<SectionCard key={category} className="gap-2 pt-2 pb-4 ">
 						<CardHeader className="px-3 lg:px-6">
 							<Text as="h2">{category}</Text>
 						</CardHeader>
 						<CardContent className="px-3 lg:px-6">
 							<ChartSection configs={config} />
 						</CardContent>
-					</Card>
+					</SectionCard>
 				)
 			})}
 		</>

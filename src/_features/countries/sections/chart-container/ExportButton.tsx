@@ -3,10 +3,15 @@
 import { Download } from "lucide-react"
 import { utils, writeFileXLSX } from "xlsx"
 
-export default function ExportButton({ data, title }: { data: any; title: any }) {
+interface ExportButtonProps {
+	data: Record<string, string | number>[]
+	title: string
+}
+
+export default function ExportButton({ data, title }: ExportButtonProps) {
 	const handleExport = () => {
 		const worksheet = utils.json_to_sheet(data, {
-			origin: "A3",
+			origin: "A2",
 		})
 
 		utils.sheet_add_aoa(worksheet, [[title]], {

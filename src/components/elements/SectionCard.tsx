@@ -1,4 +1,3 @@
-import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import type { ReactNode } from "react"
 
@@ -9,8 +8,13 @@ interface SectionCardProps {
 
 export default function SectionCard({ children, className }: SectionCardProps) {
 	return (
-		<section>
-			<Card className={cn(className)}>{children}</Card>
+		<section
+			className={cn(
+				"flex flex-col gap-4 px-4 py-4 bg-card border border-ring rounded-xl shadow-none text-card-foreground",
+				className
+			)}
+		>
+			{children}
 		</section>
 	)
 }

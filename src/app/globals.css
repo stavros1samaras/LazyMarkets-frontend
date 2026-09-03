@@ -159,9 +159,9 @@
 @media (min-width: 48rem) {
 	/* md: */
 	:root {
-		--responsive-h1: 2.5rem;
-		--responsive-h2: 2rem;
-		--responsive-h3: 1.5rem;
+		--responsive-h1: 2.3rem;
+		--responsive-h2: 1.8rem;
+		--responsive-h3: 1rem;
 		--responsive-h4: 1.25rem;
 		--responsive-p: 0.875rem;
 	}
@@ -170,7 +170,7 @@
 @media (min-width: 64rem) {
 	/* lg: */
 	:root {
-		--responsive-h1: 3rem;
+		--responsive-h1: 2.7rem;
 		--responsive-h2: 2.25rem;
 		--responsive-h3: 1.5rem;
 		--responsive-h4: 1.5rem;

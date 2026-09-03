@@ -1,4 +1,3 @@
-import { CardContent, CardHeader } from "../../../../components/ui/card"
 import { CHART_CATEGORIES, CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
 import { ChartMetadata, RenderDataConfig } from "@/_features/countries/sections/chart-container/types"
 import Text from "@/components/elements/Text"
@@ -27,13 +26,9 @@ export default function ChartContainer({ countryData }: ChartContainerProps) {
 			{CHART_CATEGORIES.map((category) => {
 				const config = filteredConfig.filter((item) => item.category === category.toLowerCase())
 				return (
-					<SectionCard key={category} className="gap-2 pt-2 pb-4 ">
-						<CardHeader className="px-3 lg:px-6">
-							<Text as="h2">{category}</Text>
-						</CardHeader>
-						<CardContent className="px-3 lg:px-6">
-							<ChartSection configs={config} />
-						</CardContent>
+					<SectionCard key={category}>
+						<Text as="h2">{category}</Text>
+						<ChartSection configs={config} />
 					</SectionCard>
 				)
 			})}

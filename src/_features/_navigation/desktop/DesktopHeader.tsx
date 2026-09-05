@@ -13,13 +13,13 @@ export default function DesktopHeader() {
 	const hoverStyles = "transition-transform duration-100 hover:-translate-y-[2px] hover:text-main"
 
 	return (
-		<Header className="justify-between w-auto h-15 pt-1 px-4">
+		<Header className="sticky top-0 z-50 justify-between w-auto h-15 pt-1 px-4">
 			<MainNavigationMenu>
 				<Link
 					href="/"
 					prefetch={false}
 					data-testid="techical"
-					className={cn("flex items-center gap-1.5 text-foreground", fontStyles, hoverStyles)}
+					className={cn("flex items-center gap-1.5", fontStyles, "text-foreground", hoverStyles)}
 				>
 					LazyMarkets
 					<Hammer size={19} />

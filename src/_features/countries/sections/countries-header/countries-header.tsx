@@ -1,5 +1,4 @@
 import Text from "@/components/elements/Text"
-import { Div } from "@/components/elements/Div"
 import CountrySelector from "./components/CountrySelector"
 import SectionCard from "@/components/elements/SectionCard"
 

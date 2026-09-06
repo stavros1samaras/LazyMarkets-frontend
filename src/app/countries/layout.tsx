@@ -1,16 +1,15 @@
 import CountriesHeader from "@/_features/countries/sections/countries-header/countries-header"
 import Main from "@/components/elements/Main"
-import PageLayout from "@/components/PageLayout"
 import DesktopSidebar from "@/_features/countries/sections/navigation/sidebar/DesktopSidebar"
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<PageLayout className="flex-col lg:flex-row gap-2">
+		<div className="flex flex-col lg:flex-row flex-1 gap-4">
 			<DesktopSidebar />
-			<Main className="gap-4">
+			<Main className="flex flex-col flex-1 gap-4">
 				<CountriesHeader />
 				{children}
 			</Main>
-		</PageLayout>
+		</div>
 	)
 }

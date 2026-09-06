@@ -36,7 +36,7 @@ export default function MainNavigationMenu({ children }: MainNavigationMenuProps
 	const [selected, setSelected] = useState(value)
 	return (
 		<NavigationMenu>
-			<NavigationMenuList className="flex items-center gap-5">
+			<NavigationMenuList className="flex items-center gap-0 sm:gap-5">
 				{React.Children.map(children, (child: any, index) => {
 					const item = cloneElement(child, {
 						className: `${child.props.className ?? ""} ${selected === index ? "text-main" : "text-foreground"}`,

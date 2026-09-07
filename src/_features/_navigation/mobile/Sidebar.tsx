@@ -1,10 +1,9 @@
 "use client"
 
 import Header from "@/components/elements/Header"
-import MainNavigationMenu from "@/_features/_navigation/desktop/NavigationMenu"
 import { cn } from "@/lib/utils"
-import { X } from "lucide-react"
 import Link from "next/link"
+import { MOBILE_NAV_ITEMS } from "../config"
 
 type SidebarProps = {
 	open: boolean
@@ -24,21 +23,21 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 			>
 				<Header>
 					<nav className="flex flex-col w-full p-4">
-						<Link href="/technical" onClick={onClose} className="py-2 text-2xl text-foreground">
-							Technical
-						</Link>
-						<Link href="/fundamental" onClick={onClose} className="py-2 text-2xl text-foreground">
-							Fundamental
-						</Link>
-						<Link href="/sentiment" onClick={onClose} className="py-2 text-2xl text-foreground">
-							Sentiment
-						</Link>
-						<Link href="/countries/GR" onClick={onClose} className="py-2 text-2xl text-foreground">
-							Countries
-						</Link>
-						<Link href="/contact" onClick={onClose} className="py-2 text-2xl text-foreground">
-							Contact
-						</Link>
+						{MOBILE_NAV_ITEMS.map((item) => {
+							const Icon = item.icon
+							return (
+								<Link
+									key={item.label}
+									href={item.href}
+									onClick={onClose}
+									target={item.external ? "_blank" : undefined}
+									className="flex items-center gap-1.5 py-2 text-2xl text-foreground"
+								>
+									{item.label}
+									{Icon && <Icon size={19} />}
+								</Link>
+							)
+						})}
 					</nav>
 				</Header>
 			</aside>

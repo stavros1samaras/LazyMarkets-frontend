@@ -5,8 +5,8 @@ import Header from "@/components/elements/Header"
 import { cn } from "@/lib/utils"
 import GitHubIcon from "@/_features/_navigation/GitHubIcon"
 import { Div } from "@/components/elements/Div"
-import { ExternalLink, Hammer } from "lucide-react"
 import MobileSidebar from "@/_features/_navigation/mobile/MobileSidebar"
+import { NAV_ITEMS } from "../config"
 
 export default function DesktopHeader() {
 	const fontStyles = "font-[550] text-[19px]"
@@ -15,58 +15,29 @@ export default function DesktopHeader() {
 	return (
 		<Header className="sticky top-0 z-50 justify-between w-auto h-15 pt-1 px-1">
 			<MainNavigationMenu>
-				<Link
-					href="/"
-					prefetch={false}
-					data-testid="techical"
-					className={cn("flex items-center gap-1.5", fontStyles, "text-foreground", hoverStyles)}
-				>
-					LazyMarkets
-					<Hammer size={19} />
-				</Link>
-				<Link
-					href="/technical"
-					prefetch={false}
-					data-testid="techical"
-					className={cn("hidden lg:flex items-center gap-1.5", fontStyles, hoverStyles)}
-				>
-					Technical <Hammer size={19} />
-				</Link>
-				<Link
-					href="/fundamental"
-					prefetch={false}
-					data-testid="fundamental"
-					className={cn("hidden lg:flex items-center gap-1.5", fontStyles, hoverStyles)}
-				>
-					Fundamental <Hammer size={19} />
-				</Link>
-				<Link
-					href="/sentiment"
-					prefetch={false}
-					data-testid="sentiment"
-					className={cn("hidden lg:flex items-center gap-1.5", fontStyles, hoverStyles)}
-				>
-					Sentiment <Hammer size={19} />
-				</Link>
-				<Link href="/countries/GR" data-testid="contact" className={cn("hidden lg:inline-block", fontStyles, hoverStyles)}>
-					Countries
-				</Link>
-				<a
-					href="http://lazy-markets-rr.vercel.app/"
-					target="_blank"
-					data-testid="FHT"
-					className={cn("hidden lg:flex items-center gap-1", fontStyles, hoverStyles)}
-				>
-					FHT <ExternalLink size={19} />
-				</a>
-				<Link
-					href="/contact"
-					prefetch={false}
-					data-testid="contact"
-					className={cn("hidden lg:inline-block", fontStyles, hoverStyles)}
-				>
-					Contact
-				</Link>
+				{NAV_ITEMS.map((item) => {
+					const Icon = item.icon
+					const baseClass = item.alwaysVisible
+						? "flex items-center gap-1.5"
+						: item.icon
+							? "hidden lg:flex items-center gap-1.5"
+							: "hidden lg:inline-block gap-1.5"
+					const className = cn(fontStyles, hoverStyles, baseClass, item.extraClassNames)
+
+					return (
+						<Link
+							key={item.label}
+							href={item.href}
+							prefetch={item.prefetch}
+							target={item.external ? "_blank" : undefined}
+							data-testid={item.dataTestId}
+							className={className}
+						>
+							{item.label}
+							{Icon && <Icon size={19} />}
+						</Link>
+					)
+				})}
 			</MainNavigationMenu>
 			<Div className="gap-1 w-auto">
 				<ThemeButton />

@@ -64,7 +64,7 @@ export default function DownloadButton({ className }: DownloadButtonProps) {
 	}
 
 	return (
-		<Button size="sm" className={cn(className)} onClick={handleExport}>
+		<Button size="sm" variant={"default"} className={cn(className)} onClick={handleExport}>
 			<Download />
 			Export Data (.xlsx)
 		</Button>

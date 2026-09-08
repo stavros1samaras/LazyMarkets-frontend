@@ -14,7 +14,7 @@ export default function ChartDisplayToggleButton({ className }: ChartDisplayTogg
 	const { display, toggleDisplay } = useContext(ChartDisplayContext)
 
 	return (
-		<Button size="icon" variant="outline" className={cn(className)} onClick={toggleDisplay}>
+		<Button size="icon" variant="secondary" className={cn(className)} onClick={toggleDisplay}>
 			{display == "bar" ? <ChartColumnBig /> : <ChartLine />}
 		</Button>
 	)

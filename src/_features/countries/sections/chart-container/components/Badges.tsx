@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge"
 
 export function ChartAbsoluteBadge() {
 	return (
-		<Badge variant="secondary" className=" h-3.5 lg:h-5 ">
+		<Badge variant="outline" className=" h-3.5 lg:h-5 ">
 			Abs
 		</Badge>
 	)
@@ -10,7 +10,7 @@ export function ChartAbsoluteBadge() {
 
 export function ChartPercentageBadge() {
 	return (
-		<Badge variant="secondary" className="h-3.5 lg:h-5">
+		<Badge variant="outline" className="h-3.5 lg:h-5">
 			Perc
 		</Badge>
 	)

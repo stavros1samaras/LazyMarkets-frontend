@@ -11,7 +11,7 @@ export default function Controls() {
 				<Text as="h2">Controls</Text>
 				<Div>
 					<ChartDisplayToggleButton className="w-8 h-8" />
-					<DownloadButton className="h-8" />
+					<DownloadButton className="h-8 " />
 				</Div>
 			</Div>
 		</SectionCard>

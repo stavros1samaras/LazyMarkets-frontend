@@ -27,10 +27,10 @@ export default function ChartSection({ configs }: { configs: RenderDataConfig[] 
 									<Text as="h3" className="font-semibold leading-none">
 										{config.chartTitle}
 									</Text>
-									<Budge />
 									<HoverIcon description={config.description} className="h-5 size-auto">
 										<Info className="size-4 lg:size-5 text-foreground" />
 									</HoverIcon>
+									<Budge />
 								</Span>
 								<Span className="gap-2">
 									<ExportButton data={config.chartData} title={config.chartTitle} />

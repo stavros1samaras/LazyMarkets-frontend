@@ -14,7 +14,14 @@ export default function ChartDisplayToggleButton({ className }: ChartDisplayTogg
 	const { display, toggleDisplay } = useContext(ChartDisplayContext)
 
 	return (
-		<Button size="icon" variant="secondary" className={cn(className)} onClick={toggleDisplay}>
+		<Button
+			size="icon"
+			variant="secondary"
+			className={cn(className)}
+			aria-label={display == "bar" ? "Switch to area chart" : "Switch to bar chart"}
+			aria-description="Toggles the chart between area and bar display."
+			onClick={toggleDisplay}
+		>
 			{display == "bar" ? <ChartColumnBig /> : <ChartLine />}
 		</Button>
 	)

@@ -1,5 +1,6 @@
 "use client"
 
+import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
 import { utils, writeFileXLSX } from "xlsx"
 
@@ -26,8 +27,18 @@ export default function ExportButton({ data, title }: ExportButtonProps) {
 	}
 
 	return (
-		<Download onClick={handleExport} className="size-4 lg:size-5 text-foreground">
-			Export
-		</Download>
+		<Button
+			type="button"
+			variant="ghost"
+			size="icon-xs"
+			onClick={handleExport}
+			aria-label={`Export ${title} data`}
+			aria-description="Downloads the chart data as an Excel (.xlsx) file."
+			className="text-foreground"
+		>
+			<Download className="size-4 lg:size-5" aria-hidden="true">
+				Export
+			</Download>
+		</Button>
 	)
 }

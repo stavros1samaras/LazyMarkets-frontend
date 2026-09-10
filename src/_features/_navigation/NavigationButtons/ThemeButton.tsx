@@ -18,15 +18,29 @@ export default function ThemeButton() {
 
 	if (resolvedTheme === "light") {
 		return (
-			<Button size="icon" variant="ghost" className="m-0 p-0 text-foreground" onClick={() => setTheme("dark")}>
-				<Sun className="size-6 p-0" />
+			<Button
+				size="icon"
+				variant="ghost"
+				className="m-0 p-0 text-foreground"
+				aria-label="Switch to dark theme"
+				aria-description="Toggles the site between light and dark appearance."
+				onClick={() => setTheme("dark")}
+			>
+				<Sun className="size-6 p-0" aria-hidden="true" />
 			</Button>
 		)
 	}
 
 	return (
-		<Button size="icon" variant="ghost" className="m-0 p-0 text-foreground" onClick={() => setTheme("light")}>
-			<Moon className="size-6 p-0" />
+		<Button
+			size="icon"
+			variant="ghost"
+			className="m-0 p-0 text-foreground"
+			aria-label="Switch to light theme"
+			aria-description="Toggles the site between light and dark appearance."
+			onClick={() => setTheme("light")}
+		>
+			<Moon className="size-6 p-0" aria-hidden="true" />
 		</Button>
 	)
 }

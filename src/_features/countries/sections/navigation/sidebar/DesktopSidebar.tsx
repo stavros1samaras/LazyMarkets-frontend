@@ -25,9 +25,7 @@ export default function DesktopSidebar() {
 				<Div className="flex-col items-start gap-2 w-auto text-sm">
 					<Input placeholder="search country" className="w-auto h-7" onChange={(e) => filter(e)} />
 					{filteredCountries.map((asset, index) => (
-						<React.Fragment key={index}>
-							<SidebarItem code={asset.code} name={asset.name} className="pl-1" />
-						</React.Fragment>
+						<SidebarItem key={index} code={asset.code} name={asset.name} className="pl-1" />
 					))}
 				</Div>
 				<ScrollBar orientation="vertical" className="w-1" />

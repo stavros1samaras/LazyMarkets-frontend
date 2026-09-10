@@ -11,7 +11,13 @@ export default function HoverIcon({ children, description, className }: HoverIco
 	return (
 		<HoverCard openDelay={10} closeDelay={100}>
 			<HoverCardTrigger asChild>
-				<Button size={"icon"} variant={"link"} className={className}>
+				<Button
+					size={"icon"}
+					variant={"link"}
+					className={className}
+					aria-label="More information"
+					aria-description={description}
+				>
 					{children}
 				</Button>
 			</HoverCardTrigger>

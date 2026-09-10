@@ -32,9 +32,16 @@ export default function SingleLineChart({ children, data }: any) {
 							isAnimationActive={"auto"}
 							animationDuration={200}
 							animationEasing="linear"
+							aria-label="area"
 						/>
 					) : (
-						<Bar dataKey="value" fill="var(--line)" isAnimationActive="auto" animationDuration={1} barSize={8} />
+						<Bar
+							dataKey="value"
+							fill="var(--line)"
+							isAnimationActive="auto"
+							animationDuration={1}
+							barSize={8}
+						/>
 					)}
 
 					<XAxis

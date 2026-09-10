@@ -93,11 +93,11 @@
 	/* SPECIAL COLORS */
 	--card: var(--background);
 	--card-foreground: oklch(0.985 0 0);
-	--popover: oklch(0.205 0 0);
+	--popover: var(--background);
 	--popover-foreground: oklch(0.985 0 0);
 	--muted: oklch(0.269 0 0);
 	--muted-foreground: oklch(0.708 0 0);
-	--input: oklch(1 0 0 / 15%);
+	--input: oklch(32.223% 0.00529 286.005);
 
 	/* VARIANTS */
 	--primary: rgb(51, 50, 146);

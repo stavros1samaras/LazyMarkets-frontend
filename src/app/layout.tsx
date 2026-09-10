@@ -35,14 +35,14 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="" suppressHydrationWarning>
-			<body
-				className={`${geistSans.variable} ${inter.className} root flex flex-col w-[95vw] lg:w-[98vw] min-h-screen mx-auto bg-background antialiased`}
-			>
-				<NextThemeProvider>
-					<DesktopHeader />
-					{children}
-				</NextThemeProvider>
-				<Toaster />
+			<body className={`${geistSans.variable} ${inter.className} root min-h-screen bg-background antialiased`}>
+				<div className="w-[95%] lg:w-[98%] mx-auto flex min-h-screen flex-col">
+					<NextThemeProvider>
+						<DesktopHeader />
+						{children}
+					</NextThemeProvider>
+					<Toaster />
+				</div>
 			</body>
 		</html>
 	)

@@ -8,6 +8,7 @@ import { Div } from "@/components/elements/Div"
 import MobileSidebar from "@/_features/_navigation/mobile/MobileSidebar"
 import { NAV_ITEMS } from "../config"
 import { NavigationMenu, NavigationMenuList } from "@/components/ui/navigation-menu"
+import LanguageDropdown from "@/_features/_navigation/NavigationButtons/LanguageDropdown"
 
 export default function DesktopHeader() {
 	const fontStyles = "font-[550] text-[19px] text-foreground "
@@ -45,6 +46,7 @@ export default function DesktopHeader() {
 				</NavigationMenuList>
 			</NavigationMenu>
 			<Div className="gap-1 w-auto">
+				<LanguageDropdown />
 				<ThemeButton />
 				<GitHubIcon />
 				<MobileSidebar />

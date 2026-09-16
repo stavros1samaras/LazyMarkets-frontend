@@ -2,6 +2,7 @@ import NavigationState from "./NavigationState"
 import Link from "next/link"
 import ThemeButton from "@/_features/_navigation/NavigationButtons/ThemeButton"
 import Header from "@/components/elements/Header"
+import Text from "@/components/elements/Text"
 import { cn } from "@/lib/utils"
 import GitHubIcon from "@/_features/_navigation/NavigationButtons/GitHubIcon"
 import { Div } from "@/components/elements/Div"
@@ -11,11 +12,11 @@ import { NavigationMenu, NavigationMenuList } from "@/components/ui/navigation-m
 import LanguageDropdown from "@/_features/_navigation/NavigationButtons/LanguageDropdown"
 
 export default function DesktopHeader() {
-	const fontStyles = "font-[550] text-[19px] text-foreground "
+	const fontStyles = "font-[550] text-[19px] text-foreground"
 	const hoverStyles = "transition-transform duration-100 hover:-translate-y-[2px] hover:text-main"
 
 	return (
-		<Header className="sticky top-0 z-50 justify-between w-auto h-15 pt-1 px-1">
+		<Header className="justify-between sticky top-0 z-50 w-auto h-15 pt-1 px-1">
 			<NavigationMenu>
 				<NavigationMenuList className="flex items-center gap-0 sm:gap-5">
 					<NavigationState>
@@ -37,7 +38,9 @@ export default function DesktopHeader() {
 									data-testid={item.dataTestId}
 									className={className}
 								>
-									{item.label}
+									<Text as="span" className="text-inherit">
+										{item.label}
+									</Text>
 									{Icon && <Icon size={19} />}
 								</Link>
 							)

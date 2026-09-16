@@ -1,5 +1,8 @@
+"use client"
+
 import { cn } from "@/lib/utils"
 import React from "react"
+import { useTranslation } from "react-i18next"
 
 interface TextProps extends React.HTMLAttributes<HTMLElement> {
 	asChild?: boolean
@@ -7,6 +10,8 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 export default function Text({ asChild = false, as = "p", className, children, ...props }: TextProps) {
+	const { t } = useTranslation()
+
 	if (asChild) {
 		if (!React.isValidElement(children)) {
 			throw new Error("Text with asChild requires a single React element.")
@@ -21,8 +26,8 @@ export default function Text({ asChild = false, as = "p", className, children, .
 
 	const Tag = as
 	return (
-		<Tag className={cn(`text-foreground text-responsive-${as}`, className)} {...props}>
-			{children}
+		<Tag className={cn(`text-responsive-${as} text-foreground`, className)} {...props}>
+			{t(children as any)}
 		</Tag>
 	)
 }

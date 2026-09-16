@@ -5,6 +5,10 @@ import "../styles/compat.css"
 import DesktopHeader from "@/_features/_navigation/desktop/DesktopHeader"
 import { NextThemeProvider } from "@/providers/NextThemeProvider"
 import { Toaster } from "@/components/ui/sonner"
+import i18n from "./i18n"
+import { I18nextProvider } from "react-i18next"
+import { I18nProvider } from "@/providers/I18nProvider"
+import Backend from "i18next-http-backend"
 
 const inter = Inter({
 	variable: "--font-inter",
@@ -28,20 +32,26 @@ export const metadata: Metadata = {
 	robots: { follow: true, index: true },
 }
 
-export default function RootLayout({
+import getLanguage from "@/app/cookies.actions"
+
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode
 }>) {
+	const { locale } = await getLanguage()
+
 	return (
-		<html lang="en" className="" suppressHydrationWarning>
+		<html lang={locale} className="" suppressHydrationWarning>
 			<body className={`${geistSans.variable} ${inter.className} root min-h-screen bg-background antialiased`}>
-				<div className="w-[95%] lg:w-[98%] mx-auto flex min-h-screen flex-col">
-					<NextThemeProvider>
-						<DesktopHeader />
-						{children}
-					</NextThemeProvider>
-					<Toaster />
+				<div className="flex flex-col w-[95%] lg:w-[98%] min-h-screen mx-auto">
+					<I18nProvider locale={locale}>
+						<NextThemeProvider>
+							<DesktopHeader />
+							{children}
+						</NextThemeProvider>
+						<Toaster />
+					</I18nProvider>
 				</div>
 			</body>
 		</html>

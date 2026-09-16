@@ -2,8 +2,8 @@
 import Link from "next/link"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
-import { Span } from "@/components/elements/Span"
 import { Div } from "@/components/elements/Div"
+import Text from "@/components/elements/Text"
 
 type SidebarItemProps = {
 	code: string
@@ -19,11 +19,13 @@ export default function SidebarItem({ code, name, className = "" }: SidebarItemP
 	return (
 		<Link
 			href={`/countries/${code}`}
-			className={cn("flex items-center w-full transition-colors rounded-sm", hoverStyles, className)}
+			className={cn("flex items-center w-full rounded-sm transition-colors", hoverStyles, className)}
 		>
 			<Div className="gap-2 py-1.5 rounded-radius">
 				<Image src={`/images/flags/${flagCode}.svg`} alt="" width={17} height={17} className="rounded-xs" />
-				<Span className="text-[16px] font-medium text-foreground">{name}</Span>
+				<Text as="span" className="max-w-40 text-[16px] font-medium text-foreground">
+					{name}
+				</Text>
 			</Div>
 		</Link>
 	)

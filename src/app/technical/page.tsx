@@ -1,17 +1,14 @@
-"use client"
-
 import { Div } from "@/components/elements/Div"
 import Main from "@/components/elements/Main"
 import { Hammer } from "lucide-react"
-import { usePathname } from "next/navigation"
+import Text from "@/components/elements/Text"
 
 export default function Page() {
-	const pathname = usePathname()
 	return (
 		<Main className="flex flex-col items-center justify-center flex-1 mb-2 border border-ring">
-			<Div className="text-2xl text-foreground">
+			<Div className="items-center gap-2 text-2xl text-foreground">
 				<Hammer size={25} />
-				{pathname.slice(1)} page is under construction
+				<Text>Technical page is under construction</Text>
 			</Div>
 		</Main>
 	)

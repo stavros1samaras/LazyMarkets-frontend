@@ -9,7 +9,7 @@ import { devsInfo } from "@/_features/contact/sections/developers-info/config"
 export default function DevelopersInfo({ className }: { className?: string }) {
 	return (
 		<Card className={cn("relative min-h-0 flex-1 h-full", className)}>
-			<div className="xl:absolute grid grid-cols-1 gap-3 inset-0 m-4 overflow-y-scroll scrollbar-hide">
+			<div className="grid grid-cols-1 gap-3 xl:absolute inset-0 m-4 overflow-y-scroll scrollbar-hide">
 				<DevelopersInfoCards />
 			</div>
 		</Card>
@@ -21,10 +21,12 @@ export function DevelopersInfoCards() {
 		<>
 			{devsInfo.map((dev, index) => {
 				return (
-					<Card key={index} className="py-4 h-fit gap-2">
+					<Card key={index} className="gap-2 h-fit py-4">
 						<CardHeader>
 							<CardTitle>{dev.name}</CardTitle>
-							<CardDescription>{dev.description}</CardDescription>
+							<CardDescription>
+								<Text as="span">{dev.description}</Text>
+							</CardDescription>
 						</CardHeader>
 						<CardContent>
 							<Div className="justify-between">
@@ -39,11 +41,11 @@ export function DevelopersInfoCards() {
 								<Text as="p">links:</Text>
 								<Span className="justify-between gap-2 underline">
 									<a href={dev.linkedin} target="_blank" className="flex items-center gap-1 text-foreground">
-										linkedIn
+										<Text as="span">linkedIn</Text>
 										<ExternalLink size={13} className="underline" />
 									</a>
 									<a href={dev.github} target="_blank" className="flex items-center gap-1 text-foreground">
-										gitHub
+										<Text as="span">gitHub</Text>
 										<ExternalLink size={13} />
 									</a>
 								</Span>

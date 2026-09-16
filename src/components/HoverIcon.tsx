@@ -1,5 +1,6 @@
 import { Button } from "./ui/button"
 import { HoverCardTrigger, HoverCardContent, HoverCard } from "./ui/hover-card"
+import Text from "./elements/Text"
 
 interface HoverIconProps {
 	children: React.ReactNode
@@ -11,18 +12,12 @@ export default function HoverIcon({ children, description, className }: HoverIco
 	return (
 		<HoverCard openDelay={10} closeDelay={100}>
 			<HoverCardTrigger asChild>
-				<Button
-					size={"icon"}
-					variant={"link"}
-					className={className}
-					aria-label="More information"
-					aria-description={description}
-				>
+				<Button size={"icon"} variant={"link"} className={className} aria-label="More information" aria-description={description}>
 					{children}
 				</Button>
 			</HoverCardTrigger>
-			<HoverCardContent className="flex w-64 flex-col gap-0.5 bg-background border-background">
-				<div className="text-foreground">{description}</div>
+			<HoverCardContent className="flex flex-col gap-0.5 w-64 bg-background border-background">
+				<Text as="span">{description}</Text>
 			</HoverCardContent>
 		</HoverCard>
 	)

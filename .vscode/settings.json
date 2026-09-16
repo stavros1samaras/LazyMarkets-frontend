@@ -12,6 +12,7 @@
     "actions.ts": "code-red",
     "modules.ts": "code-purple",
     "server.ts": "code-red",
+    "*.actions.ts": "code-red",
   },
   "symbols.folders.associations": {
     "components": "folder-react",

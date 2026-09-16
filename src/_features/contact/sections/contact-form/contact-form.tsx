@@ -7,6 +7,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { FieldGroup, FieldSet, FieldLegend, Field } from "@/components/ui/field"
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form"
 import { toast } from "sonner"
+import Text from "@/components/elements/Text"
 
 export default function ContactForm({ className }: { className?: string }) {
 	const methods = useForm<FormInputs>()
@@ -27,14 +28,20 @@ export default function ContactForm({ className }: { className?: string }) {
 	return (
 		<Card className={cn("w-full h-fit py-4", className)}>
 			<CardHeader>
-				<CardTitle>Contact Us</CardTitle>
-				<CardDescription>Have a question or need help? Send us a message and we will get back to you.</CardDescription>
+				<CardTitle>
+					<Text as="span">Contact Us</Text>
+				</CardTitle>
+				<CardDescription>
+					<Text as="span">Have a question or need help? Send us a message and we will get back to you.</Text>
+				</CardDescription>
 			</CardHeader>
 			<CardContent>
 				<form id="form-rhf-demo" onSubmit={handleSubmit(onSubmit)} noValidate>
 					<FieldGroup>
 						<FieldSet>
-							<FieldLegend>Contact Information</FieldLegend>
+							<FieldLegend>
+								<Text as="span">Contact Information</Text>
+							</FieldLegend>
 							<FieldGroup>
 								<FormProvider {...methods}>
 									{config.map((inputInfo, index) => {
@@ -60,10 +67,10 @@ export default function ContactForm({ className }: { className?: string }) {
 			<CardFooter>
 				<Field orientation="horizontal">
 					<Button type="button" variant="outline" onClick={() => reset()}>
-						Reset
+						<Text as="span">Reset</Text>
 					</Button>
 					<Button type="submit" form="form-rhf-demo">
-						Submit
+						<Text as="span">Submit</Text>
 					</Button>
 				</Field>
 			</CardFooter>

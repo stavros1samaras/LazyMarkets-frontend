@@ -1,9 +1,10 @@
 import { Badge } from "@/components/ui/badge"
+import Text from "@/components/elements/Text"
 
 export function ChartAbsoluteBadge() {
 	return (
-		<Badge variant="outline" className=" h-3.5 lg:h-5 ">
-			Abs
+		<Badge variant="outline" className="h-3.5 lg:h-5">
+			<Text as="span">Abs</Text>
 		</Badge>
 	)
 }
@@ -11,21 +12,7 @@ export function ChartAbsoluteBadge() {
 export function ChartPercentageBadge() {
 	return (
 		<Badge variant="outline" className="h-3.5 lg:h-5">
-			Perc
+			<Text as="span">Perc</Text>
 		</Badge>
-	)
-}
-
-import { cn } from "@/lib/utils"
-
-interface CodeProps extends React.HTMLAttributes<HTMLElement> {
-	children: React.ReactNode
-}
-
-export function Code({ className, children, ...props }: CodeProps) {
-	return (
-		<code className={cn("rounded-md bg-muted px-2 font-mono text-sm", className)} {...props}>
-			{children}
-		</code>
 	)
 }

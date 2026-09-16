@@ -1,5 +1,6 @@
 import { InputFieldProps, FormInputs } from "@/_features/contact/sections/contact-form/types"
 import { Span } from "@/components/elements/Span"
+import Text from "@/components/elements/Text"
 import { Field, FieldLabel, FieldDescription } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { InputGroup, InputGroupTextarea, InputGroupAddon, InputGroupText } from "@/components/ui/input-group"
@@ -13,12 +14,20 @@ export function InputField({ id, type, DomInputName, label, placeholder, descrip
 
 	return (
 		<Field>
-			<FieldLabel htmlFor="">{label}</FieldLabel>
+			<FieldLabel htmlFor={id}>
+				<Text as="span">{label}</Text>
+			</FieldLabel>
 			<Input id={id} type={type} placeholder={placeholder} autoComplete="off" {...register(DomInputName, { ...rules })} />
 			{errors[DomInputName] ? (
-				<Span className="text-destructive text-sm">{errors[DomInputName]?.message}</Span>
+				<Span className="text-sm text-destructive">
+					<Text as="span" className="text-destructive">
+						{errors[DomInputName]?.message}
+					</Text>
+				</Span>
 			) : (
-				<FieldDescription>{description}</FieldDescription>
+				<FieldDescription>
+					<Text as="span">{description}</Text>
+				</FieldDescription>
 			)}
 		</Field>
 	)
@@ -32,7 +41,9 @@ export function TextareaField({ id, DomInputName, label, placeholder, descriptio
 
 	return (
 		<Field>
-			<FieldLabel htmlFor={id}>{label}</FieldLabel>
+			<FieldLabel htmlFor={id}>
+				<Text as="span">{label}</Text>
+			</FieldLabel>
 
 			<InputGroup>
 				<InputGroupTextarea
@@ -44,14 +55,22 @@ export function TextareaField({ id, DomInputName, label, placeholder, descriptio
 				/>
 
 				<InputGroupAddon align="block-end">
-					<InputGroupText className="tabular-nums">0/500 characters</InputGroupText>
+					<InputGroupText className="tabular-nums">
+						<Text as="span">0/500 characters</Text>
+					</InputGroupText>
 				</InputGroupAddon>
 			</InputGroup>
 
 			{errors[DomInputName] ? (
-				<Span className="text-destructive text-sm">{errors[DomInputName]?.message}</Span>
+				<Span className="text-sm text-destructive">
+					<Text as="span" className="text-destructive">
+						{errors[DomInputName]?.message}
+					</Text>
+				</Span>
 			) : (
-				<FieldDescription>{description}</FieldDescription>
+				<FieldDescription>
+					<Text as="span">{description}</Text>
+				</FieldDescription>
 			)}
 		</Field>
 	)

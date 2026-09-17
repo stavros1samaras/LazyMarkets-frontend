@@ -11,14 +11,19 @@ export default function LanguageDropdown() {
 		document.documentElement.lang = i18n.language
 	}, [i18n.language])
 
+	const handleLanguageChange = async (value: string) => {
+		document.cookie = `locale=${value}; path=/; max-age=${60 * 60 * 24 * 365}`
+
+		if (!i18n.hasResourceBundle(value, "translation")) {
+			const response = await fetch(`/locales/${value}/translation.json`)
+			const translationResource = await response.json()
+			i18n.addResourceBundle(value, "translation", translationResource, true, true)
+		}
+		await i18n.changeLanguage(value)
+	}
+
 	return (
-		<Select
-			defaultValue={i18n.language}
-			onValueChange={async (value) => {
-				document.cookie = `locale=${value}; path=/; max-age=${60 * 60 * 24 * 365}`
-				await i18n.changeLanguage(value)
-			}}
-		>
+		<Select defaultValue={i18n.language} onValueChange={(value) => handleLanguageChange(value)}>
 			<SelectTrigger className="w-17 text-foreground">
 				<SelectValue placeholder={i18n.language} />
 			</SelectTrigger>
@@ -28,6 +33,12 @@ export default function LanguageDropdown() {
 				</SelectItem>
 				<SelectItem value="el" className="focus:bg-select-item">
 					EL
+				</SelectItem>
+				<SelectItem value="de" className="focus:bg-select-item">
+					DE
+				</SelectItem>
+				<SelectItem value="fr" className="focus:bg-select-item">
+					FR
 				</SelectItem>
 			</SelectContent>
 		</Select>

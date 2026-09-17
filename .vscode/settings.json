@@ -12,7 +12,9 @@
     "actions.ts": "code-red",
     "modules.ts": "code-purple",
     "server.ts": "code-red",
+    "*.server.ts": "code-red",
     "*.actions.ts": "code-red",
+    "i18n.js" : "i18n"
   },
   "symbols.folders.associations": {
     "components": "folder-react",

@@ -1,4 +1,4 @@
-import NavigationState from "./NavigationState"
+import NavigationState from "../NavigationState"
 import Link from "next/link"
 import ThemeButton from "@/_features/_navigation/NavigationButtons/ThemeButton"
 import Header from "@/components/elements/Header"

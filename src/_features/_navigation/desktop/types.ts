@@ -10,3 +10,8 @@ export interface NavItemConfig {
 	alwaysVisible?: boolean
 	extraClassNames?: string
 }
+
+export interface PathnameNavRoute {
+	prefix: string
+	value: number
+}

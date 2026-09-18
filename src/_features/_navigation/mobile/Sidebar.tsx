@@ -3,7 +3,8 @@
 import Header from "@/components/elements/Header"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
-import { MOBILE_NAV_ITEMS } from "../config"
+import { MOBILE_NAV_ITEMS, NAV_ITEMS } from "../config"
+import NavigationState from "@/_features/_navigation/NavigationState"
 
 type SidebarProps = {
 	open: boolean
@@ -23,21 +24,25 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 			>
 				<Header>
 					<nav className="flex flex-col w-full p-4">
-						{MOBILE_NAV_ITEMS.map((item) => {
-							const Icon = item.icon
-							return (
-								<Link
-									key={item.label}
-									href={item.href}
-									onClick={onClose}
-									target={item.external ? "_blank" : undefined}
-									className="flex items-center gap-1.5 py-2 text-2xl text-foreground"
-								>
-									{item.label}
-									{Icon && <Icon size={19} />}
-								</Link>
-							)
-						})}
+						<ul className="list-none">
+							<NavigationState>
+								{NAV_ITEMS.map((item) => {
+									const Icon = item.icon
+									return (
+										<Link
+											key={item.label}
+											href={item.href}
+											onClick={onClose}
+											target={item.external ? "_blank" : undefined}
+											className="flex items-center gap-1.5 py-2 text-2xl text-foreground"
+										>
+											{item.label}
+											{Icon && <Icon size={19} />}
+										</Link>
+									)
+								})}
+							</NavigationState>
+						</ul>
 					</nav>
 				</Header>
 			</aside>

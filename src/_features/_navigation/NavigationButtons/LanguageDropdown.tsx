@@ -1,15 +1,13 @@
 "use client"
 
+import useDocumentLanguage from "@/_features/_translation/hooks"
 import { SelectTrigger, SelectValue, SelectContent, SelectItem, Select } from "@/components/ui/select"
-import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
 
 export default function LanguageDropdown() {
 	const { i18n } = useTranslation()
 
-	useEffect(() => {
-		document.documentElement.lang = i18n.language
-	}, [i18n.language])
+	useDocumentLanguage(i18n.language)
 
 	const handleLanguageChange = async (value: string) => {
 		document.cookie = `locale=${value}; path=/; max-age=${60 * 60 * 24 * 365}`

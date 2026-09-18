@@ -14,7 +14,8 @@
     "server.ts": "code-red",
     "*.server.ts": "code-red",
     "*.actions.ts": "code-red",
-    "i18n.js" : "i18n"
+    "i18n.js" : "i18n",
+    "hooks.ts":"react"
   },
   "symbols.folders.associations": {
     "components": "folder-react",

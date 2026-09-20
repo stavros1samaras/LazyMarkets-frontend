@@ -5,7 +5,6 @@ export const NAV_ITEMS: NavItemConfig[] = [
 	{
 		label: "LazyMarkets",
 		href: "/",
-		icon: Hammer,
 		dataTestId: "lazymarkets-home",
 		prefetch: false,
 		alwaysVisible: true,

@@ -6,7 +6,9 @@ import DesktopHeader from "@/_features/_navigation/desktop/DesktopHeader"
 import { NextThemeProvider } from "@/providers/NextThemeProvider"
 import { Toaster } from "@/components/ui/sonner"
 import { I18nProvider } from "@/providers/I18nProvider"
+import { UserAgentProvider } from "@/providers/UserAgentProvider"
 import getLanguage from "@/_features/_translation/server"
+import { getUserAgent } from "@/lib/server/user-agent"
 
 const inter = Inter({
 	variable: "--font-inter",
@@ -36,18 +38,21 @@ export default async function RootLayout({
 	children: React.ReactNode
 }>) {
 	const { locale, translationResource } = await getLanguage()
+	const deviceType = await getUserAgent()
 
 	return (
 		<html lang={locale} className="" suppressHydrationWarning>
 			<body className={`${geistSans.variable} ${inter.className} root min-h-screen bg-background antialiased`}>
 				<div className="flex flex-col w-[95%] lg:w-[98%] min-h-screen mx-auto">
-					<I18nProvider locale={locale} translationResource={translationResource}>
-						<NextThemeProvider>
-							<DesktopHeader />
-							{children}
-						</NextThemeProvider>
-						<Toaster />
-					</I18nProvider>
+					<UserAgentProvider value={deviceType}>
+						<I18nProvider locale={locale} translationResource={translationResource}>
+							<NextThemeProvider>
+								<DesktopHeader />
+								{children}
+							</NextThemeProvider>
+							<Toaster />
+						</I18nProvider>
+					</UserAgentProvider>
 				</div>
 			</body>
 		</html>

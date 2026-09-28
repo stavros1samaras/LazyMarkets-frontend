@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useContext } from "react"
-import { CountryDataContext } from "@/providers/CountryDataProvider"
+import { CountryDataContext } from "@/_features/countries/sections/CountryData.provider"
 import { utils, writeFileXLSX } from "xlsx"
 import { CHART_DATA, CHARTSCONFIG, CHART_CATEGORIES } from "@/_features/countries/config"
 

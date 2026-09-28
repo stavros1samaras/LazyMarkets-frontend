@@ -1,12 +1,15 @@
-import { Card, CardContent } from "../../../../../components/ui/card"
 import HoverIcon from "../../../../../components/HoverIcon"
 import Text from "../../../../../components/elements/Text"
 import { Span } from "../../../../../components/elements/Span"
 import { Info } from "lucide-react"
-import SingleLineChart from "@/components/charts/SingleLineChart"
 import { RenderDataConfig } from "../types"
 import { ComponentType } from "react"
 import ExportButton from "./ExportButton"
+import { ChartDataProvider, ChartObserver } from "@/components/charts/ChartLogicApi"
+import { ChartLifecycle } from "@/_features/countries/sections/chart-container/components/ChartLifecycle"
+import { Chart, ChartHeader, ChartContent } from "@/components/charts/ChartUiApi"
+import { IndexChart } from "./IndexChart"
+import { ChartDisplayContext } from "@/_features/countries/sections/ChartDisplay.provider"
 
 export default function ChartSection({ configs }: { configs: RenderDataConfig[] }) {
 	return (
@@ -20,9 +23,9 @@ export default function ChartSection({ configs }: { configs: RenderDataConfig[] 
 				})
 
 				return (
-					<Card key={index} className="w-auto">
-						<CardContent className="p-3">
-							<SingleLineChart data={config.chartData}>
+					<Chart key={index}>
+						<ChartDataProvider data={config.chartData}>
+							<ChartHeader>
 								<Span className="gap-2">
 									<Text as="h3" className="font-semibold leading-none">
 										{config.chartTitle}
@@ -33,14 +36,21 @@ export default function ChartSection({ configs }: { configs: RenderDataConfig[] 
 									<Budge />
 								</Span>
 								<Span className="gap-2">
-									<ExportButton data={config.chartData} title={config.chartTitle} />
+									<ExportButton title={config.chartTitle} />
 									<Text as="h3" className="font-semibold leading-none">
 										{lastValue}
 									</Text>
 								</Span>
-							</SingleLineChart>
-						</CardContent>
-					</Card>
+							</ChartHeader>
+							<ChartContent>
+								<ChartLifecycle context={ChartDisplayContext}>
+									<ChartObserver>
+										<IndexChart />
+									</ChartObserver>
+								</ChartLifecycle>
+							</ChartContent>
+						</ChartDataProvider>
+					</Chart>
 				)
 			})}
 		</section>

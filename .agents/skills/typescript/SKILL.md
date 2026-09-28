@@ -21,6 +21,8 @@ and especially for **component prop types**:
 - Domain models and data structures with multiple fields
 - Any shape you may later extend via `extends` or declaration merging
 
+**Exception**: If it's a small component that is not extended or has 2 or less props, don't create an interface, declare types inline.
+
 ### ✅ Correct (interface for props / complex objects)
 
 ```tsx

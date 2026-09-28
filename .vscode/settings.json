@@ -15,7 +15,8 @@
     "*.server.ts": "code-red",
     "*.actions.ts": "code-red",
     "i18n.js" : "i18n",
-    "hooks.ts":"react"
+    "hooks.ts":"react",
+    "*.provider.tsx": "redux-actions"
   },
   "symbols.folders.associations": {
     "components": "folder-react",

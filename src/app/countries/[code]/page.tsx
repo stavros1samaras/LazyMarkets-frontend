@@ -1,8 +1,8 @@
 import ChartContainer from "../../../_features/countries/sections/chart-container/chart-container"
 import Controls from "@/_features/countries/sections/controls/controls"
 import { getCountryData } from "@/_features/countries/sections/chart-container/server"
-import { ChartDisplayProvider } from "@/providers/ChartDisplayProvider"
-import { CountryDataProvider } from "@/providers/CountryDataProvider"
+import { ChartDisplayProvider } from "@/_features/countries/sections/ChartDisplay.provider"
+import { CountryDataProvider } from "@/_features/countries/sections/CountryData.provider"
 
 export default async function Countries({ params }: { params: Promise<{ code: string }> }) {
 	const countryCode = (await params).code

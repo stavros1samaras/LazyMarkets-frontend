@@ -1,6 +1,6 @@
 import { ChartAbsoluteBadge, ChartPercentageBadge } from "@/_features/countries/sections/chart-container/components/Badges"
 import { ChartMetadata } from "@/_features/countries/sections/chart-container/types"
-import { Countries } from "@/_features/countries/sections/navigation/types"
+import { Countries } from "@/_features/countries/types"
 
 export const COUNTRIES = [
 	{ code: "NO", name: "Norway" },

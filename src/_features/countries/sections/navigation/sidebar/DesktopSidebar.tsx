@@ -13,7 +13,9 @@ export default function DesktopSidebar() {
 
 	function filter(e: React.ChangeEvent<HTMLInputElement>) {
 		const countries: Countries[] = COUNTRIES.filter((country) => {
-			if (country.name.toLowerCase().includes(e.target.value.toLowerCase())) return country
+			if (country.name.toLowerCase().includes(e.target.value.toLowerCase())) {
+				return country
+			}
 		})
 
 		setCountries(countries)

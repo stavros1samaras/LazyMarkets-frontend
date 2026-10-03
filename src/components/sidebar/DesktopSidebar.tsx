@@ -1,9 +1,6 @@
-"use client"
-
-import React, { useState } from "react"
-import { Input } from "@/components/ui/input"
+import React from "react"
+import Link from "next/link"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-import { Div } from "@/components/elements/Div"
 import { cn } from "@/lib/utils"
 import { Countries } from "@/_features/countries/types"
 
@@ -19,31 +16,12 @@ export default function DesktopSidebar({ children }: { children: React.ReactNode
 	)
 }
 
-interface SidebarSearchListProps {
-	data: Countries[]
-	searchKey: string
-	children: (item: Countries) => React.ReactElement
-}
-
-export function SidebarSearchList({ data, searchKey, children }: SidebarSearchListProps) {
-	const [filteredItems, setCountries] = useState<any[]>(data)
-
-	function filter(e: React.ChangeEvent<HTMLInputElement>) {
-		const filteredData: any[] = data.filter((item: any) => {
-			if (item[searchKey].toLowerCase().includes(e.target.value.toLowerCase())) {
-				return item
-			}
-		})
-
-		setCountries(filteredData)
-	}
+export function SidebarItem({ item, children }: { item: Countries; children: React.ReactNode }) {
+	const hoverStyles = "hover:bg-linear-to-r hover:from-main/40 hover:to-transparent"
 
 	return (
-		<Div className="flex-col items-start gap-2 w-auto text-sm">
-			<Input placeholder="search country" className="w-auto h-7" onChange={(e) => filter(e)} />
-			{filteredItems.map((item, index) => (
-				<React.Fragment key={index}>{children(item)}</React.Fragment>
-			))}
-		</Div>
+		<Link href={item.code} className={cn("flex w-full items-center rounded-sm pl-1 transition-colors", hoverStyles)}>
+			{children}
+		</Link>
 	)
 }

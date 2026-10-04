@@ -1,7 +1,7 @@
 "use client"
 import GradientWaves from "@/components/bits/GradientWaves"
 import Main from "@/components/elements/Main"
-import Text from "@/components/elements/Text"
+import { RevealText } from "@/components/elements/Text"
 import { ExternalLink } from "lucide-react"
 
 export default function Page() {
@@ -33,14 +33,14 @@ export default function Page() {
 				/>
 
 				<div className="flex flex-col items-center xl:items-start justify-center gap-2 absolute inset-0 z-10 lg:ml-4 p-2 font-light ">
-					<Text as="h1" className="text-2xl xl:text-6xl">
+					<RevealText as="h1" className="text-2xl xl:text-6xl" stagger={400}>
 						Welcome to LazyMarkets
-					</Text>
+					</RevealText>
 
-					<Text as="p" className="max-w-200 text-center xl:text-start">
+					<RevealText as="p" className="max-w-200 text-center xl:text-start" stagger={100}>
 						Your all-in-one platform for financial market analysis. Access fundamental, technical, sentiment, and global economic
 						data to make informed investment decisions.
-					</Text>
+					</RevealText>
 					<a
 						href="https://github.com/stavros1samaras/LazyMarkets-frontend"
 						target="_blank"

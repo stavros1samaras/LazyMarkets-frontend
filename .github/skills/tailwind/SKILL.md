@@ -10,7 +10,7 @@ description: >-
 
 This project uses **Tailwind CSS v4** with a CSS-first configuration (no
 `tailwind.config.js`). Styling is driven by CSS variables and the `@theme`
-block in `src/app/globals.css`. Always follow these rules when authoring or
+block in `src/styles/globals.css`. Always follow these rules when authoring or
 reviewing Tailwind classes.
 
 ## 1. Configuration Model (v4)

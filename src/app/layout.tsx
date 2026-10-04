@@ -9,6 +9,7 @@ import { I18nProvider } from "@/_features/_translation/I18n.provider"
 import { UserAgentProvider } from "@/providers/UserAgentProvider"
 import getLanguage from "@/_features/_translation/server"
 import { getUserAgent } from "@/lib/server/user-agent"
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
 	variable: "--font-inter",
@@ -54,6 +55,7 @@ export default async function RootLayout({
 						</I18nProvider>
 					</UserAgentProvider>
 				</div>
+				<Analytics />
 			</body>
 		</html>
 	)

@@ -16,7 +16,8 @@
     "*.actions.ts": "code-red",
     "i18n.js" : "i18n",
     "hooks.ts":"react",
-    "*.provider.tsx": "redux-actions"
+    "*.provider.tsx": "redux-actions",
+    "*.CSR.tsx" : "globe"
   },
   "symbols.folders.associations": {
     "components": "folder-react",

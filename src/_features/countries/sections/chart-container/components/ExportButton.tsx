@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
-import { utils, writeFileXLSX } from "xlsx"
 import { ChartData } from "@/components/charts/ChartData.provider"
 import { useContext } from "react"
 
@@ -13,7 +12,13 @@ interface ExportButtonProps {
 export default function ExportButton({ title }: ExportButtonProps) {
 	const data = useContext(ChartData) as Record<string, string | number>[]
 
-	const handleExport = () => {
+	async function asyncImportXlsx() {
+		void import("xlsx")
+	}
+
+	const handleExport = async () => {
+		const { utils, writeFileXLSX } = await import("xlsx")
+
 		const worksheet = utils.json_to_sheet(data, {
 			origin: "A2",
 		})
@@ -34,6 +39,7 @@ export default function ExportButton({ title }: ExportButtonProps) {
 			type="button"
 			variant="ghost"
 			size="icon-xs"
+			onMouseEnter={asyncImportXlsx}
 			onClick={handleExport}
 			aria-label={`Export ${title} data`}
 			aria-description="Downloads the chart data as an Excel (.xlsx) file."

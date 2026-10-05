@@ -5,7 +5,6 @@ import { Download } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useContext } from "react"
 import { CountryDataContext } from "@/_features/countries/sections/CountryData.provider"
-import { utils, writeFileXLSX } from "xlsx"
 import { CHART_DATA, CHARTSCONFIG, CHART_CATEGORIES } from "@/_features/countries/config"
 
 interface DownloadButtonProps {
@@ -15,7 +14,11 @@ interface DownloadButtonProps {
 export default function DownloadButton({ className }: DownloadButtonProps) {
 	const countryData = useContext(CountryDataContext)
 
-	const handleExport = () => {
+	async function asyncImportXlsx() {
+		void import("xlsx")
+	}
+
+	const handleExport = async () => {
 		if (!countryData) return
 
 		const rows: (string | number)[][] = []
@@ -56,6 +59,8 @@ export default function DownloadButton({ className }: DownloadButtonProps) {
 			})
 		})
 
+		const { utils, writeFileXLSX } = await import("xlsx")
+
 		const worksheet = utils.aoa_to_sheet(rows)
 		const workbook = utils.book_new()
 		utils.book_append_sheet(workbook, worksheet, "Data")
@@ -64,7 +69,7 @@ export default function DownloadButton({ className }: DownloadButtonProps) {
 	}
 
 	return (
-		<Button size="sm" variant={"default"} className={cn(className)} onClick={handleExport}>
+		<Button size="sm" variant={"default"} className={cn(className)} onMouseEnter={asyncImportXlsx} onClick={handleExport}>
 			<Download />
 			Export Data (.xlsx)
 		</Button>

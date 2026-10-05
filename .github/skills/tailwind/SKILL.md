@@ -103,8 +103,9 @@ function Card({ className }: { className?: string }) {
 
 ## 6. Path Aliases
 
-When importing helpers or components, use the configured aliases:
-`@/components/*`, `@/lib/*`, `@/utils/*`, `@/_features/*`.
+The project defines a single path alias in `tsconfig.json`: `@/*` resolves to
+`./src/*`. Import everything through it, e.g. `@/components/*`, `@/lib/*`,
+`@/_features/*`. The `cn()` helper lives at `@/lib/utils`.
 
 ## 7. shadcn/ui Base Components
 

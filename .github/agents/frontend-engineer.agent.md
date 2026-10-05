@@ -53,25 +53,27 @@ Implement using:
 
   #### Scalability & Reusability
 
-  | Name       | Skill                                                                     |
-  | ---------- | ------------------------------------------------------------------------- |
-  | Components | vercel-composition-patterns,vercel-react-best-practices,responsive-design |
-  | Utilities  | web standards                                                             |
-  | Styles     | tailwind                                                                  |
-  | Types      | typescript                                                                |
-  | Hooks      | web standards                                                             |
+  | Name                    | Skill                                                                     |
+  | ----------------------- | ------------------------------------------------------------------------- |
+  | Components              | vercel-composition-patterns,vercel-react-best-practices,responsive-design |
+  | Config-Driven Rendering | config-driven-rendering                                                   |
+  | Utilities               | web standards                                                             |
+  | Styles                  | tailwind                                                                  |
+  | Types                   | typescript                                                                |
+  | Hooks                   | web standards                                                             |
 
   #### Performance
 
-  | Name      | Skill                       |
-  | --------- | --------------------------- |
-  | Rendering | vercel-react-best-practices |
-  | Bundling  | vercel-react-best-practices |
-  | Runtime   | vercel-react-best-practices |
-  | Caching   | web standards               |
-  | Server    | vercel-react-best-practices |
-  | CDN       | web standards               |
-  | Client    | vercel-react-best-practices |
+  | Name            | Skill                       |
+  | --------------- | --------------------------- |
+  | Rendering       | vercel-react-best-practices |
+  | React Rendering | react-rendering-performance |
+  | Bundling        | vercel-react-best-practices |
+  | Runtime         | vercel-react-best-practices |
+  | Caching         | web standards               |
+  | Server          | vercel-react-best-practices |
+  | CDN             | web standards               |
+  | Client          | vercel-react-best-practices |
 
   #### Protection
 
@@ -84,10 +86,16 @@ Implement using:
 
   | Name                  | Skill             |
   | --------------------- | ----------------- |
-  | Accessibility         | web standards     |
+  | Accessibility         | accessibility     |
   | Localization          | web standards     |
   | Responsive Design     | responsive-design |
   | Browser Compatibility | web standards     |
+
+  #### Review
+
+  | Name      | Skill                            |
+  | --------- | -------------------------------- |
+  | UI Review | web-design-guidelines (optional) |
 
   #### Discoverability
 

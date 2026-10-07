@@ -1,8 +1,11 @@
 import Text from "@/components/elements/Text"
-import CountrySelector from "./components/CountrySelector"
 import SectionCard from "@/components/elements/SectionCard"
+import { getUserAgent } from "@/lib/server/user-agent"
+import CountrySelector from "@/_features/countries/sections/countries-header/components/CountrySelector.CSR"
 
-export default function CountriesHeader() {
+export default async function CountriesHeader() {
+	const ua = await getUserAgent()
+
 	return (
 		<SectionCard>
 			<Text as="h1" className="leading-none">
@@ -11,7 +14,8 @@ export default function CountriesHeader() {
 			<Text className="text-foreground">
 				Select a country to explore its economy, trade, labor, demographics, and social indicators.
 			</Text>
-			<CountrySelector className="xl:hidden w-full md:max-w-140 bg-background border-ring text-foreground" />
+
+			{ua !== "desktop" && <CountrySelector />}
 		</SectionCard>
 	)
 }

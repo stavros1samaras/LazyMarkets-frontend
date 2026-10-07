@@ -6,11 +6,7 @@ import Text from "@/components/elements/Text"
 import { COUNTRIES } from "@/_features/countries/config"
 import { useTranslation } from "react-i18next"
 
-interface CountrySelectorProps {
-	className?: string
-}
-
-export default function CountrySelector({ className }: CountrySelectorProps) {
+export default function CountrySelector({ className }: { className: string }) {
 	const router = useRouter()
 	const { t } = useTranslation()
 

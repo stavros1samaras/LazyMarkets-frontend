@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader } from "../../../components/ui/card"
 import { Skeleton } from "../../../components/ui/skeleton"
-import { CHART_CATEGORIES } from "@/_features/countries/config"
+import { CHART_CATEGORIES } from "@/_features/countries/configs/config"
 
 export default function Loading() {
 	return (

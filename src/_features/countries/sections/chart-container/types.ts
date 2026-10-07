@@ -1,4 +1,4 @@
-import { CHART_DATA } from "@/_features/countries/config"
+import { CHART_DATA } from "@/_features/countries/configs/config"
 import { ComponentType } from "react"
 
 export type ChartCategory = "economy" | "trade" | "labor" | "demographics" | "social"

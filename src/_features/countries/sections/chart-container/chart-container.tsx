@@ -1,8 +1,9 @@
-import { CHART_CATEGORIES, CHART_DATA, CHARTSCONFIG } from "@/_features/countries/config"
 import { ChartMetadata, RenderDataConfig } from "@/_features/countries/sections/chart-container/types"
 import Text from "@/components/elements/Text"
 import ChartSection from "@/_features/countries/sections/chart-container/components/ChartSection"
 import SectionCard from "@/components/elements/SectionCard"
+import { CHART_CATEGORIES, CHART_DATA } from "@/_features/countries/configs/config"
+import { CHARTSCONFIG } from "@/_features/countries/configs/full_charts.config"
 
 interface ChartContainerProps {
 	countryData: Record<string, { year: string; value: number }[]>

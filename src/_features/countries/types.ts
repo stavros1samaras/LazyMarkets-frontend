@@ -1,4 +1,4 @@
-import { COUNTRIES } from "@/_features/countries/config"
+import { COUNTRIES } from "@/_features/countries/configs/config"
 
 export interface Countries {
 	name: string

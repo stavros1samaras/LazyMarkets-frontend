@@ -17,7 +17,8 @@
     "i18n.js" : "i18n",
     "hooks.ts":"react",
     "*.provider.tsx": "redux-actions",
-    "*.CSR.tsx" : "globe"
+    "*.CSR.tsx" : "globe",
+    "*.config.ts": "database"
   },
   "symbols.folders.associations": {
     "components": "folder-react",
@@ -30,6 +31,9 @@
     ".agents": "folder-claude",
     "server": "folder-red-outline",
     "_actions": "folder-red-outline"
+  },
+  "chat.tools.terminal.autoApprove": {
+    "npx tsc": true
   },
   // https://github.com/miguelsolorio/vscode-symbols/blob/HEAD/preview/preview.md
   // "symbols.subfolder.file.associations": {

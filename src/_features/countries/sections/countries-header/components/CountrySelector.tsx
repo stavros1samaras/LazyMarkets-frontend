@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectGroup, SelectLabel, SelectItem } from "@/components/ui/select"
 import Text from "@/components/elements/Text"
-import { COUNTRIES } from "@/_features/countries/config"
+import { COUNTRIES } from "@/_features/countries/configs/config"
 import { useTranslation } from "react-i18next"
 
 export default function CountrySelector({ className }: { className: string }) {

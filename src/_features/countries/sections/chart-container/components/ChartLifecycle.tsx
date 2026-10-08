@@ -1,14 +1,16 @@
 "use client"
 
-import { cloneElement, useContext } from "react"
-import React from "react"
+import { Fragment, useContext } from "react"
+import type { ChartDisplayContextValue } from "@/_features/countries/sections/ChartDisplay.provider"
 
-export function ChartLifecycle({ context, children }: { context: React.Context<any>; children: React.ReactElement }) {
+export function ChartLifecycle({
+	context,
+	children,
+}: {
+	context: React.Context<ChartDisplayContextValue>
+	children: React.ReactNode
+}) {
 	const { display } = useContext(context)
 
-	const child = React.Children.only(children)
-
-	return cloneElement(child, {
-		key: display,
-	})
+	return <Fragment key={display}>{children}</Fragment>
 }

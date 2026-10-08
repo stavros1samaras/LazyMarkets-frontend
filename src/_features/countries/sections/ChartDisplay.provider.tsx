@@ -7,6 +7,8 @@ export const ChartDisplayContext = createContext({
 	toggleDisplay: () => {},
 })
 
+export type ChartDisplayContextValue = React.ContextType<typeof ChartDisplayContext>
+
 export function ChartDisplayProvider({ children }: { children: React.ReactNode }) {
 	const [display, setDisplay] = useState("area")
 

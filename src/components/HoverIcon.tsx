@@ -11,7 +11,7 @@ interface HoverIconProps {
 export default function HoverIcon({ children, description, className }: HoverIconProps) {
 	return (
 		<HoverCard openDelay={10} closeDelay={100}>
-			<HoverCardTrigger asChild>
+			<HoverCardTrigger className="flex items-center justify-center">
 				<Button size={"icon"} variant={"link"} className={className} aria-label="More information" aria-description={description}>
 					{children}
 				</Button>

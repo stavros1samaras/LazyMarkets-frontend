@@ -1,11 +1,14 @@
 "use client"
+import Link from "next/link"
+import type { ComponentProps } from "react"
+import { cn } from "@/lib/utils"
 import useNavigationState from "./hooks"
 
-export default function NavigationState({ index, children }: { index: number; children: React.ReactNode }) {
+type NavLinkProps = ComponentProps<typeof Link> & {
+	index: number
+}
+
+export default function NavLink({ index, className, ...props }: NavLinkProps) {
 	const { selected } = useNavigationState()
-	return (
-		<span data-selected={selected === index} className="group contents">
-			{children}
-		</span>
-	)
+	return <Link className={cn(className, selected === index && "text-main")} {...props} />
 }

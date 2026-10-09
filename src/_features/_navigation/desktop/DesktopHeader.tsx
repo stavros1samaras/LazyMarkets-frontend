@@ -1,6 +1,3 @@
-import NavigationState from "../NavigationState"
-import Link from "next/link"
-import { Suspense } from "react"
 import ThemeButton from "@/_features/_navigation/NavigationButtons/ThemeButton"
 import Header from "@/components/elements/Header"
 import Text from "@/components/elements/Text"
@@ -11,6 +8,7 @@ import MobileSidebar from "@/_features/_navigation/mobile/MobileSidebar"
 import { NAV_ITEMS } from "../config"
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@/components/ui/navigation-menu"
 import LanguageDropdown from "@/_features/_navigation/NavigationButtons/LanguageDropdown"
+import NavLink from "@/_features/_navigation/NavigationState"
 
 export default function DesktopHeader() {
 	const fontStyles = "font-[550] text-[19px]"
@@ -23,32 +21,26 @@ export default function DesktopHeader() {
 					{NAV_ITEMS.map((item, index) => {
 						const Icon = item.icon
 						const baseClass = item.alwaysVisible
-							? "flex items-center gap-1.5"
+							? "flex items-center "
 							: item.icon
-								? "hidden lg:flex items-center gap-1.5"
-								: "hidden lg:inline-block gap-1.5"
-						const className = cn(fontStyles, hoverStyles, baseClass, "group-data-[selected=true]:text-main", item.extraClassNames)
-
-						const link = (
-							<Link
-								href={item.href}
-								prefetch={item.prefetch}
-								target={item.external ? "_blank" : undefined}
-								data-testid={item.dataTestId}
-								className={className}
-							>
-								<Text as="span" className="text-inherit">
-									{item.label}
-								</Text>
-								{Icon && <Icon size={19} />}
-							</Link>
-						)
+								? "hidden lg:flex items-center"
+								: "hidden lg:inline-block"
 
 						return (
 							<NavigationMenuItem key={item.label} className="text-foreground">
-								{/* <Suspense fallback={link}> */}
-								<NavigationState index={index}>{link}</NavigationState>
-								{/* </Suspense> */}
+								<NavLink
+									index={index}
+									href={item.href}
+									prefetch={item.prefetch}
+									target={item.external ? "_blank" : undefined}
+									data-testid={item.dataTestId}
+									className={cn(fontStyles, hoverStyles, baseClass, "gap-1.5")}
+								>
+									<Text as="span" className="text-inherit">
+										{item.label}
+									</Text>
+									{Icon && <Icon size={19} />}
+								</NavLink>
 							</NavigationMenuItem>
 						)
 					})}

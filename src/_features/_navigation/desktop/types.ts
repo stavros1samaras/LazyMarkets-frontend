@@ -8,7 +8,6 @@ export interface NavItemConfig {
 	external?: boolean
 	prefetch?: boolean
 	alwaysVisible?: boolean
-	extraClassNames?: string
 }
 
 export interface PathnameNavRoute {

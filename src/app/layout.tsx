@@ -52,7 +52,7 @@ export default async function RootLayout({
 					<UserAgentProvider value={deviceType}>
 						<I18nProvider locale={locale} translationResource={translationResource}>
 							<NextThemeProvider>
-								{/* <DesktopHeader /> */}
+								<DesktopHeader />
 								{children}
 							</NextThemeProvider>
 							<Toaster />

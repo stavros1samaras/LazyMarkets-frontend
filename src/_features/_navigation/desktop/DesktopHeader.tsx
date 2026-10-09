@@ -27,7 +27,7 @@ export default function DesktopHeader() {
 							: item.icon
 								? "hidden lg:flex items-center gap-1.5"
 								: "hidden lg:inline-block gap-1.5"
-						const className = cn(fontStyles, hoverStyles, baseClass, item.extraClassNames)
+						const className = cn(fontStyles, hoverStyles, baseClass, "group-data-[selected=true]:text-main", item.extraClassNames)
 
 						const link = (
 							<Link
@@ -46,9 +46,9 @@ export default function DesktopHeader() {
 
 						return (
 							<NavigationMenuItem key={item.label} className="text-foreground">
-								<Suspense fallback={link}>
-									<NavigationState index={index}>{link}</NavigationState>
-								</Suspense>
+								{/* <Suspense fallback={link}> */}
+								<NavigationState index={index}>{link}</NavigationState>
+								{/* </Suspense> */}
 							</NavigationMenuItem>
 						)
 					})}

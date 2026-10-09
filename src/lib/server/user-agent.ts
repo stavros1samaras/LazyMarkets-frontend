@@ -1,9 +1,11 @@
 import "server-only"
 
 import { headers } from "next/headers"
+import { cache } from "react"
 
-export async function getUserAgent() {
+export const getUserAgent = cache(async () => {
+	console.log("DB HIT")
 	const headersList = await headers()
 	const deviceType = headersList.get("x-device-type") ?? "desktop"
 	return deviceType
-}
+})

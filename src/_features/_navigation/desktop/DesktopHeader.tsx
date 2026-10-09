@@ -8,7 +8,8 @@ import MobileSidebar from "@/_features/_navigation/mobile/MobileSidebar"
 import { NAV_ITEMS } from "../config"
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@/components/ui/navigation-menu"
 import LanguageDropdown from "@/_features/_navigation/NavigationButtons/LanguageDropdown"
-import NavLink from "@/_features/_navigation/NavigationState"
+import ActiveLink from "@/_features/_navigation/NavigationState"
+import { MobileOnly } from "@/components/DeviceConditions"
 
 export default function DesktopHeader() {
 	const fontStyles = "font-[550] text-[19px]"
@@ -28,7 +29,7 @@ export default function DesktopHeader() {
 
 						return (
 							<NavigationMenuItem key={item.label} className="text-foreground">
-								<NavLink
+								<ActiveLink
 									index={index}
 									href={item.href}
 									prefetch={item.prefetch}
@@ -40,7 +41,7 @@ export default function DesktopHeader() {
 										{item.label}
 									</Text>
 									{Icon && <Icon size={19} />}
-								</NavLink>
+								</ActiveLink>
 							</NavigationMenuItem>
 						)
 					})}
@@ -50,7 +51,9 @@ export default function DesktopHeader() {
 				<LanguageDropdown />
 				<ThemeButton />
 				<GitHubIcon />
-				<MobileSidebar />
+				<MobileOnly>
+					<MobileSidebar />
+				</MobileOnly>
 			</Div>
 		</Header>
 	)

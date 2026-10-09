@@ -8,7 +8,7 @@ type NavLinkProps = ComponentProps<typeof Link> & {
 	index: number
 }
 
-export default function NavLink({ index, className, ...props }: NavLinkProps) {
+export default function ActiveLink({ index, className, ...props }: NavLinkProps) {
 	const { selected } = useNavigationState()
 	return <Link className={cn(className, selected === index && "text-main")} {...props} />
 }

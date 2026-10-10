@@ -6,14 +6,14 @@ import DesktopHeader from "@/_features/_navigation/desktop/DesktopHeader"
 import { NextThemeProvider } from "@/providers/NextThemeProvider"
 import { Toaster } from "@/components/ui/sonner"
 import { I18nProvider } from "@/_features/_translation/I18n.provider"
-import { UserAgentProvider } from "@/providers/UserAgentProvider"
-import getLanguage from "@/_features/_translation/server"
-import { getUserAgent } from "@/lib/server/user-agent"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-
-// The locale cookie drives <html lang>, a root attribute that can't stream, so this route blocks by design.
-export const instant = false
+import Script from "next/script"
+import getLanguage from "@/_features/_translation/server"
+import { Suspense } from "react"
+import { getUserAgent } from "@/lib/server/user-agent"
+import { UserAgentProvider } from "@/providers/UserAgentProvider"
+import { cn } from "@/lib/utils"
 
 const inter = Inter({
 	variable: "--font-inter",
@@ -42,26 +42,41 @@ export default async function RootLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	const { locale, translationResource } = await getLanguage()
-	const deviceType = await getUserAgent()
-
 	return (
-		<html lang={locale} className="" suppressHydrationWarning>
-			<body className={`${geistSans.variable} ${inter.className} root min-h-screen bg-background antialiased`}>
+		<AppShell>
+			<DynamicContent>{children}</DynamicContent>
+		</AppShell>
+	)
+}
+
+function AppShell({ children }: Readonly<{ children: React.ReactNode }>) {
+	return (
+		<html lang="en" className="" suppressHydrationWarning>
+			<body className={cn(geistSans.variable, inter.className, "root min-h-screen bg-background antialiased")}>
+				<Script src="/scripts/locale_cookie.js" strategy="beforeInteractive" />
 				<div className="flex flex-col w-[95%] lg:w-[98%] min-h-screen mx-auto">
-					<UserAgentProvider value={deviceType}>
-						<I18nProvider locale={locale} translationResource={translationResource}>
-							<NextThemeProvider>
-								<DesktopHeader />
-								{children}
-							</NextThemeProvider>
-							<Toaster />
-						</I18nProvider>
-					</UserAgentProvider>
+					<Suspense>{children}</Suspense>
 				</div>
 				<SpeedInsights />
 				<Analytics />
 			</body>
 		</html>
+	)
+}
+
+async function DynamicContent({ children }: Readonly<{ children: React.ReactNode }>) {
+	const { locale, translationResource } = await getLanguage()
+	const deviceType = await getUserAgent()
+
+	return (
+		<I18nProvider locale={locale} translationResource={translationResource}>
+			<UserAgentProvider value={deviceType}>
+				<NextThemeProvider>
+					<DesktopHeader />
+					{children}
+				</NextThemeProvider>
+			</UserAgentProvider>
+			<Toaster />
+		</I18nProvider>
 	)
 }

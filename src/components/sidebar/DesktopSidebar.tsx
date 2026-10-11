@@ -20,7 +20,11 @@ export function SidebarItem({ item, children }: { item: Countries; children: Rea
 	const hoverStyles = "hover:bg-linear-to-r hover:from-main/40 hover:to-transparent"
 
 	return (
-		<Link href={item.code} className={cn("flex w-full items-center rounded-sm pl-1 transition-colors", hoverStyles)}>
+		<Link
+			href={item.code}
+			prefetch={true}
+			className={cn("flex w-full items-center rounded-sm pl-1 transition-colors", hoverStyles)}
+		>
 			{children}
 		</Link>
 	)

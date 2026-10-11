@@ -1,9 +1,8 @@
-"use server"
 import { HTTP_TRANSACTION } from "@/types"
 import { getEnvURL } from "@/lib/server/environment"
 import { handleGet } from "@/lib/server/data-fetchers/fetch-handler"
 
-export async function getCountryData(code: any) {
+export async function getCountryData(code: string) {
 	const baseUrl: string = getEnvURL() as string
 	const url = `${baseUrl}/api/db/country/get-country-data/${code}`
 

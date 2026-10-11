@@ -25,7 +25,13 @@ export default function CountrySelector({ className }: { className: string }) {
 						<Text as="span">COUNTRIES</Text>
 					</SelectLabel>
 					{COUNTRIES.map((country, index) => (
-						<SelectItem value={country.code} key={index} className="focus:bg-select-item">
+						<SelectItem
+							value={country.code}
+							key={index}
+							onMouseEnter={() => router.prefetch(`${country.code}`)}
+							onTouchStart={() => router.prefetch(`${country.code}`)}
+							className="focus:bg-select-item"
+						>
 							<Text as="span">{country.name}</Text>
 						</SelectItem>
 					))}

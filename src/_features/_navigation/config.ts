@@ -6,7 +6,7 @@ export const NAV_ITEMS: NavItemConfig[] = [
 		label: "LazyMarkets",
 		href: "/",
 		dataTestId: "lazymarkets-home",
-		prefetch: false,
+		prefetch: true,
 		alwaysVisible: true,
 	},
 	{
@@ -14,26 +14,27 @@ export const NAV_ITEMS: NavItemConfig[] = [
 		href: "/technical",
 		icon: Hammer,
 		dataTestId: "technical",
-		prefetch: false,
+		prefetch: true,
 	},
 	{
 		label: "Fundamental",
 		href: "/fundamental",
 		icon: Hammer,
 		dataTestId: "fundamental",
-		prefetch: false,
+		prefetch: true,
 	},
 	{
 		label: "Sentiment",
 		href: "/sentiment",
 		icon: Hammer,
 		dataTestId: "sentiment",
-		prefetch: false,
+		prefetch: true,
 	},
 	{
 		label: "Countries",
 		href: "/countries/GR",
 		dataTestId: "countries",
+		prefetch: true,
 	},
 	{
 		label: "FHT",
@@ -41,12 +42,13 @@ export const NAV_ITEMS: NavItemConfig[] = [
 		icon: ExternalLink,
 		dataTestId: "fht-external",
 		external: true,
+		prefetch: false,
 	},
 	{
 		label: "Contact",
 		href: "/contact",
 		dataTestId: "contact",
-		prefetch: false,
+		prefetch: true,
 	},
 ]
 

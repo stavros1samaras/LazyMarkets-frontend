@@ -5,6 +5,7 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectGroup, SelectL
 import Text from "@/components/elements/Text"
 import { COUNTRIES } from "@/_features/countries/configs/config"
 import { useTranslation } from "react-i18next"
+import { Route } from "next"
 
 export default function CountrySelector({ className }: { className: string }) {
 	const router = useRouter()
@@ -12,8 +13,8 @@ export default function CountrySelector({ className }: { className: string }) {
 
 	return (
 		<Select
-			onValueChange={(code) => {
-				router.push(`${code}`)
+			onValueChange={(code: Route) => {
+				router.push(code)
 			}}
 		>
 			<SelectTrigger size="sm" className={className}>
@@ -28,8 +29,8 @@ export default function CountrySelector({ className }: { className: string }) {
 						<SelectItem
 							value={country.code}
 							key={index}
-							onMouseEnter={() => router.prefetch(`${country.code}`)}
-							onTouchStart={() => router.prefetch(`${country.code}`)}
+							onMouseEnter={() => router.prefetch(country.code as Route)}
+							onTouchStart={() => router.prefetch(country.code as Route)}
 							className="focus:bg-select-item"
 						>
 							<Text as="span">{country.name}</Text>

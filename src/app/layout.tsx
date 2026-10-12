@@ -32,7 +32,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
 	title: "Lazy Market",
 	description:
-		"**Trade Market** is a web application for analyzing financial markets. It provides fundamental, technical, and sentiment analysis of companies, along with economic and demographic insights for countries worldwide.",
+		"Lazy Markets is a web application for analyzing financial markets. It provides fundamental, technical, and sentiment analysis of companies, along with economic and demographic insights for countries worldwide.",
 	alternates: { canonical: "https://lazy-markets-frontend.vercel.app" },
 	robots: { follow: true, index: true },
 }

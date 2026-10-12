@@ -5,12 +5,12 @@ import { ChartDisplayProvider } from "@/_features/countries/sections/ChartDispla
 import { CountryDataProvider } from "@/_features/countries/sections/CountryData.provider"
 import { cacheLife } from "next/cache"
 
-export default async function Countries({ params }: { params: Promise<{ code: string }> }) {
+export default async function Countries(props: PageProps<"/countries/[code]">) {
 	"use cache"
 	cacheLife("days")
 
-	const countryCode = (await params).code
-	const countryData = await getCountryData(countryCode)
+	const { code } = await props.params
+	const countryData = await getCountryData(code)
 
 	return (
 		<CountryDataProvider value={countryData}>

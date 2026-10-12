@@ -10,6 +10,7 @@ import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@/compon
 import LanguageDropdown from "@/_features/_navigation/NavigationButtons/LanguageDropdown"
 import ActiveLink from "@/_features/_navigation/NavigationState"
 import { MobileOnly } from "@/components/DeviceConditions"
+import { Route } from "next"
 
 export default function DesktopHeader() {
 	const fontStyles = "font-[550] text-[19px]"
@@ -31,7 +32,7 @@ export default function DesktopHeader() {
 							<NavigationMenuItem key={item.label} className="text-foreground">
 								<ActiveLink
 									index={index}
-									href={item.href}
+									href={item.href as Route}
 									prefetch={item.prefetch}
 									target={item.external ? "_blank" : undefined}
 									data-testid={item.dataTestId}

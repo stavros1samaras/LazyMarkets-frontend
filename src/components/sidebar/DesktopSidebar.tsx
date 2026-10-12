@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { cn } from "@/lib/utils"
 import { Countries } from "@/_features/countries/types"
+import { Route } from "next"
 
 export default function DesktopSidebar({ children }: { children: React.ReactNode }) {
 	const overscrollContain = "**:data-[slot=scroll-area-viewport]:overscroll-contain"
@@ -21,8 +22,9 @@ export function SidebarItem({ item, children }: { item: Countries; children: Rea
 
 	return (
 		<Link
-			href={item.code}
+			href={item.code as Route}
 			prefetch={true}
+			scroll={false}
 			className={cn("flex w-full items-center rounded-sm pl-1 transition-colors", hoverStyles)}
 		>
 			{children}

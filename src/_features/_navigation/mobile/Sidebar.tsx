@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils"
 import { MOBILE_NAV_ITEMS } from "../config"
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@/components/ui/navigation-menu"
 import ActiveLink from "@/_features/_navigation/NavigationState"
+import { Route } from "next"
 
 type SidebarProps = {
 	open: boolean
@@ -29,7 +30,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 								<NavigationMenuItem key={item.label} className="text-foreground">
 									<ActiveLink
 										index={index + 1}
-										href={item.href}
+										href={item.href as Route}
 										onClick={onClose}
 										target={item.external ? "_blank" : undefined}
 										className="flex items-center gap-1.5 py-2 text-2xl"

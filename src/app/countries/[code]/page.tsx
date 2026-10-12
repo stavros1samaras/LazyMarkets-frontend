@@ -4,6 +4,13 @@ import { getCountryData } from "@/_features/countries/sections/chart-container/s
 import { ChartDisplayProvider } from "@/_features/countries/sections/ChartDisplay.provider"
 import { CountryDataProvider } from "@/_features/countries/sections/CountryData.provider"
 import { cacheLife } from "next/cache"
+import { COUNTRIES } from "@/_features/countries/configs/config"
+
+export async function generateStaticParams() {
+	return COUNTRIES.map((country) => ({
+		code: country.code,
+	}))
+}
 
 export default async function Countries(props: PageProps<"/countries/[code]">) {
 	"use cache"

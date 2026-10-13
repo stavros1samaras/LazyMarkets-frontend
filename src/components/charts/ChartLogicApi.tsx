@@ -1,9 +1,10 @@
 "use client"
 
-import { cloneElement, useContext, useRef } from "react"
+import { Fragment, useContext, useRef } from "react"
 import React from "react"
 import { useObserverMount } from "@/hooks/observer"
 import { DataProvider } from "./ChartData.provider"
+import type { ChartDisplayContextValue } from "@/_features/countries/sections/ChartDisplay.provider"
 
 export function ChartDataProvider({ children, data }: { children: React.ReactNode; data: any }) {
 	return <DataProvider value={data}>{children}</DataProvider>
@@ -19,4 +20,16 @@ export function ChartObserver({ children }: { children: React.ReactNode }) {
 			{visible && children}
 		</div>
 	)
+}
+
+export function ChartLifecycle({
+	context,
+	children,
+}: {
+	context: React.Context<ChartDisplayContextValue>
+	children: React.ReactNode
+}) {
+	const { display } = useContext(context)
+
+	return <Fragment key={display}>{children}</Fragment>
 }

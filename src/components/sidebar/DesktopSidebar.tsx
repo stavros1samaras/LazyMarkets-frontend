@@ -2,7 +2,7 @@ import React from "react"
 import Link from "next/link"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { cn } from "@/lib/utils"
-import { Countries } from "@/_features/countries/types"
+import { Country } from "@/_features/countries/types"
 import { Route } from "next"
 
 export default function DesktopSidebar({ children }: { children: React.ReactNode }) {
@@ -17,7 +17,7 @@ export default function DesktopSidebar({ children }: { children: React.ReactNode
 	)
 }
 
-export function SidebarItem({ item, children }: { item: Countries; children: React.ReactNode }) {
+export function SidebarItem({ item, children }: { item: Country; children: React.ReactNode }) {
 	const hoverStyles = "hover:bg-linear-to-r hover:from-main/40 hover:to-transparent"
 
 	return (

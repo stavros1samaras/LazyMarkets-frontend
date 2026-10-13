@@ -5,7 +5,7 @@ import Main from "@/components/elements/Main"
 import SectionCard from "@/components/elements/SectionCard"
 import Text from "@/components/elements/Text"
 import CountrySelector from "@/_features/countries/sections/countries-header/CountrySelector.CSR"
-import { COUNTRIES } from "@/_features/countries/configs/config"
+import { COUNTRIES } from "@/_features/countries/config"
 import { CountryItem } from "@/_features/countries/sections/sidebar/CountryItem"
 import { Suspense } from "react"
 

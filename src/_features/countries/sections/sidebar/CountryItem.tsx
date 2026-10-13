@@ -1,9 +1,9 @@
 import Image from "next/image"
 import { Div } from "@/components/elements/Div"
 import Text from "@/components/elements/Text"
-import { Countries } from "@/_features/countries/types"
+import { Country } from "@/_features/countries/types"
 
-export function CountryItem({ item }: { item: Countries }) {
+export function CountryItem({ item }: { item: Country }) {
 	const flagCode = item.code.toLowerCase()
 
 	return (

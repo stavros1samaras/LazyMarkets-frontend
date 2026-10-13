@@ -1,10 +1,12 @@
-import { COUNTRIES } from "@/_features/countries/configs/config"
+import { CHART_CATEGORIES, COUNTRIES } from "@/_features/countries/config"
 
-export interface Countries {
+export interface Country {
 	name: string
 	code: string
 }
+export type Countries = typeof COUNTRIES
+export type CountryCode = Countries[number]["code"]
+export type CountryName = Countries[number]["name"]
 
-export type CountriesInfo = typeof COUNTRIES
-export type CountryCode = CountriesInfo[number]["code"]
-export type CountryName = CountriesInfo[number]["name"]
+export type Category = "Economy" | "Trade" | "Labor" | "Demographics" | "Social"
+export type Categories = (typeof CHART_CATEGORIES)[number]

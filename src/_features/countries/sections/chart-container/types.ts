@@ -1,13 +1,11 @@
-import { CHART_DATA } from "@/_features/countries/configs/config"
+import type { Categories } from "@/_features/countries/types"
 import { ComponentType } from "react"
-
-export type ChartCategory = "economy" | "trade" | "labor" | "demographics" | "social"
 
 export interface ChartMetadata {
 	chartTitle: string
 	description: string
 	badge: ComponentType
-	category: ChartCategory
+	category: Categories
 }
 
 export interface RenderDataConfig extends ChartMetadata {
@@ -16,5 +14,3 @@ export interface RenderDataConfig extends ChartMetadata {
 		value: number
 	}[]
 }
-
-export type ChartDataKeys = typeof CHART_DATA

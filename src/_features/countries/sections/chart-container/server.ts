@@ -1,3 +1,5 @@
+import "server-only"
+
 import { HTTP_TRANSACTION } from "@/types"
 import { getEnvURL } from "@/lib/server/environment"
 import { handleGet } from "@/lib/server/data-fetchers/fetch-handler"

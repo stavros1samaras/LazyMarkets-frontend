@@ -1,4 +1,4 @@
-import { Countries } from "@/_features/countries/types"
+import { Country, Categories, Category } from "@/_features/countries/types"
 
 export const COUNTRIES = [
 	{ code: "NO", name: "Norway" },
@@ -38,7 +38,7 @@ export const COUNTRIES = [
 	{ code: "IL", name: "Israel" },
 	{ code: "SA", name: "Saudi Arabia" },
 	{ code: "AE", name: "United Arab Emirates" },
-] as const satisfies Countries[]
+] as const satisfies Country[]
 
 export const CHART_DATA = [
 	"gdp",
@@ -73,4 +73,4 @@ export const CHART_DATA = [
 	"forestAreaPercent",
 ] as const
 
-export const CHART_CATEGORIES = ["Economy", "Trade", "Labor", "Demographics", "Social"]
+export const CHART_CATEGORIES = ["Economy", "Trade", "Labor", "Demographics", "Social"] as const satisfies Category[]

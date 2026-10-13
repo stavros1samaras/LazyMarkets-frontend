@@ -3,11 +3,11 @@
 import React, { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Div } from "@/components/elements/Div"
-import { Countries } from "@/_features/countries/types"
+import { Country } from "@/_features/countries/types"
 
 interface SidebarSearchListProps {
-	data: Countries[]
-	searchKey: keyof Countries
+	data: Country[]
+	searchKey: keyof Country
 	children: React.ReactNode
 }
 

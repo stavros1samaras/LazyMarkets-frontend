@@ -1,10 +1,10 @@
-import ChartContainer from "../../../_features/countries/sections/chart-container/chart-container"
+import CategoriesContainer from "../../../_features/countries/sections/chart-container/chart-container"
 import Controls from "@/_features/countries/sections/controls/controls"
 import { getCountryData } from "@/_features/countries/sections/chart-container/server"
 import { ChartDisplayProvider } from "@/_features/countries/sections/ChartDisplay.provider"
 import { CountryDataProvider } from "@/_features/countries/sections/CountryData.provider"
 import { cacheLife } from "next/cache"
-import { COUNTRIES } from "@/_features/countries/configs/config"
+import { COUNTRIES } from "@/_features/countries/config"
 
 export async function generateStaticParams() {
 	return COUNTRIES.map((country) => ({
@@ -23,7 +23,7 @@ export default async function Countries(props: PageProps<"/countries/[code]">) {
 		<CountryDataProvider value={countryData}>
 			<ChartDisplayProvider>
 				<Controls />
-				<ChartContainer countryData={countryData} />
+				<CategoriesContainer countryData={countryData} />
 			</ChartDisplayProvider>
 		</CountryDataProvider>
 	)

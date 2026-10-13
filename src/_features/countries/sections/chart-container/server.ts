@@ -1,6 +1,5 @@
 import "server-only"
 
-import { HTTP_TRANSACTION } from "@/types"
 import { getEnvURL } from "@/lib/server/environment"
 import { handleGet } from "@/lib/server/data-fetchers/fetch-handler"
 
@@ -8,9 +7,9 @@ export async function getCountryData(code: string) {
 	const baseUrl: string = getEnvURL() as string
 	const url = `${baseUrl}/api/db/country/get-country-data/${code}`
 
-	const transaction: HTTP_TRANSACTION = (await handleGet(url)) as HTTP_TRANSACTION
+	const response = await handleGet(url)
 
-	const data = await transaction.response.json()
+	const data = await response.json()
 
 	return data
 }

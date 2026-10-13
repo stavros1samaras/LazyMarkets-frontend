@@ -1,25 +1,25 @@
 import "server-only"
 
-import { HTTP_TRANSACTION } from "@/types"
-
-export async function handleGet(url: string): Promise<HTTP_TRANSACTION | undefined> {
-	const request: Request = new Request(url, {
+export async function handleGet(url: string): Promise<Response> {
+	const request = new Request(url, {
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json",
 			"x-api-key": process.env.API_KEY as string,
 		},
 	})
+
 	try {
-		const response: Response = await fetch(request)
-		const fetchTransaction: HTTP_TRANSACTION = {
-			request: request,
-			response: response,
-			success: response.ok,
+		const response = await fetch(request)
+
+		if (!response.ok) {
+			throw new Error(`GET request failed: ${response.status} ${response.statusText}`)
 		}
-		return fetchTransaction
+
+		return response
 	} catch (error) {
 		console.error("GET Error:", error)
-		return undefined
+
+		throw error
 	}
 }

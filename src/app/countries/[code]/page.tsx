@@ -5,6 +5,7 @@ import { ChartDisplayProvider } from "@/_features/countries/sections/ChartDispla
 import { CountryDataProvider } from "@/_features/countries/sections/CountryData.provider"
 import { cacheLife } from "next/cache"
 import { COUNTRIES } from "@/_features/countries/config"
+import { notFound } from "next/navigation"
 
 export async function generateStaticParams() {
 	return COUNTRIES.map((country) => ({
@@ -17,6 +18,9 @@ export default async function Countries(props: PageProps<"/countries/[code]">) {
 	cacheLife("days")
 
 	const { code } = await props.params
+	if (!COUNTRIES.some((country) => country.code === code)) {
+		notFound()
+	}
 	const countryData = await getCountryData(code)
 
 	return (

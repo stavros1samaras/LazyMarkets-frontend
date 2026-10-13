@@ -5,8 +5,8 @@ export interface Country {
 	code: string
 }
 export type Countries = typeof COUNTRIES
-export type CountryCode = Countries[number]["code"]
-export type CountryName = Countries[number]["name"]
 
 export type Category = "Economy" | "Trade" | "Labor" | "Demographics" | "Social"
 export type Categories = (typeof CHART_CATEGORIES)[number]
+
+export type CountryApiData = Record<string, { year: string; value: number }[]>

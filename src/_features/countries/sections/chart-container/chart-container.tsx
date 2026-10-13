@@ -1,4 +1,4 @@
-import { ChartMetadata, RenderDataConfig } from "@/_features/countries/sections/chart-container/types"
+import { RenderDataConfig } from "@/_features/countries/sections/chart-container/types"
 import Text from "@/components/elements/Text"
 import HoverIcon from "@/components/HoverIcon"
 import { Span } from "@/components/elements/Span"
@@ -12,23 +12,21 @@ import { ChartDisplayContext } from "@/_features/countries/sections/ChartDisplay
 import SectionCard from "@/components/elements/SectionCard"
 import { CHART_CATEGORIES, CHART_DATA } from "@/_features/countries/config"
 import { CHARTSCONFIG } from "@/_features/countries/sections/chart-container/config"
+import { CountryApiData } from "@/_features/countries/types"
 
-interface ChartContainerProps {
-	countryData: Record<string, { year: string; value: number }[]>
-}
-
-export default function CategoriesContainer({ countryData }: ChartContainerProps) {
-	const renderConfig = CHARTSCONFIG.map((info, index) => ({
-		...info,
+export default function CategoriesContainer({ countryData }: { countryData: CountryApiData }) {
+	const filteredConfig = CHARTSCONFIG.map((chartMetadata, index) => ({
+		// combine config's chart metadata with country's data
+		...chartMetadata,
 		chartData: countryData[CHART_DATA[index]],
-	})) satisfies RenderDataConfig[]
-
-	const filteredConfig = renderConfig
+	}))
 		.filter((item) => Array.isArray(item.chartData) && item.chartData.length > 0)
+		// keep only entries that actually have data
 		.map((item) => ({
+			// reverse the chartData so the newest data is first
 			...item,
-			chartData: item.chartData?.slice().reverse(),
-		}))
+			chartData: item.chartData.slice().reverse(),
+		})) satisfies RenderDataConfig[]
 
 	return (
 		<>

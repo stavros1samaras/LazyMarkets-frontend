@@ -16,7 +16,7 @@ Global project rules (tech stack, path aliases, Server/Client boundaries, no `an
 
 ### Ignored Directories
 
-Do **not** read, edit, or reference files inside these directories — they are internal tooling and agent configuration, not application code:
+Do **not** read, edit, or reference files inside these directories — they are internal tooling and agent configuration, not application code. The one exception is reading the skill files that step 0 requires (`.agents/skills/*/SKILL.md`); those are read-only:
 
 - `.opencode/`
 - `.agents/`
@@ -38,6 +38,8 @@ At minimum, **always** load these before any component work:
 - `responsive-design` — mobile-first, breakpoints, device variants.
 - `vercel-composition-patterns` — compound components over prop-drilling.
 - `vercel-react-best-practices` — Server/Client boundaries, performance.
+
+Whenever the task involves **user-facing copy** (labels, headings, button text, placeholders, toasts, or any string a user reads), also load `translation` (`.agents/skills/translation/SKILL.md`) — it covers i18next/react-i18next and the `<Text>` / `t()` rendering rules.
 
 If you are unsure which skill applies, load the ones above plus the row(s) from the map. When in doubt, load more, not fewer.
 
@@ -87,7 +89,7 @@ Implement using:
   | Name                  | Skill             |
   | --------------------- | ----------------- |
   | Accessibility         | accessibility     |
-  | Localization          | web standards     |
+  | Localization          | translation       |
   | Responsive Design     | responsive-design |
   | Browser Compatibility | web standards     |
 

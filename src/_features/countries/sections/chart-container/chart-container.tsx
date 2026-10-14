@@ -10,15 +10,15 @@ import { Chart, ChartHeader, ChartContent } from "@/components/charts/ChartUiApi
 import { IndexChart } from "@/_features/countries/sections/chart-container/components/IndexChart"
 import { ChartDisplayContext } from "@/_features/countries/sections/ChartDisplay.provider"
 import SectionCard from "@/components/elements/SectionCard"
-import { CHART_CATEGORIES, CHART_DATA } from "@/_features/countries/config"
-import { CHARTSCONFIG } from "@/_features/countries/sections/chart-container/config"
+import { CHART_CATEGORIES, INDICES } from "@/_features/countries/config"
+import { CHARTS_METADATA } from "@/_features/countries/sections/chart-container/config"
 import { CountryApiData } from "@/_features/countries/types"
 
 export default function CategoriesContainer({ countryData }: { countryData: CountryApiData }) {
-	const filteredConfig = CHARTSCONFIG.map((chartMetadata, index) => ({
+	const filteredConfig = CHARTS_METADATA.map((chartMetadata, index) => ({
 		// combine config's chart metadata with country's data
 		...chartMetadata,
-		chartData: countryData[CHART_DATA[index]],
+		chartData: countryData[INDICES[index]],
 	}))
 		.filter((item) => Array.isArray(item.chartData) && item.chartData.length > 0)
 		// keep only entries that actually have data

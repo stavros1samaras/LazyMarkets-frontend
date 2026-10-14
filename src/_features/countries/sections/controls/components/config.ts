@@ -1,7 +1,6 @@
 import "client-only"
-import { ChartMetadata } from "@/_features/countries/sections/chart-container/types"
 
-export const CHARTS_CONFIG_METADATA: Omit<ChartMetadata, "badge">[] = [
+export const CHARTS_METADATA_REDUCED = [
 	{
 		chartTitle: "GDP",
 		description: "Total value of goods and services produced by a country.",
@@ -152,4 +151,4 @@ export const CHARTS_CONFIG_METADATA: Omit<ChartMetadata, "badge">[] = [
 		description: "Share of land area covered by forests.",
 		category: "Social",
 	},
-]
+] as const

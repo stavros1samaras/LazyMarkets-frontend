@@ -5,8 +5,8 @@ import { Download } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useContext } from "react"
 import { CountryDataContext } from "@/_features/countries/sections/CountryData.provider"
-import { CHART_DATA, CHART_CATEGORIES } from "@/_features/countries/config"
-import { CHARTS_CONFIG_METADATA } from "@/_features/countries/sections/controls/components/config"
+import { INDICES, CHART_CATEGORIES } from "@/_features/countries/config"
+import { CHARTS_METADATA_REDUCED } from "@/_features/countries/sections/controls/components/config"
 
 interface DownloadButtonProps {
 	className?: string
@@ -29,11 +29,11 @@ export default function DownloadButton({ className }: DownloadButtonProps) {
 			const categoryRows: (string | number)[][] = []
 			const categoryHeaderRows = new Set<number>()
 
-			CHART_DATA.forEach((key, index) => {
+			INDICES.forEach((key, index) => {
 				const data = countryData[key]
 				if (!Array.isArray(data) || data.length === 0) return
 
-				const meta = CHARTS_CONFIG_METADATA[index]
+				const meta = CHARTS_METADATA_REDUCED[index]
 				if (meta.category !== category) return
 
 				categoryRows.push([meta.chartTitle])

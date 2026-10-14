@@ -100,7 +100,7 @@ stays untouched.
 
 ## Project examples
 
-### 1. Chart cards — `CHARTSCONFIG` + `ChartSection` (flagship)
+### 1. Chart cards — `CHARTS_METADATA` + `ChartSection` (flagship)
 
 The richest example. A config of chart metadata drives a grid of chart cards,
 and each card's **badge component** is chosen per item.
@@ -125,7 +125,7 @@ export interface ChartMetadata {
 ```ts
 import { ChartAbsoluteBadge, ChartPercentageBadge } from "@/_features/countries/sections/chart-container/components/Badges"
 
-export const CHARTSCONFIG: ChartMetadata[] = [
+export const CHARTS_METADATA: ChartMetadata[] = [
 	{
 		chartTitle: "GDP",
 		description: "Total value of goods and services produced by a country.",
@@ -178,9 +178,9 @@ export default function ChartSection({ configs }: { configs: RenderDataConfig[] 
 merges the static config with runtime data and groups by category:
 
 ```tsx
-const renderConfig: RenderDataConfig[] = CHARTSCONFIG.map((info: ChartMetadata, index: number) => ({
+const renderConfig: RenderDataConfig[] = CHARTS_METADATA.map((info: ChartMetadata, index: number) => ({
 	...info,
-	chartData: countryData[CHART_DATA[index]],
+	chartData: countryData[INDICES[index]],
 }))
 
 // group by category, then render one ChartSection per category
@@ -188,7 +188,7 @@ const renderConfig: RenderDataConfig[] = CHARTSCONFIG.map((info: ChartMetadata, 
 
 **Supporting configs** in the same `config.ts`:
 
-- `CHART_DATA` — `as const` array of data keys, index-aligned with `CHARTSCONFIG` so the container can merge runtime data.
+- `INDICES` — `as const` array of data keys, index-aligned with `CHARTS_METADATA` so the container can merge runtime data.
 - `CHART_CATEGORIES` — display names used to group charts (and drive the XLSX export in `DownloadButton.tsx`).
 - `COUNTRIES` — see example 4.
 
@@ -351,7 +351,7 @@ content:
   `_features/<feature>/types/` (or `types.ts`). **Co-locate**: if a config is
   used by a single section only, keep it inside that section's folder.
 - **Type the config** — always annotate the array with its item type
-  (`CHARTSCONFIG: ChartMetadata[]`, `config: InputConfig[]`). No `any` for
+  (`CHARTS_METADATA: ChartMetadata[]`, `config: InputConfig[]`). No `any` for
   config shapes.
 - **Component references** — type them as `ComponentType` (no props) or
   `React.ElementType` (props spread from config). Instantiate with a local

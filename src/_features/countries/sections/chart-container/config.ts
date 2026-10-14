@@ -3,7 +3,7 @@ import "server-only"
 import { ChartAbsoluteBadge, ChartPercentageBadge } from "@/_features/countries/sections/chart-container/components/Badges"
 import { ChartMetadata } from "@/_features/countries/sections/chart-container/types"
 
-export const CHARTSCONFIG = [
+export const CHARTS_METADATA = [
 	{
 		chartTitle: "GDP",
 		description: "Total value of goods and services produced by a country.",

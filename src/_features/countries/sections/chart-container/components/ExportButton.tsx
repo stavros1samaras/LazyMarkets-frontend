@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
-import { ChartData } from "@/components/charts/ChartData.provider"
+import { ChartData } from "@/components/charts/ChartLogicApi"
 import { useContext } from "react"
 
 interface ExportButtonProps {

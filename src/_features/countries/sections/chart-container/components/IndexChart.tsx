@@ -2,7 +2,7 @@
 
 import { ResponsiveContainer, XAxis, Tooltip, Area, AreaChart, YAxis, Bar } from "recharts"
 import { useContext } from "react"
-import { ChartData } from "@/components/charts/ChartData.provider"
+import { ChartData } from "@/components/charts/ChartLogicApi"
 import { ChartDisplayContext } from "@/_features/countries/sections/ChartDisplay.provider"
 
 export function IndexChart() {

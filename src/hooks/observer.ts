@@ -1,8 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import type { RefObject } from "react"
 
-export function useObserverMount(ref: any) {
+export function useObserverMount(ref: RefObject<HTMLElement | null>) {
 	const [visible, setVisible] = useState(false)
 
 	useEffect(() => {

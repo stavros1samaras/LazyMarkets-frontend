@@ -89,21 +89,3 @@ export function IndexChart() {
 		</ResponsiveContainer>
 	)
 }
-
-export function SingleLineChartSeries({ display = "area" }: { display?: any }) {
-	return display == "area" ? (
-		<Area
-			type="monotone"
-			dataKey="value"
-			stroke="var(--line)"
-			strokeWidth={2}
-			dot={false}
-			fill="url(#gradient)"
-			isAnimationActive="auto"
-			animationDuration={200}
-			animationEasing="linear"
-		/>
-	) : (
-		<Bar dataKey="value" fill="var(--line)" isAnimationActive="auto" animationDuration={150} barSize={8} />
-	)
-}

@@ -1,11 +1,12 @@
 "use client"
 
+import { CountryApiData } from "@/_features/countries/types"
 import { createContext, ReactNode } from "react"
 
-export const CountryDataContext = createContext<any>(null)
+export const CountryDataContext = createContext<CountryApiData | null>(null)
 
 interface CountryDataProviderProps {
-	value: object
+	value: CountryApiData
 	children: ReactNode
 }
 

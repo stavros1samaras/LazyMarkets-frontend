@@ -4,7 +4,7 @@ import { Fragment, useContext, useRef } from "react"
 import React from "react"
 import { useObserverMount } from "@/hooks/observer"
 import { DataProvider } from "./ChartData.provider"
-import type { ChartDisplayContextValue } from "@/_features/countries/sections/ChartDisplay.provider"
+import type { ChartDisplayContextValue } from "@/_features/countries/sections/types"
 
 export function ChartDataProvider({ children, data }: { children: React.ReactNode; data: any }) {
 	return <DataProvider value={data}>{children}</DataProvider>

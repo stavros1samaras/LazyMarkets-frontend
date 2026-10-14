@@ -1,5 +1,16 @@
 {
     "js/ts.tsdk.path": "node_modules\\typescript\\lib",
+    "editor.tokenColorCustomizations": {
+    "comments": "#51d33e4e",
+     "textMateRules": [
+        {
+            "scope": "storage.type.class.jsdoc",
+            "settings": {
+                "foreground": "#4f7ebec5"
+            }
+        }
+    ]
+    },
     "symbols.files.associations": {
     "*.json":"brackets-yellow",
     "config.ts": "database",
@@ -17,6 +28,8 @@
     "i18n.js" : "i18n",
     "hooks.ts":"react",
     "*.provider.tsx": "redux-actions",
+    "*.context.ts": "redux-actions",
+    "contexts.ts": "redux-actions",
     "*.CSR.tsx" : "globe",
     "*.config.ts": "database"
   },
@@ -41,4 +54,52 @@
   //     "*.ts": "folder-red-outline",
   //   }
   // }
+
+  "better-comments.tags": [
+  {
+    "tag": "!",
+    "color": "#FF2D00",
+    "strikethrough": false,
+    "underline": false,
+    "backgroundColor": "transparent",
+    "bold": false,
+    "italic": false
+  },
+  {
+    "tag": "?",
+    "color": "#3498DB",
+    "strikethrough": false,
+    "underline": false,
+    "backgroundColor": "transparent",
+    "bold": false,
+    "italic": false
+  },
+  {
+    "tag": "//",
+    "color": "#474747",
+    "strikethrough": true,
+    "underline": false,
+    "backgroundColor": "transparent",
+    "bold": false,
+    "italic": false
+  },
+  {
+    "tag": "todo",
+    "color": "#FF8C00",
+    "strikethrough": false,
+    "underline": false,
+    "backgroundColor": "transparent",
+    "bold": false,
+    "italic": false
+  },
+  {
+    "tag": "*",
+    "color": "#98C379",
+    "strikethrough": false,
+    "underline": false,
+    "backgroundColor": "transparent",
+    "bold": false,
+    "italic": false
+  }
+]
 }

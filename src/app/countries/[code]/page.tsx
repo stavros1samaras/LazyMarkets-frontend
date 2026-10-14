@@ -1,8 +1,8 @@
 import CategoriesContainer from "../../../_features/countries/sections/chart-container/chart-container"
 import Controls from "@/_features/countries/sections/controls/controls"
 import { getCountryData } from "@/_features/countries/sections/chart-container/server"
-import { ChartDisplayProvider } from "@/_features/countries/sections/ChartDisplay.provider"
-import { CountryDataProvider } from "@/_features/countries/sections/CountryData.provider"
+import { SimpleProvider as CountryDataProvider, StateProvider as ChartDisplayProvider } from "@/providers/GenericProviders"
+import { ChartDisplayContext, CountryDataContext } from "@/_features/countries/sections/contexts"
 import { cacheLife } from "next/cache"
 import { COUNTRIES } from "@/_features/countries/config"
 import { notFound } from "next/navigation"
@@ -24,8 +24,8 @@ export default async function Countries(props: PageProps<"/countries/[code]">) {
 	const countryData = await getCountryData(code)
 
 	return (
-		<CountryDataProvider value={countryData}>
-			<ChartDisplayProvider>
+		<CountryDataProvider context={CountryDataContext} value={countryData}>
+			<ChartDisplayProvider context={ChartDisplayContext} value="area">
 				<Controls />
 				<CategoriesContainer countryData={countryData} />
 			</ChartDisplayProvider>

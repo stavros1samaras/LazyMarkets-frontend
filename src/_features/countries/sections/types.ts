@@ -1,8 +1,8 @@
-import type { ChartDisplayContext } from "@/_features/countries/sections/ChartDisplay.provider"
+import type { ChartDisplayContext } from "@/_features/countries/sections/contexts"
 
 export type ChartDisplayContextType = {
 	display: Display
-	toggleDisplay: () => void
+	setDisplay: React.Dispatch<React.SetStateAction<Display>>
 }
 
 export type Display = "area" | "bar"

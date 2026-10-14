@@ -4,14 +4,14 @@ import { Button } from "@/components/ui/button"
 import { ChartColumnBig, ChartLine } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useContext } from "react"
-import { ChartDisplayContext } from "@/_features/countries/sections/ChartDisplay.provider"
+import { ChartDisplayContext } from "@/_features/countries/sections/contexts"
 
 interface ChartDisplayToggleButtonProps {
 	className?: string
 }
 
 export default function ChartDisplayToggleButton({ className }: ChartDisplayToggleButtonProps) {
-	const { display, toggleDisplay } = useContext(ChartDisplayContext)
+	const { display, setDisplay } = useContext(ChartDisplayContext)
 
 	return (
 		<Button
@@ -20,7 +20,7 @@ export default function ChartDisplayToggleButton({ className }: ChartDisplayTogg
 			className={cn(className)}
 			aria-label={display == "bar" ? "Switch to area chart" : "Switch to bar chart"}
 			aria-description="Toggles the chart between area and bar display."
-			onClick={toggleDisplay}
+			onClick={() => setDisplay((current) => (current === "area" ? "bar" : "area"))}
 		>
 			{display == "bar" ? <ChartColumnBig /> : <ChartLine />}
 		</Button>

@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
-import { ChartData } from "@/components/charts/ChartLogicApi"
+import { ChartData } from "@/_features/countries/sections/chart-container/contexts"
 import { useContext } from "react"
 
 interface ExportButtonProps {
@@ -10,7 +10,9 @@ interface ExportButtonProps {
 }
 
 export default function ExportButton({ title }: ExportButtonProps) {
-	const data = useContext(ChartData) as Record<string, string | number>[]
+	const data = useContext(ChartData)
+
+	if (!data) return
 
 	async function asyncImportXlsx() {
 		void import("xlsx")

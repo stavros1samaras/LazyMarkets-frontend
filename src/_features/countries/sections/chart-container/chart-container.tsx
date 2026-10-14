@@ -5,10 +5,12 @@ import { Span } from "@/components/elements/Span"
 import { Info } from "lucide-react"
 import { ComponentType } from "react"
 import { ExportButton } from "@/_features/countries/sections/xlsx.CSR"
-import { ChartDataProvider, ChartObserver, ChartLifecycle } from "@/components/charts/ChartLogicApi"
+import { ChartObserver, ChartLifecycle } from "@/components/charts/ChartLogicApi"
+import { ChartData } from "@/_features/countries/sections/chart-container/contexts"
+import { SimpleProvider as ChartDataProvider } from "@/providers/GenericProviders"
 import { Chart, ChartHeader, ChartContent } from "@/components/charts/ChartUiApi"
 import { IndexChart } from "@/_features/countries/sections/chart-container/components/IndexChart"
-import { ChartDisplayContext } from "@/_features/countries/sections/ChartDisplay.provider"
+import { ChartDisplayContext } from "@/_features/countries/sections/contexts"
 import SectionCard from "@/components/elements/SectionCard"
 import { CHART_CATEGORIES, INDICES } from "@/_features/countries/config"
 import { CHARTS_METADATA } from "@/_features/countries/sections/chart-container/config"
@@ -56,7 +58,7 @@ function IndexContainer({ configs }: { configs: RenderDataConfig[] }) {
 
 				return (
 					<Chart key={index}>
-						<ChartDataProvider data={config.chartData}>
+						<ChartDataProvider context={ChartData} value={config.chartData}>
 							<ChartHeader>
 								<Span className="gap-2">
 									<Text as="h3" className="font-semibold leading-none">

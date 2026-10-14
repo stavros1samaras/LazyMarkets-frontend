@@ -1,16 +1,9 @@
 "use client"
 
-import { Fragment, createContext, useContext, useRef } from "react"
+import { Fragment, useContext, useRef } from "react"
 import React from "react"
 import { useObserverMount } from "@/hooks/observer"
 import type { ChartDisplayContextValue } from "@/_features/countries/sections/types"
-import type { ChartData as ChartDataPoint } from "@/_features/countries/types"
-
-export const ChartData = createContext<any>(null)
-
-export function ChartDataProvider({ children, data }: { children: React.ReactNode; data: ChartDataPoint[] }) {
-	return <ChartData value={data}>{children}</ChartData>
-}
 
 export function ChartObserver({ children }: { children: React.ReactNode }) {
 	const ref = useRef<HTMLDivElement>(null)

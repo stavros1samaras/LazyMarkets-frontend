@@ -8,7 +8,6 @@ interface SimpleProviderProps<T> {
 	children: ReactNode
 }
 /**
- * $ asd
  * A generic provider that supplies a value to a React context.
  * @remarks
  * You can rename the component when importing it to better reflect its purpose.

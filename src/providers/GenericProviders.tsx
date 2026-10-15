@@ -18,6 +18,7 @@ export function SimpleProvider<T>(props: SimpleProviderProps<T>) {
 	const Context = props.context
 	const value = props.value
 	const children = props.children
+
 	return <Context value={value}>{children}</Context>
 }
 

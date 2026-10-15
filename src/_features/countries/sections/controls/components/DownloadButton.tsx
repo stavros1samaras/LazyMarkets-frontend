@@ -20,8 +20,6 @@ export default function DownloadButton({ className }: DownloadButtonProps) {
 	}
 
 	const handleExport = async () => {
-		if (!countryData) return
-
 		const rows: (string | number)[][] = []
 		const headerRows = new Set<number>()
 

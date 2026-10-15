@@ -18,7 +18,7 @@ export default function Error({ error }: { error: Error & { digest?: string } })
 					<CardContent className="p-3">
 						<Div className="text-destructive text-2xl">
 							<CircleX size={25} className="text-destructive" />
-							Something went wrong
+							{error.message}
 						</Div>
 					</CardContent>
 				</Card>

@@ -9,17 +9,17 @@ export async function handleGet(url: string): Promise<Response> {
 		},
 	})
 
+	let response: Response
+
 	try {
-		const response = await fetch(request)
-
-		if (!response.ok) {
-			throw new Error(`GET request failed: ${response.status} ${response.statusText}`)
-		}
-
-		return response
+		response = await fetch(request)
 	} catch (error) {
-		console.error("GET Error:", error)
-
-		throw error
+		throw new Error("Network error", { cause: error })
 	}
+
+	if (!response.ok) {
+		throw new Error(`GET request failed: ${response.status} ${response.statusText}`)
+	}
+
+	return response
 }

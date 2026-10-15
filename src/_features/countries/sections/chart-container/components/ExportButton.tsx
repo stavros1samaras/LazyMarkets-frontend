@@ -5,14 +5,8 @@ import { Download } from "lucide-react"
 import { ChartData } from "@/_features/countries/sections/chart-container/contexts"
 import { useContext } from "react"
 
-interface ExportButtonProps {
-	title: string
-}
-
-export default function ExportButton({ title }: ExportButtonProps) {
+export default function ExportButton({ title }: { title: string }) {
 	const data = useContext(ChartData)
-
-	if (!data) return
 
 	async function asyncImportXlsx() {
 		void import("xlsx")

@@ -4,7 +4,7 @@ import type { ChartDisplayContextType } from "@/_features/countries/sections/typ
 import { CountryApiData } from "@/_features/countries/types"
 import { createContext } from "react"
 
-export const CountryDataContext = createContext<CountryApiData | null>(null)
+export const CountryDataContext = createContext<CountryApiData>({})
 
 export const ChartDisplayContext = createContext<ChartDisplayContextType>({
 	display: "area",

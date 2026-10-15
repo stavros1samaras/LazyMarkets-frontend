@@ -30,11 +30,18 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-	title: "Lazy Market",
+	title: {
+		default: "Lazy Markets",
+		template: "Lazy Markets - %s ",
+	},
 	description:
 		"Lazy Markets is a web application for analyzing financial markets. It provides fundamental, technical, and sentiment analysis of companies, along with economic and demographic insights for countries worldwide.",
 	alternates: { canonical: "https://lazy-markets-frontend.vercel.app" },
 	robots: { follow: true, index: true },
+	referrer: "origin-when-cross-origin",
+	keywords: ["stock market", "fundamental analysis", "technical analysis", "sentiment analysis", "economic data"],
+	authors: [{ name: "Samaras Stavros" }],
+	creator: "Samaras Stavros",
 }
 
 export default async function RootLayout({

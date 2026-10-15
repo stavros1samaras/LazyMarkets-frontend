@@ -31,7 +31,8 @@
     "*.context.ts": "redux-actions",
     "contexts.ts": "redux-actions",
     "*.CSR.tsx" : "globe",
-    "*.config.ts": "database"
+    "*.config.ts": "database",
+    "robots.ts": "robot"
   },
   "symbols.folders.associations": {
     "components": "folder-react",

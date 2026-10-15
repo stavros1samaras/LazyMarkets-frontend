@@ -2,6 +2,12 @@ import { Div } from "@/components/elements/Div"
 import Main from "@/components/elements/Main"
 import { Hammer } from "lucide-react"
 import Text from "@/components/elements/Text"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+	title: "Fundamental",
+	description: "Fundamental analysis of companies — evaluate financial statements, earnings, and valuation.",
+}
 
 export default function Page() {
 	return (

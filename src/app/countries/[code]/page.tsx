@@ -5,7 +5,26 @@ import { SimpleProvider as CountryDataProvider, StateProvider as ChartDisplayPro
 import { ChartDisplayContext, CountryDataContext } from "@/_features/countries/sections/contexts"
 import { cacheLife } from "next/cache"
 import { COUNTRIES } from "@/_features/countries/config"
+import { Metadata } from "next"
+import { getCountryName, isValidCountryCode } from "@/_features/countries/common"
 import { notFound } from "next/navigation"
+
+export async function generateMetadata(props: PageProps<"/countries/[code]">): Promise<Metadata> {
+	const { code } = await props.params
+
+	if (!isValidCountryCode(code)) {
+		return {
+			title: "Not found",
+		}
+	}
+
+	const countryName = getCountryName(code)
+
+	return {
+		title: countryName,
+		description: `Explore economic, trade, labor, demographic, and social indicators for ${countryName}.`,
+	}
+}
 
 export async function generateStaticParams() {
 	return COUNTRIES.map((country) => ({
@@ -18,9 +37,11 @@ export default async function Countries(props: PageProps<"/countries/[code]">) {
 	cacheLife("days")
 
 	const { code } = await props.params
-	if (!COUNTRIES.some((country) => country.code === code)) {
+
+	if (!isValidCountryCode(code)) {
 		notFound()
 	}
+
 	const countryData = await getCountryData(code)
 
 	return (

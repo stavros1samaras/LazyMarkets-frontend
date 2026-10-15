@@ -2,6 +2,12 @@ import { Div } from "@/components/elements/Div"
 import Main from "@/components/elements/Main"
 import { Hammer } from "lucide-react"
 import Text from "@/components/elements/Text"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+	title: "Sentiment",
+	description: "Sentiment analysis of companies — evaluate market mood, news flow, and investor sentiment.",
+}
 
 export default function Page() {
 	return (

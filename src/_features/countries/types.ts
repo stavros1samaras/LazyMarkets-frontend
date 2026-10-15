@@ -6,6 +6,9 @@ export interface Country {
 }
 export type Countries = typeof COUNTRIES
 
+export type CountriesCode = Countries[number]["code"]
+export type CountriesName = Countries[number]["name"]
+
 export type Category = "Economy" | "Trade" | "Labor" | "Demographics" | "Social"
 export type Categories = (typeof CHART_CATEGORIES)[number]
 

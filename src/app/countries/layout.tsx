@@ -8,6 +8,15 @@ import CountrySelector from "@/_features/countries/sections/countries-header/Cou
 import { COUNTRIES } from "@/_features/countries/config"
 import { CountryItem } from "@/_features/countries/sections/sidebar/CountryItem"
 import { Suspense } from "react"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+	title: {
+		default: "Lazy Markets",
+		template: "Lazy Markets - %s ",
+	},
+	description: "Explore economic, trade, labor, demographic, and social indicators for countries worldwide.",
+}
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (

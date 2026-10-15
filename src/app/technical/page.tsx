@@ -2,6 +2,12 @@ import { Div } from "@/components/elements/Div"
 import Main from "@/components/elements/Main"
 import { Hammer } from "lucide-react"
 import Text from "@/components/elements/Text"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+	title: "Technical",
+	description: "Technical analysis of companies — evaluate price action, trends, and chart indicators.",
+}
 
 export default function Page() {
 	return (

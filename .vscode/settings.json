@@ -32,7 +32,8 @@
     "contexts.ts": "redux-actions",
     "*.CSR.tsx" : "globe",
     "*.config.ts": "database",
-    "robots.ts": "robot"
+    "robots.ts": "robot",
+    "playwright.config.ts": "brackets-green"
   },
   "symbols.folders.associations": {
     "components": "folder-react",

@@ -14,3 +14,10 @@ export const LOCALES: LocaleConfig[] = [
 		loadTranslations: async () => (await import("../../../public/locales/fr/translation.json")).default,
 	},
 ]
+
+export const LANGUAGE_OPTIONS = [
+	{ code: "en", label: "EN" },
+	{ code: "el", label: "EL" },
+	{ code: "de", label: "DE" },
+	{ code: "fr", label: "FR" },
+] as const

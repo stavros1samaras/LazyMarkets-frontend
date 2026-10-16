@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono, Inter } from "next/font/google"
+import { Geist, Inter } from "next/font/google"
 import "@/styles/globals.css"
 import "@/styles/compat.css"
 import DesktopHeader from "@/_features/_navigation/desktop/DesktopHeader"
@@ -24,10 +24,10 @@ const geistSans = Geist({
 	subsets: ["latin"],
 })
 
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-})
+// const geistMono = Geist_Mono({
+// 	variable: "--font-geist-mono",
+// 	subsets: ["latin"],
+// })
 
 export const metadata: Metadata = {
 	title: {

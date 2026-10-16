@@ -12,10 +12,17 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Test 
+    "playwright-report/**",
+    // Archived
+    "archived/**",
+    // Libraries
+    "src/components/bits/**"
   ]),
   {
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
+      "react-hooks/exhaustive-deps": "off"
     },
   },
 ]);

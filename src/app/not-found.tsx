@@ -1,10 +1,8 @@
 import { Div } from "@/components/elements/Div"
 import Main from "@/components/elements/Main"
-import { Span } from "@/components/elements/Span"
 import { Metadata } from "next"
-import Link from "next/link"
 import Text from "@/components/elements/Text"
-import { CloudAlert, ExternalLink, SearchAlert, ServerOff } from "lucide-react"
+import { ServerOff } from "lucide-react"
 
 export const metadata: Metadata = {
 	title: "Not Found",

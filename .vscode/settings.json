@@ -9,7 +9,7 @@
                 "foreground": "#4f7ebec5"
             }
         }
-    ]
+    ],
     },
     "symbols.files.associations": {
     "*.json":"brackets-yellow",
@@ -45,7 +45,8 @@
     ".opencode": "folder-claude",
     ".agents": "folder-claude",
     "server": "folder-red-outline",
-    "_actions": "folder-red-outline"
+    "_actions": "folder-red-outline",
+    "scripts": "folder-js"
   },
   "chat.tools.terminal.autoApprove": {
     "npx tsc": true

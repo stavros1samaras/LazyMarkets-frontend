@@ -161,6 +161,7 @@ This project ships custom Copilot primitives under `.github/`. They are discover
 - **`.github/agents/`** — subagents invokable as slash commands:
   - `frontend-engineer` — UI/components/styling (Next.js, React 19, Tailwind v4, shadcn/ui).
   - `precise-refactorer` — surgical, scope-limited refactors.
+  - `migration-engineer` — ports logic from the legacy FHT React Router app (`FHT/`) into this Next.js app.
 - **`.github/prompts/`** — reusable prompt templates (slash commands):
   - `audit-agent-files` — audits these customization files for clarity + compliance.
 - **`.github/cheatsheet.md`** — human reference for built-in Copilot slash commands / participants (not loaded as an agent; intentionally excluded from the audit).

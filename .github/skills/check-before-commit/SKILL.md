@@ -1,11 +1,9 @@
 ---
+name: check-before-commit
 description: "Use before committing to check the files you name (or the current file/selection) against the project's typescript, tailwind, and translation skills, then apply the fixes directly to those files. Triggers on 'check before commit', 'pre-commit check', 'is this compliant', 'lint my changes for conventions'."
-name: "Check Before Commit"
+disable-model-invocation: true
 argument-hint: "File(s) to check (e.g. 'src/app/not-found.tsx src/components/elements/Text.tsx'); omit to check the current file or selection"
-user-invocable: true
-tools: [read, search, edit, execute]
 ---
-
 # Check Before Commit
 
 Run a compliance pass over the files the developer names, and **fix what the findings

@@ -3,7 +3,7 @@ name: typescript
 description: >-
   Use this skill whenever writing or reviewing TypeScript types, interfaces, or
   component prop types in this project, including when to prefer `interface`
-  versus `type`.
+  versus `type`, and how config arrays are declared with `as const`.
 ---
 
 # TypeScript Type Conventions for LazyMarkets
@@ -74,19 +74,56 @@ cases, because `interface` cannot express them:
 In these situations the `type` keyword is mandatory — the preference for
 `interface` above applies only to plain, declarable object shapes.
 
-## 4. Quick Reference
+## 4. Mark Config Arrays with `as const`
 
-| Shape                                | Use               |
-| ------------------------------------ | ----------------- |
-| Component prop types                 | `interface`       |
-| Complex / multi-field object models  | `interface`       |
-| Tuples                               | `type`            |
-| Unions, primitives, function aliases | `type`            |
-| Mapped / conditional / utility types | `type` (required) |
+Every static array in a config or constants file — `config.ts`,
+`_features/<feature>/config.ts`, `constants.ts` — **must** be marked `as const`.
+This is not optional: it keeps every entry a literal instead of widening it to
+`string`/`number`, which is what lets the config double as a type source.
+
+```ts
+export const CHART_CATEGORIES = ["Economy", "Trade", "Labor", "Demographics", "Social"] as const satisfies Category[]
+```
+
+Pair it with `satisfies` when the items must conform to a declared shape — the
+interface still validates every entry, and the literals survive:
+
+```ts
+import { Country } from "./types"
+
+export const COUNTRIES = [
+	{ code: "NO", name: "Norway" },
+	{ code: "SE", name: "Sweden" },
+] as const satisfies Country[]
+```
+
+Derive downstream types from the config rather than hand-writing them:
+
+```ts
+export type Countries = typeof COUNTRIES
+export type CountriesCode = Countries[number]["code"]
+```
+
+- Annotating instead (`const COUNTRIES: Country[] = [...]`) widens every value
+  to `string`, collapsing `CountriesCode` to `string` and defeating the pattern.
+  Use the annotated form only for plain data that no type is derived from.
+- `as const` also makes the array read-only, which is what config data should be
+  — no accidental in-place `push`/`sort`.
+
+## 5. Quick Reference
+
+| Shape                                | Use                                   |
+| ------------------------------------ | ------------------------------------- |
+| Component prop types                 | `interface`                           |
+| Complex / multi-field object models  | `interface`                           |
+| Static config / constants arrays     | `as const` (+ `satisfies` when typed) |
+| Tuples                               | `type`                                |
+| Unions, primitives, function aliases | `type`                                |
+| Mapped / conditional / utility types | `type` (required)                     |
 
 Keep the choice consistent across the codebase so reviews stay predictable.
 
-## 5. Optional Enforcement
+## 6. Optional Enforcement
 
 To auto-enforce the convention, enable
 [`@typescript-eslint/consistent-type-definitions`](https://typescript-eslint.io/rules/consistent-type-definitions/)

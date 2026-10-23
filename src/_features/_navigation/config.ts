@@ -38,10 +38,10 @@ export const NAV_ITEMS: NavItemConfig[] = [
 	},
 	{
 		label: "FHT",
-		href: "http://lazy-markets-rr.vercel.app/",
+		href: process.env.NODE_ENV === "production" ? "http://lazy-markets-rr.vercel.app/" : "/fht/TrmpTrrffShck",
 		icon: ExternalLink,
 		dataTestId: "fht-external",
-		external: true,
+		external: process.env.NODE_ENV === "production",
 		prefetch: false,
 	},
 	{
@@ -59,5 +59,6 @@ export const PATHNAME_NAV_ROUTES: PathnameNavRoute[] = [
 	{ prefix: "/fundamental", value: 2 },
 	{ prefix: "/sentiment", value: 3 },
 	{ prefix: "/countries", value: 4 },
+	{ prefix: "/fht", value: 5 },
 	{ prefix: "/contact", value: 6 },
 ]

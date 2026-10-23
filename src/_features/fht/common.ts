@@ -6,7 +6,7 @@ import { FHT_EVENTS } from "@/_features/fht/config"
  * @returns The event name, or `undefined` when no event matches.
  */
 export function getEventName(code: string): string | undefined {
-	return FHT_EVENTS.find((event) => event.code === code)?.title
+	return FHT_EVENTS.find((event) => event.code === code)?.label
 }
 
 /**

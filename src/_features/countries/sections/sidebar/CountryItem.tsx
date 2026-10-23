@@ -10,7 +10,7 @@ export function CountryItem({ item }: { item: Country }) {
 		<Div className="gap-2 py-1.5 rounded-radius">
 			<Image src={`/images/flags/${flagCode}.svg`} alt="" width={17} height={13} className="rounded-xs" />
 			<Text as="span" className="max-w-40 text-[16px] font-medium text-foreground">
-				{item.name}
+				{item.label}
 			</Text>
 		</Div>
 	)

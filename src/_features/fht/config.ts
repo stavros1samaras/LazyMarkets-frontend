@@ -1,7 +1,7 @@
 export const FHT_EVENTS = [
 	{
 		code: "TrmpTrrffShck",
-		title: "Trump Tariff Shock",
+		label: "Trump Tariff Shock",
 		date: "04-04-25",
 		year: "2025",
 		description:
@@ -9,7 +9,7 @@ export const FHT_EVENTS = [
 	},
 	{
 		code: "TrmpTrrffShck2",
-		title: "Trump Tariff Shock2",
+		label: "Trump Tariff Shock2",
 		date: "04-04-24",
 		year: "2024",
 		description:
@@ -17,7 +17,7 @@ export const FHT_EVENTS = [
 	},
 	{
 		code: "TchStckRlly",
-		title: "Tech Stock Rally",
+		label: "Tech Stock Rally",
 		date: "15-06-24",
 		year: "2024",
 		description:
@@ -25,7 +25,7 @@ export const FHT_EVENTS = [
 	},
 	{
 		code: "LPrcCrsh",
-		title: "Oil Price Crash",
+		label: "Oil Price Crash",
 		date: "10-09-23",
 		year: "2023",
 		description:
@@ -33,7 +33,7 @@ export const FHT_EVENTS = [
 	},
 	{
 		code: "FdrlRsrvRtHk",
-		title: "Federal Reserve Rate Hike",
+		label: "Federal Reserve Rate Hike",
 		date: "20-12-22",
 		year: "2022",
 		description:
@@ -41,7 +41,7 @@ export const FHT_EVENTS = [
 	},
 	{
 		code: "GlblPndmcPnc",
-		title: "Global Pandemic Panic",
+		label: "Global Pandemic Panic",
 		date: "11-03-20",
 		year: "2020",
 		description:

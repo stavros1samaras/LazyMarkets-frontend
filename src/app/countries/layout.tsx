@@ -4,11 +4,13 @@ import { DesktopOnly, MobileOnly } from "@/components/DeviceConditions"
 import Main from "@/components/elements/Main"
 import SectionCard from "@/components/elements/SectionCard"
 import Text from "@/components/elements/Text"
-import CountrySelector from "@/_features/countries/sections/countries-header/CountrySelector.CSR"
 import { COUNTRIES } from "@/_features/countries/config"
 import { CountryItem } from "@/_features/countries/sections/sidebar/CountryItem"
 import { Suspense } from "react"
+import dynamic from "next/dynamic"
 import type { Metadata } from "next"
+
+const CountrySelector = dynamic(() => import("@/_features/countries/sections/countries-header/CountrySelector"))
 
 export const metadata: Metadata = {
 	title: {
@@ -24,7 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 			<Suspense>
 				<DesktopOnly>
 					<DesktopSidebar>
-						<SidebarSearchList data={COUNTRIES} searchKey="name">
+						<SidebarSearchList data={COUNTRIES} searchKey="label">
 							{COUNTRIES.map((item) => (
 								<SidebarItem key={item.code} item={item}>
 									<CountryItem item={item} />
@@ -44,7 +46,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 					</Text>
 					<Suspense>
 						<MobileOnly>
-							<CountrySelector />
+							<CountrySelector className="w-full md:max-w-140 bg-background border-ring text-foreground" />
 						</MobileOnly>
 					</Suspense>
 				</SectionCard>

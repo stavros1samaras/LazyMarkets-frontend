@@ -7,7 +7,7 @@ import { CountriesCode, CountriesName } from "@/_features/countries/types"
  * @returns The country name, or `undefined` when no country matches.
  */
 export function getCountryName(code: CountriesCode): CountriesName | undefined {
-	return COUNTRIES.find((country) => country.code === code)?.name
+	return COUNTRIES.find((country) => country.code === code)?.label
 }
 
 /**

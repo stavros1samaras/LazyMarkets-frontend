@@ -57,6 +57,12 @@ git rebase --abort
 
 ### 4. Push your branch to the remote
 
+Before pushing, run the CI check script and make sure it passes:
+
+```bash
+npm run check
+```
+
 First push:
 
 ```bash
@@ -71,11 +77,7 @@ git push --force-with-lease
 
 ### 5. Ask for a pull request (PR)
 
-```bash
-gh pr create --base main --head feat/stock-chart-tooltip --title "feat: add tooltip to stock chart" --body "Closes #12"
-```
-
-Or push the branch and open the PR from the GitHub UI.
+Push the branch and open the PR from the GitHub UI.
 
 ### 6. Delete your branch after the PR is accepted
 

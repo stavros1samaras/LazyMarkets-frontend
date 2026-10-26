@@ -9,12 +9,13 @@ import { ChartObserver, ChartLifecycle } from "@/components/charts/ChartLogicApi
 import { ChartData } from "@/_features/countries/sections/chart-container/contexts"
 import { SimpleProvider as ChartDataProvider } from "@/providers/GenericProviders"
 import { Chart, ChartHeader, ChartContent } from "@/components/charts/ChartUiApi"
-import { IndexChart } from "@/_features/countries/sections/chart-container/components/IndexChart"
+import { CountryIndexChart } from "@/_features/countries/sections/chart-container/components/CountryIndexChart"
 import { ChartDisplayContext } from "@/_features/countries/sections/contexts"
 import SectionCard from "@/components/elements/SectionCard"
 import { CHART_CATEGORIES, INDICES } from "@/_features/countries/config"
 import { CHARTS_METADATA } from "@/_features/countries/sections/chart-container/config"
 import { CountryApiData } from "@/_features/countries/types"
+import { formatCompact } from "@/lib/formatters"
 
 export default function CategoriesContainer({ countryData }: { countryData: CountryApiData }) {
 	const filteredConfig = CHARTS_METADATA.map((chartMetadata, index) => ({
@@ -51,10 +52,7 @@ function IndexContainer({ configs }: { configs: RenderDataConfig[] }) {
 			{configs.map((config, index) => {
 				const Budge: ComponentType = config.badge
 
-				const lastValue = config.chartData[config.chartData.length - 1].value.toLocaleString("en-US", {
-					notation: "compact",
-					compactDisplay: "short",
-				})
+				const lastValue = formatCompact(config.chartData[config.chartData.length - 1].value)
 
 				return (
 					<Chart key={index}>
@@ -79,7 +77,7 @@ function IndexContainer({ configs }: { configs: RenderDataConfig[] }) {
 							<ChartContent>
 								<ChartLifecycle context={ChartDisplayContext}>
 									<ChartObserver>
-										<IndexChart />
+										<CountryIndexChart dataContext={ChartData} displayContext={ChartDisplayContext} />
 									</ChartObserver>
 								</ChartLifecycle>
 							</ChartContent>

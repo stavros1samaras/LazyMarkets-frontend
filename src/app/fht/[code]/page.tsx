@@ -1,4 +1,4 @@
-import { getFhtChartData, getFhtEventLabels } from "@/_features/fht/server"
+import { getFhtChartData, getFhtEventCodes } from "@/_features/fht/server"
 import SectionCard from "@/components/elements/SectionCard"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
@@ -13,11 +13,14 @@ export const metadata: Metadata = {
 export default async function Page(props: PageProps<"/fht/[code]">) {
 	const { code } = await props.params
 
-	const [chartData, eventLabelsWithCode] = await Promise.all([getFhtChartData(code), getFhtEventLabels()])
+	const eventsCodes = await getFhtEventCodes()
 
-	if (!eventLabelsWithCode.some((event) => event.code === code)) {
+	if (!eventsCodes.includes(code)) {
 		notFound()
 	}
+
+	const chartData = await getFhtChartData(code)
+
 	return (
 		<SectionCard>
 			<Text as="h2" className="leading-none">

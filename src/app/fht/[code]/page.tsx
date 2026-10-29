@@ -1,13 +1,6 @@
-import { getFhtChartData } from "@/_features/fht/server"
+import { getFhtChartData } from "@/_features/fht/dal"
 import SectionCard from "@/components/elements/SectionCard"
-import type { Metadata } from "next"
 import Text from "@/components/elements/Text"
-
-export const metadata: Metadata = {
-	title: "FHT",
-	description: "Financial history timeline — development build of the FHT experience.",
-	robots: { index: false, follow: false },
-}
 
 export default async function Page(props: PageProps<"/fht/[code]">) {
 	const { code } = await props.params

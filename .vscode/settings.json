@@ -1,39 +1,40 @@
 {
-    "js/ts.tsdk.path": "node_modules\\typescript\\lib",
-    "editor.tokenColorCustomizations": {
+  "js/ts.tsdk.path": "node_modules\\typescript\\lib",
+  "editor.tokenColorCustomizations": {
     "comments": "#51d33e4e",
-     "textMateRules": [
-        {
-            "scope": "storage.type.class.jsdoc",
-            "settings": {
-                "foreground": "#4f7ebec5"
-            }
+    "textMateRules": [
+      {
+        "scope": "storage.type.class.jsdoc",
+        "settings": {
+          "foreground": "#4f7ebec5"
         }
+      }
     ],
-    },
-    "symbols.files.associations": {
-    "*.json":"brackets-yellow",
+  },
+  "symbols.files.associations": {
+    "*.json": "brackets-yellow",
     "config.ts": "database",
     "components.json": "brackets-yellow",
     "package-lock.json": "brackets-yellow",
     "package.json": "brackets-yellow",
     "skills-lock.json": "brackets-yellow",
     "tsconfig.json": "brackets-yellow",
-    "types.ts": "ts-types",    
+    "types.ts": "ts-types",
     "actions.ts": "code-red",
     "modules.ts": "code-purple",
     "server.ts": "code-red",
     "*.server.ts": "code-red",
     "*.actions.ts": "code-red",
-    "i18n.js" : "i18n",
-    "hooks.ts":"react",
+    "i18n.js": "i18n",
+    "hooks.ts": "react",
     "*.provider.tsx": "redux-actions",
     "*.context.ts": "redux-actions",
     "contexts.ts": "redux-actions",
-    "*.CSR.tsx" : "globe",
+    "*.CSR.tsx": "globe",
     "*.config.ts": "database",
     "robots.ts": "robot",
-    "playwright.config.ts": "brackets-green"
+    "playwright.config.ts": "brackets-green",
+    "dal.ts": "code-red"
   },
   "symbols.folders.associations": {
     "components": "folder-react",
@@ -57,52 +58,51 @@
   //     "*.ts": "folder-red-outline",
   //   }
   // }
-
   "better-comments.tags": [
-  {
-    "tag": "!",
-    "color": "#FF2D00",
-    "strikethrough": false,
-    "underline": false,
-    "backgroundColor": "transparent",
-    "bold": false,
-    "italic": false
-  },
-  {
-    "tag": "?",
-    "color": "#3498DB",
-    "strikethrough": false,
-    "underline": false,
-    "backgroundColor": "transparent",
-    "bold": false,
-    "italic": false
-  },
-  {
-    "tag": "//",
-    "color": "#474747",
-    "strikethrough": true,
-    "underline": false,
-    "backgroundColor": "transparent",
-    "bold": false,
-    "italic": false
-  },
-  {
-    "tag": "todo",
-    "color": "#FF8C00",
-    "strikethrough": false,
-    "underline": false,
-    "backgroundColor": "transparent",
-    "bold": false,
-    "italic": false
-  },
-  {
-    "tag": "*",
-    "color": "#98C379",
-    "strikethrough": false,
-    "underline": false,
-    "backgroundColor": "transparent",
-    "bold": false,
-    "italic": false
-  }
-]
+    {
+      "tag": "!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ]
 }

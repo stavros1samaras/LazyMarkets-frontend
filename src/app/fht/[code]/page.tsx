@@ -1,9 +1,10 @@
-import MarketEventSelector from "@/_features/fht/MarketEventSelector"
-import { getEventDescription, getEventName } from "@/_features/fht/common"
+import { getFhtChartData, getFhtEventLabels } from "@/_features/fht/server"
 import Main from "@/components/elements/Main"
 import SectionCard from "@/components/elements/SectionCard"
-import Text from "@/components/elements/Text"
 import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import Text from "@/components/elements/Text"
+import RouteSelector from "@/components/RouteSelector"
 
 export const metadata: Metadata = {
 	title: "FHT",
@@ -14,17 +15,23 @@ export const metadata: Metadata = {
 export default async function Page(props: PageProps<"/fht/[code]">) {
 	const { code } = await props.params
 
-	const title = getEventName(code)
-	const description = getEventDescription(code)
+	const [chartData, eventLabelsWithCode] = await Promise.all([getFhtChartData(code), getFhtEventLabels()])
 
+	if (!eventLabelsWithCode.some((event) => event.code === code)) {
+		notFound()
+	}
 	return (
-		<Main className="flex flex-col flex-1 gap-4 mx-100">
+		<Main className="flex flex-col flex-1 gap-4 2xl:mx-70">
 			<SectionCard>
 				<Text as="h1" className="leading-none">
-					{title}
+					{chartData.label}
 				</Text>
-				<Text className="text-foreground">{description}</Text>
-				<MarketEventSelector className="w-full md:max-w-140 bg-background border-ring text-foreground" />
+				<Text className="text-foreground">{chartData.description}</Text>
+				<RouteSelector
+					items={eventLabelsWithCode}
+					placeholder="Select a market event"
+					className="w-full md:max-w-140 bg-background border-ring text-foreground"
+				/>
 			</SectionCard>
 		</Main>
 	)

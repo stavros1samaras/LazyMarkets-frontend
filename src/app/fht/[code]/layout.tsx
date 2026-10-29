@@ -1,0 +1,55 @@
+import Main from "@/components/elements/Main"
+import SectionCard from "@/components/elements/SectionCard"
+import Text from "@/components/elements/Text"
+import { getFhtEventCodes, getFhtEventLabels } from "@/_features/fht/server"
+import { Skeleton } from "@/components/ui/skeleton"
+import { Suspense } from "react"
+import RouteSelector from "@/components/RouteSelector"
+import { notFound } from "next/navigation"
+
+export async function generateStaticParams() {
+	return (await getFhtEventCodes()).map((eventCode) => ({ code: eventCode }))
+}
+
+export default async function Layout(props: LayoutProps<"/fht/[code]">) {
+	return (
+		<Main className="flex flex-col flex-1 gap-4 2xl:mx-70">
+			<SectionCard>
+				<Text as="h1" className="leading-none">
+					Financial History Timeline
+				</Text>
+				<Text>
+					Explore how major historical events affected financial markets through interactive price charts for global indices,
+					bonds, commodities, and currencies.
+				</Text>
+				<Suspense fallback={<Skeleton className="h-9 w-full md:max-w-140" />}>
+					<EventDetails params={props.params} />
+				</Suspense>
+			</SectionCard>
+			{props.children}
+		</Main>
+	)
+}
+
+interface EventDetailsProps {
+	params: Promise<{ code: string }>
+}
+
+async function EventDetails({ params }: EventDetailsProps) {
+	const { code } = await params
+	const eventsCodes = await getFhtEventCodes()
+
+	if (!eventsCodes.includes(code)) {
+		notFound()
+	}
+
+	const eventLabelsWithCode = await getFhtEventLabels()
+
+	return (
+		<RouteSelector
+			items={eventLabelsWithCode}
+			placeholder="Select a market event"
+			className="w-full md:max-w-140 bg-background border-ring text-foreground"
+		/>
+	)
+}

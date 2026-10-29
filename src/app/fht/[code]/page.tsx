@@ -1,7 +1,6 @@
-import { getFhtChartData, getFhtEventCodes } from "@/_features/fht/server"
+import { getFhtChartData } from "@/_features/fht/server"
 import SectionCard from "@/components/elements/SectionCard"
 import type { Metadata } from "next"
-import { notFound } from "next/navigation"
 import Text from "@/components/elements/Text"
 
 export const metadata: Metadata = {
@@ -12,12 +11,6 @@ export const metadata: Metadata = {
 
 export default async function Page(props: PageProps<"/fht/[code]">) {
 	const { code } = await props.params
-
-	const eventsCodes = await getFhtEventCodes()
-
-	if (!eventsCodes.includes(code)) {
-		notFound()
-	}
 
 	const chartData = await getFhtChartData(code)
 

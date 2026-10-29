@@ -1,3 +1,4 @@
+"use cache"
 import "server-only"
 
 import { getEnvURL } from "@/lib/server/environment"

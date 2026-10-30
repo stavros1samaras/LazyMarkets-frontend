@@ -1,13 +1,15 @@
 import Main from "@/components/elements/Main"
 import SectionCard from "@/components/elements/SectionCard"
 import Text from "@/components/elements/Text"
-import { getFhtEventCodes, getFhtEventLabels } from "@/_features/fht/dal"
+import { getFhtEventLabels } from "@/_features/fht/dal"
+import type { FhtEventLabel } from "@/_features/fht/types"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Suspense } from "react"
 import RouteSelector from "@/components/RouteSelector"
-import { notFound, redirect } from "next/navigation"
 
-export default async function Layout(props: LayoutProps<"/fht/[code]">) {
+export default async function Layout(props: LayoutProps<"/fht">) {
+	const eventLabelsWithCode = getFhtEventLabels()
+
 	return (
 		<Main className="flex flex-col flex-1 gap-4 2xl:mx-70">
 			<SectionCard>
@@ -19,7 +21,7 @@ export default async function Layout(props: LayoutProps<"/fht/[code]">) {
 					bonds, commodities, and currencies.
 				</Text>
 				<Suspense fallback={<Skeleton className="h-9 w-full md:max-w-140" />}>
-					<EventDetails params={props.params} />
+					<EventDetails eventLabelsWithCode={eventLabelsWithCode} />
 				</Suspense>
 			</SectionCard>
 			{props.children}
@@ -28,22 +30,15 @@ export default async function Layout(props: LayoutProps<"/fht/[code]">) {
 }
 
 interface EventDetailsProps {
-	params: Promise<{ code: string }>
+	eventLabelsWithCode: Promise<FhtEventLabel[]>
 }
 
-async function EventDetails({ params }: EventDetailsProps) {
-	const { code } = await params
-	const eventsCodes = await getFhtEventCodes()
-
-	if (!eventsCodes.includes(code)) {
-		notFound()
-	}
-
-	const eventLabelsWithCode = await getFhtEventLabels()
+async function EventDetails({ eventLabelsWithCode }: EventDetailsProps) {
+	const labels = await eventLabelsWithCode
 
 	return (
 		<RouteSelector
-			items={eventLabelsWithCode}
+			items={labels}
 			placeholder="Select a market event"
 			className="w-full md:max-w-140 bg-background border-ring text-foreground"
 		/>

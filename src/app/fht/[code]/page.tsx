@@ -4,6 +4,7 @@ import ChartContainer from "@/_features/fht/sections/chart-container/chart-conta
 import SectionCard from "@/components/elements/SectionCard"
 import Text from "@/components/elements/Text"
 import type { Metadata } from "next"
+import { notFound } from "next/navigation"
 
 export async function generateMetadata(props: PageProps<"/fht/[code]">): Promise<Metadata> {
 	const { code } = await props.params
@@ -28,6 +29,11 @@ export async function generateStaticParams() {
 
 export default async function Page(props: PageProps<"/fht/[code]">) {
 	const { code } = await props.params
+	const eventsCodes = await getFhtEventCodes()
+
+	if (!eventsCodes.includes(code)) {
+		notFound()
+	}
 
 	const chartData = await getFhtChartData(code)
 

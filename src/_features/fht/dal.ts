@@ -20,6 +20,13 @@ export async function getFhtEventCodes(): Promise<string[]> {
 	return response.json()
 }
 
+export async function getFhtAssetCategories(): Promise<string[]> {
+	const baseUrl = getEnvURL()
+	const response = await handleGet(`${baseUrl}/fht/get-asset-categories`)
+
+	return response.json()
+}
+
 export async function getFhtChartData(code: string): Promise<FhtApiChartData> {
 	const baseUrl = getEnvURL()
 

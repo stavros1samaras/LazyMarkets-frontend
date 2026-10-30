@@ -1,5 +1,6 @@
 import { getFhtChartData, getFhtEventCodes, getFhtEventLabels } from "@/_features/fht/dal"
 import { getEventLabelByCode } from "@/_features/fht/server"
+import ChartContainer from "@/_features/fht/sections/chart-container/chart-container"
 import SectionCard from "@/components/elements/SectionCard"
 import Text from "@/components/elements/Text"
 import type { Metadata } from "next"
@@ -31,11 +32,15 @@ export default async function Page(props: PageProps<"/fht/[code]">) {
 	const chartData = await getFhtChartData(code)
 
 	return (
-		<SectionCard>
-			<Text as="h2" className="leading-none">
-				{chartData.label}
-			</Text>
-			<Text className="text-foreground">{chartData.description}</Text>
-		</SectionCard>
+		<>
+			<SectionCard>
+				<Text as="h2" className="leading-none">
+					{chartData.label}
+				</Text>
+				<Text className="text-foreground">{chartData.description}</Text>
+			</SectionCard>
+
+			<ChartContainer chartData={chartData} />
+		</>
 	)
 }

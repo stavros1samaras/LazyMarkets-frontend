@@ -6,6 +6,7 @@ export interface FhtPricePoint {
 export interface FhtTickerData {
 	symbol: string
 	name: string
+	category: string
 	count: number
 	data: FhtPricePoint[]
 }

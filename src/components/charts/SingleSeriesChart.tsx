@@ -3,6 +3,7 @@
 import { ResponsiveContainer, XAxis, YAxis, Tooltip, AreaChart } from "recharts"
 import type { ReactNode } from "react"
 import { formatCompact } from "@/lib/formatters"
+import { AxisInterval, AxisTick } from "recharts/types/util/types"
 
 export interface SingleSeriesChartProps<T> {
 	data: T[]
@@ -10,6 +11,8 @@ export interface SingleSeriesChartProps<T> {
 	yKey: keyof T & string
 	height?: number
 	formatValue?: (value: number) => string
+	ticks?: AxisTick[]
+	interval?: AxisInterval
 	children: ReactNode
 }
 
@@ -26,6 +29,8 @@ export function SingleSeriesChart<T>({
 	yKey,
 	height = 200,
 	formatValue = formatCompact,
+	ticks,
+	interval,
 	children,
 }: SingleSeriesChartProps<T>) {
 	return (
@@ -33,7 +38,14 @@ export function SingleSeriesChart<T>({
 			<AreaChart data={data} margin={{ left: 0, right: 0, top: 0, bottom: 0 }}>
 				{children}
 
-				<XAxis dataKey={xKey} interval="preserveStartEnd" tick={{ fontSize: 12, dy: 7 }} minTickGap={10} stroke="var(--axis)" />
+				<XAxis
+					dataKey={xKey}
+					ticks={ticks}
+					interval={interval}
+					tick={{ fontSize: 12, dy: 7 }}
+					minTickGap={10}
+					stroke="var(--axis)"
+				/>
 
 				<YAxis
 					dataKey={yKey}

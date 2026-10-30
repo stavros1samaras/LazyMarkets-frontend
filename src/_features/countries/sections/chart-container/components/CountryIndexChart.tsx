@@ -18,7 +18,7 @@ export function CountryIndexChart({
 	const gradientId = `gradient-${useId().replace(/[^\w-]/g, "")}`
 
 	return (
-		<SingleSeriesChart data={data} xKey="year" yKey="value">
+		<SingleSeriesChart data={data} xKey="year" yKey="value" interval="preserveStartEnd">
 			{display.state === "area" ? (
 				<>
 					<defs>

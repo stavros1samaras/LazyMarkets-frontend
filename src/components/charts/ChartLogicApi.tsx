@@ -24,7 +24,7 @@ export function ChartLifecycle({
 	context: React.Context<ChartDisplayContextValue>
 	children: React.ReactNode
 }) {
-	const { display } = useContext(context)
+	const { state } = useContext(context)
 
-	return <Fragment key={display}>{children}</Fragment>
+	return <Fragment key={state}>{children}</Fragment>
 }

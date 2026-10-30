@@ -23,7 +23,7 @@ export function SimpleProvider<T>(props: SimpleProviderProps<T>) {
 }
 
 interface StateProviderProps<T> {
-	context: ProviderContextType<{ display: T; setDisplay: Dispatch<SetStateAction<T>> }>
+	context: ProviderContextType<{ state: T; setState: Dispatch<SetStateAction<T>> }>
 	value: T
 	children: ReactNode
 }
@@ -39,7 +39,7 @@ export function StateProvider<T>(props: StateProviderProps<T>) {
 	const value = props.value
 	const children = props.children
 
-	const [display, setDisplay] = useState(value)
+	const [state, setState] = useState(value)
 
-	return <Context value={{ display, setDisplay }}>{children}</Context>
+	return <Context value={{ state, setState }}>{children}</Context>
 }

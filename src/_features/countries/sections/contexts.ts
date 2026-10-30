@@ -7,6 +7,6 @@ import { createContext } from "react"
 export const CountryDataContext = createContext<CountryApiData>({})
 
 export const ChartDisplayContext = createContext<ChartDisplayContextType>({
-	display: "area",
-	setDisplay: () => {},
+	state: "area",
+	setState: () => {},
 })

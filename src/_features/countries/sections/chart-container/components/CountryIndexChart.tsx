@@ -13,12 +13,13 @@ export function CountryIndexChart({
 	dataContext: Context<ChartData[]>
 	displayContext: Context<ChartDisplayContextValue>
 }) {
-	const { display } = useContext(displayContext)
+	const display = useContext(displayContext)
+	const data = useContext(dataContext)
 	const gradientId = `gradient-${useId().replace(/[^\w-]/g, "")}`
 
 	return (
-		<SingleSeriesChart dataContext={dataContext} xKey="year" yKey="value">
-			{display === "area" ? (
+		<SingleSeriesChart data={data} xKey="year" yKey="value">
+			{display.state === "area" ? (
 				<>
 					<defs>
 						<linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">

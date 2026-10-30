@@ -1,11 +1,11 @@
 "use client"
 
 import { ResponsiveContainer, XAxis, YAxis, Tooltip, AreaChart } from "recharts"
-import { useContext, type Context, type ReactNode } from "react"
+import type { ReactNode } from "react"
 import { formatCompact } from "@/lib/formatters"
 
 export interface SingleSeriesChartProps<T> {
-	dataContext: Context<T[]>
+	data: T[]
 	xKey: keyof T & string
 	yKey: keyof T & string
 	height?: number
@@ -13,16 +13,21 @@ export interface SingleSeriesChartProps<T> {
 	children: ReactNode
 }
 
+/**
+ * Renders a single-series area chart from the data it is given.
+ * @remarks
+ * Stateless and presentation-only: it holds no state and reads no context.
+ * The caller owns the data and passes it in through `data`.
+ * Its parent is responsible for holding any chart state and providing it.
+ */
 export function SingleSeriesChart<T>({
-	dataContext,
+	data,
 	xKey,
 	yKey,
 	height = 200,
 	formatValue = formatCompact,
 	children,
 }: SingleSeriesChartProps<T>) {
-	const data = useContext(dataContext)
-
 	return (
 		<ResponsiveContainer width="100%" height={height}>
 			<AreaChart data={data} margin={{ left: 0, right: 0, top: 0, bottom: 0 }}>

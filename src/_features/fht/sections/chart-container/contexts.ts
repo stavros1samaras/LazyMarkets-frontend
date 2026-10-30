@@ -1,6 +1,14 @@
 "use client"
 
-import { createContext } from "react"
+import { createContext, type Dispatch, type SetStateAction } from "react"
 import type { FhtPricePoint } from "@/_features/fht/types"
 
-export const FhtChartData = createContext<FhtPricePoint[]>([])
+export type FhtChartDataState = {
+	state: FhtPricePoint[]
+	setState: Dispatch<SetStateAction<FhtPricePoint[]>>
+}
+
+export const FhtChartData = createContext<FhtChartDataState>({
+	state: [],
+	setState: () => {},
+})

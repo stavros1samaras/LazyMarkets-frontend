@@ -11,18 +11,18 @@ interface ChartDisplayToggleButtonProps {
 }
 
 export default function ChartDisplayToggleButton({ className }: ChartDisplayToggleButtonProps) {
-	const { display, setDisplay } = useContext(ChartDisplayContext)
+	const { state, setState } = useContext(ChartDisplayContext)
 
 	return (
 		<Button
 			size="icon"
 			variant="secondary"
 			className={cn(className)}
-			aria-label={display == "bar" ? "Switch to area chart" : "Switch to bar chart"}
+			aria-label={state == "bar" ? "Switch to area chart" : "Switch to bar chart"}
 			aria-description="Toggles the chart between area and bar display."
-			onClick={() => setDisplay((current) => (current === "area" ? "bar" : "area"))}
+			onClick={() => setState((current) => (current === "area" ? "bar" : "area"))}
 		>
-			{display == "bar" ? <ChartColumnBig /> : <ChartLine />}
+			{state == "bar" ? <ChartColumnBig /> : <ChartLine />}
 		</Button>
 	)
 }

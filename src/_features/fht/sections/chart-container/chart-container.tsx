@@ -9,7 +9,7 @@ import { Span } from "@/components/elements/Span"
 import { FhtChartData } from "@/_features/fht/sections/chart-container/contexts"
 import { FhtIndexChart } from "@/_features/fht/sections/chart-container/components/FhtIndexChart"
 import { formatCompact } from "@/lib/formatters"
-import { SimpleProvider as ChartDataProvider } from "@/providers/GenericProviders"
+import { StateProvider as ChartDataProvider } from "@/providers/GenericProviders"
 
 export default async function ChartContainer({ chartData }: { chartData: FhtApiChartData }) {
 	const indices = chartData.data.filter((ticker) => ticker.data.length > 0)

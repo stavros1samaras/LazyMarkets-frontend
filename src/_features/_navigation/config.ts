@@ -38,11 +38,9 @@ export const NAV_ITEMS: NavItemConfig[] = [
 	},
 	{
 		label: "FHT",
-		href: process.env.NODE_ENV === "production" ? "http://lazy-markets-rr.vercel.app/" : "/fht/IraqWar",
-		icon: ExternalLink,
-		dataTestId: "fht-external",
-		external: process.env.NODE_ENV === "production",
-		prefetch: false,
+		href: "/fht/TrmpTrrffShck",
+		dataTestId: "fht",
+		prefetch: true,
 	},
 	{
 		label: "Contact",

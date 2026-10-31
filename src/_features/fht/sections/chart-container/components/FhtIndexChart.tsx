@@ -21,9 +21,20 @@ export function FhtIndexChart({ dataContext, eventDate }: FhtIndexChartProps) {
 		state[Math.floor(state.length * 0.75)].date,
 	] as AxisTick[]
 
+	const eventPoint = state.find((point) => point.date === eventDate)
+
 	return (
 		<SingleSeriesChart data={state} xKey="date" yKey="close" ticks={ticks}>
 			<ReferenceLine x={eventDate} stroke="var(--destructive)" strokeWidth={1} />
+			<ReferenceLine
+				segment={[
+					{ x: state[0].date, y: eventPoint?.close },
+					{ x: eventDate, y: eventPoint?.close },
+				]}
+				stroke="var(--muted-foreground)"
+				strokeWidth={1}
+				strokeDasharray="4 4"
+			/>
 
 			<Line
 				type="monotone"

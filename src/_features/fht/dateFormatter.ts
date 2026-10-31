@@ -62,3 +62,23 @@ export function resolveEventDate(data: FhtPricePoint[], eventDate: string): stri
 
 	return eventDate
 }
+
+/**
+ * Returns every price point that falls inside a window of `days` days before
+ * and `days` days after `referenceDate` (both edges inclusive).
+ * Dates are compared with `formatEventDate` so the project's "DD-MM-YY"
+ * strings are handled consistently.
+ */
+export function filterAroundDays(data: FhtPricePoint[], referenceDate: string, days: number): FhtPricePoint[] {
+	const startDate = formatEventDate(referenceDate)
+	startDate.setUTCDate(startDate.getUTCDate() - days)
+
+	const endDate = formatEventDate(referenceDate)
+	endDate.setUTCDate(endDate.getUTCDate() + days)
+
+	return data.filter((point) => {
+		const pointDate = formatEventDate(point.date)
+
+		return pointDate >= startDate && pointDate <= endDate
+	})
+}

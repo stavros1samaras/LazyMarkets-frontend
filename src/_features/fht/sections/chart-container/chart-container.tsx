@@ -8,7 +8,7 @@ import Text from "@/components/elements/Text"
 import { Span } from "@/components/elements/Span"
 import { FhtChartData } from "@/_features/fht/sections/chart-container/contexts"
 import { FhtIndexChart } from "@/_features/fht/sections/chart-container/components/FhtIndexChart"
-import { formatCompact } from "@/lib/formatters"
+import { TimeRangeTabs } from "@/_features/fht/sections/chart-container/components/TimeRangeTabs"
 import { StateProvider as ChartDataProvider } from "@/providers/GenericProviders"
 
 export default async function ChartContainer({ chartData }: { chartData: FhtApiChartData }) {
@@ -19,6 +19,8 @@ export default async function ChartContainer({ chartData }: { chartData: FhtApiC
 		<>
 			{categories.map((category) => {
 				const categoryIndices = indices.filter((ticker) => ticker.category === category)
+
+				if (categoryIndices.length === 0) return null
 
 				return (
 					<SectionCard key={category}>
@@ -40,7 +42,6 @@ function IndexContainer({ indices, eventDate }: IndexContainerProps) {
 	return (
 		<section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 lg:gap-4">
 			{indices.map((index) => {
-				const lastValue = formatCompact(index.data[index.data.length - 1].close)
 				const referenceDate = resolveEventDate(index.data, eventDate)
 
 				return (
@@ -52,11 +53,7 @@ function IndexContainer({ indices, eventDate }: IndexContainerProps) {
 										{index.name}
 									</Text>
 								</Span>
-								<Span className="gap-2">
-									<Text as="h3" className="font-semibold leading-none">
-										{lastValue}
-									</Text>
-								</Span>
+								<TimeRangeTabs referenceDate={referenceDate} />
 							</ChartHeader>
 							<ChartContent>
 								<ChartObserver>

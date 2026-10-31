@@ -50,6 +50,7 @@ export function SingleSeriesChart<T>({
 				<YAxis
 					dataKey={yKey}
 					orientation="left"
+					domain={["dataMin", "dataMax"]}
 					stroke="var(--axis)"
 					tick={{ fontSize: 12 }}
 					tickFormatter={(value) => formatValue(Number(value))}
